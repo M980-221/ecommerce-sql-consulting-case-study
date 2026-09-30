@@ -1,0 +1,35 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+
+# Downloaded source and working data are obtained separately
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Local database storage and backups
+*.db
+*.sqlite
+*.sqlite3
+*.bak
+*.mdf
+*.ldf
+*.dump
+
+# Local tooling and temporary files
+__pycache__/
+.venv/
+venv/
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Power BI cache/lock files; the final PBIX remains eligible for inclusion
+*.pbix.lock
+~$*
+
