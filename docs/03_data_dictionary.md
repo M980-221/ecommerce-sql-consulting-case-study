@@ -1,6 +1,6 @@
 # Data dictionary and relationships
 
-Status: initial map based on the published dataset. Verify types, counts, uniqueness and missingness after import.
+Status: source import complete; relationship and cleaning validation are scheduled for Part 3. All 47 source columns are stored as TEXT, including blank strings. Column definitions are in `sql/01_setup.sql`; verified counts are in [Part 2 setup](09_part2_setup.md). Key uniqueness, relationships and cleaned types remain to be established.
 
 | Table | Intended row meaning | Key or relationship to verify |
 |---|---|---|
@@ -29,4 +29,3 @@ Record column name, source type, database type, business meaning, nullability, k
 Create order-level aggregates for items and payments before combining order-level measures. Review records also need an explicit order-level selection or aggregation rule. Do not assume that an order has just one item, payment, seller or review.
 
 Save the completed database relationship diagram in assets/ and link it here.
-

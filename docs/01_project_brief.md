@@ -4,7 +4,7 @@
 **Type:** Independent portfolio project using public historical data  
 **Owner:** Mohammed Baquaysh  
 **Date:** 30 September 2026  
-**Status:** Brief prepared. Data import, analysis and findings have not started.
+**Status:** Business brief complete. Part 2 database setup and import verified on 1 October 2026. Cleaning, business analysis and findings are pending.
 
 ## Business situation
 
@@ -94,4 +94,6 @@ Target: four weeks, approximately 40–60 hours after learning SQL fundamentals.
 
 **Part 1 outcome:** the decision, audience, questions, boundaries and completion criteria are defined.
 
-**Part 2:** choose the SQL environment, download the selected files, create the database and record source row counts. Settle the database choice before writing executable SQL.
+**Part 2 outcome:** SQLite selected; eight source files imported and verified. See [database setup and import](09_part2_setup.md) for the environment, source counts and evidence.
+
+**Next step:** profile and clean the data, validate keys and relationships, and finalise metric definitions in Part 3.

@@ -1,0 +1,95 @@
+{
+  "project": "E-commerce Performance Review: A SQL Consulting Case Study",
+  "part": 2,
+  "imported_at_utc": "2026-10-01T07:36:20+00:00",
+  "python_version": "3.12.14",
+  "sqlite_version": "3.53.1",
+  "database": "ecommerce_olist.db",
+  "database_sha256": "ff9fc9a2e1eca35e2c8f5aedadd81c0001d36cd5c0530c4f4f33894a17add867",
+  "integrity_check": "ok",
+  "source_tables": 8,
+  "source_records_total": 550759,
+  "counts_exclude_csv_headers": true,
+  "csv_encoding": "UTF-8 (optional BOM accepted)",
+  "storage_rule": "All source columns TEXT; empty fields stay empty strings",
+  "field_verification": "SHA-256 of every decoded row, in source order, matches database",
+  "checks": [
+    {
+      "table_name": "orders",
+      "source_rows": 99441,
+      "database_rows": 99441,
+      "difference": 0,
+      "rejected_rows": 0,
+      "all_field_values_preserved": true,
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_items",
+      "source_rows": 112650,
+      "database_rows": 112650,
+      "difference": 0,
+      "rejected_rows": 0,
+      "all_field_values_preserved": true,
+      "status": "PASS"
+    },
+    {
+      "table_name": "customers",
+      "source_rows": 99441,
+      "database_rows": 99441,
+      "difference": 0,
+      "rejected_rows": 0,
+      "all_field_values_preserved": true,
+      "status": "PASS"
+    },
+    {
+      "table_name": "products",
+      "source_rows": 32951,
+      "database_rows": 32951,
+      "difference": 0,
+      "rejected_rows": 0,
+      "all_field_values_preserved": true,
+      "status": "PASS"
+    },
+    {
+      "table_name": "sellers",
+      "source_rows": 3095,
+      "database_rows": 3095,
+      "difference": 0,
+      "rejected_rows": 0,
+      "all_field_values_preserved": true,
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_payments",
+      "source_rows": 103886,
+      "database_rows": 103886,
+      "difference": 0,
+      "rejected_rows": 0,
+      "all_field_values_preserved": true,
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_reviews",
+      "source_rows": 99224,
+      "database_rows": 99224,
+      "difference": 0,
+      "rejected_rows": 0,
+      "all_field_values_preserved": true,
+      "status": "PASS"
+    },
+    {
+      "table_name": "category_translation",
+      "source_rows": 71,
+      "database_rows": 71,
+      "difference": 0,
+      "rejected_rows": 0,
+      "all_field_values_preserved": true,
+      "status": "PASS"
+    }
+  ],
+  "raw_purchase_timestamp_range": {
+    "first_raw_purchase": "2016-09-04 21:15:19",
+    "last_raw_purchase": "2018-10-17 17:30:18"
+  },
+  "business_analysis_status": "Not started; raw import only"
+}

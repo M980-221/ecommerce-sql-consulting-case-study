@@ -18,9 +18,9 @@ Review the project brief and agree on the questions, metrics and exclusions.
 
 ## Part 2 — Download data and create the database
 
-Choose the same SQL database used for course practice. Record its version, create the database and import the eight selected files. Record source row counts.
+Completed 1 October 2026. SQLite was selected as the project database. All eight selected source files were imported, with matching record counts and decoded field values. Environment details, import rules and evidence are recorded in [Part 2 setup](09_part2_setup.md).
 
-**GitHub deliverables:** data/README.md and sql/01_setup.sql.  
+**GitHub deliverables:** data/README.md, sql/01_setup.sql, sql/01_check_import.sql, scripts/build_database.py and the Part 2 verification outputs in results/.
 **Done when:** all selected files are loaded and counts match the sources.
 
 ## Part 3 — Understand, clean and organise the data
@@ -90,4 +90,3 @@ Update the main README with the actual tools, reproduction steps, findings and s
 7. Add dashboard source and previews
 8. Add recommendations and presentation
 9. Finalise portfolio documentation
-

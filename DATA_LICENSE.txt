@@ -1,0 +1,21 @@
+DATA SOURCE AND LICENCE
+
+Dataset: Brazilian E-Commerce Public Dataset by Olist
+Publisher: Olist
+Source: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+Version used: 2, downloaded on 1 October 2026
+Publisher's licence: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+Licence: https://creativecommons.org/licenses/by-nc-sa/4.0/
+Legal code: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+The source CSV files and SQLite database are local build inputs and outputs;
+they are not committed to this repository. The source manifest records the
+eight selected CSV files and their checksums. Detailed geolocation is excluded.
+
+The import preserves every decoded source field. It changes the storage
+format to SQLite and adds an audit table and a row-count view. Any shared
+source data or data-derived database remains subject to the dataset's licence,
+including attribution, NonCommercial and ShareAlike conditions.
+
+This is an independent portfolio case study by Mohammed Baquaysh and is not
+commissioned by or endorsed by Olist.

@@ -1,0 +1,23 @@
+PART 2 IMPORT CHECKS
+
+table_name | source_rows | database_rows | difference | rejected_rows | status
+category_translation | 71 | 71 | 0 | 0 | PASS
+customers | 99441 | 99441 | 0 | 0 | PASS
+order_items | 112650 | 112650 | 0 | 0 | PASS
+order_payments | 103886 | 103886 | 0 | 0 | PASS
+order_reviews | 99224 | 99224 | 0 | 0 | PASS
+orders | 99441 | 99441 | 0 | 0 | PASS
+products | 32951 | 32951 | 0 | 0 | PASS
+sellers | 3095 | 3095 | 0 | 0 | PASS
+
+source_tables_recorded
+8
+
+integrity_check
+ok
+
+first_raw_purchase | last_raw_purchase
+2016-09-04 21:15:19 | 2018-10-17 17:30:18
+
+current_sqlite_version
+3.53.1

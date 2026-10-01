@@ -17,6 +17,10 @@ data/processed/*
 *.mdf
 *.ldf
 *.dump
+*.db-journal
+*.db-wal
+*.db-shm
+results/rebuilt/
 
 # Local tooling and temporary files
 __pycache__/
@@ -32,4 +36,3 @@ Thumbs.db
 # Power BI cache/lock files; the final PBIX remains eligible for inclusion
 *.pbix.lock
 ~$*
-
