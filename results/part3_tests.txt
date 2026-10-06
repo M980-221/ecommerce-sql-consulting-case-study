@@ -1,0 +1,19 @@
+test_all_validation_gates_run_on_small_data (test_part3.Part3Tests.test_all_validation_gates_run_on_small_data) ... ok
+test_bad_number_aborts_and_restores_previous_views (test_part3.Part3Tests.test_bad_number_aborts_and_restores_previous_views) ... ok
+test_blanks_and_postal_codes (test_part3.Part3Tests.test_blanks_and_postal_codes) ... ok
+test_category_gaps_keep_products (test_part3.Part3Tests.test_category_gaps_keep_products) ... ok
+test_impossible_calendar_date_aborts (test_part3.Part3Tests.test_impossible_calendar_date_aborts) ... ok
+test_latest_invalid_review_does_not_replace_a_valid_one (test_part3.Part3Tests.test_latest_invalid_review_does_not_replace_a_valid_one) ... ok
+test_missing_children_are_retained_without_inventing_zero_money (test_part3.Part3Tests.test_missing_children_are_retained_without_inventing_zero_money) ... ok
+test_missing_delivery_date_only_excludes_delivery_metrics (test_part3.Part3Tests.test_missing_delivery_date_only_excludes_delivery_metrics) ... ok
+test_promised_calendar_day_is_on_time (test_part3.Part3Tests.test_promised_calendar_day_is_on_time) ... ok
+test_reporting_window_has_an_exclusive_end (test_part3.Part3Tests.test_reporting_window_has_an_exclusive_end) ... ok
+test_review_id_can_appear_on_different_orders (test_part3.Part3Tests.test_review_id_can_appear_on_different_orders) ... ok
+test_review_rule_selects_latest_response (test_part3.Part3Tests.test_review_rule_selects_latest_response) ... ok
+test_review_tie_has_a_stable_id_tiebreaker (test_part3.Part3Tests.test_review_tie_has_a_stable_id_tiebreaker) ... ok
+test_three_items_two_payments_do_not_multiply_money (test_part3.Part3Tests.test_three_items_two_payments_do_not_multiply_money) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.153s
+
+OK

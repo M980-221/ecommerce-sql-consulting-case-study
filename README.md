@@ -4,7 +4,7 @@ A SQL consulting case study by Mohammed Baquaysh, using Olist's historical marke
 
 **Business question:** Where should an e-commerce manager focus first to improve sales performance, delivery reliability and customer experience?
 
-**Current stage:** Business brief and database setup complete. Data cleaning and business analysis are next.
+**Current stage:** Parts 1–3 complete: business brief, verified import, data cleaning and order model. Sales analysis is next.
 
 ## Completed work
 
@@ -12,8 +12,11 @@ A SQL consulting case study by Mohammed Baquaysh, using Olist's historical marke
 - Imported eight source files into SQLite, preserving all 550,759 source records and 47 source columns.
 - Verified source and database row counts, decoded field values and database integrity.
 - Recorded source provenance, checksums, environment versions and reproducible import instructions.
+- Profiled all 47 source fields and built cleaned views with a model containing exactly one row per order.
+- Documented review selection, missing-data rules and the February 2017–July 2018 reporting window.
+- Passed 62 Part 3 checks and 14 automated tests; order-join totals match the source.
 
-SQLite provides a portable database for this project. SQL defines the tables and inspection checks; a Python standard-library script handles CSV loading, including multiline reviews. Raw values remain TEXT until the cleaning stage establishes conversion and exclusion rules.
+SQLite provides a portable database for this project. SQL defines the tables and inspection checks; a Python standard-library script handles CSV loading, including multiline reviews. Raw values remain TEXT. Part 3 views provide validated numeric values, NULL handling and metric-specific eligibility rules.
 
 ## Import results
 
@@ -50,6 +53,7 @@ Requirements: Python 3.8 or later. The loader uses the standard library, so no a
 
    ```bash
    python3 scripts/build_database.py
+   python3 scripts/prepare_part3.py
    ```
 
 4. Open the resulting `ecommerce_olist.db` in a SQLite client and run:
@@ -58,7 +62,7 @@ Requirements: Python 3.8 or later. The loader uses the standard library, so no a
    SELECT COUNT(*) AS total_orders FROM orders;
    ```
 
-   Expected result for the recorded dataset version: `99441`. [Sqlime](https://sqlime.org/) supports opening a local SQLite file in the browser.
+   Expected result for the recorded dataset version: `99441`. After Part 3, `SELECT COUNT(*) FROM v_order_analysis;` also returns `99441`. [Sqlime](https://sqlime.org/) supports opening a local SQLite file in the browser.
 
 The loader refuses to overwrite an existing database. For a separate rebuild:
 
@@ -68,6 +72,14 @@ python3 scripts/build_database.py --output ecommerce_olist_rebuilt.db --results-
 
 Source CSVs and database files are excluded from Git. The source manifest records the version and file fingerprints used for the published results. Rebuild timestamps and database hashes can differ because the database records the import time.
 
+## Part 3 outcome
+
+The clean order model keeps all **99,441 orders** and combines customer details, item totals, payment totals and one valid review. The main comparison window contains **89,110 sales-eligible orders**. Missing delivery dates exclude eight of those from delivery measures.
+
+Source exceptions are visible: 610 products have no category, 13 lack an English mapping, and 303 orders with items and payments differ by more than one cent. The original records remain unchanged.
+
+![Data relationships](assets/olist_relationships.svg)
+
 ## Project documents
 
 | Document | Purpose |
@@ -75,8 +87,9 @@ Source CSVs and database files are excluded from Git. The source manifest record
 | [Business brief](docs/01_project_brief.md) | Decision, audience, questions and scope |
 | [Project plan](docs/02_project_plan.md) | Ten-part delivery plan |
 | [Part 2: setup and import](docs/09_part2_setup.md) | Environment, import decisions and verification |
-| [Data dictionary](docs/03_data_dictionary.md) | Initial table map; cleaning-stage checks pending |
-| [Metric definitions](docs/04_metric_definitions.md) | Working measures and denominators |
+| [Part 3: cleaning and model](docs/10_part3_cleaning.md) | Decisions, reproduction commands, checks and practice queries |
+| [Data dictionary](docs/03_data_dictionary.md) | All 47 fields, verified keys, derived views and relationship diagram |
+| [Metric definitions](docs/04_metric_definitions.md) | Implemented reporting period, eligibility flags and denominators |
 | [Validation log](docs/05_validation_log.md) | Completed checks and remaining validation |
 | [SQL scripts](sql/README.md) | Executable setup and future analysis stages |
 
@@ -84,7 +97,7 @@ Source CSVs and database files are excluded from Git. The source manifest record
 
 - [x] Part 1: Define the business problem.
 - [x] Part 2: Download data and create the database.
-- [ ] Part 3: Clean, model and document the data.
+- [x] Part 3: Clean, model and document the data.
 - [ ] Part 4: Analyse sales performance.
 - [ ] Part 5: Analyse delivery performance.
 - [ ] Part 6: Analyse customer experience.
@@ -93,7 +106,7 @@ Source CSVs and database files are excluded from Git. The source manifest record
 - [ ] Part 9: Develop recommendations and slides.
 - [ ] Part 10: Prepare the completed portfolio.
 
-The remaining scope is approximately 15–20 business queries, three dashboard pages, three evidence-based recommendations and a five-slide presentation. Business findings will be added after cleaning and validation.
+The remaining scope is approximately 15–20 business queries, three dashboard pages, three evidence-based recommendations and a five-slide presentation. Business findings will be added in Parts 4–6 and reviewed in Part 7. Known source exceptions are recorded in the Part 3 cleaning notes.
 
 ## Data attribution
 

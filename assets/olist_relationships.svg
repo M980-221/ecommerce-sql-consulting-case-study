@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1050" viewBox="0 0 1240 1050" role="img" aria-labelledby="title desc">
+<title id="title">Olist data relationships</title>
+<desc id="desc">Eight source tables. Orders connect customer records, items, payments and reviews. Items link to products and sellers. Product categories optionally match the translation table. Validated keys and row meanings are shown.</desc>
+<rect width="1240" height="1050" fill="#f6f8fb"/>
+<text x="45" y="54" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="32" font-weight="700">Olist data relationships</text>
+<text x="45" y="89" fill="#516277" font-family="DejaVu Sans, Arial, sans-serif" font-size="19" font-weight="400">Part 3  |  One row means something different in each table</text>
+<polyline points="380,191 450,191" fill="none" stroke="#8395ab" stroke-width="2"/>
+<text x="390" y="177" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="700">1 : 1</text>
+<polyline points="620,305 620,420" fill="none" stroke="#8395ab" stroke-width="2"/>
+<text x="634" y="361" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700">1 : many</text>
+<text x="470" y="332" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">order_id</text>
+<polyline points="620,345 210,345 210,420" fill="none" stroke="#8395ab" stroke-width="2"/>
+<text x="223" y="391" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700">1 : many</text>
+<polyline points="620,345 1030,345 1030,420" fill="none" stroke="#8395ab" stroke-width="2"/>
+<text x="1043" y="391" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700">1 : many</text>
+<polyline points="620,605 620,710" fill="none" stroke="#8395ab" stroke-width="2"/>
+<text x="634" y="666" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700">many : 1</text>
+<polyline points="790,525 825,525 825,667 1030,667 1030,710" fill="none" stroke="#8395ab" stroke-width="2"/>
+<text x="895" y="655" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700">many : 1</text>
+<polyline points="450,785 380,785" fill="none" stroke="#8395ab" stroke-width="2"/>
+<text x="385" y="770" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700">0..1</text>
+<rect x="40" y="125" width="340" height="145" rx="10" fill="#ffffff" stroke="#cdd7e3"/>
+<rect x="40" y="125" width="340" height="45" rx="9" fill="#17395f" stroke="#17395f"/>
+<text x="57" y="155" fill="#ffffff" font-family="DejaVu Sans, Arial, sans-serif" font-size="21" font-weight="700">customers</text>
+<text x="57" y="200" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">Key: customer_id</text>
+<text x="57" y="226" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">One customer record per order</text>
+<text x="57" y="252" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">customer_unique_id links a person</text>
+<rect x="450" y="125" width="340" height="180" rx="10" fill="#ffffff" stroke="#cdd7e3"/>
+<rect x="450" y="125" width="340" height="45" rx="9" fill="#17395f" stroke="#17395f"/>
+<text x="467" y="155" fill="#ffffff" font-family="DejaVu Sans, Arial, sans-serif" font-size="21" font-weight="700">orders</text>
+<text x="467" y="200" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">Key: order_id</text>
+<text x="467" y="226" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">One order</text>
+<text x="467" y="252" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">customer_id -&gt; customers</text>
+<text x="467" y="278" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">Status and delivery timestamps</text>
+<rect x="40" y="420" width="340" height="185" rx="10" fill="#ffffff" stroke="#cdd7e3"/>
+<rect x="40" y="420" width="340" height="45" rx="9" fill="#17395f" stroke="#17395f"/>
+<text x="57" y="450" fill="#ffffff" font-family="DejaVu Sans, Arial, sans-serif" font-size="21" font-weight="700">order_payments</text>
+<text x="57" y="495" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">Key: order_id +</text>
+<text x="57" y="521" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">        payment_sequential</text>
+<text x="57" y="547" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">One payment component</text>
+<text x="57" y="573" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">Several payments can fund an order</text>
+<rect x="450" y="420" width="340" height="185" rx="10" fill="#ffffff" stroke="#cdd7e3"/>
+<rect x="450" y="420" width="340" height="45" rx="9" fill="#17395f" stroke="#17395f"/>
+<text x="467" y="450" fill="#ffffff" font-family="DejaVu Sans, Arial, sans-serif" font-size="21" font-weight="700">order_items</text>
+<text x="467" y="495" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">Key: order_id + order_item_id</text>
+<text x="467" y="521" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">One item within an order</text>
+<text x="467" y="547" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">product_id -&gt; products</text>
+<text x="467" y="573" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">seller_id -&gt; sellers</text>
+<rect x="860" y="420" width="340" height="185" rx="10" fill="#ffffff" stroke="#cdd7e3"/>
+<rect x="860" y="420" width="340" height="45" rx="9" fill="#17395f" stroke="#17395f"/>
+<text x="877" y="450" fill="#ffffff" font-family="DejaVu Sans, Arial, sans-serif" font-size="21" font-weight="700">order_reviews</text>
+<text x="877" y="495" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">Key: order_id + review_id</text>
+<text x="877" y="521" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">One review record</text>
+<text x="877" y="547" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">Review IDs can cross order IDs</text>
+<text x="877" y="573" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">Select one valid review per order</text>
+<rect x="40" y="710" width="340" height="160" rx="10" fill="#ffffff" stroke="#cdd7e3"/>
+<rect x="40" y="710" width="340" height="45" rx="9" fill="#17395f" stroke="#17395f"/>
+<text x="57" y="740" fill="#ffffff" font-family="DejaVu Sans, Arial, sans-serif" font-size="21" font-weight="700">category_translation</text>
+<text x="57" y="785" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">Key: product_category_name</text>
+<text x="57" y="811" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">One English category mapping</text>
+<text x="57" y="837" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">Some products have no match</text>
+<rect x="450" y="710" width="340" height="160" rx="10" fill="#ffffff" stroke="#cdd7e3"/>
+<rect x="450" y="710" width="340" height="45" rx="9" fill="#17395f" stroke="#17395f"/>
+<text x="467" y="740" fill="#ffffff" font-family="DejaVu Sans, Arial, sans-serif" font-size="21" font-weight="700">products</text>
+<text x="467" y="785" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">Key: product_id</text>
+<text x="467" y="811" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">One product</text>
+<text x="467" y="837" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">product_category_name -&gt; mapping</text>
+<rect x="860" y="710" width="340" height="160" rx="10" fill="#ffffff" stroke="#cdd7e3"/>
+<rect x="860" y="710" width="340" height="45" rx="9" fill="#17395f" stroke="#17395f"/>
+<text x="877" y="740" fill="#ffffff" font-family="DejaVu Sans, Arial, sans-serif" font-size="21" font-weight="700">sellers</text>
+<text x="877" y="785" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">Key: seller_id</text>
+<text x="877" y="811" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">One seller</text>
+<text x="877" y="837" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="400">A seller can supply many items</text>
+<rect x="40" y="903" width="1160" height="108" rx="10" fill="#e8eef5" stroke="#e8eef5"/>
+<text x="59" y="935" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="400">Keys shown were checked in this dataset; the raw tables do not enforce them.</text>
+<text x="59" y="963" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="400">The customer-record-to-order link is 1:1 in this snapshot. A person can have many records.</text>
+<text x="59" y="991" fill="#25344a" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="400">Order reporting combines item totals, payment totals and a selected review: one row per order.</text>
+</svg>

@@ -25,9 +25,10 @@ Completed 1 October 2026. SQLite was selected as the project database. All eight
 
 ## Part 3 — Understand, clean and organise the data
 
-Inspect keys, missing values, duplicate records, dates and relationships. Document cleaning rules. Build a relationship diagram and finalise metric definitions.
+Completed 6 October 2026. Profiled all 47 fields, verified keys and relationships, documented source exceptions, built cleaned views and an order model, and fixed the metric populations. Full-data validation passed 62 checks; 14 small automated tests also passed. See [Part 3 cleaning notes](10_part3_cleaning.md).
 
-**GitHub deliverables:** sql/02_cleaning.sql, docs/03_data_dictionary.md, docs/04_metric_definitions.md and a diagram in assets/.  
+**GitHub deliverables:** sql/02_profile.sql, sql/02_cleaning.sql, sql/02_check_cleaning.sql, scripts/prepare_part3.py, tests/test_part3.py, docs/03_data_dictionary.md, docs/04_metric_definitions.md, docs/10_part3_cleaning.md, the relationship diagram in assets/ and Part 3 evidence in results/.
+
 **Done when:** each table's grain and join relationships are understood.
 
 ## Part 4 — Analyse sales performance

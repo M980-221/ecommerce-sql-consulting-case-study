@@ -1,0 +1,464 @@
+{
+  "column_profile": [
+    {
+      "table_name": "orders",
+      "column_name": "order_id",
+      "source_rows": 99441,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 99441
+    },
+    {
+      "table_name": "orders",
+      "column_name": "customer_id",
+      "source_rows": 99441,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 99441
+    },
+    {
+      "table_name": "orders",
+      "column_name": "order_status",
+      "source_rows": 99441,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 8
+    },
+    {
+      "table_name": "orders",
+      "column_name": "order_purchase_timestamp",
+      "source_rows": 99441,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 98875
+    },
+    {
+      "table_name": "orders",
+      "column_name": "order_approved_at",
+      "source_rows": 99441,
+      "missing_rows": 160,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 90733
+    },
+    {
+      "table_name": "orders",
+      "column_name": "order_delivered_carrier_date",
+      "source_rows": 99441,
+      "missing_rows": 1783,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 81018
+    },
+    {
+      "table_name": "orders",
+      "column_name": "order_delivered_customer_date",
+      "source_rows": 99441,
+      "missing_rows": 2965,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 95664
+    },
+    {
+      "table_name": "orders",
+      "column_name": "order_estimated_delivery_date",
+      "source_rows": 99441,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 459
+    },
+    {
+      "table_name": "order_items",
+      "column_name": "order_id",
+      "source_rows": 112650,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 98666
+    },
+    {
+      "table_name": "order_items",
+      "column_name": "order_item_id",
+      "source_rows": 112650,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 21
+    },
+    {
+      "table_name": "order_items",
+      "column_name": "product_id",
+      "source_rows": 112650,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 32951
+    },
+    {
+      "table_name": "order_items",
+      "column_name": "seller_id",
+      "source_rows": 112650,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 3095
+    },
+    {
+      "table_name": "order_items",
+      "column_name": "shipping_limit_date",
+      "source_rows": 112650,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 93318
+    },
+    {
+      "table_name": "order_items",
+      "column_name": "price",
+      "source_rows": 112650,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 5968
+    },
+    {
+      "table_name": "order_items",
+      "column_name": "freight_value",
+      "source_rows": 112650,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 6999
+    },
+    {
+      "table_name": "customers",
+      "column_name": "customer_id",
+      "source_rows": 99441,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 99441
+    },
+    {
+      "table_name": "customers",
+      "column_name": "customer_unique_id",
+      "source_rows": 99441,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 96096
+    },
+    {
+      "table_name": "customers",
+      "column_name": "customer_zip_code_prefix",
+      "source_rows": 99441,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 14994
+    },
+    {
+      "table_name": "customers",
+      "column_name": "customer_city",
+      "source_rows": 99441,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 4119
+    },
+    {
+      "table_name": "customers",
+      "column_name": "customer_state",
+      "source_rows": 99441,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 27
+    },
+    {
+      "table_name": "products",
+      "column_name": "product_id",
+      "source_rows": 32951,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 32951
+    },
+    {
+      "table_name": "products",
+      "column_name": "product_category_name",
+      "source_rows": 32951,
+      "missing_rows": 610,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 73
+    },
+    {
+      "table_name": "products",
+      "column_name": "product_name_lenght",
+      "source_rows": 32951,
+      "missing_rows": 610,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 66
+    },
+    {
+      "table_name": "products",
+      "column_name": "product_description_lenght",
+      "source_rows": 32951,
+      "missing_rows": 610,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 2960
+    },
+    {
+      "table_name": "products",
+      "column_name": "product_photos_qty",
+      "source_rows": 32951,
+      "missing_rows": 610,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 19
+    },
+    {
+      "table_name": "products",
+      "column_name": "product_weight_g",
+      "source_rows": 32951,
+      "missing_rows": 2,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 2204
+    },
+    {
+      "table_name": "products",
+      "column_name": "product_length_cm",
+      "source_rows": 32951,
+      "missing_rows": 2,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 99
+    },
+    {
+      "table_name": "products",
+      "column_name": "product_height_cm",
+      "source_rows": 32951,
+      "missing_rows": 2,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 102
+    },
+    {
+      "table_name": "products",
+      "column_name": "product_width_cm",
+      "source_rows": 32951,
+      "missing_rows": 2,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 95
+    },
+    {
+      "table_name": "sellers",
+      "column_name": "seller_id",
+      "source_rows": 3095,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 3095
+    },
+    {
+      "table_name": "sellers",
+      "column_name": "seller_zip_code_prefix",
+      "source_rows": 3095,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 2246
+    },
+    {
+      "table_name": "sellers",
+      "column_name": "seller_city",
+      "source_rows": 3095,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 611
+    },
+    {
+      "table_name": "sellers",
+      "column_name": "seller_state",
+      "source_rows": 3095,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 23
+    },
+    {
+      "table_name": "order_payments",
+      "column_name": "order_id",
+      "source_rows": 103886,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 99440
+    },
+    {
+      "table_name": "order_payments",
+      "column_name": "payment_sequential",
+      "source_rows": 103886,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 29
+    },
+    {
+      "table_name": "order_payments",
+      "column_name": "payment_type",
+      "source_rows": 103886,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 5
+    },
+    {
+      "table_name": "order_payments",
+      "column_name": "payment_installments",
+      "source_rows": 103886,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 24
+    },
+    {
+      "table_name": "order_payments",
+      "column_name": "payment_value",
+      "source_rows": 103886,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 29077
+    },
+    {
+      "table_name": "order_reviews",
+      "column_name": "review_id",
+      "source_rows": 99224,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 98410
+    },
+    {
+      "table_name": "order_reviews",
+      "column_name": "order_id",
+      "source_rows": 99224,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 98673
+    },
+    {
+      "table_name": "order_reviews",
+      "column_name": "review_score",
+      "source_rows": 99224,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 5
+    },
+    {
+      "table_name": "order_reviews",
+      "column_name": "review_comment_title",
+      "source_rows": 99224,
+      "missing_rows": 87658,
+      "rows_with_outer_spaces": 1998,
+      "distinct_nonblank_values": 4178
+    },
+    {
+      "table_name": "order_reviews",
+      "column_name": "review_comment_message",
+      "source_rows": 99224,
+      "missing_rows": 58256,
+      "rows_with_outer_spaces": 8120,
+      "distinct_nonblank_values": 35743
+    },
+    {
+      "table_name": "order_reviews",
+      "column_name": "review_creation_date",
+      "source_rows": 99224,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 636
+    },
+    {
+      "table_name": "order_reviews",
+      "column_name": "review_answer_timestamp",
+      "source_rows": 99224,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 98248
+    },
+    {
+      "table_name": "category_translation",
+      "column_name": "product_category_name",
+      "source_rows": 71,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 71
+    },
+    {
+      "table_name": "category_translation",
+      "column_name": "product_category_name_english",
+      "source_rows": 71,
+      "missing_rows": 0,
+      "rows_with_outer_spaces": 0,
+      "distinct_nonblank_values": 71
+    }
+  ],
+  "exact_duplicate_records": [
+    {
+      "table_name": "orders",
+      "duplicate_extra_rows": 0
+    },
+    {
+      "table_name": "order_items",
+      "duplicate_extra_rows": 0
+    },
+    {
+      "table_name": "customers",
+      "duplicate_extra_rows": 0
+    },
+    {
+      "table_name": "products",
+      "duplicate_extra_rows": 0
+    },
+    {
+      "table_name": "sellers",
+      "duplicate_extra_rows": 0
+    },
+    {
+      "table_name": "order_payments",
+      "duplicate_extra_rows": 0
+    },
+    {
+      "table_name": "order_reviews",
+      "duplicate_extra_rows": 0
+    },
+    {
+      "table_name": "category_translation",
+      "duplicate_extra_rows": 0
+    }
+  ],
+  "date_ranges": [
+    {
+      "table_name": "orders",
+      "column_name": "order_purchase_timestamp",
+      "first_value": "2016-09-04 21:15:19",
+      "last_value": "2018-10-17 17:30:18"
+    },
+    {
+      "table_name": "orders",
+      "column_name": "order_approved_at",
+      "first_value": "2016-09-15 12:16:38",
+      "last_value": "2018-09-03 17:40:06"
+    },
+    {
+      "table_name": "orders",
+      "column_name": "order_delivered_carrier_date",
+      "first_value": "2016-10-08 10:34:01",
+      "last_value": "2018-09-11 19:48:28"
+    },
+    {
+      "table_name": "orders",
+      "column_name": "order_delivered_customer_date",
+      "first_value": "2016-10-11 13:46:32",
+      "last_value": "2018-10-17 13:22:46"
+    },
+    {
+      "table_name": "orders",
+      "column_name": "order_estimated_delivery_date",
+      "first_value": "2016-09-30 00:00:00",
+      "last_value": "2018-11-12 00:00:00"
+    },
+    {
+      "table_name": "order_items",
+      "column_name": "shipping_limit_date",
+      "first_value": "2016-09-19 00:15:34",
+      "last_value": "2020-04-09 22:35:08"
+    },
+    {
+      "table_name": "order_reviews",
+      "column_name": "review_creation_date",
+      "first_value": "2016-10-02 00:00:00",
+      "last_value": "2018-08-31 00:00:00"
+    },
+    {
+      "table_name": "order_reviews",
+      "column_name": "review_answer_timestamp",
+      "first_value": "2016-10-07 18:32:28",
+      "last_value": "2018-10-29 12:27:35"
+    }
+  ]
+}

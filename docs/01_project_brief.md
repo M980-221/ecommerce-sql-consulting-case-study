@@ -4,7 +4,7 @@
 **Type:** Independent portfolio project using public historical data  
 **Owner:** Mohammed Baquaysh  
 **Date:** 30 September 2026  
-**Status:** Business brief complete. Part 2 database setup and import verified on 1 October 2026. Cleaning, business analysis and findings are pending.
+**Status:** Parts 1–3 complete. Database setup was verified on 1 October 2026; cleaning and the order model were completed on 6 October 2026. Business analysis and findings are next.
 
 ## Business situation
 
@@ -53,7 +53,7 @@ The geography is the Brazilian marketplace in this dataset. Findings will not be
 
 ## Working measurement rules
 
-Validate and implement these definitions consistently in Part 3.
+Part 3 implements the detailed [metric definitions](04_metric_definitions.md), including a February 2017–July 2018 purchase window and separate sales, delivery and review populations. The table below summarises the business measures.
 
 | Measure | Working definition |
 |---|---|
@@ -96,4 +96,6 @@ Target: four weeks, approximately 40–60 hours after learning SQL fundamentals.
 
 **Part 2 outcome:** SQLite selected; eight source files imported and verified. See [database setup and import](09_part2_setup.md) for the environment, source counts and evidence.
 
-**Next step:** profile and clean the data, validate keys and relationships, and finalise metric definitions in Part 3.
+**Part 3 outcome:** cleaned views and a verified order model are complete, with documented exceptions, relationships and metric rules. See [Part 3 cleaning notes](10_part3_cleaning.md).
+
+**Next step:** write the sales-performance queries in Part 4 using the agreed populations.

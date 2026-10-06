@@ -1,0 +1,41 @@
+erDiagram
+    CUSTOMERS ||--|| ORDERS : "customer_id (observed)"
+    ORDERS ||--o{ ORDER_ITEMS : order_id
+    ORDERS ||--o{ ORDER_PAYMENTS : order_id
+    ORDERS ||--o{ ORDER_REVIEWS : order_id
+    PRODUCTS ||--o{ ORDER_ITEMS : product_id
+    SELLERS ||--o{ ORDER_ITEMS : seller_id
+    CATEGORY_TRANSLATION |o--o{ PRODUCTS : product_category_name
+    CUSTOMERS {
+        TEXT customer_id "verified key"
+        TEXT customer_unique_id "person across orders"
+    }
+    ORDERS {
+        TEXT order_id "verified key"
+        TEXT customer_id "customer-record link"
+    }
+    ORDER_ITEMS {
+        TEXT order_id "key part 1"
+        TEXT order_item_id "key part 2"
+        TEXT product_id "product link"
+        TEXT seller_id "seller link"
+    }
+    ORDER_PAYMENTS {
+        TEXT order_id "key part 1"
+        TEXT payment_sequential "key part 2"
+    }
+    ORDER_REVIEWS {
+        TEXT order_id "key part 1"
+        TEXT review_id "key part 2"
+    }
+    PRODUCTS {
+        TEXT product_id "verified key"
+        TEXT product_category_name "optional mapping"
+    }
+    SELLERS {
+        TEXT seller_id "verified key"
+    }
+    CATEGORY_TRANSLATION {
+        TEXT product_category_name "verified key"
+        TEXT product_category_name_english "label"
+    }

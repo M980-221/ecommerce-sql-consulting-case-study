@@ -1,44 +1,55 @@
 # Technical walkthrough
 
-Current scope: Parts 1 and 2 are complete. The repository demonstrates problem definition, database setup, source preservation and import verification.
+Current scope: Parts 1–3 are complete. The repository covers the business brief, a verified import, data profiling, cleaning decisions and an order model. Business findings and the dashboard come later.
 
-## Business context
+## Points to explain
 
-The case study asks where an e-commerce manager should focus to improve sales performance, delivery reliability and customer experience. Six questions and working metric definitions are recorded in the business brief. Recommendations depend on later analysis.
+- **The business question:** where an e-commerce manager should focus to improve sales performance, delivery reliability and customer experience. This is an independent case study using historical Olist data.
+- **The setup:** eight source files were imported into SQLite, with all 550,759 rows and 47 source fields preserved. SQL defines the structures and checks; Python handles CSV parsing and runs the verification.
+- **The row meanings:** orders have one row per order; items and payments can have several. Customer records link to orders, while customer_unique_id identifies a customer across orders.
+- **The cleaning:** raw values remain available. Clean views handle blank fields and types, retain unknown categories, and apply documented review and date rules.
+- **The joins:** item and payment totals are calculated separately before they are joined to orders. Reviews are reduced to one valid selection. The final model still has exactly 99,441 orders.
+- **The evidence:** 62 full-data checks and 14 small test cases passed. Every money conversion was compared with Decimal, and item, freight and payment totals are unchanged by the joins.
+- **The limitations:** the reporting period is a conservative 18-month window; some dates and categories are missing, review selection is a modelling choice, and payment differences still need investigation. Results describe historical associations.
 
-## Explain and demonstrate
-
-| Topic | Explanation | Repository evidence |
-|---|---|---|
-| Environment choice | SQLite provides a portable database and supports local and browser clients | `docs/09_part2_setup.md` |
-| SQL and Python roles | SQL defines tables and checks; Python parses and loads the CSV files | `sql/01_setup.sql`, `scripts/build_database.py` |
-| Raw storage | Source fields remain TEXT so import does not silently change values | `sql/01_setup.sql` |
-| CSV handling | A CSV parser handles embedded commas, quoted fields and multiline reviews | `scripts/build_database.py` |
-| Record counts | All 550,759 source records across eight tables were imported, including 99,441 orders | `results/part2_import_log.csv` |
-| Verification | Source/database counts, decoded-row digests and database integrity were checked | `results/part2_verification.json` |
-| Next step | Profile keys, blanks, duplicates, dates and relationships before writing business metrics | `docs/02_project_plan.md` |
-
-## Demonstration queries
-
-Open the database and explain these two queries:
+## SQL to demonstrate
 
 ```sql
-SELECT COUNT(*) AS total_orders FROM orders;
-
-SELECT table_name, database_rows
-FROM v_import_row_counts
-ORDER BY table_name;
+SELECT order_id, COUNT(*) AS item_count
+FROM v_clean_order_items
+GROUP BY order_id
+HAVING COUNT(*) > 1
+ORDER BY item_count DESC
+LIMIT 5;
 ```
 
-Then open `sql/01_check_import.sql` and explain how the live counts are compared with the source counts.
+Explain that GROUP BY makes one group per order and HAVING filters the item counts. Multiple item rows are expected, so these results are not automatically errors.
 
-## Questions to prepare
+```sql
+SELECT o.order_id, c.customer_state
+FROM v_clean_orders o
+JOIN v_clean_customers c ON o.customer_id = c.customer_id
+LIMIT 5;
+```
 
-- Why is a raw TEXT import useful, and what work must happen before analysis?
-- Why does counting text lines give the wrong answer for some review CSVs?
-- What does a matching checksum establish, and what does it not establish?
-- What is the difference between 550,759 records and 99,441 orders?
-- Why can joining items and payments directly multiply rows?
-- What checks should be completed before enforcing primary and foreign keys?
+Explain the two table aliases, the matching customer_id and why the unique customer key prevents this join from multiplying orders. Then show the missing-category LEFT JOIN in [Part 3 notes](10_part3_cleaning.md#two-queries-to-practise).
 
-Business findings, dashboards and recommendations will be added as those stages are completed.
+```sql
+SELECT COUNT(*) AS modeled_orders,
+       COUNT(DISTINCT order_id) AS distinct_orders
+FROM v_order_analysis;
+```
+
+Both results are 99,441. Explain why checking the row count alone is not enough: the monetary totals must also be reconciled.
+
+## Questions to practise answering
+
+1. What is the difference between WHERE and HAVING?
+2. Why can three item rows joined to two payment rows produce six rows?
+3. Why is customer_unique_id needed for repeat purchases?
+4. Why was the latest valid review selected, and how are ties resolved?
+5. Why can an order qualify for sales but not delivery-time analysis?
+6. Why store monetary amounts as integer hundredths?
+7. What do the passing checks establish, and which source limitations remain?
+
+Use the actual scripts and results when demonstrating these points. The next stage is sales analysis; recommendations will follow the evidence.
