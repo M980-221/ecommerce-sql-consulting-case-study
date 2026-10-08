@@ -1,6 +1,6 @@
 # Technical walkthrough
 
-Current scope: Parts 1–4 are complete. The repository covers the business brief, a verified import, cleaning decisions, an order model and five sales queries with exported results. Delivery analysis, customer analysis and the dashboard are still to come.
+Current scope: Parts 1–5 are complete. The repository covers the business brief, a verified import, cleaning decisions, an order model and ten sales and delivery queries with exported results. Customer analysis is next; the dashboard and final recommendations are still to come.
 
 ## Points to explain
 
@@ -12,7 +12,10 @@ Current scope: Parts 1–4 are complete. The repository covers the business brie
 - **The sales scope:** 89,110 eligible delivered orders purchased between 1 February 2017 and 31 July 2018. Product sales value is 12,230,652.13 source monetary units, excluding freight, with an average order value of 137.25. Another 2,670 orders in the period were not delivered in the snapshot and are excluded from sales.
 - **The main finding:** comparing February–July in both years, product value increased by 134.42%, order counts by 130.80% and AOV by 1.57%. More recorded orders account for most of the value difference; this does not explain why orders increased.
 - **The breakdowns:** health and beauty contributed 8.98% of product value; the ten largest categories contributed 62.49%. São Paulo accounted for 37.84% by buyer state. These are findings to investigate alongside delivery and customer experience, not evidence of an achieved business improvement.
-- **The evidence:** Part 3 passed 62 full-data checks and 14 small test cases. Every money conversion was compared with Decimal, and item, freight and payment totals are unchanged by the joins. Part 4 compares the sales outputs with independent calculations from the raw tables and reconciles monthly, category and state totals. See the [Part 4 checks](../results/part4_validation.txt).
+- **The delivery result:** 6,116 of 89,102 eligible orders arrived after the promised calendar day (6.86%). Average delivery duration was 12.88 elapsed days; late orders averaged 10.98 calendar days beyond the promise. Receipt on the promised calendar day is on time. There are 2,678 exclusions: 2,670 non-delivered orders and eight delivered orders without a receipt date.
+- **The delivery priorities:** March 2018 had 1,328 late orders out of 7,003 (18.96%). SP had more late orders than RJ, but RJ's rate was higher: 1,450 of 11,496 (12.61%), compared with SP's 1,524 of 36,952 (4.12%). Counts and rates answer different questions.
+- **The seller scope:** only single-seller orders are attributed to a seller. Requiring at least 100 such eligible orders leaves 190 sellers covering 52,408 orders, or 58.82% of the full delivery population. This prioritises investigation; it does not assign blame or prove a difference is statistically significant.
+- **The evidence:** Part 3 passed 62 full-data checks and 14 small test cases. Every money conversion was compared with Decimal, and item, freight and payment totals are unchanged by the joins. Parts 4 and 5 compare their exports with independent raw-record calculations. See the [sales checks](../results/part4_validation.txt) and [delivery checks](../results/part5_validation.txt).
 - **The limitations:** the reporting period is a conservative 18-month window; some dates and categories are missing, review selection is a modelling choice, and payment differences still need investigation. Results describe historical associations.
 
 ## SQL to demonstrate
@@ -59,6 +62,8 @@ ORDER BY average_order_value DESC;
 
 This returns 12 states. Explain why `WHERE` chooses orders before grouping, while `HAVING` chooses states after counting their orders. The 1,000-order threshold is for practice; the main report includes all 27 states. Then demonstrate the category join in [Part 4 notes](11_part4_sales.md#two-queries-to-practise) and explain why it sums item prices.
 
+For delivery, run the seller `HAVING` and category `JOIN` examples in [Part 5 notes](12_part5_delivery.md#two-queries-to-practise). Explain how `AVG(CASE WHEN is_late = 1 THEN delay_days END)` excludes on-time orders, and why the category join needs one row per order and category before counting.
+
 ## Questions to practise answering
 
 1. **What is the difference between WHERE and HAVING?** Describe filtering individual eligible orders versus filtering states by their grouped counts.
@@ -73,5 +78,8 @@ This returns 12 states. Explain why `WHERE` chooses orders before grouping, whil
 10. **What does LAG do?** It brings the previous ordered row's value onto the current row for the growth calculation. The calendar list keeps comparisons between consecutive months.
 11. **Did the project increase sales by 134.42%?** No. That is an observed difference between two historical periods in the dataset, not an effect of this project or proof of market-wide growth.
 12. **What remains uncertain after validation?** Source completeness, equal follow-up, missing fields, review-selection effects and payment reconciliation. Passing checks verify the calculations against the chosen rules.
+13. **Can a slow delivery be on time?** Yes. Duration runs from purchase to receipt; lateness compares receipt with the promised calendar day. They measure different things.
+14. **Why exclude orders with several sellers from seller comparisons?** The source gives one receipt date per order. It cannot show which seller's package, if any, caused the order-level delay.
+15. **Why not sort sellers only by late rate?** A high rate can represent few affected orders. The report sorts by late count and shows both the rate and sample size. Its 100-order cutoff is a reporting choice, not a significance test.
 
-Practise running the queries and explaining one result from each CSV without reading these notes. Keep claims about completed work separate from planned work. The next stage is delivery analysis; recommendations will follow the combined evidence.
+Practise running the queries and explaining one result from each CSV without reading these notes. Keep claims about completed work separate from planned work. The next stage is customer experience; recommendations will follow the combined evidence.

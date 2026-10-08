@@ -1,0 +1,2 @@
+period_start,period_end_exclusive,all_period_orders,delivery_orders,excluded_orders,non_delivered_orders,excluded_delivered_date_orders,late_orders,on_time_orders,late_delivery_pct,on_time_delivery_pct,average_delivery_days,average_positive_delay_days,single_seller_orders,excluded_multi_seller_orders,excluded_no_seller_orders,reported_sellers,reported_seller_orders,below_threshold_seller_orders,reported_seller_order_coverage_pct
+2017-02-01,2018-08-01,91780,89102,2678,2670,8,6116,82986,6.86,93.14,12.88,10.98,87946,1156,0,190,52408,35538,58.82

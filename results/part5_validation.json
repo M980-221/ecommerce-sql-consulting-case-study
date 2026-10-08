@@ -1,0 +1,327 @@
+{
+  "part": 5,
+  "status": "PASS",
+  "database_access": "read-only",
+  "python_version": "3.12.14",
+  "sqlite_version": "3.53.1",
+  "reporting_period": {
+    "purchase_start_inclusive": "2017-02-01",
+    "purchase_end_exclusive": "2018-08-01"
+  },
+  "seller_minimum_orders": 100,
+  "category_allocation": "one row per distinct eligible order and category; categories overlap",
+  "time_units": {
+    "delivery_duration": "elapsed days from recorded purchase to delivery timestamps",
+    "positive_delay": "calendar days after the promised date, late orders only"
+  },
+  "source_tables": [
+    {
+      "table_name": "orders",
+      "source_rows": 99441,
+      "logical_rows_sha256": "c9a72f230042017df121eb26c00b866054760903573e1d08f01777f6a7b480db",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_items",
+      "source_rows": 112650,
+      "logical_rows_sha256": "d85f8dc8c75ca7c0a8a9d6a765ca0f76570b09cda9b95e07bc64277382dbdbf2",
+      "status": "PASS"
+    },
+    {
+      "table_name": "customers",
+      "source_rows": 99441,
+      "logical_rows_sha256": "2b4f40bc3fca13cea4d4f27ca3b1dea840ffd50b7ea7c19884b44412db6d1746",
+      "status": "PASS"
+    },
+    {
+      "table_name": "products",
+      "source_rows": 32951,
+      "logical_rows_sha256": "86b695b748424d8dd2710be142f3f91469017774337861653038ce5a09202050",
+      "status": "PASS"
+    },
+    {
+      "table_name": "sellers",
+      "source_rows": 3095,
+      "logical_rows_sha256": "3d76af6ab1337b176b29bfaa9d93300abd0d218ab4cb7b3ebecf54f2d2d6fc25",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_payments",
+      "source_rows": 103886,
+      "logical_rows_sha256": "d724f0d85baef7160b81b5f503e9dfb6c99737e8c59cc42a93fc89e1a9ea6460",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_reviews",
+      "source_rows": 99224,
+      "logical_rows_sha256": "f9a9ac75b51122ea088869b1931dfd7660a17e3d8dc0e1ddd611bfb151c538e9",
+      "status": "PASS"
+    },
+    {
+      "table_name": "category_translation",
+      "source_rows": 71,
+      "logical_rows_sha256": "0219262e020851fab6c882074d20331b1d6066021134fb51fdb6a2195bae7f59",
+      "status": "PASS"
+    }
+  ],
+  "script_sha256": {
+    "sql/04_delivery_analysis.sql": "d088c6f9a5b84fcafd7910a4b32346c0abe2274b49f8d4abb80ba0eeeee427c0",
+    "scripts/analyse_delivery.py": "092b5c8930271cde1054093a1f23c44a72496de3ab4a34b8723a020ff2dba6d5",
+    "scripts/delivery_checks.py": "35ed055460aa6524e7926a2bc16a073b4a906ff0ff59501f1300335526896b19",
+    "scripts/analyse_sales.py": "0bef79ae8ac21bf35d7a7d667942607fe7045de1a05dc209bb9a84262a029487",
+    "scripts/prepare_part3.py": "e3063709f642b9ae59557b3841f26270033fd1ae91e86804c94082d67feb631d",
+    "scripts/build_database.py": "14a65d86e8c0881720bf3898221899b2d521d6e785ed41746245575711a57a4e"
+  },
+  "output_sha256": {
+    "part5_overall_delivery.csv": "ac2ea680f923a030b2bfcd9f04608b4bb25c84898189ae3d789be446c905b700",
+    "part5_monthly_delivery.csv": "f20997d6ebb3be7dcf928cd7c5a57d63f8e1a4f014bb4e71ccfac120b7e323c5",
+    "part5_regional_delivery.csv": "9f289b61ab0315537c8418fa7d629d93995354fe11d6e66a5682abf18466ac67",
+    "part5_category_delivery.csv": "de96b07a72809a8b8d4c53914d1ab6d332bdc377d2ebbe2ce7f12ac2f744b34c",
+    "part5_seller_delivery.csv": "f1a3e68eeb9107353eb46320f541341c29978043da747eba1247465ee920afd0"
+  },
+  "checks_passed": 25,
+  "checks": [
+    {
+      "check": "database integrity",
+      "actual": [
+        "ok"
+      ],
+      "expected": [
+        "ok"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "raw tables match the import fingerprints",
+      "actual": 8,
+      "expected": 8,
+      "status": "PASS"
+    },
+    {
+      "check": "raw fields match the published source snapshot",
+      "actual": {
+        "orders": "c9a72f230042017df121eb26c00b866054760903573e1d08f01777f6a7b480db",
+        "order_items": "d85f8dc8c75ca7c0a8a9d6a765ca0f76570b09cda9b95e07bc64277382dbdbf2",
+        "customers": "2b4f40bc3fca13cea4d4f27ca3b1dea840ffd50b7ea7c19884b44412db6d1746",
+        "products": "86b695b748424d8dd2710be142f3f91469017774337861653038ce5a09202050",
+        "sellers": "3d76af6ab1337b176b29bfaa9d93300abd0d218ab4cb7b3ebecf54f2d2d6fc25",
+        "order_payments": "d724f0d85baef7160b81b5f503e9dfb6c99737e8c59cc42a93fc89e1a9ea6460",
+        "order_reviews": "f9a9ac75b51122ea088869b1931dfd7660a17e3d8dc0e1ddd611bfb151c538e9",
+        "category_translation": "0219262e020851fab6c882074d20331b1d6066021134fb51fdb6a2195bae7f59"
+      },
+      "expected": {
+        "category_translation": "0219262e020851fab6c882074d20331b1d6066021134fb51fdb6a2195bae7f59",
+        "customers": "2b4f40bc3fca13cea4d4f27ca3b1dea840ffd50b7ea7c19884b44412db6d1746",
+        "order_items": "d85f8dc8c75ca7c0a8a9d6a765ca0f76570b09cda9b95e07bc64277382dbdbf2",
+        "order_payments": "d724f0d85baef7160b81b5f503e9dfb6c99737e8c59cc42a93fc89e1a9ea6460",
+        "order_reviews": "f9a9ac75b51122ea088869b1931dfd7660a17e3d8dc0e1ddd611bfb151c538e9",
+        "orders": "c9a72f230042017df121eb26c00b866054760903573e1d08f01777f6a7b480db",
+        "products": "86b695b748424d8dd2710be142f3f91469017774337861653038ce5a09202050",
+        "sellers": "3d76af6ab1337b176b29bfaa9d93300abd0d218ab4cb7b3ebecf54f2d2d6fc25"
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "order model row count",
+      "actual": 99441,
+      "expected": 99441,
+      "status": "PASS"
+    },
+    {
+      "check": "order model distinct IDs",
+      "actual": 99441,
+      "expected": 99441,
+      "status": "PASS"
+    },
+    {
+      "check": "five named delivery outputs",
+      "actual": [
+        "overall_delivery",
+        "monthly_delivery",
+        "regional_delivery",
+        "category_delivery",
+        "seller_delivery"
+      ],
+      "expected": [
+        "overall_delivery",
+        "monthly_delivery",
+        "regional_delivery",
+        "category_delivery",
+        "seller_delivery"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "overall_delivery: every cell matches the raw-record calculation",
+      "rows_checked": 1,
+      "status": "PASS"
+    },
+    {
+      "check": "monthly_delivery: every cell matches the raw-record calculation",
+      "rows_checked": 18,
+      "status": "PASS"
+    },
+    {
+      "check": "regional_delivery: every cell matches the raw-record calculation",
+      "rows_checked": 27,
+      "status": "PASS"
+    },
+    {
+      "check": "category_delivery: every cell matches the raw-record calculation",
+      "rows_checked": 74,
+      "status": "PASS"
+    },
+    {
+      "check": "seller_delivery: every cell matches the raw-record calculation",
+      "rows_checked": 190,
+      "status": "PASS"
+    },
+    {
+      "check": "monthly_delivery: delivery_orders reconcile to overall",
+      "actual": 89102,
+      "expected": 89102,
+      "status": "PASS"
+    },
+    {
+      "check": "monthly_delivery: late_orders reconcile to overall",
+      "actual": 6116,
+      "expected": 6116,
+      "status": "PASS"
+    },
+    {
+      "check": "monthly_delivery: on_time_orders reconcile to overall",
+      "actual": 82986,
+      "expected": 82986,
+      "status": "PASS"
+    },
+    {
+      "check": "regional_delivery: delivery_orders reconcile to overall",
+      "actual": 89102,
+      "expected": 89102,
+      "status": "PASS"
+    },
+    {
+      "check": "regional_delivery: late_orders reconcile to overall",
+      "actual": 6116,
+      "expected": 6116,
+      "status": "PASS"
+    },
+    {
+      "check": "regional_delivery: on_time_orders reconcile to overall",
+      "actual": 82986,
+      "expected": 82986,
+      "status": "PASS"
+    },
+    {
+      "check": "monthly period orders reconcile",
+      "actual": 91780,
+      "expected": 91780,
+      "status": "PASS"
+    },
+    {
+      "check": "period inclusion and exclusion reconcile",
+      "actual": 91780,
+      "expected": 91780,
+      "status": "PASS"
+    },
+    {
+      "check": "exclusion reasons reconcile",
+      "actual": 2678,
+      "expected": 2678,
+      "status": "PASS"
+    },
+    {
+      "check": "late and on-time orders reconcile",
+      "actual": 89102,
+      "expected": 89102,
+      "status": "PASS"
+    },
+    {
+      "check": "seller subsets account for every delivery order",
+      "actual": 89102,
+      "expected": 89102,
+      "status": "PASS"
+    },
+    {
+      "check": "seller threshold exclusions reconcile",
+      "actual": 87946,
+      "expected": 87946,
+      "status": "PASS"
+    },
+    {
+      "check": "reported seller orders reconcile",
+      "actual": 52408,
+      "expected": 52408,
+      "status": "PASS"
+    },
+    {
+      "check": "reported seller count",
+      "actual": 190,
+      "expected": 190,
+      "status": "PASS"
+    }
+  ],
+  "overall": {
+    "period_start": "2017-02-01",
+    "period_end_exclusive": "2018-08-01",
+    "all_period_orders": 91780,
+    "delivery_orders": 89102,
+    "excluded_orders": 2678,
+    "non_delivered_orders": 2670,
+    "excluded_delivered_date_orders": 8,
+    "late_orders": 6116,
+    "on_time_orders": 82986,
+    "late_delivery_pct": 6.86,
+    "on_time_delivery_pct": 93.14,
+    "average_delivery_days": 12.88,
+    "average_positive_delay_days": 10.98,
+    "single_seller_orders": 87946,
+    "excluded_multi_seller_orders": 1156,
+    "excluded_no_seller_orders": 0,
+    "reported_sellers": 190,
+    "reported_seller_orders": 52408,
+    "below_threshold_seller_orders": 35538,
+    "reported_seller_order_coverage_pct": 58.82,
+    "source_orders": 99441,
+    "outside_period_orders": 7661,
+    "delivered_period_orders": 89110,
+    "non_delivered_period_orders": 2670,
+    "seller_minimum_orders": 100,
+    "all_single_sellers": 2753,
+    "below_threshold_sellers": 2563,
+    "single_seller_late_orders": 6103,
+    "excluded_multi_seller_late_orders": 13,
+    "excluded_no_seller_late_orders": 0,
+    "reported_seller_late_orders": 3689,
+    "below_threshold_seller_late_orders": 2414,
+    "single_seller_order_coverage_pct": 98.7,
+    "reported_seller_late_coverage_pct": 60.32,
+    "category_order_memberships": 89822,
+    "multi_category_orders": 705,
+    "unknown_category_orders": 1351,
+    "untranslated_category_orders": 15,
+    "delivered_missing_actual": 8,
+    "delivered_missing_promise": 0,
+    "delivered_actual_before_purchase": 0,
+    "delivered_promise_before_purchase_day": 0,
+    "delivered_invalid_endpoints": 8
+  },
+  "period_status_counts": {
+    "approved": 2,
+    "canceled": 493,
+    "created": 5,
+    "delivered": 89110,
+    "invoiced": 261,
+    "processing": 290,
+    "shipped": 1034,
+    "unavailable": 585
+  },
+  "output_rows": {
+    "overall_delivery": 1,
+    "monthly_delivery": 18,
+    "regional_delivery": 27,
+    "category_delivery": 74,
+    "seller_delivery": 190
+  },
+  "output_cells_checked": 2409
+}

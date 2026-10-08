@@ -1,6 +1,6 @@
 # Metric definitions
 
-These definitions are implemented in Part 3 and used by the Part 4 sales queries. They also apply to the delivery and customer analyses still to come. Counts below describe eligibility; sales findings are in [Part 4](11_part4_sales.md).
+These definitions are implemented in Part 3 and used by the sales and delivery queries. They also apply to the customer analysis still to come. Counts below describe eligibility; findings are in [Part 4](11_part4_sales.md) and [Part 5](12_part5_delivery.md).
 
 ## Period and observation limits
 
@@ -48,6 +48,17 @@ Eligibility uses the final status, deliveries and reviews present in the snapsho
 All division by zero returns NULL, not a zero rate. Show eligible counts, excluded counts and the period beside headline measures. Category-level distinct order counts can overlap because one order can contain multiple categories; they must not be added to get total orders.
 
 Part 4 compares **February–July 2017 with February–July 2018** for its year-on-year result. Each period contains six matching calendar months. Period AOV is total value divided by total orders, rather than an unweighted average of monthly AOVs. Growth uses unrounded amounts; only the displayed answer is rounded. Monthly outputs include all 18 calendar months, so LAG always refers to the preceding month. Rounded category or state shares may not add to exactly 100%.
+
+## Delivery comparisons
+
+- **On time includes early delivery and arrival at any time on the promised calendar date.** Lateness compares calendar dates, not the promise's midnight timestamp. Delivery duration uses elapsed recorded timestamps; positive delay uses whole calendar days after the promise.
+- **Late-only averages:** average positive delay uses the number of late orders as its denominator. Non-late orders contribute NULL to that average. If a group has no late orders, its positive-delay average is NULL rather than zero.
+- **Displayed precision:** rates and durations are shown to two decimal places. Positive delay is summed in whole calendar days; its mean uses integer arithmetic to round exact halfway values up, so 9.825 becomes 9.83. Rounding does not change the stored dates or the population.
+- **Purchase months:** the monthly report contains all 18 reporting months and assigns orders by purchase date. Delivery outcomes recorded after the purchase window remain included; these are final-snapshot results, not month-end service levels with equal follow-up.
+- **Regions:** group by the buyer's state and show all groups, with counts beside rates. Order counts, not percentages, are added across states.
+- **Categories:** retain one row per distinct order/category pair before calculating delivery measures. Repeated items in the same category count once; an order with two categories appears in both groups. Unknown and untranslated categories stay included. Category counts therefore overlap and cannot be summed to obtain total orders. The allocation describes association with order-level delivery, not an individual item's delivery outcome.
+- **Sellers:** retain only eligible orders with exactly one distinct seller, then use `HAVING COUNT(*) >= 100` for the published investigation table. Several items from the same seller still count as one order. Show the excluded multi-seller and lower-volume groups separately. The threshold is an exploratory reporting choice, not evidence of statistical significance.
+- **Investigation order:** sort states, categories and sellers by late-order count descending, then unrounded late rate descending, then label/ID. Use counts and rates together; the ordering does not establish responsibility for delays or adjust for distance, order mix, purchase month or promised delivery time.
 
 ## Review selection
 

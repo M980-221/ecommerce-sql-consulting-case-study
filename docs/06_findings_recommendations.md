@@ -1,6 +1,6 @@
 # Findings and recommendations
 
-Sales findings are recorded in [Part 4](11_part4_sales.md), with links to the supporting query outputs. Delivery and customer analysis are still pending. The three final recommendations below will be selected after those results have been reviewed.
+Sales findings are recorded in [Part 4](11_part4_sales.md) and delivery findings in [Part 5](12_part5_delivery.md), with links to the supporting query outputs. Customer analysis is still pending. The three final recommendations below will be selected after the combined results have been reviewed.
 
 Complete three entries using validated analysis.
 

@@ -1,6 +1,6 @@
 # Validation log
 
-Parts 2–4 are complete. Part 3 passed **62 checks** and 14 synthetic test cases. On 8 October 2026, Part 4 passed **15 checks** and 10 sales test cases; all 24 tests passed together. Part 7 will investigate the remaining reconciliation questions and review the combined business analysis.
+Parts 2–5 are complete. Part 3 passed **62 checks** and 14 synthetic test cases. On 8 October 2026, Part 4 passed **15 checks** and 10 sales test cases, and Part 5 passed **25 checks** and 12 delivery test cases. All **36 tests** passed together. Part 7 will investigate the remaining reconciliation questions and review the combined business analysis.
 
 | Check | Result | Evidence |
 |---|---|---|
@@ -24,13 +24,21 @@ Parts 2–4 are complete. Part 3 passed **62 checks** and 14 synthetic test case
 | Sales totals by month, category and state | All reconcile to 1,223,065,213 integer hundredths | Part 4 validation |
 | Sales population and state totals | 89,110 eligible orders; 2,670 period orders excluded | Part 4 validation |
 | Sales edge cases and regression tests | 10 sales tests plus 14 cleaning tests passed | `results/part4_tests.txt` |
+| Delivery output cells | All 310 rows / 2,409 cells match raw-table Python date calculations | `results/part5_validation.json`; `scripts/delivery_checks.py` |
+| Delivery counts and exclusions | 89,102 eligible; 6,116 late; 2,670 non-delivered plus eight missing actual dates excluded | Part 5 overall and validation outputs |
+| Monthly and state delivery totals | Included, late and on-time counts reconcile to the overall report | Part 5 validation |
+| Category allocation | Repeated items removed at order/category grain; 89,822 memberships across 89,102 orders | Part 5 category output and validation |
+| Seller coverage and cutoff | 87,946 single-seller orders; 1,156 multi-seller orders excluded; 190 sellers / 52,408 orders meet the 100-order minimum | Part 5 overall, seller and validation outputs |
+| Delivery edge cases and regression tests | 12 delivery tests plus 24 earlier tests passed | `results/part5_tests.txt` |
 | Source payment reconciliation investigation | Open: 273 one-cent differences and 303 larger differences | Part 3 `payment_reconciliation`; investigate in Part 7 |
 | Five manual order walkthroughs | Pending Part 7 | |
-| Delivery, customer and dashboard figures | Pending Parts 5–8 | |
+| Customer and dashboard figures | Pending Parts 6–8 | |
 
 ## Remaining source exceptions
 
 Part 4 opens the database read-only and verifies every raw-table fingerprint against the published Part 2 snapshot. Its independent check uses raw records, Python grouping and Decimal; it does not reuse the analytical views or SQL aggregates. The five CSV outputs retain exact integer amounts beside display values. Blank CSV cells represent NULL, including growth with no prior period or a zero denominator.
+
+Part 5 also reads the database without modifying it. Its second calculation uses raw records and Python datetime, with elapsed seconds for delivery duration and calendar-date differences for lateness. It independently builds category memberships and seller groups. The check caught a mean positive delay of exactly 9.825 days that SQLite's two-place ROUND displayed as 9.82. The report now rounds integer delay totals consistently to 9.83, with a dedicated test. NULL still represents an undefined late-only mean when no late orders exist.
 
 The [cleaning decision table](10_part3_cleaning.md#decisions-and-evidence) records how missing categories, review chronology, inconsistent delivery events, zero payments and future shipping deadlines are handled. No values were changed merely to make a check pass.
 

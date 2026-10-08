@@ -38,4 +38,23 @@ Run `python3 scripts/analyse_sales.py` after Part 3. Use `--results-dir results/
 
 Amounts use source monetary units and exclude freight. Exact amounts are preserved in the `_cents` columns. Blank CSV cells mean NULL, not zero. Shares and AOV are rounded to two decimal places; growth uses the unrounded underlying amounts. Category order counts overlap when an order contains more than one category.
 
-Findings and output definitions are in [Part 4](../docs/11_part4_sales.md). Delivery, customer analysis and the dashboard are still to come.
+Findings and output definitions are in [Part 4](../docs/11_part4_sales.md). The delivery results are below; customer analysis and the dashboard are still to come.
+
+## Part 5
+
+| File | Contents |
+|---|---|
+| [Overall delivery](part5_overall_delivery.csv) | Eligible/excluded counts, late rate, duration, positive delay and seller coverage |
+| [Monthly delivery](part5_monthly_delivery.csv) | All 18 purchase months and their final observed outcomes |
+| [Regional delivery](part5_regional_delivery.csv) | All 27 buyer states, with counts and rates |
+| [Category delivery](part5_category_delivery.csv) | 74 labels; one observation per distinct order and category |
+| [Seller delivery](part5_seller_delivery.csv) | 190 sellers with at least 100 eligible single-seller orders each |
+| [Validation report](part5_validation.json) | 25 checks, raw-record counts, source/script/output hashes and coverage |
+| [Readable validation](part5_validation.txt) | Checks, report sizes and compared cell count |
+| [Test results](part5_tests.txt) | 12 delivery tests plus 24 earlier tests |
+
+Run `python3 scripts/analyse_delivery.py` after Part 3. Use `--results-dir results/rebuilt/part5` for another output folder. All 310 rows and 2,409 cells are compared with a separate calculation using raw records and Python dates before export. The database is opened read-only. Run all automated tests with `python3 -m unittest discover -s tests -v`.
+
+Delivery duration uses elapsed recorded timestamps; positive delay uses calendar days and averages late orders only. Counts remain integers, while rates and durations are displayed to two decimal places. Exact halfway values in positive-delay means round up. Blank cells mean NULL, including a mean positive delay for a group with no late orders.
+
+Category counts overlap across categories and must not be added as unique orders. The seller report excludes multi-seller orders and sellers below its stated sample threshold; coverage is in the overall report. Full definitions, findings and practice queries are in [Part 5](../docs/12_part5_delivery.md).

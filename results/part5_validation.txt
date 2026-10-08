@@ -1,0 +1,40 @@
+PART 5 DELIVERY VALIDATION
+PASS: 25 checks
+
+Every output cell was compared with a separate calculation over raw records.
+Dates and durations were calculated independently with Python datetime.
+The database was opened read-only. Blank CSV values mean NULL.
+
+PASS: database integrity
+PASS: raw tables match the import fingerprints
+PASS: raw fields match the published source snapshot
+PASS: order model row count
+PASS: order model distinct IDs
+PASS: five named delivery outputs
+PASS: overall_delivery: every cell matches the raw-record calculation
+PASS: monthly_delivery: every cell matches the raw-record calculation
+PASS: regional_delivery: every cell matches the raw-record calculation
+PASS: category_delivery: every cell matches the raw-record calculation
+PASS: seller_delivery: every cell matches the raw-record calculation
+PASS: monthly_delivery: delivery_orders reconcile to overall
+PASS: monthly_delivery: late_orders reconcile to overall
+PASS: monthly_delivery: on_time_orders reconcile to overall
+PASS: regional_delivery: delivery_orders reconcile to overall
+PASS: regional_delivery: late_orders reconcile to overall
+PASS: regional_delivery: on_time_orders reconcile to overall
+PASS: monthly period orders reconcile
+PASS: period inclusion and exclusion reconcile
+PASS: exclusion reasons reconcile
+PASS: late and on-time orders reconcile
+PASS: seller subsets account for every delivery order
+PASS: seller threshold exclusions reconcile
+PASS: reported seller orders reconcile
+PASS: reported seller count
+
+Output rows:
+overall_delivery: 1
+monthly_delivery: 18
+regional_delivery: 27
+category_delivery: 74
+seller_delivery: 190
+Output cells checked: 2409

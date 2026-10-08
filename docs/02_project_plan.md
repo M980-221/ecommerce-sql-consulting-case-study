@@ -40,9 +40,9 @@ Completed 8 October 2026. Five queries cover monthly sales, month-on-month growt
 
 ## Part 5 — Analyse delivery performance
 
-Write about five queries for delivery times, lateness, regional differences and seller investigation priorities. Use eligible delivered orders and report exclusions. For seller attribution, define a single-seller-order subset.
+Completed 8 October 2026. Five queries cover overall delivery outcomes, purchase-month patterns, buyer states, categories and seller investigation priorities. Category counts use one order per distinct category. The seller report uses only single-seller orders and a documented 100-order minimum, with coverage reported separately. All 310 result rows match independent raw-record calculations; 25 checks and 12 delivery test cases passed. See [Part 5 findings and walkthrough](12_part5_delivery.md).
 
-**GitHub deliverable:** sql/04_delivery_analysis.sql.  
+**GitHub deliverables:** sql/04_delivery_analysis.sql, scripts/analyse_delivery.py, scripts/delivery_checks.py, tests/test_part5.py, docs/12_part5_delivery.md and the five CSV outputs and validation evidence in results/.
 **Done when:** results include denominators and show association without claiming causation.
 
 ## Part 6 — Analyse customer experience
