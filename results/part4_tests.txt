@@ -1,0 +1,29 @@
+test_all_validation_gates_run_on_small_data (test_part3.Part3Tests.test_all_validation_gates_run_on_small_data) ... ok
+test_bad_number_aborts_and_restores_previous_views (test_part3.Part3Tests.test_bad_number_aborts_and_restores_previous_views) ... ok
+test_blanks_and_postal_codes (test_part3.Part3Tests.test_blanks_and_postal_codes) ... ok
+test_category_gaps_keep_products (test_part3.Part3Tests.test_category_gaps_keep_products) ... ok
+test_impossible_calendar_date_aborts (test_part3.Part3Tests.test_impossible_calendar_date_aborts) ... ok
+test_latest_invalid_review_does_not_replace_a_valid_one (test_part3.Part3Tests.test_latest_invalid_review_does_not_replace_a_valid_one) ... ok
+test_missing_children_are_retained_without_inventing_zero_money (test_part3.Part3Tests.test_missing_children_are_retained_without_inventing_zero_money) ... ok
+test_missing_delivery_date_only_excludes_delivery_metrics (test_part3.Part3Tests.test_missing_delivery_date_only_excludes_delivery_metrics) ... ok
+test_promised_calendar_day_is_on_time (test_part3.Part3Tests.test_promised_calendar_day_is_on_time) ... ok
+test_reporting_window_has_an_exclusive_end (test_part3.Part3Tests.test_reporting_window_has_an_exclusive_end) ... ok
+test_review_id_can_appear_on_different_orders (test_part3.Part3Tests.test_review_id_can_appear_on_different_orders) ... ok
+test_review_rule_selects_latest_response (test_part3.Part3Tests.test_review_rule_selects_latest_response) ... ok
+test_review_tie_has_a_stable_id_tiebreaker (test_part3.Part3Tests.test_review_tie_has_a_stable_id_tiebreaker) ... ok
+test_three_items_two_payments_do_not_multiply_money (test_part3.Part3Tests.test_three_items_two_payments_do_not_multiply_money) ... ok
+test_buyer_states_count_orders_once_and_keep_unknowns (test_part4.Part4Tests.test_buyer_states_count_orders_once_and_keep_unknowns) ... ok
+test_empty_source_preserves_time_periods_without_inventing_aov (test_part4.Part4Tests.test_empty_source_preserves_time_periods_without_inventing_aov) ... ok
+test_equal_six_month_periods_and_weighted_aov (test_part4.Part4Tests.test_equal_six_month_periods_and_weighted_aov) ... ok
+test_growth_uses_previous_calendar_month_not_previous_sale (test_part4.Part4Tests.test_growth_uses_previous_calendar_month_not_previous_sale) ... ok
+test_growth_uses_unrounded_aov (test_part4.Part4Tests.test_growth_uses_unrounded_aov) ... ok
+test_item_prices_and_distinct_orders_prevent_category_overcount (test_part4.Part4Tests.test_item_prices_and_distinct_orders_prevent_category_overcount) ... ok
+test_missing_and_untranslated_categories_stay_in_shares (test_part4.Part4Tests.test_missing_and_untranslated_categories_stay_in_shares) ... ok
+test_months_keep_empty_months_and_reporting_boundaries (test_part4.Part4Tests.test_months_keep_empty_months_and_reporting_boundaries) ... ok
+test_tied_categories_have_stable_running_shares (test_part4.Part4Tests.test_tied_categories_have_stable_running_shares) ... ok
+test_zero_value_sales_have_zero_aov_but_undefined_shares_and_growth (test_part4.Part4Tests.test_zero_value_sales_have_zero_aov_but_undefined_shares_and_growth) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.085s
+
+OK

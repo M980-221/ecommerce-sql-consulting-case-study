@@ -4,7 +4,17 @@ A SQL consulting case study by Mohammed Baquaysh, using Olist's historical marke
 
 **Business question:** Where should an e-commerce manager focus first to improve sales performance, delivery reliability and customer experience?
 
-**Current stage:** Parts 1–3 complete: business brief, verified import, data cleaning and order model. Sales analysis is next.
+**Current stage:** Parts 1–4 complete, including the sales analysis. Delivery performance is next.
+
+## Sales findings
+
+The February 2017–July 2018 reporting window contains **89,110 qualifying delivered orders** and **12,230,652.13 in product sales value**, with an average order value of **137.25**. Amounts use source monetary units and exclude freight.
+
+- Comparing February–July in both years, product sales value increased **134.42%**, orders increased **130.80%**, and average order value increased **1.57%**. Most of the observed increase came from order volume.
+- Health and beauty was the largest category by product sales value (**8.98%**). The ten largest categories accounted for **62.49%**.
+- Buyers in São Paulo state accounted for **37.84%** of product sales value. This measures where existing sales came from, not the size of the untapped market.
+
+Read the [sales analysis and SQL walkthrough](docs/11_part4_sales.md), or open the [monthly results](results/part4_monthly_sales.csv) and [equal-period comparison](results/part4_comparable_periods.csv). These are descriptive findings from a historical snapshot; the data does not establish what caused the growth.
 
 ## Completed work
 
@@ -15,6 +25,7 @@ A SQL consulting case study by Mohammed Baquaysh, using Olist's historical marke
 - Profiled all 47 source fields and built cleaned views with a model containing exactly one row per order.
 - Documented review selection, missing-data rules and the February 2017–July 2018 reporting window.
 - Passed 62 Part 3 checks and 14 automated tests; order-join totals match the source.
+- Completed five sales queries and exported their results. All 139 result rows match a separate calculation from raw records; 15 Part 4 checks and 10 sales test cases passed.
 
 SQLite provides a portable database for this project. SQL defines the tables and inspection checks; a Python standard-library script handles CSV loading, including multiline reviews. Raw values remain TEXT. Part 3 views provide validated numeric values, NULL handling and metric-specific eligibility rules.
 
@@ -54,6 +65,7 @@ Requirements: Python 3.8 or later. The loader uses the standard library, so no a
    ```bash
    python3 scripts/build_database.py
    python3 scripts/prepare_part3.py
+   python3 scripts/analyse_sales.py
    ```
 
 4. Open the resulting `ecommerce_olist.db` in a SQLite client and run:
@@ -88,6 +100,7 @@ Source exceptions are visible: 610 products have no category, 13 lack an English
 | [Project plan](docs/02_project_plan.md) | Ten-part delivery plan |
 | [Part 2: setup and import](docs/09_part2_setup.md) | Environment, import decisions and verification |
 | [Part 3: cleaning and model](docs/10_part3_cleaning.md) | Decisions, reproduction commands, checks and practice queries |
+| [Part 4: sales analysis](docs/11_part4_sales.md) | Findings, five output tables and SQL practice |
 | [Data dictionary](docs/03_data_dictionary.md) | All 47 fields, verified keys, derived views and relationship diagram |
 | [Metric definitions](docs/04_metric_definitions.md) | Implemented reporting period, eligibility flags and denominators |
 | [Validation log](docs/05_validation_log.md) | Completed checks and remaining validation |
@@ -98,7 +111,7 @@ Source exceptions are visible: 610 products have no category, 13 lack an English
 - [x] Part 1: Define the business problem.
 - [x] Part 2: Download data and create the database.
 - [x] Part 3: Clean, model and document the data.
-- [ ] Part 4: Analyse sales performance.
+- [x] Part 4: Analyse sales performance.
 - [ ] Part 5: Analyse delivery performance.
 - [ ] Part 6: Analyse customer experience.
 - [ ] Part 7: Validate results and improve SQL.
@@ -106,10 +119,10 @@ Source exceptions are visible: 610 products have no category, 13 lack an English
 - [ ] Part 9: Develop recommendations and slides.
 - [ ] Part 10: Prepare the completed portfolio.
 
-The remaining scope is approximately 15–20 business queries, three dashboard pages, three evidence-based recommendations and a five-slide presentation. Business findings will be added in Parts 4–6 and reviewed in Part 7. Known source exceptions are recorded in the Part 3 cleaning notes.
+Five business queries are complete. The remaining analysis covers delivery and customers, followed by further validation, three dashboard pages, three recommendations and a five-slide presentation. Known source exceptions remain recorded in the Part 3 cleaning notes.
 
 ## Data attribution
 
 Source: [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce), version 2, downloaded on 1 October 2026. The dataset covers historical Brazilian marketplace activity. See [DATA_LICENSE.txt](DATA_LICENSE.txt) for the publisher's CC BY-NC-SA 4.0 licence.
 
-This is an independent portfolio case study. Product sales value will be reported separately from company revenue or profit.
+This is an independent portfolio case study. Product sales value is reported separately from company revenue or profit.

@@ -1,6 +1,6 @@
 # Validation log
 
-Parts 2 and 3 are complete. The full Part 3 run passed **62 checks** on 6 October 2026. Its 14 synthetic test cases also passed. Part 7 will investigate the remaining business reconciliation questions and validate the analysis outputs.
+Parts 2–4 are complete. Part 3 passed **62 checks** and 14 synthetic test cases. On 8 October 2026, Part 4 passed **15 checks** and 10 sales test cases; all 24 tests passed together. Part 7 will investigate the remaining reconciliation questions and review the combined business analysis.
 
 | Check | Result | Evidence |
 |---|---|---|
@@ -20,11 +20,17 @@ Parts 2 and 3 are complete. The full Part 3 run passed **62 checks** on 6 Octobe
 | Repeat-customer identity | Model includes customer_unique_id; no sales order lacks it | Part 3 checks |
 | SQLite integrity | ok | Part 3 checks |
 | Small edge-case tests | 14 passed | `results/part3_tests.txt` |
+| Sales output cells | All 139 rows / 1,036 cells match a separate raw-table Python and Decimal calculation | `results/part4_validation.json`; `scripts/sales_checks.py` |
+| Sales totals by month, category and state | All reconcile to 1,223,065,213 integer hundredths | Part 4 validation |
+| Sales population and state totals | 89,110 eligible orders; 2,670 period orders excluded | Part 4 validation |
+| Sales edge cases and regression tests | 10 sales tests plus 14 cleaning tests passed | `results/part4_tests.txt` |
 | Source payment reconciliation investigation | Open: 273 one-cent differences and 303 larger differences | Part 3 `payment_reconciliation`; investigate in Part 7 |
 | Five manual order walkthroughs | Pending Part 7 | |
-| Business query and dashboard figures | Pending analysis/dashboard stages | |
+| Delivery, customer and dashboard figures | Pending Parts 5–8 | |
 
 ## Remaining source exceptions
+
+Part 4 opens the database read-only and verifies every raw-table fingerprint against the published Part 2 snapshot. Its independent check uses raw records, Python grouping and Decimal; it does not reuse the analytical views or SQL aggregates. The five CSV outputs retain exact integer amounts beside display values. Blank CSV cells represent NULL, including growth with no prior period or a zero denominator.
 
 The [cleaning decision table](10_part3_cleaning.md#decisions-and-evidence) records how missing categories, review chronology, inconsistent delivery events, zero payments and future shipping deadlines are handled. No values were changed merely to make a check pass.
 

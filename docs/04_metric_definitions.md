@@ -1,6 +1,6 @@
 # Metric definitions
 
-These definitions are implemented in Part 3 and will be used in Parts 4–6. Counts below describe eligibility, not business findings.
+These definitions are implemented in Part 3 and used by the Part 4 sales queries. They also apply to the delivery and customer analyses still to come. Counts below describe eligibility; sales findings are in [Part 4](11_part4_sales.md).
 
 ## Period and observation limits
 
@@ -46,6 +46,8 @@ Eligibility uses the final status, deliveries and reviews present in the snapsho
 | Monthly growth | `(current_value - prior_value) / NULLIF(prior_value, 0) * 100`; same population, consecutive months within the reporting period; first month is NULL |
 
 All division by zero returns NULL, not a zero rate. Show eligible counts, excluded counts and the period beside headline measures. Category-level distinct order counts can overlap because one order can contain multiple categories; they must not be added to get total orders.
+
+Part 4 compares **February–July 2017 with February–July 2018** for its year-on-year result. Each period contains six matching calendar months. Period AOV is total value divided by total orders, rather than an unweighted average of monthly AOVs. Growth uses unrounded amounts; only the displayed answer is rounded. Monthly outputs include all 18 calendar months, so LAG always refers to the preceding month. Rounded category or state shares may not add to exactly 100%.
 
 ## Review selection
 

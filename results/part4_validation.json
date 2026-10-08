@@ -1,0 +1,229 @@
+{
+  "part": 4,
+  "status": "PASS",
+  "database_access": "read-only",
+  "python_version": "3.12.14",
+  "sqlite_version": "3.53.1",
+  "reporting_period": {
+    "purchase_start_inclusive": "2017-02-01",
+    "purchase_end_exclusive": "2018-08-01"
+  },
+  "monetary_unit": "source monetary units; excludes freight",
+  "source_tables": [
+    {
+      "table_name": "orders",
+      "source_rows": 99441,
+      "logical_rows_sha256": "c9a72f230042017df121eb26c00b866054760903573e1d08f01777f6a7b480db",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_items",
+      "source_rows": 112650,
+      "logical_rows_sha256": "d85f8dc8c75ca7c0a8a9d6a765ca0f76570b09cda9b95e07bc64277382dbdbf2",
+      "status": "PASS"
+    },
+    {
+      "table_name": "customers",
+      "source_rows": 99441,
+      "logical_rows_sha256": "2b4f40bc3fca13cea4d4f27ca3b1dea840ffd50b7ea7c19884b44412db6d1746",
+      "status": "PASS"
+    },
+    {
+      "table_name": "products",
+      "source_rows": 32951,
+      "logical_rows_sha256": "86b695b748424d8dd2710be142f3f91469017774337861653038ce5a09202050",
+      "status": "PASS"
+    },
+    {
+      "table_name": "sellers",
+      "source_rows": 3095,
+      "logical_rows_sha256": "3d76af6ab1337b176b29bfaa9d93300abd0d218ab4cb7b3ebecf54f2d2d6fc25",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_payments",
+      "source_rows": 103886,
+      "logical_rows_sha256": "d724f0d85baef7160b81b5f503e9dfb6c99737e8c59cc42a93fc89e1a9ea6460",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_reviews",
+      "source_rows": 99224,
+      "logical_rows_sha256": "f9a9ac75b51122ea088869b1931dfd7660a17e3d8dc0e1ddd611bfb151c538e9",
+      "status": "PASS"
+    },
+    {
+      "table_name": "category_translation",
+      "source_rows": 71,
+      "logical_rows_sha256": "0219262e020851fab6c882074d20331b1d6066021134fb51fdb6a2195bae7f59",
+      "status": "PASS"
+    }
+  ],
+  "script_sha256": {
+    "sql/03_sales_analysis.sql": "e8e7dce4b49f2e17b63f721667164a586529f030d79eca2f51b78b67aa216f98",
+    "scripts/analyse_sales.py": "0bef79ae8ac21bf35d7a7d667942607fe7045de1a05dc209bb9a84262a029487",
+    "scripts/sales_checks.py": "d3ce4666b5a50e3d291c6094f026c96c936cf8eeee3cdcfbf5681aa1f753209d",
+    "scripts/prepare_part3.py": "e3063709f642b9ae59557b3841f26270033fd1ae91e86804c94082d67feb631d",
+    "scripts/build_database.py": "14a65d86e8c0881720bf3898221899b2d521d6e785ed41746245575711a57a4e"
+  },
+  "output_sha256": {
+    "part4_monthly_sales.csv": "b7f2fbe88c866fc705d899bc75dfd55009cd8b4acb5fbb350eee1747152e2051",
+    "part4_monthly_growth.csv": "b61a9b6cd2c23a4755452c74b525fb25ea256da1258adf8ec73fcabf787d80f3",
+    "part4_comparable_periods.csv": "6a1cc7a24ada6db58cbff0fad9b4abde997c759292db53a4f1d860af4c242598",
+    "part4_category_sales.csv": "c0aa51192a978db805c2d931539ddc6bd3770670a7e61cc5bc71c4b05da8b266",
+    "part4_regional_sales.csv": "a0fde3e39e0f69412ace0408c413898598266ff80d5634d1a7c98549241e2e98"
+  },
+  "checks_passed": 15,
+  "checks": [
+    {
+      "check": "database integrity",
+      "actual": [
+        "ok"
+      ],
+      "expected": [
+        "ok"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "raw tables match the import fingerprints",
+      "actual": 8,
+      "expected": 8,
+      "status": "PASS"
+    },
+    {
+      "check": "raw fields match the published source snapshot",
+      "actual": {
+        "orders": "c9a72f230042017df121eb26c00b866054760903573e1d08f01777f6a7b480db",
+        "order_items": "d85f8dc8c75ca7c0a8a9d6a765ca0f76570b09cda9b95e07bc64277382dbdbf2",
+        "customers": "2b4f40bc3fca13cea4d4f27ca3b1dea840ffd50b7ea7c19884b44412db6d1746",
+        "products": "86b695b748424d8dd2710be142f3f91469017774337861653038ce5a09202050",
+        "sellers": "3d76af6ab1337b176b29bfaa9d93300abd0d218ab4cb7b3ebecf54f2d2d6fc25",
+        "order_payments": "d724f0d85baef7160b81b5f503e9dfb6c99737e8c59cc42a93fc89e1a9ea6460",
+        "order_reviews": "f9a9ac75b51122ea088869b1931dfd7660a17e3d8dc0e1ddd611bfb151c538e9",
+        "category_translation": "0219262e020851fab6c882074d20331b1d6066021134fb51fdb6a2195bae7f59"
+      },
+      "expected": {
+        "category_translation": "0219262e020851fab6c882074d20331b1d6066021134fb51fdb6a2195bae7f59",
+        "customers": "2b4f40bc3fca13cea4d4f27ca3b1dea840ffd50b7ea7c19884b44412db6d1746",
+        "order_items": "d85f8dc8c75ca7c0a8a9d6a765ca0f76570b09cda9b95e07bc64277382dbdbf2",
+        "order_payments": "d724f0d85baef7160b81b5f503e9dfb6c99737e8c59cc42a93fc89e1a9ea6460",
+        "order_reviews": "f9a9ac75b51122ea088869b1931dfd7660a17e3d8dc0e1ddd611bfb151c538e9",
+        "orders": "c9a72f230042017df121eb26c00b866054760903573e1d08f01777f6a7b480db",
+        "products": "86b695b748424d8dd2710be142f3f91469017774337861653038ce5a09202050",
+        "sellers": "3d76af6ab1337b176b29bfaa9d93300abd0d218ab4cb7b3ebecf54f2d2d6fc25"
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "order model row count",
+      "actual": 99441,
+      "expected": 99441,
+      "status": "PASS"
+    },
+    {
+      "check": "order model distinct IDs",
+      "actual": 99441,
+      "expected": 99441,
+      "status": "PASS"
+    },
+    {
+      "check": "five named sales outputs",
+      "actual": [
+        "monthly_sales",
+        "monthly_growth",
+        "comparable_periods",
+        "category_sales",
+        "regional_sales"
+      ],
+      "expected": [
+        "monthly_sales",
+        "monthly_growth",
+        "comparable_periods",
+        "category_sales",
+        "regional_sales"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "monthly_sales: every cell matches the raw-record calculation",
+      "rows_checked": 18,
+      "status": "PASS"
+    },
+    {
+      "check": "monthly_growth: every cell matches the raw-record calculation",
+      "rows_checked": 18,
+      "status": "PASS"
+    },
+    {
+      "check": "comparable_periods: every cell matches the raw-record calculation",
+      "rows_checked": 2,
+      "status": "PASS"
+    },
+    {
+      "check": "category_sales: every cell matches the raw-record calculation",
+      "rows_checked": 74,
+      "status": "PASS"
+    },
+    {
+      "check": "regional_sales: every cell matches the raw-record calculation",
+      "rows_checked": 27,
+      "status": "PASS"
+    },
+    {
+      "check": "category sales reconcile to monthly sales",
+      "actual": 1223065213,
+      "expected": 1223065213,
+      "status": "PASS"
+    },
+    {
+      "check": "regional sales reconcile to monthly sales",
+      "actual": 1223065213,
+      "expected": 1223065213,
+      "status": "PASS"
+    },
+    {
+      "check": "regional orders reconcile to monthly orders",
+      "actual": 89110,
+      "expected": 89110,
+      "status": "PASS"
+    },
+    {
+      "check": "monthly included and excluded orders reconcile",
+      "actual": 91780,
+      "expected": 91780,
+      "status": "PASS"
+    }
+  ],
+  "overall": {
+    "period_start": "2017-02-01",
+    "period_end_exclusive": "2018-08-01",
+    "source_orders": 99441,
+    "all_period_orders": 91780,
+    "outside_period_orders": 7661,
+    "sales_orders": 89110,
+    "excluded_orders": 2670,
+    "delivered_orders_without_items": 0,
+    "item_count": 101825,
+    "product_sales_cents": 1223065213,
+    "product_sales_value": 12230652.13,
+    "average_order_value": 137.25
+  },
+  "period_status_counts": {
+    "approved": 2,
+    "canceled": 493,
+    "created": 5,
+    "delivered": 89110,
+    "invoiced": 261,
+    "processing": 290,
+    "shipped": 1034,
+    "unavailable": 585
+  },
+  "output_rows": {
+    "monthly_sales": 18,
+    "monthly_growth": 18,
+    "comparable_periods": 2,
+    "category_sales": 74,
+    "regional_sales": 27
+  }
+}

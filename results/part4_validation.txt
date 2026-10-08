@@ -1,0 +1,28 @@
+PART 4 SALES VALIDATION
+PASS: 15 checks
+
+Every output cell was compared with a separate Python calculation over raw records.
+The database was opened read-only. Blank CSV values mean NULL.
+
+PASS: database integrity
+PASS: raw tables match the import fingerprints
+PASS: raw fields match the published source snapshot
+PASS: order model row count
+PASS: order model distinct IDs
+PASS: five named sales outputs
+PASS: monthly_sales: every cell matches the raw-record calculation
+PASS: monthly_growth: every cell matches the raw-record calculation
+PASS: comparable_periods: every cell matches the raw-record calculation
+PASS: category_sales: every cell matches the raw-record calculation
+PASS: regional_sales: every cell matches the raw-record calculation
+PASS: category sales reconcile to monthly sales
+PASS: regional sales reconcile to monthly sales
+PASS: regional orders reconcile to monthly orders
+PASS: monthly included and excluded orders reconcile
+
+Output rows:
+monthly_sales: 18
+monthly_growth: 18
+comparable_periods: 2
+category_sales: 74
+regional_sales: 27

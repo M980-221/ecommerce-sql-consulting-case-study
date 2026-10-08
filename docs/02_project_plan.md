@@ -33,9 +33,9 @@ Completed 6 October 2026. Profiled all 47 fields, verified keys and relationship
 
 ## Part 4 — Analyse sales performance
 
-Write about five queries covering product sales value, orders, average order value, category contribution and regional performance. Compare complete periods.
+Completed 8 October 2026. Five queries cover monthly sales, month-on-month growth, average order value across matched February–July periods, category contribution and buyer-state performance. All 139 output rows match an independent raw-record calculation. The sales run passed 15 checks and 10 sales test cases passed. See [Part 4 findings and walkthrough](11_part4_sales.md).
 
-**GitHub deliverable:** sql/03_sales_analysis.sql with documented output tables.  
+**GitHub deliverables:** sql/03_sales_analysis.sql, scripts/analyse_sales.py, scripts/sales_checks.py, tests/test_part4.py, docs/11_part4_sales.md and the five CSV outputs and validation evidence in results/.
 **Done when:** each query answers a stated business question.
 
 ## Part 5 — Analyse delivery performance

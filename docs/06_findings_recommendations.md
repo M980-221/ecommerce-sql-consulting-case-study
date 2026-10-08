@@ -1,6 +1,6 @@
 # Findings and recommendations
 
-Status: template. No findings have been established yet.
+Sales findings are recorded in [Part 4](11_part4_sales.md), with links to the supporting query outputs. Delivery and customer analysis are still pending. The three final recommendations below will be selected after those results have been reviewed.
 
 Complete three entries using validated analysis.
 

@@ -1,0 +1,3 @@
+period_year,period_start,period_end_exclusive,calendar_months,all_period_orders,sales_orders,excluded_orders,product_sales_cents,product_sales_value,average_order_value,previous_year_product_sales_cents,previous_year_sales_orders,previous_year_average_order_value,product_sales_yoy_pct,orders_yoy_pct,aov_yoy_pct
+2017,2017-02-01,2017-08-01,6,17837,17055,782,232695807,2326958.07,136.44,,,,,,
+2018,2018-02-01,2018-08-01,6,40210,39363,847,545490348,5454903.48,138.58,232695807,17055,136.44,134.42,130.80,1.57
