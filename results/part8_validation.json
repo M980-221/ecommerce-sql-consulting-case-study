@@ -1,0 +1,513 @@
+{
+  "part": 8,
+  "status": "PASS",
+  "scope": "dashboard data and calculations in Node; independent SQLite comparisons",
+  "database_access": "read-only; temporary tables held in the validation connection",
+  "python_version": "3.12.14",
+  "sqlite_version": "3.53.1",
+  "node_version": "v24.19.0",
+  "source_tables": [
+    {
+      "table_name": "orders",
+      "source_rows": 99441,
+      "logical_rows_sha256": "c9a72f230042017df121eb26c00b866054760903573e1d08f01777f6a7b480db",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_items",
+      "source_rows": 112650,
+      "logical_rows_sha256": "d85f8dc8c75ca7c0a8a9d6a765ca0f76570b09cda9b95e07bc64277382dbdbf2",
+      "status": "PASS"
+    },
+    {
+      "table_name": "customers",
+      "source_rows": 99441,
+      "logical_rows_sha256": "2b4f40bc3fca13cea4d4f27ca3b1dea840ffd50b7ea7c19884b44412db6d1746",
+      "status": "PASS"
+    },
+    {
+      "table_name": "products",
+      "source_rows": 32951,
+      "logical_rows_sha256": "86b695b748424d8dd2710be142f3f91469017774337861653038ce5a09202050",
+      "status": "PASS"
+    },
+    {
+      "table_name": "sellers",
+      "source_rows": 3095,
+      "logical_rows_sha256": "3d76af6ab1337b176b29bfaa9d93300abd0d218ab4cb7b3ebecf54f2d2d6fc25",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_payments",
+      "source_rows": 103886,
+      "logical_rows_sha256": "d724f0d85baef7160b81b5f503e9dfb6c99737e8c59cc42a93fc89e1a9ea6460",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_reviews",
+      "source_rows": 99224,
+      "logical_rows_sha256": "f9a9ac75b51122ea088869b1931dfd7660a17e3d8dc0e1ddd611bfb151c538e9",
+      "status": "PASS"
+    },
+    {
+      "table_name": "category_translation",
+      "source_rows": 71,
+      "logical_rows_sha256": "0219262e020851fab6c882074d20331b1d6066021134fb51fdb6a2195bae7f59",
+      "status": "PASS"
+    }
+  ],
+  "dependency_sha256": {
+    "dashboard/data.js": "6596afb4e2ea00e5be7fbcfb51e29a98708e6373c9ba8f5e0afafdd28f6c4f8a",
+    "dashboard/metrics.js": "2b5ec33727ee95fefb94e8764557356b48477006fec17125f3d29225a247ded1",
+    "scripts/validate_dashboard.py": "0035feb8cc0873928e0d66588ea71d798e5d801bdf93144f43120dc7f4fde429",
+    "sql/07_reporting_views.sql": "77f06ed541dd4d98ff6979f14c481aaeb5c57cdd049b5dbe894be978bb64d159",
+    "sql/08_dashboard_export.sql": "2fdef1f00a939c8212319388b9f0bb0738d249133b92cfd3d53eefda1eede32e",
+    "scripts/prepare_part3.py": "e3063709f642b9ae59557b3841f26270033fd1ae91e86804c94082d67feb631d",
+    "scripts/build_database.py": "14a65d86e8c0881720bf3898221899b2d521d6e785ed41746245575711a57a4e",
+    "results/part2_import_log.csv": "eda514e43e6c3f311b4574962a13454e7665a097e6cb797e11a86355cfcbdc28",
+    "results/part4_validation.json": "bfa38e3ba2b8d556bf4631d1a689fd32719c5b22c571a2109ad7acd2df07d594",
+    "results/part5_validation.json": "13f13316585e703f4df55feca1bd9e439f0f3ba369d94ddf58fee610fa398506",
+    "results/part6_validation.json": "81b50af7b4eae3b5b783c55de9b700e46200ab9fae7c8f382f4c675cd22a1071"
+  },
+  "input_contract": {
+    "status": "PASS",
+    "order_rows": 91780,
+    "category_rows": 89830,
+    "dimensions_match_sqlite": true,
+    "fields_match_contract": true
+  },
+  "scenarios_passed": 8,
+  "cells_checked": 13129,
+  "scenarios": [
+    {
+      "name": "all",
+      "description": "2017-02 through 2018-07, buyer state all",
+      "filters": {
+        "startMonth": 0,
+        "endMonth": 17,
+        "state": "all"
+      },
+      "status": "PASS",
+      "cells_checked": 2616,
+      "selected_orders": 91780,
+      "sales_orders": 89110,
+      "product_sales_cents": 1223065213,
+      "delivery_orders": 89102,
+      "reviewed_orders": 88494,
+      "customers": 86271,
+      "repeat_customers": 2562,
+      "headline_metrics": {
+        "average_order_value": 137.25,
+        "late_delivery_pct": 6.86,
+        "average_delivery_days": 12.88,
+        "average_positive_delay_days": 10.98,
+        "review_coverage_pct": 99.31,
+        "average_review_score": 4.15,
+        "low_score_pct": 13.03,
+        "repeat_customer_pct": 2.97
+      },
+      "group_rows": {
+        "months": 18,
+        "sales_categories": 74,
+        "sales_states": 27,
+        "delivery_categories": 74,
+        "review_states": 27,
+        "top_customers": 20
+      },
+      "snapshot_sha256": "e7dbb11d1859f28ddd7999dc1d4df7f995399a17d825fb67497ca5794c481dbd"
+    },
+    {
+      "name": "march_2018",
+      "description": "2018-03 through 2018-03, buyer state all",
+      "filters": {
+        "startMonth": 13,
+        "endMonth": 13,
+        "state": "all"
+      },
+      "status": "PASS",
+      "cells_checked": 2157,
+      "selected_orders": 7211,
+      "sales_orders": 7003,
+      "product_sales_cents": 95335625,
+      "delivery_orders": 7003,
+      "reviewed_orders": 6948,
+      "customers": 6914,
+      "repeat_customers": 88,
+      "headline_metrics": {
+        "average_order_value": 136.14,
+        "late_delivery_pct": 18.96,
+        "average_delivery_days": 16.3,
+        "average_positive_delay_days": 10.02,
+        "review_coverage_pct": 99.21,
+        "average_review_score": 3.81,
+        "low_score_pct": 21.17,
+        "repeat_customer_pct": 1.27
+      },
+      "group_rows": {
+        "months": 1,
+        "sales_categories": 67,
+        "sales_states": 27,
+        "delivery_categories": 67,
+        "review_states": 27,
+        "top_customers": 20
+      },
+      "snapshot_sha256": "179fcdc1afc5e28411e506138f1424f1cbf5206498a97fcb2ced4e756c880cb1"
+    },
+    {
+      "name": "sao_paulo",
+      "description": "2017-02 through 2018-07, buyer state SP",
+      "filters": {
+        "startMonth": 0,
+        "endMonth": 17,
+        "state": 25
+      },
+      "status": "PASS",
+      "cells_checked": 1897,
+      "selected_orders": 38069,
+      "sales_orders": 36959,
+      "product_sales_cents": 462823868,
+      "delivery_orders": 36952,
+      "reviewed_orders": 36745,
+      "customers": 35735,
+      "repeat_customers": 1104,
+      "headline_metrics": {
+        "average_order_value": 125.23,
+        "late_delivery_pct": 4.12,
+        "average_delivery_days": 8.94,
+        "average_positive_delay_days": 9.09,
+        "review_coverage_pct": 99.42,
+        "average_review_score": 4.24,
+        "low_score_pct": 10.71,
+        "repeat_customer_pct": 3.09
+      },
+      "group_rows": {
+        "months": 18,
+        "sales_categories": 73,
+        "sales_states": 1,
+        "delivery_categories": 73,
+        "review_states": 1,
+        "top_customers": 20
+      },
+      "snapshot_sha256": "c05c8017a7d830f4174df74d5bb871a1ef29dc9955306ddb95f593d091321944"
+    },
+    {
+      "name": "rio_de_janeiro",
+      "description": "2017-02 through 2018-07, buyer state RJ",
+      "filters": {
+        "startMonth": 0,
+        "endMonth": 17,
+        "state": 18
+      },
+      "status": "PASS",
+      "cells_checked": 1829,
+      "selected_orders": 11950,
+      "sales_orders": 11496,
+      "product_sales_cents": 164561520,
+      "delivery_orders": 11496,
+      "reviewed_orders": 11365,
+      "customers": 11101,
+      "repeat_customers": 352,
+      "headline_metrics": {
+        "average_order_value": 143.15,
+        "late_delivery_pct": 12.61,
+        "average_delivery_days": 15.75,
+        "average_positive_delay_days": 13.73,
+        "review_coverage_pct": 98.86,
+        "average_review_score": 3.95,
+        "low_score_pct": 18.8,
+        "repeat_customer_pct": 3.17
+      },
+      "group_rows": {
+        "months": 18,
+        "sales_categories": 69,
+        "sales_states": 1,
+        "delivery_categories": 69,
+        "review_states": 1,
+        "top_customers": 20
+      },
+      "snapshot_sha256": "7ef7a6ce7d5bf90d04be41fc4f6b545be1e3ded943c26ba6d95d2016450592e1"
+    },
+    {
+      "name": "march_2018_rj",
+      "description": "2018-03 through 2018-03, buyer state RJ",
+      "filters": {
+        "startMonth": 13,
+        "endMonth": 13,
+        "state": 18
+      },
+      "status": "PASS",
+      "cells_checked": 1217,
+      "selected_orders": 907,
+      "sales_orders": 864,
+      "product_sales_cents": 11306284,
+      "delivery_orders": 864,
+      "reviewed_orders": 848,
+      "customers": 850,
+      "repeat_customers": 14,
+      "headline_metrics": {
+        "average_order_value": 130.86,
+        "late_delivery_pct": 34.49,
+        "average_delivery_days": 24.3,
+        "average_positive_delay_days": 14.44,
+        "review_coverage_pct": 98.15,
+        "average_review_score": 3.26,
+        "low_score_pct": 35.97,
+        "repeat_customer_pct": 1.65
+      },
+      "group_rows": {
+        "months": 1,
+        "sales_categories": 53,
+        "sales_states": 1,
+        "delivery_categories": 53,
+        "review_states": 1,
+        "top_customers": 20
+      },
+      "snapshot_sha256": "ec39dbbe21ac3ec10d1ee705c19380abc686e353bbedf3f7fda59ae9141e4219"
+    },
+    {
+      "name": "february_to_july_2018",
+      "description": "2018-02 through 2018-07, buyer state all",
+      "filters": {
+        "startMonth": 12,
+        "endMonth": 17,
+        "state": "all"
+      },
+      "status": "PASS",
+      "cells_checked": 2359,
+      "selected_orders": 40210,
+      "sales_orders": 39363,
+      "product_sales_cents": 545490348,
+      "delivery_orders": 39357,
+      "reviewed_orders": 39122,
+      "customers": 38560,
+      "repeat_customers": 747,
+      "headline_metrics": {
+        "average_order_value": 138.58,
+        "late_delivery_pct": 8.34,
+        "average_delivery_days": 12.5,
+        "average_positive_delay_days": 10.35,
+        "review_coverage_pct": 99.39,
+        "average_review_score": 4.12,
+        "low_score_pct": 13.93,
+        "repeat_customer_pct": 1.94
+      },
+      "group_rows": {
+        "months": 6,
+        "sales_categories": 73,
+        "sales_states": 27,
+        "delivery_categories": 73,
+        "review_states": 27,
+        "top_customers": 20
+      },
+      "snapshot_sha256": "4c3cb6939be2174107ada6fbbec74c065c59fff838e5d9949fdbb8af17c46cc3"
+    },
+    {
+      "name": "roraima",
+      "description": "2017-02 through 2018-07, buyer state RR",
+      "filters": {
+        "startMonth": 0,
+        "endMonth": 17,
+        "state": 21
+      },
+      "status": "PASS",
+      "cells_checked": 945,
+      "selected_orders": 44,
+      "sales_orders": 40,
+      "product_sales_cents": 701777,
+      "delivery_orders": 40,
+      "reviewed_orders": 40,
+      "customers": 39,
+      "repeat_customers": 1,
+      "headline_metrics": {
+        "average_order_value": 175.44,
+        "late_delivery_pct": 12.5,
+        "average_delivery_days": 29.91,
+        "average_positive_delay_days": 36.4,
+        "review_coverage_pct": 100,
+        "average_review_score": 3.9,
+        "low_score_pct": 15,
+        "repeat_customer_pct": 2.56
+      },
+      "group_rows": {
+        "months": 18,
+        "sales_categories": 17,
+        "sales_states": 1,
+        "delivery_categories": 17,
+        "review_states": 1,
+        "top_customers": 20
+      },
+      "snapshot_sha256": "d4c5a80e3840a288dd8375b74c47c483d16b798343e10691549dbfc9dcffbd7b"
+    },
+    {
+      "name": "empty_august_2017_roraima",
+      "description": "2017-08 through 2017-08, buyer state RR",
+      "filters": {
+        "startMonth": 6,
+        "endMonth": 6,
+        "state": 21
+      },
+      "status": "PASS",
+      "cells_checked": 109,
+      "selected_orders": 0,
+      "sales_orders": 0,
+      "product_sales_cents": 0,
+      "delivery_orders": 0,
+      "reviewed_orders": 0,
+      "customers": 0,
+      "repeat_customers": 0,
+      "headline_metrics": {
+        "average_order_value": null,
+        "late_delivery_pct": null,
+        "average_delivery_days": null,
+        "average_positive_delay_days": null,
+        "review_coverage_pct": null,
+        "average_review_score": null,
+        "low_score_pct": null,
+        "repeat_customer_pct": null
+      },
+      "group_rows": {
+        "months": 1,
+        "sales_categories": 0,
+        "sales_states": 0,
+        "delivery_categories": 0,
+        "review_states": 0,
+        "top_customers": 0
+      },
+      "snapshot_sha256": "c019142528953273d0cd50828fb3a228101940893f5dc3b536cef2a30fa2fe74"
+    }
+  ],
+  "published_metric_checks_passed": 18,
+  "published_metric_checks": [
+    {
+      "part": 4,
+      "metric": "sales.orders",
+      "actual": 89110,
+      "published": 89110,
+      "status": "PASS"
+    },
+    {
+      "part": 4,
+      "metric": "sales.cents",
+      "actual": 1223065213,
+      "published": 1223065213,
+      "status": "PASS"
+    },
+    {
+      "part": 4,
+      "metric": "sales.aov",
+      "actual": 137.25,
+      "published": 137.25,
+      "status": "PASS"
+    },
+    {
+      "part": 5,
+      "metric": "delivery.orders",
+      "actual": 89102,
+      "published": 89102,
+      "status": "PASS"
+    },
+    {
+      "part": 5,
+      "metric": "delivery.lateOrders",
+      "actual": 6116,
+      "published": 6116,
+      "status": "PASS"
+    },
+    {
+      "part": 5,
+      "metric": "delivery.latePct",
+      "actual": 6.86,
+      "published": 6.86,
+      "status": "PASS"
+    },
+    {
+      "part": 5,
+      "metric": "delivery.averageDays",
+      "actual": 12.88,
+      "published": 12.88,
+      "status": "PASS"
+    },
+    {
+      "part": 5,
+      "metric": "delivery.averagePositiveDelayDays",
+      "actual": 10.98,
+      "published": 10.98,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.reviewedOrders",
+      "actual": 88494,
+      "published": 88494,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.missingReviewOrders",
+      "actual": 616,
+      "published": 616,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.reviewCoveragePct",
+      "actual": 99.31,
+      "published": 99.31,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.scoreSum",
+      "actual": 366811,
+      "published": 366811,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.averageScore",
+      "actual": 4.15,
+      "published": 4.15,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.lowScoreOrders",
+      "actual": 11534,
+      "published": 11534,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.lowScorePct",
+      "actual": 13.03,
+      "published": 13.03,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.uniqueCustomers",
+      "actual": 86271,
+      "published": 86271,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.repeatCustomers",
+      "actual": 2562,
+      "published": 2562,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.repeatCustomerPct",
+      "actual": 2.97,
+      "published": 2.97,
+      "status": "PASS"
+    }
+  ],
+  "nonfinite_numbers": "None in exported inputs or calculated snapshots; checked before JSON serialization",
+  "empty_slice": "August 2017, RR has zero source orders; undefined means and rates remain null",
+  "limitations": [
+    "Browser rendering, control interactions, accessibility and hosting were not tested by this script."
+  ]
+}

@@ -61,9 +61,9 @@ Completed 9 October 2026. Checked join duplication, payment reconciliation and m
 
 ## Part 8 — Build the dashboard
 
-Create three pages: sales, delivery and customer experience. Check every headline number against the SQL outputs. Export screenshots for people viewing GitHub.
+Implemented 10 October 2026: three browser pages for sales, delivery and customer experience, with shared month/state filters and CSV downloads. The same JavaScript calculations used by the interface are checked against SQLite for default, filtered and empty selections. Static data previews support GitHub readers. The required browser-testing capability was unavailable, so actual browser screenshots, live visual checks and manual accessibility review remain open; static previews are not presented as browser captures. See [Part 8](15_part8_dashboard.md).
 
-**GitHub deliverables:** dashboard source file, dashboard/README.md and dashboard/screenshots/.  
+**GitHub deliverables:** dashboard HTML/CSS/JavaScript and checked data, dashboard/README.md, labelled static previews in dashboard/screenshots/, export and validation scripts, tests, docs/15_part8_dashboard.md and Part 8 evidence in results/.
 **Done when:** another person can understand the views and definitions.
 
 ## Part 9 — Develop recommendations

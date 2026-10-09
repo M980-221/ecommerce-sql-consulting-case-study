@@ -1,0 +1,17 @@
+✔ all three real-data templates show checked headlines without undefined or nonfinite output (5.81946ms)
+✔ month and state change events recompute the selected rows and displayed values (493.711835ms)
+✔ navigation and hash changes preserve filters; reset restores the full population (571.971715ms)
+✔ crossing either month endpoint keeps the selection valid and synchronizes controls (275.385299ms)
+✔ the genuinely empty RR slice produces explicit empty states and dashes on every page (3.766562ms)
+✔ CSV download uses the current page and filters, creates a blob and revokes its URL (274.733865ms)
+✔ show-all event expands an actual ranking and can collapse it again (226.755001ms)
+✔ local entry point loads the five required files in order with named form controls (0.76849ms)
+✔ missing data shows a useful local-file recovery message instead of blank output (204.34467ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3144.180102

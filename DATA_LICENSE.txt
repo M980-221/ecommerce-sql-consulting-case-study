@@ -17,5 +17,10 @@ format to SQLite and adds an audit table and a row-count view. Any shared
 source data or data-derived database remains subject to the dataset's licence,
 including attribution, NonCommercial and ShareAlike conditions.
 
+Part 8 includes a reduced, data-derived JavaScript export in dashboard/data.js
+and static data previews. These remain subject to the same dataset licence.
+The export omits raw identifiers and free-text reviews, and uses stable integer
+indexes to group customers and order/category rows for local browser filtering.
+
 This is an independent portfolio case study by Mohammed Baquaysh and is not
 commissioned by or endorsed by Olist.

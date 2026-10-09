@@ -1,0 +1,19 @@
+{
+  "project_id": "appgprj_6ac97302f20c819190a1d657fa8a8ca5",
+  "url": "https://olist-commerce-review.mohammed-baquaysh.chatgpt.site",
+  "audience": "owner-private",
+  "status": "succeeded",
+  "deployment_id": "appgdep_6ac9767df1588191bf2000908e67a83d",
+  "version_id": "appgprj_6ac97302f20c819190a1d657fa8a8ca5~appgver_5120a767471c8191889ca4544d1d66e0",
+  "site_source_commit": "fa96a448d941a997897c65bc62f246df2355e382",
+  "published_at": "2026-10-09T23:19:46.102516+00:00",
+  "verification": "Native Sites deployment succeeded. Deployed asset hashes match the repository dashboard files. Browser rendering and manual accessibility checks were not performed.",
+  "asset_sha256": {
+    "dashboard/index.html": "2c168b55198819e1f10b1ffc3cab7f7449db65566e79e973ae28a6093cb746b6",
+    "dashboard/styles.css": "73d65833de9eba7293ab26fa58511551efd0b2e385f15c00259cee5dc2dc5719",
+    "dashboard/app.js": "b70a79c5134a8dcbc5a63955bcd3282c376d9ee0670b79f525e5a8dab26c3572",
+    "dashboard/metrics.js": "2b5ec33727ee95fefb94e8764557356b48477006fec17125f3d29225a247ded1",
+    "dashboard/data.js": "6596afb4e2ea00e5be7fbcfb51e29a98708e6373c9ba8f5e0afafdd28f6c4f8a",
+    "DATA_LICENSE.txt": "6acbea913f0f15cca0c665090f75359b5f18aa299adc6f6bcdb7c22a624affa1"
+  }
+}

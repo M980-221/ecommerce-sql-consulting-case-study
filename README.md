@@ -4,7 +4,19 @@ A SQL consulting case study by Mohammed Baquaysh, using Olist's historical marke
 
 **Business question:** Where should an e-commerce manager focus first to improve sales performance, delivery reliability and customer experience?
 
-**Current stage:** Parts 1–7 complete. Sales, delivery and customer analysis now have combined validation, a payment reconciliation investigation, five order walkthroughs and four reporting views. The three-page dashboard is next.
+**Current stage:** Parts 1–8 implemented. The dashboard brings sales, delivery and customer analysis together, with month and buyer-state filters. Recommendations and the final presentation are next. Browser visual testing remains outstanding; calculation checks and labelled static previews are available.
+
+## Explore the dashboard
+
+The dashboard has three pages: **Sales**, **Delivery** and **Customers**. Filter the purchase months and buyer state, inspect the charts and tables, and download the current page's results as CSV. Customer groups are recalculated for each selection.
+
+[Open the dashboard (private, owner access)](https://olist-commerce-review.mohammed-baquaysh.chatgpt.site) · [Source and local opening instructions](dashboard/README.md) · [Part 8 walkthrough](docs/15_part8_dashboard.md)
+
+Download this repository and open `dashboard/index.html` in a modern browser. No database connection, installation or account is required for the local dashboard. The separate hosted Site uses owner-only access.
+
+![Sales data preview: full reporting window](dashboard/screenshots/sales-preview.svg)
+
+This image is a static preview of the checked data, not a browser screenshot. [Delivery preview](dashboard/screenshots/delivery-preview.svg) · [Customer preview](dashboard/screenshots/customers-preview.svg)
 
 ## Sales findings
 
@@ -55,6 +67,7 @@ Five order walkthroughs show exact reconciliation, JOIN duplication, small and l
 - Completed five delivery queries covering overall outcomes, purchase months, buyer states, categories and single-seller orders. All 310 result rows match independent raw-record calculations; 25 checks and 12 delivery test cases passed.
 - Completed five customer queries covering reviews, delivery comparisons, spending, repeat purchases and buyer states. All 56 result rows match independent raw-record calculations; 26 checks and 12 customer test cases passed.
 - Investigated all 576 nonzero payment differences, checked five representative orders and reconciled the reporting views to the published analysis. The [Part 7 evidence](results/part7_validation.txt) records the checks; source records and metric definitions remain unchanged.
+- Built the three dashboard pages with local data, shared filters, calculated customer groups and CSV downloads. [Part 8 checks](results/part8_validation.txt) compare the JavaScript calculations with SQLite across full, filtered and empty populations. Static previews are included; browser rendering and manual accessibility review remain open.
 
 SQLite provides a portable database for this project. SQL defines the tables and inspection checks; a Python standard-library script handles CSV loading, including multiline reviews. Raw values remain TEXT. Part 3 views provide validated numeric values, NULL handling and metric-specific eligibility rules.
 
@@ -98,6 +111,7 @@ Requirements: Python 3.8 or later. The loader uses the standard library, so no a
    python3 scripts/analyse_delivery.py
    python3 scripts/analyse_customers.py
    python3 scripts/validate_part7.py
+   python3 scripts/export_dashboard.py
    ```
 
 4. Open the resulting `ecommerce_olist.db` in a SQLite client and run:
@@ -115,6 +129,8 @@ python3 scripts/build_database.py --output ecommerce_olist_rebuilt.db --results-
 ```
 
 Source CSVs and database files are excluded from Git. The source manifest records the version and file fingerprints used for the published results. Rebuild timestamps and database hashes can differ because the database records the import time.
+
+The checked dashboard data is included, so opening it does not require rebuilding the database. To validate a rebuilt dashboard, use Node.js and run `python3 scripts/validate_dashboard.py` and `node --test tests/test_dashboard*.mjs`. The dashboard itself needs only a browser. See [Part 8 reproduction steps](docs/15_part8_dashboard.md).
 
 ## Part 3 outcome
 
@@ -136,6 +152,7 @@ Source exceptions are visible: 610 products have no category, 13 lack an English
 | [Part 5: delivery analysis](docs/12_part5_delivery.md) | Lateness, delivery time, comparison groups and SQL practice |
 | [Part 6: customer analysis](docs/13_part6_customers.md) | Review coverage, spending, repeat purchases and SQL practice |
 | [Part 7: validation and SQL review](docs/14_part7_validation.md) | Payment differences, five order traces, reporting views and measured lookup performance |
+| [Part 8: dashboard](docs/15_part8_dashboard.md) | Three interactive pages, filter rules, calculation checks and static previews |
 | [Data dictionary](docs/03_data_dictionary.md) | All 47 fields, verified keys, derived views and relationship diagram |
 | [Metric definitions](docs/04_metric_definitions.md) | Implemented reporting period, eligibility flags and denominators |
 | [Validation log](docs/05_validation_log.md) | Completed checks and remaining validation |
@@ -150,11 +167,11 @@ Source exceptions are visible: 610 products have no category, 13 lack an English
 - [x] Part 5: Analyse delivery performance.
 - [x] Part 6: Analyse customer experience.
 - [x] Part 7: Validate results and improve SQL.
-- [ ] Part 8: Build and review the dashboard.
+- [x] Part 8: Build the dashboard and validate its calculations; browser visual QA remains open.
 - [ ] Part 9: Develop recommendations and slides.
 - [ ] Part 10: Prepare the completed portfolio.
 
-Fifteen business queries and the Part 7 validation are complete. Next come three dashboard pages, three recommendations and a five-slide presentation. Known source exceptions remain documented; passing checks do not establish the causes of payment differences.
+Fifteen business queries, combined validation and the three dashboard pages are implemented. Next come three recommendations and a five-slide presentation. Known source exceptions remain documented; passing checks do not establish the causes of payment differences.
 
 ## Data attribution
 

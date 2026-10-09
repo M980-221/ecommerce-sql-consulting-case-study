@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1040" viewBox="0 0 1400 1040" role="img" aria-labelledby="title description">
+<title id="title">Sales performance — Olist static data preview</title>
+<desc id="description">Static data preview of sales measures, computed from the current dashboard modules for the full reporting window. Monetary values are source units, excluding freight; they are not commission revenue or profit.</desc>
+<style>text{font-family:Inter,Aptos,"Segoe UI",Arial,sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect x="0" y="0" width="1400" height="1040" rx="0" fill="#f6f7f3"/>
+<rect x="64" y="29" width="9" height="24" rx="2" fill="#177c78"/>
+<text x="85" y="47" font-size="14" font-weight="700" text-anchor="start" fill="#173c43">OLIST  /  E-COMMERCE ANALYSIS</text>
+<text x="1336" y="47" font-size="13" font-weight="400" text-anchor="end" fill="#6a7b7c">Mohammed Baquaysh  ·  SQL portfolio</text>
+<line x1="64" y1="72" x2="1336" y2="72" stroke="#e1e7e0" stroke-width="1"/>
+<text x="64" y="125" font-size="36" font-weight="700" text-anchor="start" fill="#173c43">Sales performance</text>
+<text x="64" y="156" font-size="15" font-weight="400" text-anchor="start" fill="#6a7b7c">Product value, order volume and the categories behind sales.</text>
+<rect x="938" y="95" width="398" height="34" rx="17" fill="#e7f2ec"/>
+<text x="1137" y="117" font-size="12" font-weight="700" text-anchor="middle" fill="#177c78">Static data preview · Full reporting window</text>
+<text x="64" y="203" font-size="15" font-weight="700" text-anchor="start" fill="#177c78">Sales</text>
+<line x1="64" y1="213" x2="154" y2="213" stroke="#177c78" stroke-width="3"/>
+<text x="207" y="203" font-size="15" font-weight="400" text-anchor="start" fill="#6a7b7c">Delivery</text>
+<text x="350" y="203" font-size="15" font-weight="400" text-anchor="start" fill="#6a7b7c">Customers</text>
+<text x="1336" y="203" font-size="13" font-weight="400" text-anchor="end" fill="#6a7b7c">Purchases: 1 Feb 2017 – 31 Jul 2018</text>
+<line x1="64" y1="228" x2="1336" y2="228" stroke="#e1e7e0" stroke-width="1"/>
+<line x1="64" y1="987" x2="1336" y2="987" stroke="#e1e7e0" stroke-width="1"/>
+<text x="64" y="1012" font-size="12" font-weight="400" text-anchor="start" fill="#6a7b7c">Source: validated Olist SQL case study · Current dashboard data</text>
+<a href="https://github.com/M980-221/ecommerce-sql-consulting-case-study">
+<text x="1336" y="1012" font-size="12" font-weight="400" text-anchor="end" fill="#177c78">github.com/M980-221/ecommerce-sql-consulting-case-study</text>
+</a>
+<rect x="64" y="250" width="300" height="124" rx="10" fill="#ffffff" stroke="#e1e7e0"/>
+<text x="86" y="278" font-size="11" font-weight="700" text-anchor="start" fill="#6a7b7c">PRODUCT SALES VALUE</text>
+<text x="86" y="323" font-size="31" font-weight="700" text-anchor="start" fill="#173c43">12,230,652.13</text>
+<text x="86" y="349" font-size="11" font-weight="400" text-anchor="start" fill="#6a7b7c">Source monetary units · excludes freight</text>
+<rect x="388" y="250" width="300" height="124" rx="10" fill="#ffffff" stroke="#e1e7e0"/>
+<text x="410" y="278" font-size="11" font-weight="700" text-anchor="start" fill="#6a7b7c">SALES ORDERS</text>
+<text x="410" y="323" font-size="35" font-weight="700" text-anchor="start" fill="#173c43">89,110</text>
+<text x="410" y="349" font-size="11" font-weight="400" text-anchor="start" fill="#6a7b7c">Delivered orders with qualifying items</text>
+<rect x="712" y="250" width="300" height="124" rx="10" fill="#ffffff" stroke="#e1e7e0"/>
+<text x="734" y="278" font-size="11" font-weight="700" text-anchor="start" fill="#6a7b7c">AVERAGE ORDER VALUE</text>
+<text x="734" y="323" font-size="35" font-weight="700" text-anchor="start" fill="#173c43">137.25</text>
+<text x="734" y="349" font-size="11" font-weight="400" text-anchor="start" fill="#6a7b7c">Product sales value ÷ sales orders</text>
+<rect x="1036" y="250" width="300" height="124" rx="10" fill="#ffffff" stroke="#e1e7e0"/>
+<text x="1058" y="278" font-size="11" font-weight="700" text-anchor="start" fill="#6a7b7c">CUSTOMERS</text>
+<text x="1058" y="323" font-size="35" font-weight="700" text-anchor="start" fill="#173c43">86,271</text>
+<text x="1058" y="349" font-size="11" font-weight="400" text-anchor="start" fill="#6a7b7c">Distinct persistent customer IDs</text>
+<rect x="64" y="398" width="752" height="428" rx="12" fill="#ffffff" stroke="#e1e7e0"/>
+<text x="88" y="433" font-size="20" font-weight="700" text-anchor="start" fill="#173c43">Product sales by month</text>
+<text x="88" y="459" font-size="12" font-weight="400" text-anchor="start" fill="#6a7b7c">Source monetary units · 18 calendar months</text>
+<line x1="125" y1="724.0" x2="778" y2="724.0" stroke="#e1e7e0" stroke-width="1"/>
+<text x="111" y="728.0" font-size="11" font-weight="400" text-anchor="end" fill="#6a7b7c">0.00m</text>
+<line x1="125" y1="667.5" x2="778" y2="667.5" stroke="#e1e7e0" stroke-width="1"/>
+<text x="111" y="671.5" font-size="11" font-weight="400" text-anchor="end" fill="#6a7b7c">0.25m</text>
+<line x1="125" y1="611.0" x2="778" y2="611.0" stroke="#e1e7e0" stroke-width="1"/>
+<text x="111" y="615.0" font-size="11" font-weight="400" text-anchor="end" fill="#6a7b7c">0.50m</text>
+<line x1="125" y1="554.5" x2="778" y2="554.5" stroke="#e1e7e0" stroke-width="1"/>
+<text x="111" y="558.5" font-size="11" font-weight="400" text-anchor="end" fill="#6a7b7c">0.75m</text>
+<line x1="125" y1="498.0" x2="778" y2="498.0" stroke="#e1e7e0" stroke-width="1"/>
+<text x="111" y="502.0" font-size="11" font-weight="400" text-anchor="end" fill="#6a7b7c">1.00m</text>
+<polygon points="125.00,724.00 125.00,671.07 163.41,642.82 201.82,647.01 240.24,613.41 278.65,628.65 317.06,615.16 355.47,598.64 393.88,586.73 432.29,577.50 470.71,500.77 509.12,559.92 547.53,515.03 585.94,537.23 624.35,508.54 662.76,503.98 701.18,503.07 739.59,530.53 778.00,527.84 778.00,724.00" fill="#e7f2ec"/>
+<polyline points="125.00,671.07 163.41,642.82 201.82,647.01 240.24,613.41 278.65,628.65 317.06,615.16 355.47,598.64 393.88,586.73 432.29,577.50 470.71,500.77 509.12,559.92 547.53,515.03 585.94,537.23 624.35,508.54 662.76,503.98 701.18,503.07 739.59,530.53 778.00,527.84" fill="none" stroke="#177c78" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<g role="group" aria-label="2017-02: 234,223.40 source units"><title>2017-02: 234,223.40 source units</title>
+<circle cx="125.00" cy="671.07" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<text x="125.0" y="750" font-size="11" font-weight="400" text-anchor="middle" fill="#6a7b7c">Feb 17</text>
+<g role="group" aria-label="2017-03: 359,198.85 source units"><title>2017-03: 359,198.85 source units</title>
+<circle cx="163.41" cy="642.82" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<g role="group" aria-label="2017-04: 340,669.68 source units"><title>2017-04: 340,669.68 source units</title>
+<circle cx="201.82" cy="647.01" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<g role="group" aria-label="2017-05: 489,338.25 source units"><title>2017-05: 489,338.25 source units</title>
+<circle cx="240.24" cy="613.41" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<text x="240.23529411764707" y="750" font-size="11" font-weight="400" text-anchor="middle" fill="#6a7b7c">May 17</text>
+<g role="group" aria-label="2017-06: 421,923.37 source units"><title>2017-06: 421,923.37 source units</title>
+<circle cx="278.65" cy="628.65" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<g role="group" aria-label="2017-07: 481,604.52 source units"><title>2017-07: 481,604.52 source units</title>
+<circle cx="317.06" cy="615.16" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<g role="group" aria-label="2017-08: 554,699.70 source units"><title>2017-08: 554,699.70 source units</title>
+<circle cx="355.47" cy="598.64" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<text x="355.47058823529414" y="750" font-size="11" font-weight="400" text-anchor="middle" fill="#6a7b7c">Aug 17</text>
+<g role="group" aria-label="2017-09: 607,399.67 source units"><title>2017-09: 607,399.67 source units</title>
+<circle cx="393.88" cy="586.73" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<g role="group" aria-label="2017-10: 648,247.65 source units"><title>2017-10: 648,247.65 source units</title>
+<circle cx="432.29" cy="577.50" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<g role="group" aria-label="2017-11: 987,765.37 source units"><title>2017-11: 987,765.37 source units</title>
+<circle cx="470.71" cy="500.77" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<text x="470.70588235294116" y="750" font-size="11" font-weight="400" text-anchor="middle" fill="#6a7b7c">Nov 17</text>
+<g role="group" aria-label="2017-12: 726,033.19 source units"><title>2017-12: 726,033.19 source units</title>
+<circle cx="509.12" cy="559.92" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<g role="group" aria-label="2018-01: 924,645.00 source units"><title>2018-01: 924,645.00 source units</title>
+<circle cx="547.53" cy="515.03" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<g role="group" aria-label="2018-02: 826,437.13 source units"><title>2018-02: 826,437.13 source units</title>
+<circle cx="585.94" cy="537.23" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<text x="585.9411764705883" y="750" font-size="11" font-weight="400" text-anchor="middle" fill="#6a7b7c">Feb 18</text>
+<g role="group" aria-label="2018-03: 953,356.25 source units"><title>2018-03: 953,356.25 source units</title>
+<circle cx="624.35" cy="508.54" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<g role="group" aria-label="2018-04: 973,534.09 source units"><title>2018-04: 973,534.09 source units</title>
+<circle cx="662.76" cy="503.98" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<g role="group" aria-label="2018-05: 977,544.69 source units"><title>2018-05: 977,544.69 source units</title>
+<circle cx="701.18" cy="503.07" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<text x="701.1764705882352" y="750" font-size="11" font-weight="400" text-anchor="middle" fill="#6a7b7c">May 18</text>
+<g role="group" aria-label="2018-06: 856,077.86 source units"><title>2018-06: 856,077.86 source units</title>
+<circle cx="739.59" cy="530.53" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<g role="group" aria-label="2018-07: 867,953.46 source units"><title>2018-07: 867,953.46 source units</title>
+<circle cx="778.00" cy="527.84" r="4" fill="#ffffff" stroke="#177c78" stroke-width="2"/>
+</g>
+<text x="778.0" y="750" font-size="11" font-weight="400" text-anchor="middle" fill="#6a7b7c">Jul 18</text>
+<text x="470.70588235294116" y="485.76502638" font-size="12" font-weight="700" text-anchor="middle" fill="#177c78">987,765.37</text>
+<text x="88" y="791" font-size="11" font-weight="400" text-anchor="start" fill="#6a7b7c">Each point is one purchase month; outcomes use the final source snapshot.</text>
+<rect x="840" y="398" width="496" height="428" rx="12" fill="#ffffff" stroke="#e1e7e0"/>
+<text x="864" y="433" font-size="20" font-weight="700" text-anchor="start" fill="#173c43">Leading categories</text>
+<text x="864" y="459" font-size="12" font-weight="400" text-anchor="start" fill="#6a7b7c">Top five by product sales value</text>
+<g role="group" aria-label="health beauty: 1,097,800.05 source units"><title>health beauty: 1,097,800.05 source units</title>
+<text x="864" y="499" font-size="12" font-weight="700" text-anchor="start" fill="#173c43">health beauty</text>
+<text x="1312" y="499" font-size="12" font-weight="400" text-anchor="end" fill="#173c43">1,097,800.05</text>
+<rect x="864" y="510" width="448" height="9" rx="4" fill="#e7f2ec"/>
+<rect x="864" y="510" width="448.0" height="9" rx="4" fill="#177c78"/>
+</g>
+<g role="group" aria-label="watches gifts: 1,085,612.33 source units"><title>watches gifts: 1,085,612.33 source units</title>
+<text x="864" y="555" font-size="12" font-weight="700" text-anchor="start" fill="#173c43">watches gifts</text>
+<text x="1312" y="555" font-size="12" font-weight="400" text-anchor="end" fill="#173c43">1,085,612.33</text>
+<rect x="864" y="566" width="448" height="9" rx="4" fill="#e7f2ec"/>
+<rect x="864" y="566" width="443.02632691627224" height="9" rx="4" fill="#177c78"/>
+</g>
+<g role="group" aria-label="bed bath table: 958,260.32 source units"><title>bed bath table: 958,260.32 source units</title>
+<text x="864" y="611" font-size="12" font-weight="700" text-anchor="start" fill="#173c43">bed bath table</text>
+<text x="1312" y="611" font-size="12" font-weight="400" text-anchor="end" fill="#173c43">958,260.32</text>
+<rect x="864" y="622" width="448" height="9" rx="4" fill="#e7f2ec"/>
+<rect x="864" y="622" width="391.05538696231605" height="9" rx="4" fill="#177c78"/>
+</g>
+<g role="group" aria-label="sports leisure: 892,768.08 source units"><title>sports leisure: 892,768.08 source units</title>
+<text x="864" y="667" font-size="12" font-weight="700" text-anchor="start" fill="#173c43">sports leisure</text>
+<text x="1312" y="667" font-size="12" font-weight="400" text-anchor="end" fill="#173c43">892,768.08</text>
+<rect x="864" y="678" width="448" height="9" rx="4" fill="#e7f2ec"/>
+<rect x="864" y="678" width="364.3287316665726" height="9" rx="4" fill="#177c78"/>
+</g>
+<g role="group" aria-label="computers accessories: 844,078.81 source units"><title>computers accessories: 844,078.81 source units</title>
+<text x="864" y="723" font-size="12" font-weight="700" text-anchor="start" fill="#173c43">computers accessories</text>
+<text x="1312" y="723" font-size="12" font-weight="400" text-anchor="end" fill="#173c43">844,078.81</text>
+<rect x="864" y="734" width="448" height="9" rx="4" fill="#e7f2ec"/>
+<rect x="864" y="734" width="344.45918168795856" height="9" rx="4" fill="#177c78"/>
+</g>
+<text x="864" y="804" font-size="11" font-weight="400" text-anchor="start" fill="#6a7b7c">Largest totals shown; group sizes matter.</text>
+<rect x="64" y="850" width="1272" height="116" rx="10" fill="#e7f2ec"/>
+<rect x="64" y="865" width="4" height="86" rx="2" fill="#177c78"/>
+<text x="88" y="878" font-size="15" font-weight="700" text-anchor="start" fill="#173c43">Read the sales figures in context</text>
+<text x="88" y="904" font-size="13" font-weight="400" text-anchor="start" fill="#6a7b7c">2,670 period orders are excluded by the sales rule. All source records remain available.</text>
+<text x="88" y="926" font-size="13" font-weight="400" text-anchor="start" fill="#6a7b7c">Sales use item prices, exclude freight and retain source payment differences; payment totals do not redefine sales.</text>
+<text x="88" y="948" font-size="13" font-weight="400" text-anchor="start" fill="#6a7b7c">This static preview shows the full window. The live dashboard recalculates its supported filters.</text>
+</svg>

@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1040" viewBox="0 0 1400 1040" role="img" aria-labelledby="title description">
+<title id="title">Customers and reviews — Olist static data preview</title>
+<desc id="description">Static data preview for customers with eligible sales. Repeat means at least two eligible orders in the window, including same-day purchases; this is not a retention or churn measure. Review comparisons are descriptive.</desc>
+<style>text{font-family:Inter,Aptos,"Segoe UI",Arial,sans-serif;font-variant-numeric:tabular-nums}</style>
+<rect x="0" y="0" width="1400" height="1040" rx="0" fill="#f6f7f3"/>
+<rect x="64" y="29" width="9" height="24" rx="2" fill="#177c78"/>
+<text x="85" y="47" font-size="14" font-weight="700" text-anchor="start" fill="#173c43">OLIST  /  E-COMMERCE ANALYSIS</text>
+<text x="1336" y="47" font-size="13" font-weight="400" text-anchor="end" fill="#6a7b7c">Mohammed Baquaysh  ·  SQL portfolio</text>
+<line x1="64" y1="72" x2="1336" y2="72" stroke="#e1e7e0" stroke-width="1"/>
+<text x="64" y="125" font-size="36" font-weight="700" text-anchor="start" fill="#173c43">Customers and reviews</text>
+<text x="64" y="156" font-size="15" font-weight="400" text-anchor="start" fill="#6a7b7c">Observed repeat purchases and selected review scores across the reporting window.</text>
+<rect x="938" y="95" width="398" height="34" rx="17" fill="#e7f2ec"/>
+<text x="1137" y="117" font-size="12" font-weight="700" text-anchor="middle" fill="#177c78">Static data preview · Full reporting window</text>
+<text x="64" y="203" font-size="15" font-weight="400" text-anchor="start" fill="#6a7b7c">Sales</text>
+<text x="207" y="203" font-size="15" font-weight="400" text-anchor="start" fill="#6a7b7c">Delivery</text>
+<text x="350" y="203" font-size="15" font-weight="700" text-anchor="start" fill="#177c78">Customers</text>
+<line x1="350" y1="213" x2="440" y2="213" stroke="#177c78" stroke-width="3"/>
+<text x="1336" y="203" font-size="13" font-weight="400" text-anchor="end" fill="#6a7b7c">Purchases: 1 Feb 2017 – 31 Jul 2018</text>
+<line x1="64" y1="228" x2="1336" y2="228" stroke="#e1e7e0" stroke-width="1"/>
+<line x1="64" y1="987" x2="1336" y2="987" stroke="#e1e7e0" stroke-width="1"/>
+<text x="64" y="1012" font-size="12" font-weight="400" text-anchor="start" fill="#6a7b7c">Source: validated Olist SQL case study · Current dashboard data</text>
+<a href="https://github.com/M980-221/ecommerce-sql-consulting-case-study">
+<text x="1336" y="1012" font-size="12" font-weight="400" text-anchor="end" fill="#177c78">github.com/M980-221/ecommerce-sql-consulting-case-study</text>
+</a>
+<rect x="64" y="250" width="300" height="124" rx="10" fill="#ffffff" stroke="#e1e7e0"/>
+<text x="86" y="278" font-size="11" font-weight="700" text-anchor="start" fill="#6a7b7c">CUSTOMERS</text>
+<text x="86" y="323" font-size="35" font-weight="700" text-anchor="start" fill="#173c43">86,271</text>
+<text x="86" y="349" font-size="11" font-weight="400" text-anchor="start" fill="#6a7b7c">Distinct persistent customer IDs</text>
+<rect x="388" y="250" width="300" height="124" rx="10" fill="#ffffff" stroke="#e1e7e0"/>
+<text x="410" y="278" font-size="11" font-weight="700" text-anchor="start" fill="#6a7b7c">OBSERVED REPEAT RATE</text>
+<text x="410" y="323" font-size="35" font-weight="700" text-anchor="start" fill="#173c43">2.97%</text>
+<text x="410" y="349" font-size="11" font-weight="400" text-anchor="start" fill="#6a7b7c">2,562 customers with 2+ eligible orders</text>
+<rect x="712" y="250" width="300" height="124" rx="10" fill="#ffffff" stroke="#e1e7e0"/>
+<text x="734" y="278" font-size="11" font-weight="700" text-anchor="start" fill="#6a7b7c">AVERAGE REVIEW SCORE</text>
+<text x="734" y="323" font-size="35" font-weight="700" text-anchor="start" fill="#173c43">4.15 / 5</text>
+<text x="734" y="349" font-size="11" font-weight="400" text-anchor="start" fill="#6a7b7c">88,494 reviewed sales orders</text>
+<rect x="1036" y="250" width="300" height="124" rx="10" fill="#ffffff" stroke="#e1e7e0"/>
+<text x="1058" y="278" font-size="11" font-weight="700" text-anchor="start" fill="#6a7b7c">LOW-SCORE SHARE</text>
+<text x="1058" y="323" font-size="35" font-weight="700" text-anchor="start" fill="#173c43">13.03%</text>
+<text x="1058" y="349" font-size="11" font-weight="400" text-anchor="start" fill="#6a7b7c">Scores 1–2 among reviewed sales orders</text>
+<rect x="64" y="398" width="752" height="428" rx="12" fill="#ffffff" stroke="#e1e7e0"/>
+<text x="88" y="433" font-size="20" font-weight="700" text-anchor="start" fill="#173c43">Selected review scores</text>
+<text x="88" y="459" font-size="12" font-weight="400" text-anchor="start" fill="#6a7b7c">One selected valid review per reviewed sales order</text>
+<line x1="114" y1="727.0" x2="768" y2="727.0" stroke="#e1e7e0" stroke-width="1"/>
+<text x="102" y="731.0" font-size="11" font-weight="400" text-anchor="end" fill="#6a7b7c">0k</text>
+<line x1="114" y1="672.5" x2="768" y2="672.5" stroke="#e1e7e0" stroke-width="1"/>
+<text x="102" y="676.5" font-size="11" font-weight="400" text-anchor="end" fill="#6a7b7c">15k</text>
+<line x1="114" y1="618.0" x2="768" y2="618.0" stroke="#e1e7e0" stroke-width="1"/>
+<text x="102" y="622.0" font-size="11" font-weight="400" text-anchor="end" fill="#6a7b7c">30k</text>
+<line x1="114" y1="563.5" x2="768" y2="563.5" stroke="#e1e7e0" stroke-width="1"/>
+<text x="102" y="567.5" font-size="11" font-weight="400" text-anchor="end" fill="#6a7b7c">45k</text>
+<line x1="114" y1="509.0" x2="768" y2="509.0" stroke="#e1e7e0" stroke-width="1"/>
+<text x="102" y="513.0" font-size="11" font-weight="400" text-anchor="end" fill="#6a7b7c">60k</text>
+<g role="group" aria-label="1 stars: 8,800 reviews; 9.94% of reviewed orders"><title>1 stars: 8,800 reviews; 9.94% of reviewed orders</title>
+<rect x="144.4" y="695.0266666666666" width="70" height="31.973333333333333" rx="4" fill="#c67840"/>
+<text x="179.4" y="683.0266666666666" font-size="12" font-weight="700" text-anchor="middle" fill="#173c43">8,800</text>
+<text x="179.4" y="752" font-size="12" font-weight="400" text-anchor="middle" fill="#6a7b7c">1 star</text>
+</g>
+<g role="group" aria-label="2 stars: 2,734 reviews; 3.09% of reviewed orders"><title>2 stars: 2,734 reviews; 3.09% of reviewed orders</title>
+<rect x="275.20000000000005" y="717.0664666666667" width="70" height="9.933533333333333" rx="4" fill="#c67840"/>
+<text x="310.20000000000005" y="705.0664666666667" font-size="12" font-weight="700" text-anchor="middle" fill="#173c43">2,734</text>
+<text x="310.20000000000005" y="752" font-size="12" font-weight="400" text-anchor="middle" fill="#6a7b7c">2 stars</text>
+</g>
+<g role="group" aria-label="3 stars: 7,392 reviews; 8.35% of reviewed orders"><title>3 stars: 7,392 reviews; 8.35% of reviewed orders</title>
+<rect x="406.0" y="700.1424" width="70" height="26.8576" rx="4" fill="#177c78"/>
+<text x="441.0" y="688.1424" font-size="12" font-weight="700" text-anchor="middle" fill="#173c43">7,392</text>
+<text x="441.0" y="752" font-size="12" font-weight="400" text-anchor="middle" fill="#6a7b7c">3 stars</text>
+</g>
+<g role="group" aria-label="4 stars: 17,473 reviews; 19.74% of reviewed orders"><title>4 stars: 17,473 reviews; 19.74% of reviewed orders</title>
+<rect x="536.8000000000001" y="663.5147666666667" width="70" height="63.48523333333333" rx="4" fill="#177c78"/>
+<text x="571.8000000000001" y="651.5147666666667" font-size="12" font-weight="700" text-anchor="middle" fill="#173c43">17,473</text>
+<text x="571.8000000000001" y="752" font-size="12" font-weight="400" text-anchor="middle" fill="#6a7b7c">4 stars</text>
+</g>
+<g role="group" aria-label="5 stars: 52,095 reviews; 58.87% of reviewed orders"><title>5 stars: 52,095 reviews; 58.87% of reviewed orders</title>
+<rect x="667.6" y="537.7215" width="70" height="189.27849999999998" rx="4" fill="#177c78"/>
+<text x="702.6" y="525.7215" font-size="12" font-weight="700" text-anchor="middle" fill="#173c43">52,095</text>
+<text x="702.6" y="752" font-size="12" font-weight="400" text-anchor="middle" fill="#6a7b7c">5 stars</text>
+</g>
+<text x="88" y="791" font-size="11" font-weight="400" text-anchor="start" fill="#6a7b7c">Low scores are 1 or 2. Orders without an eligible review remain excluded here.</text>
+<rect x="840" y="398" width="496" height="428" rx="12" fill="#ffffff" stroke="#e1e7e0"/>
+<text x="864" y="433" font-size="20" font-weight="700" text-anchor="start" fill="#173c43">Delivery and reviews</text>
+<text x="864" y="459" font-size="12" font-weight="400" text-anchor="start" fill="#6a7b7c">Average selected score · reviewed orders only</text>
+<g role="group" aria-label="On-time deliveries: average score 4.28 out of 5 across 82,514 reviewed orders; 171 selected responses precede receipt"><title>On-time deliveries: average score 4.28 out of 5 across 82,514 reviewed orders; 171 selected responses precede receipt</title>
+<text x="864" y="506" font-size="14" font-weight="700" text-anchor="start" fill="#173c43">On-time deliveries</text>
+<text x="1312" y="506" font-size="16" font-weight="700" text-anchor="end" fill="#173c43">4.28 / 5</text>
+<rect x="864" y="524" width="448" height="20" rx="4" fill="#e7f2ec"/>
+<rect x="864" y="524" width="383.488" height="20" rx="4" fill="#177c78"/>
+<text x="864" y="567" font-size="12" font-weight="400" text-anchor="start" fill="#6a7b7c">82,514 reviewed orders</text>
+</g>
+<g role="group" aria-label="Late deliveries: average score 2.23 out of 5 across 5,972 reviewed orders; 4,274 selected responses precede receipt"><title>Late deliveries: average score 2.23 out of 5 across 5,972 reviewed orders; 4,274 selected responses precede receipt</title>
+<text x="864" y="621" font-size="14" font-weight="700" text-anchor="start" fill="#173c43">Late deliveries</text>
+<text x="1312" y="621" font-size="16" font-weight="700" text-anchor="end" fill="#173c43">2.23 / 5</text>
+<rect x="864" y="639" width="448" height="20" rx="4" fill="#e7f2ec"/>
+<rect x="864" y="639" width="199.808" height="20" rx="4" fill="#c67840"/>
+<text x="864" y="682" font-size="12" font-weight="400" text-anchor="start" fill="#6a7b7c">5,972 reviewed orders</text>
+</g>
+<text x="864" y="778" font-size="11" font-weight="400" text-anchor="start" fill="#6a7b7c">Descriptive association; review timing varies.</text>
+<text x="864" y="798" font-size="11" font-weight="400" text-anchor="start" fill="#6a7b7c">This does not establish a causal effect.</text>
+<rect x="64" y="850" width="1272" height="116" rx="10" fill="#fcf0e4"/>
+<rect x="64" y="865" width="4" height="86" rx="2" fill="#c67840"/>
+<text x="88" y="878" font-size="15" font-weight="700" text-anchor="start" fill="#173c43">Keep review timing and customer follow-up visible</text>
+<text x="88" y="904" font-size="13" font-weight="400" text-anchor="start" fill="#6a7b7c">616 sales orders have no eligible selected review; review coverage is 99.31%.</text>
+<text x="88" y="926" font-size="13" font-weight="400" text-anchor="start" fill="#6a7b7c">4,274 of 5,972 selected responses on reviewed late orders were submitted before receipt.</text>
+<text x="88" y="948" font-size="13" font-weight="400" text-anchor="start" fill="#6a7b7c">Repeat purchasing is observed within this window; later purchasers have less time to buy again.</text>
+</svg>

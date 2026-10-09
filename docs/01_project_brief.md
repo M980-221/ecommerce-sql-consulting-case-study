@@ -4,7 +4,7 @@
 **Type:** Independent portfolio project using public historical data  
 **Owner:** Mohammed Baquaysh  
 **Date:** 30 September 2026  
-**Status:** Parts 1–7 complete. Database setup was verified on 1 October 2026, cleaning and the order model on 6 October, sales and delivery analysis on 8 October, and customer analysis and combined validation on 9 October. Reporting views are ready for the dashboard.
+**Status:** Parts 1–8 implemented. The three dashboard pages were added on 10 October 2026, using the validated reporting views. Calculations are checked against SQL; browser visual testing remains outstanding. Recommendations and slides are next.
 
 ## Business situation
 
@@ -106,4 +106,6 @@ Target: four weeks, approximately 40–60 hours after learning SQL fundamentals.
 
 **Part 7 outcome:** payment differences investigated, five orders traced, four reporting views checked against the published analysis, and one indexed lookup measured. The source does not establish the business causes of the payment differences. See [validation and SQL review](14_part7_validation.md).
 
-**Next step:** build the three dashboard pages and reconcile their displayed figures in Part 8.
+**Part 8 outcome:** a browser dashboard with Sales, Delivery and Customer pages, month/state filters and CSV downloads. The calculation code is compared with SQLite under different selections. Static previews are labelled as such; live browser visual and manual accessibility checks remain open. See [the dashboard walkthrough](15_part8_dashboard.md).
+
+**Next step:** select three evidence-based recommendations and prepare five slides in Part 9.

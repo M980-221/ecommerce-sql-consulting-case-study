@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive review of historical Olist sales, delivery and customer experience.">
+  <meta name="theme-color" content="#173c43">
+  <title>Olist | Commerce review</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script src="metrics.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to report</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Report navigation">
+      <a class="brand" href="#sales" aria-label="Olist commerce review home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="9" y="9" width="14" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="3"/><path d="M5 5h9M5 5v9M27 27h-9M27 27v-9" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+        <span><strong>olist<span class="brand-dot">.</span></strong><small>Commerce review</small></span>
+      </a>
+      <div class="nav-label">THE REPORT</div>
+      <nav class="page-nav">
+        <a href="#sales" data-page="sales" aria-current="page"><span class="nav-number">01</span><span>Sales</span><span class="nav-arrow" aria-hidden="true">↗</span></a>
+        <a href="#delivery" data-page="delivery"><span class="nav-number">02</span><span>Delivery</span><span class="nav-arrow" aria-hidden="true">↗</span></a>
+        <a href="#customers" data-page="customers"><span class="nav-number">03</span><span>Customers</span><span class="nav-arrow" aria-hidden="true">↗</span></a>
+      </nav>
+      <div class="sidebar-note"><span class="status-dot" aria-hidden="true"></span><span>Historical dataset</span><strong>Feb 2017 — Jul 2018</strong><p>Explore the same orders from three perspectives.</p></div>
+      <a class="analysis-link" href="https://github.com/M980-221/ecommerce-sql-consulting-case-study" target="_blank" rel="noopener noreferrer">View the analysis <span aria-hidden="true">↗</span></a>
+    </aside>
+
+    <main id="main" class="main" tabindex="-1">
+      <header class="page-header">
+        <div><p class="eyebrow">OLIST / COMMERCE REVIEW</p><h1 id="page-title">Sales performance</h1><p class="page-subtitle" id="page-subtitle">Product value, order volume and where demand comes from.</p></div>
+        <button class="download-button" id="download" type="button" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2v10m-4-4 4 4 4-4M3 13v4h14v-4"/></svg><span>Download CSV</span></button>
+      </header>
+
+      <section class="filter-panel" aria-label="Report filters">
+        <div class="filter-intro"><span class="filter-kicker">YOUR SELECTION</span><strong id="selection-summary">Loading report…</strong></div>
+        <div class="filter-controls">
+          <label>From month<select id="month-from" disabled aria-label="From month"></select></label>
+          <span class="range-separator" aria-hidden="true">—</span>
+          <label>Through month<select id="month-to" disabled aria-label="Through month"></select></label>
+          <label class="state-filter">Buyer state<select id="buyer-state" disabled aria-label="Buyer state"></select></label>
+          <button id="reset" class="reset-button" type="button" disabled>Reset filters</button>
+        </div>
+      </section>
+
+      <div class="context-line"><span id="period-label">Purchases from February 2017 through July 2018</span><span class="unit-note" id="unit-note">Source monetary units · product value excludes freight</span></div>
+      <div id="report" aria-busy="true"><div class="loading-card"><span class="loading-dot" aria-hidden="true"></span><h2>Preparing your report</h2><p>Loading the sales, delivery and customer results.</p></div></div>
+      <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+      <noscript><p class="error-card">JavaScript is required to explore this report. The validated results are also available in the GitHub repository.</p></noscript>
+
+      <details class="definitions" id="definitions">
+        <summary><span class="definition-icon" aria-hidden="true">i</span><span>How to read this report<small>Definitions, populations and limitations</small></span><span class="details-plus" aria-hidden="true">+</span></summary>
+        <div class="definition-grid">
+          <div><h3>Sales & amounts</h3><p>Sales use delivered orders with valid item totals. Product value adds item prices and excludes freight. Average order value divides product value by eligible orders. Amounts use source monetary units; they do not represent profit or commission revenue.</p></div>
+          <div><h3>Delivery</h3><p>Delivery measures need valid purchase, receipt and promised dates. Arrival on the promised calendar day is on time. Duration measures elapsed days; positive delay averages only late orders. Counts are shown beside rates.</p></div>
+          <div><h3>Reviews</h3><p>Each order has at most one selected valid review: latest response, then latest creation date, then review ID. Missing reviews stay outside score averages. Low scores are 1 or 2. A review can precede delivery.</p></div>
+          <div><h3>Customers & filters</h3><p>Customers are grouped by persistent identity. Repeat means at least two eligible orders in the selected months and buyer state, including same-day orders. Later buyers have less observation time. It is not retention or lifetime value.</p></div>
+        </div>
+        <p class="definition-footer">Filters use purchase month and buyer location. Statuses and outcomes reflect the final source snapshot, including later deliveries and reviews. Category order counts overlap. These historical comparisons show association and do not establish causes.</p>
+      </details>
+      <footer class="report-footer"><span>Independent case study · <a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce" target="_blank" rel="noopener noreferrer">Olist public dataset</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></span><a href="https://github.com/M980-221/ecommerce-sql-consulting-case-study" target="_blank" rel="noopener noreferrer">Project &amp; SQL ↗</a></footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -38,7 +38,7 @@ Run `python3 scripts/analyse_sales.py` after Part 3. Use `--results-dir results/
 
 Amounts use source monetary units and exclude freight. Exact amounts are preserved in the `_cents` columns. Blank CSV cells mean NULL, not zero. Shares and AOV are rounded to two decimal places; growth uses the unrounded underlying amounts. Category order counts overlap when an order contains more than one category.
 
-Findings and output definitions are in [Part 4](../docs/11_part4_sales.md). The delivery and customer results are below; the dashboard is still to come.
+Findings and output definitions are in [Part 4](../docs/11_part4_sales.md). The delivery, customer and dashboard results are below.
 
 ## Part 5
 
@@ -104,4 +104,24 @@ Payment differences are `payments - product prices - freight`, in integer hundre
 
 Benchmark timings describe a selective order-item lookup using the existing index, with three warmups and 20 measured runs per variant and case. Every result is checked for equality. The experiment does not claim that aggregate queries or dashboard refreshes improve by the same amount, and its timings will vary by environment.
 
-Findings, five worked examples and practice SQL are in [Part 7](../docs/14_part7_validation.md). Dashboard headline values, relationships and filter behaviour remain to be validated in Part 8.
+Findings, five worked examples and practice SQL are in [Part 7](../docs/14_part7_validation.md). The Part 8 checks below cover dashboard headline values and filter behaviour.
+
+## Part 8
+
+| File | Contents |
+|---|---|
+| [Export validation](part8_export_validation.json) | 1,550,510 encoded cells and 511 published count/money comparisons; source fingerprints and data hash |
+| [Readable export checks](part8_export_validation.txt) | Export sizes, row counts and preservation checks |
+| [Dashboard calculations](part8_validation.json) | Eight filter scenarios and 13,129 fields compared with independent SQLite results; 18 published default metrics |
+| [Readable calculation checks](part8_validation.txt) | Scenario populations, empty selection and verification scope |
+| [Python tests](part8_python_tests.txt) | Five exporter fixtures and 68 earlier tests; all 73 pass |
+| [JavaScript metric tests](part8_js_tests.txt) | 13 fixtures for filtering, customer identity, weighted means, category allocation and rounding |
+| [Interface fixture tests](part8_ui_tests.txt) | Nine Node DOM-fixture tests for templates, navigation, filters, reset, CSV download and empty/error states |
+
+Run `python3 scripts/export_dashboard.py`, then `python3 scripts/validate_dashboard.py` with Node.js available. The first command writes the checked browser data; the second executes the actual JavaScript calculations and compares them with SQLite groups. Both open the database read-only. Counts and monetary hundredths remain exact. Undefined means and rates remain NULL and are displayed as dashes.
+
+Run the suites with `python3 -m unittest discover -s tests -v`, `node --test tests/test_dashboard.mjs` and `node --test tests/test_dashboard_ui.mjs`. The interface tests use a small DOM fixture in Node, not a real browser. CSS rendering and manual accessibility checks remain outstanding because the required browser-testing capability was unavailable.
+
+The [three SVG previews](../dashboard/screenshots/) are generated from the actual default calculation results with `python3 scripts/render_dashboard_previews.py`. They are labelled static data previews and are not browser screenshots. See [Part 8](../docs/15_part8_dashboard.md) and [dashboard opening instructions](../dashboard/README.md).
+
+The [deployment record](part8_deployment.json) identifies the private hosted version and the hashes of its deployed assets. Native hosting status confirms publication; it does not replace browser visual testing.

@@ -1,0 +1,21 @@
+✔ money and order counts stay at their own grains (3.755108ms)
+✔ month and state filters regenerate every headline from the selected orders (1.354064ms)
+✔ all calendar months remain visible, and range endpoints are inclusive (0.847399ms)
+✔ delivery uses exact elapsed seconds and averages delay among late orders only (0.579776ms)
+✔ category delivery counts an order once within each category while preserving overlap (1.484721ms)
+✔ selected reviews use their own denominator and keep missing scores visible (1.526034ms)
+✔ delivery and review comparisons use the intersection and show response timing (0.38438ms)
+✔ repeat customer identity is regrouped after filtering, including separate same-month orders (0.626025ms)
+✔ weighted averages aggregate original totals rather than subgroup averages (0.507186ms)
+✔ empty selections retain zero counts, null means and all score buckets (0.413234ms)
+✔ exact half-up rounding handles halfway values and integer precision bounds (4.273451ms)
+✔ top spending ranks all filtered customers before taking twenty and breaks ties by ID (0.60332ms)
+✔ invalid filters and unsafe input totals fail instead of displaying plausible numbers (0.484872ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 123.820938

@@ -1,0 +1,21 @@
+PART 8 DASHBOARD CALCULATION VALIDATION
+PASS: 8 filter scenarios; 13129 compared values
+PASS: 18 default metrics match published Parts 4–6
+
+Node executed dashboard/metrics.js using dashboard/data.js.
+Expected groups and totals were calculated independently in SQLite.
+All counts, cents, timing sums, means, rates, category/state rows and customer groups matched.
+
+PASS: 2017-02 through 2018-07, buyer state all — 91780 orders, 2616 values checked
+PASS: 2018-03 through 2018-03, buyer state all — 7211 orders, 2157 values checked
+PASS: 2017-02 through 2018-07, buyer state SP — 38069 orders, 1897 values checked
+PASS: 2017-02 through 2018-07, buyer state RJ — 11950 orders, 1829 values checked
+PASS: 2018-03 through 2018-03, buyer state RJ — 907 orders, 1217 values checked
+PASS: 2018-02 through 2018-07, buyer state all — 40210 orders, 2359 values checked
+PASS: 2017-02 through 2018-07, buyer state RR — 44 orders, 945 values checked
+PASS: 2017-08 through 2017-08, buyer state RR — 0 orders, 109 values checked
+
+PASS: no NaN or infinite numbers before JSON serialization.
+PASS: empty August 2017 / RR slice retains null means and rates.
+
+Scope: data and calculation checks only. Browser rendering, controls, accessibility and hosting are untested here.

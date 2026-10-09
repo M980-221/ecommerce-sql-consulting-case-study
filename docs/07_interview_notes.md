@@ -1,6 +1,6 @@
 # Technical walkthrough
 
-Current scope: Parts 1–7 are complete. The repository covers the business brief, a verified import, cleaning decisions, an order model, fifteen business queries and combined validation. Payment exceptions have been investigated, five orders traced and four reporting views checked. The dashboard and final recommendations are still to come.
+Current scope: Parts 1–8 are implemented. The repository includes a verified SQLite model, fifteen business queries, combined validation and a browser dashboard with three pages. Payment exceptions remain documented. Final recommendations and slides are still to come; browser visual testing also remains open.
 
 ## Points to explain
 
@@ -24,6 +24,8 @@ Current scope: Parts 1–7 are complete. The repository covers the business brie
 - **The order walkthrough:** order `03ecec245220b63fd7f68c1737ba99ba` has two items and two payments. Joining both child tables directly makes four rows and doubles each sum. Separate GROUP BY calculations give product value 298.90, freight 76.83 and payments 375.73, which reconcile exactly.
 - **The reporting views:** order measures stay at one row per order; item prices stay at item grain. Delivery category membership is distinct by order and category. Customers are grouped across the full reporting window by persistent ID. Views are saved queries, not copied source records.
 - **The performance experiment:** an unnecessary TRIM around a verified order ID forces a scan for the item lookup. Removing it lets SQLite use the existing index. Both variants return identical rows; alternating warm-cache timings show the difference for that lookup, not for every query.
+- **The dashboard:** HTML, CSS and JavaScript present three pages for sales, delivery and customers. Python exports checked SQLite reporting rows; JavaScript recalculates their groups after month/state filtering. It works locally without a server. This deliverable is a browser dashboard, not a Power BI file.
+- **The dashboard checks:** the actual calculation module matches independent SQL results across eight selections and 13,129 values. An empty August 2017/RR selection returns zero counts and undefined rates, displayed as dashes. Static previews are provided; real browser visual and manual accessibility testing remain outstanding.
 - **The limitations:** the reporting period is a conservative 18-month window; some dates and categories are missing, review selection is a modelling choice, and payment differences have unconfirmed causes. Results describe historical associations.
 
 ## SQL to demonstrate
@@ -103,4 +105,8 @@ For validation, run the duplicate-ID `HAVING` and preaggregated `LEFT JOIN` exam
 22. **Did adding an index improve the project?** The lookup already had an index. The experiment changed the predicate so SQLite could use it, saved the execution plans and checked identical results. It does not measure an improvement in the full dashboard refresh.
 23. **Can full-window customer totals follow any dashboard date filter?** No. For a narrower window, regroup the eligible order rows before deciding which customers made repeat purchases.
 
-Practise running the queries and explaining one result from each CSV without reading these notes. Keep claims about completed work separate from planned work. Next is the dashboard, followed by the final recommendations and slides.
+24. **Why does the repeat rate change after a date or state filter?** The dashboard first selects the eligible orders, then groups their persistent customer IDs. A customer with two orders across the full window might have only one in the selected slice. Reusing the full-window repeat flag would answer a different question.
+25. **Why is a dashboard rate sometimes shown as a dash?** Its denominator is zero. Displaying zero would imply a measured rate, while the value is actually undefined.
+26. **How do you know the browser calculations agree with SQL?** Node executes the same JavaScript module used by the browser. Separate SQLite queries calculate the expected figures for default, filtered and empty selections. The results are compared field by field.
+
+Practise opening the dashboard, changing one filter and explaining the new denominator before discussing a rate. Then run the matching SQL examples in [Part 8](15_part8_dashboard.md). Keep implementation, measured results and remaining verification distinct. Final recommendations and slides are next.
