@@ -1,0 +1,8 @@
+reconciliation_group,orders,reporting_period_orders,sales_orders,item_rows,payment_rows,expected_payment_cents,payment_cents,net_difference_cents,absolute_difference_cents,min_difference_cents,max_difference_cents
+missing_items_and_payments,0,0,0,0,0,,,,,,
+missing_items,775,668,0,0,830,,16259195,,,,
+missing_payments,1,0,0,3,0,14346,,,,,
+exact_match,98089,90610,88615,111158,102451,1569906082,1569906082,0,0,0,0
+one_cent_difference,273,237,234,921,285,9402796,9402729,-67,273,-1,1
+payment_below_expected,39,18,18,155,39,1007991,988083,-19908,19908,-5162,-2
+payment_above_expected,264,247,243,413,281,4024109,4331123,307014,307014,2,18281

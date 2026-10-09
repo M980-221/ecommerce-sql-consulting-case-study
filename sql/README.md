@@ -13,8 +13,8 @@ Dialect: **SQLite**. Executed with SQLite **3.53.1**. Part 3 uses window functio
 | `03_sales_analysis.sql` | Monthly sales and growth, matched-period AOV, categories and buyer states | Executed |
 | `04_delivery_analysis.sql` | Lateness, duration, purchase months, buyer states, categories and single-seller comparisons | Executed |
 | `05_customer_analysis.sql` | Reviews, delivery comparisons, customer spending, repeat purchases and regional reviews | Executed |
-| `06_validation.sql` | Business metric validation, reconciliation investigation and manual examples | Planned |
-| `07_reporting_views.sql` | Verified dashboard views | Planned |
+| `06_validation.sql` | Population checks, payment reconciliation, unsafe-join diagnostic and missingness | Executed |
+| `07_reporting_views.sql` | Four checked reporting views for orders, items, delivery categories and customers | Executed |
 
 Run `python3 scripts/build_database.py` for Part 2, then `python3 scripts/prepare_part3.py` for Part 3. Setup is for an empty database; Part 3 can be rerun and leaves the source records unchanged.
 
@@ -25,6 +25,8 @@ For Part 5, run `python3 scripts/analyse_delivery.py`. It checks the five delive
 For Part 6, run `python3 scripts/analyse_customers.py`. It checks the five customer outputs using an independent raw-record calculation, including review selection and persistent customer identity. Customer orders and value also reconcile to the published Part 4 totals. Each statement in `05_customer_analysis.sql` runs separately. See the [customer walkthrough](../docs/13_part6_customers.md) for JOIN, missing reviews and repeat-customer HAVING examples.
 
 The Part 3 runner validates the import fingerprints, profiles the data, applies the cleaning script in a transaction, checks the resulting model and commits only on success. Its independent Decimal checks cover every price, freight and payment conversion. See [run instructions](../docs/10_part3_cleaning.md#run-it) for use in a SQL editor.
+
+For Part 7, run `python3 scripts/validate_part7.py` after Parts 3–6. It compares six validation outputs against raw-record calculations, records five order traces, creates the reporting views in a transaction, checks their grains and published totals, and measures two equivalent order-item lookups. The views are committed only after checks pass. Reconciliation exceptions retain their original values. Run `python3 scripts/benchmark_part7.py` to repeat only the read-only lookup experiment. See [Part 7](../docs/14_part7_validation.md) for JOIN/HAVING practice, view definitions, timings and limitations.
 
 `v_clean_<table_name>` keeps the source grain. `v_order_analysis` has one row per order; use its eligibility flags for the defined metrics. Monetary fields ending in `_cents` hold integer hundredths, not display-ready currency amounts.
 

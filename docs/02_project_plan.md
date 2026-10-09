@@ -54,9 +54,9 @@ Completed 9 October 2026. Five queries cover review distribution and coverage, r
 
 ## Part 7 — Validate and improve SQL
 
-Check join duplication, financial reconciliation, missingness and selected manual examples. Investigate one slow query and document any measured optimisation.
+Completed 9 October 2026. Checked join duplication, payment reconciliation and missingness against independent raw-record calculations. Traced five representative orders, added four reporting views and reconciled them to Parts 4–6. Measured an order-item lookup with and without an unnecessary TRIM predicate, using the existing index and identical result sets. Payment differences remain documented source exceptions with unconfirmed business causes. See [Part 7 walkthrough](14_part7_validation.md).
 
-**GitHub deliverables:** sql/06_validation.sql, sql/07_reporting_views.sql and docs/05_validation_log.md.  
+**GitHub deliverables:** sql/06_validation.sql, sql/07_reporting_views.sql, scripts/validate_part7.py, scripts/validation_checks.py, scripts/benchmark_part7.py, tests/test_part7_validation.py, tests/test_part7_reporting.py, docs/14_part7_validation.md, docs/05_validation_log.md and Part 7 evidence in results/.
 **Done when:** all critical checks pass or exceptions are explained.
 
 ## Part 8 — Build the dashboard

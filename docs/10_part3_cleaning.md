@@ -27,7 +27,7 @@ Most of the work was deciding how to use legitimate differences between tables. 
 | Shipping deadlines in 2020 | 4 item rows | Flag for investigation; do not use shipping deadlines as a delivery proxy |
 | Zero payment amount / installments / undefined method | 9 / 2 / 3 payment rows | Preserve and report; these counts may overlap |
 | Orders without items / payments / source reviews | 775 / 1 / 768 orders | LEFT JOIN keeps the order; missing amounts and reviews remain NULL |
-| Payments differing from items plus freight by more than one cent | 303 orders | Preserve the amounts and record the open reconciliation work for Part 7 |
+| Payments differing from items plus freight by more than one cent | 303 orders | Preserve the amounts; Part 7 confirms the differences in raw records, with business causes still unconfirmed |
 
 The two untranslated categories are `pc_gamer` (three products) and `portateis_cozinha_e_preparadores_de_alimentos` (ten products).
 
@@ -70,7 +70,7 @@ To work in a SQLite SQL editor, open the database, run `sql/02_profile.sql`, the
 - Item-price totals remain **1,359,164,370 hundredths**, freight **225,190,954**, and payments **1,600,887,212** before and after the order joins. These totals cover the full source, not just the reporting window.
 - **14 small automated tests passed**, covering row multiplication, missing children, review choice and ties, reused review IDs, calendar-day lateness, missing delivery dates, category gaps, invalid input, unchanged raw text, postal codes and period boundaries.
 
-The checks above do not mean the source is free of exceptions. The decision table records the exceptions that remain and how they are used or excluded. Five manual order walkthroughs, investigation of payment differences, the measured optimisation experiment and dashboard reconciliation remain Part 7 work.
+The checks above do not mean the source is free of exceptions. The decision table records the exceptions that remain and how they are used or excluded. [Part 7](14_part7_validation.md) completed five order walkthroughs, investigated payment differences and measured an indexed lookup. Dashboard reconciliation remains Part 8 work.
 
 Evidence: [validation JSON](../results/part3_validation.json), [readable check output](../results/part3_validation.txt), [source profile](../results/part3_profile.json), [test output](../results/part3_tests.txt).
 

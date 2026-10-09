@@ -4,7 +4,7 @@ A SQL consulting case study by Mohammed Baquaysh, using Olist's historical marke
 
 **Business question:** Where should an e-commerce manager focus first to improve sales performance, delivery reliability and customer experience?
 
-**Current stage:** Parts 1–6 complete: sales, delivery and customer analysis. Part 7 will investigate payment differences, check individual orders and measure query performance.
+**Current stage:** Parts 1–7 complete. Sales, delivery and customer analysis now have combined validation, a payment reconciliation investigation, five order walkthroughs and four reporting views. The three-page dashboard is next.
 
 ## Sales findings
 
@@ -36,6 +36,12 @@ The sales population contains **86,271 identifiable customers**. Of these, **2,5
 
 See the [customer findings and SQL walkthrough](docs/13_part6_customers.md) for review coverage, repeat-purchase definitions and examples using JOIN and HAVING.
 
+## Validation findings
+
+Of **98,665 orders with items and payments**, 98,089 reconcile exactly, 273 differ by one cent and 303 differ by more than one cent. Independent calculations confirm that the differences exist in the source records. Their business causes remain unconfirmed; item prices and payments retain their original values.
+
+Five order walkthroughs show exact reconciliation, JOIN duplication, small and larger differences, and a missing payment. Four reporting views keep order, item, delivery-category and customer measures at their intended grains. A measured order lookup demonstrates how a direct ID comparison uses an existing index; the timings apply to that lookup, not the full analysis. See [Part 7: validation and SQL walkthrough](docs/14_part7_validation.md).
+
 ## Completed work
 
 - Defined six business questions, the intended stakeholder and working metric definitions.
@@ -48,6 +54,7 @@ See the [customer findings and SQL walkthrough](docs/13_part6_customers.md) for 
 - Completed five sales queries and exported their results. All 139 result rows match a separate calculation from raw records; 15 Part 4 checks and 10 sales test cases passed.
 - Completed five delivery queries covering overall outcomes, purchase months, buyer states, categories and single-seller orders. All 310 result rows match independent raw-record calculations; 25 checks and 12 delivery test cases passed.
 - Completed five customer queries covering reviews, delivery comparisons, spending, repeat purchases and buyer states. All 56 result rows match independent raw-record calculations; 26 checks and 12 customer test cases passed.
+- Investigated all 576 nonzero payment differences, checked five representative orders and reconciled the reporting views to the published analysis. The [Part 7 evidence](results/part7_validation.txt) records the checks; source records and metric definitions remain unchanged.
 
 SQLite provides a portable database for this project. SQL defines the tables and inspection checks; a Python standard-library script handles CSV loading, including multiline reviews. Raw values remain TEXT. Part 3 views provide validated numeric values, NULL handling and metric-specific eligibility rules.
 
@@ -90,6 +97,7 @@ Requirements: Python 3.8 or later. The loader uses the standard library, so no a
    python3 scripts/analyse_sales.py
    python3 scripts/analyse_delivery.py
    python3 scripts/analyse_customers.py
+   python3 scripts/validate_part7.py
    ```
 
 4. Open the resulting `ecommerce_olist.db` in a SQLite client and run:
@@ -127,6 +135,7 @@ Source exceptions are visible: 610 products have no category, 13 lack an English
 | [Part 4: sales analysis](docs/11_part4_sales.md) | Findings, five output tables and SQL practice |
 | [Part 5: delivery analysis](docs/12_part5_delivery.md) | Lateness, delivery time, comparison groups and SQL practice |
 | [Part 6: customer analysis](docs/13_part6_customers.md) | Review coverage, spending, repeat purchases and SQL practice |
+| [Part 7: validation and SQL review](docs/14_part7_validation.md) | Payment differences, five order traces, reporting views and measured lookup performance |
 | [Data dictionary](docs/03_data_dictionary.md) | All 47 fields, verified keys, derived views and relationship diagram |
 | [Metric definitions](docs/04_metric_definitions.md) | Implemented reporting period, eligibility flags and denominators |
 | [Validation log](docs/05_validation_log.md) | Completed checks and remaining validation |
@@ -140,12 +149,12 @@ Source exceptions are visible: 610 products have no category, 13 lack an English
 - [x] Part 4: Analyse sales performance.
 - [x] Part 5: Analyse delivery performance.
 - [x] Part 6: Analyse customer experience.
-- [ ] Part 7: Validate results and improve SQL.
+- [x] Part 7: Validate results and improve SQL.
 - [ ] Part 8: Build and review the dashboard.
 - [ ] Part 9: Develop recommendations and slides.
 - [ ] Part 10: Prepare the completed portfolio.
 
-Fifteen business queries are complete. Further validation comes next, followed by three dashboard pages, three recommendations and a five-slide presentation. Known source exceptions remain recorded in the Part 3 cleaning notes.
+Fifteen business queries and the Part 7 validation are complete. Next come three dashboard pages, three recommendations and a five-slide presentation. Known source exceptions remain documented; passing checks do not establish the causes of payment differences.
 
 ## Data attribution
 

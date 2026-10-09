@@ -1,0 +1,6 @@
+population,orders,orders_without_items,orders_without_payments,orders_without_source_review,orders_without_selected_review,orders_with_only_invalid_reviews,orders_without_actual_delivery_date,orders_without_promised_delivery_date
+full_source,99441,775,1,768,829,61,2965,0
+reporting_period,91780,668,0,725,729,4,2677,0
+sales,89110,0,0,613,616,3,8,0
+delivery,89102,0,0,613,616,3,0,0
+reviewed_sales,88494,0,0,0,0,0,8,0

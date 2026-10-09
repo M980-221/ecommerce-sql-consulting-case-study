@@ -82,7 +82,9 @@ Store monetary amounts as integer hundredths (`*_cents`) and divide by 100.0 for
 
 Product sales value is not Olist commission revenue or profit. Freight and payments are separate measures. Missing payment totals stay NULL; they do not become zero. Known zero-value payment components are retained.
 
-Payment reconciliation is a diagnostic, not the definition of product sales. Of 98,665 orders with items and payments, 98,089 reconcile exactly, 273 differ by one cent and 303 differ by more than one cent. Their values are preserved; causes require investigation in Part 7.
+Payment reconciliation is a diagnostic, not the definition of product sales. Of 98,665 orders with items and payments, 98,089 reconcile exactly, 273 differ by one cent and 303 differ by more than one cent. Part 7 reproduced every difference from raw records using exact integer hundredths. All one-cent cases have multiple items; most larger cases have just one payment row. These patterns do not establish discounts, refunds or other business causes. Values and sales eligibility remain unchanged. See [the investigation](14_part7_validation.md).
+
+Missing items and missing payments are separate reconciliation groups. A missing side leaves the difference NULL, not zero. The signed difference is payment minus product value minus freight. Net differences can offset one another, so the report also shows the sum of absolute differences.
 
 ## Joins
 

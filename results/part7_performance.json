@@ -1,0 +1,891 @@
+{
+  "experiment": "Order item detail lookup: trimmed predicate versus direct predicate",
+  "purpose": "Retrieve the item rows for an order during the manual reconciliation walkthrough.",
+  "scope": "A selective lookup on this SQLite snapshot; not the full analysis or dashboard refresh.",
+  "precondition": "All source item order IDs are nonblank and have no surrounding spaces.",
+  "invalid_order_ids": 0,
+  "source_item_rows": 112650,
+  "environment": {
+    "python": "3.12.14",
+    "sqlite": "3.53.1",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "schema_sha256": "72d64b961d064618e748f1b627a8145d3d45146b7e926621f035aae174a082f9",
+    "page_size": 4096,
+    "cache_size": -2000,
+    "automatic_index": 1,
+    "item_indexes": [
+      {
+        "name": "idx_p3_order_items_order_id",
+        "sql": "CREATE INDEX idx_p3_order_items_order_id\n    ON order_items(order_id)"
+      }
+    ]
+  },
+  "method": {
+    "timer": "time.perf_counter",
+    "timed_work": "SQLite execute and full fetch; no result hashing or comparison inside timer",
+    "cache": "Warm cache; no cache flush or cold-start claim",
+    "warmups_per_variant_per_case": 3,
+    "measured_repetitions_per_variant_per_case": 20,
+    "execution_order": "AB then BA on alternating repetitions",
+    "mutations": "None; no tables, records or indexes are created or changed"
+  },
+  "limitations": [
+    "Wall-clock timings depend on the machine, cache and concurrent work.",
+    "The trimmed predicate is an intentionally inefficient diagnostic comparison, not a previously published analysis query.",
+    "The direct predicate can use the existing order_items(order_id) index; no new index is proposed.",
+    "The result does not establish an improvement for aggregate queries, larger datasets or other database engines."
+  ],
+  "cases": [
+    {
+      "case": "single_item",
+      "order_id": "00010242fe8c5a6d1ba2dd792cb16214",
+      "selection": "First order ID with one item",
+      "result_rows": 1,
+      "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459",
+      "variants": {
+        "trimmed_lookup": {
+          "sql": "SELECT order_id, order_item_id, product_id, seller_id,\n       price_cents, freight_value_cents\nFROM v_clean_order_items\nWHERE TRIM(order_id) = ?\nORDER BY order_item_id, product_id, seller_id, price_cents, freight_value_cents",
+          "sql_sha256": "12cdfc14819ddb10ba9dfbc6996b1a83e82be1128382369b0e669370eb98e1b7",
+          "parameters": [
+            "00010242fe8c5a6d1ba2dd792cb16214"
+          ],
+          "explain_query_plan": [
+            [
+              3,
+              0,
+              216,
+              "SCAN order_items"
+            ],
+            [
+              38,
+              0,
+              0,
+              "USE TEMP B-TREE FOR ORDER BY"
+            ]
+          ],
+          "min_ms": 7.939564995467663,
+          "median_ms": 9.138647001236677,
+          "max_ms": 12.515930997324176,
+          "all_timings_ms": [
+            9.248524002032354,
+            9.955716996046249,
+            8.297872998809908,
+            8.012201004021335,
+            7.992061997356359,
+            9.792025994102005,
+            8.492280001519248,
+            10.127239998837467,
+            12.515930997324176,
+            10.359701998822857,
+            10.080961001222022,
+            10.953888995572925,
+            9.385066005052067,
+            8.283421004307456,
+            8.626766997622326,
+            10.776357004942838,
+            9.028770000441,
+            8.570464997319505,
+            7.939564995467663,
+            8.261089002189692
+          ]
+        },
+        "direct_lookup": {
+          "sql": "SELECT order_id, order_item_id, product_id, seller_id,\n       price_cents, freight_value_cents\nFROM v_clean_order_items\nWHERE order_id = ?\nORDER BY order_item_id, product_id, seller_id, price_cents, freight_value_cents",
+          "sql_sha256": "ac86265f6090568a14a785843adac062961b1656a0d984390fafe45bcdd99de1",
+          "parameters": [
+            "00010242fe8c5a6d1ba2dd792cb16214"
+          ],
+          "explain_query_plan": [
+            [
+              4,
+              0,
+              61,
+              "SEARCH order_items USING INDEX idx_p3_order_items_order_id (order_id=?)"
+            ],
+            [
+              41,
+              0,
+              0,
+              "USE TEMP B-TREE FOR ORDER BY"
+            ]
+          ],
+          "min_ms": 0.005437999789137393,
+          "median_ms": 0.016288500773953274,
+          "max_ms": 0.034340999263804406,
+          "all_timings_ms": [
+            0.02861200482584536,
+            0.006038993888068944,
+            0.028431997634470463,
+            0.007971000741235912,
+            0.02946400491055101,
+            0.0055679993238300085,
+            0.027651003620121628,
+            0.0059689991758205,
+            0.03070499951718375,
+            0.006129004759714007,
+            0.034340999263804406,
+            0.005828995199408382,
+            0.032948999432846904,
+            0.007050999556668103,
+            0.02873300400096923,
+            0.005627996870316565,
+            0.02840100205503404,
+            0.005788999260403216,
+            0.024606000806670636,
+            0.005437999789137393
+          ]
+        }
+      },
+      "runs": [
+        {
+          "repetition": 1,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 9.248524002032354,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 1,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.02861200482584536,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 2,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.006038993888068944,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 2,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 9.955716996046249,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 3,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 8.297872998809908,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 3,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.028431997634470463,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 4,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.007971000741235912,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 4,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 8.012201004021335,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 5,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 7.992061997356359,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 5,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.02946400491055101,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 6,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.0055679993238300085,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 6,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 9.792025994102005,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 7,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 8.492280001519248,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 7,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.027651003620121628,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 8,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.0059689991758205,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 8,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 10.127239998837467,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 9,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 12.515930997324176,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 9,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.03070499951718375,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 10,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.006129004759714007,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 10,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 10.359701998822857,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 11,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 10.080961001222022,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 11,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.034340999263804406,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 12,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.005828995199408382,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 12,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 10.953888995572925,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 13,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 9.385066005052067,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 13,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.032948999432846904,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 14,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.007050999556668103,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 14,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 8.283421004307456,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 15,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 8.626766997622326,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 15,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.02873300400096923,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 16,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.005627996870316565,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 16,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 10.776357004942838,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 17,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 9.028770000441,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 17,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.02840100205503404,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 18,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.005788999260403216,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 18,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 8.570464997319505,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 19,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 7.939564995467663,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 19,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.024606000806670636,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 20,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.005437999789137393,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        },
+        {
+          "repetition": 20,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 8.261089002189692,
+          "result_rows": 1,
+          "result_sha256": "7009c0826c939ae560417fecb3c5afcbb867b80b7cf6dbf69e3704c88605b459"
+        }
+      ],
+      "median_ratio_trimmed_to_direct": 561.0489957338594,
+      "result_identity_verified": true
+    },
+    {
+      "case": "multiple_items",
+      "order_id": "8272b63d03f5f79c56e9e4120aec44ef",
+      "selection": "Largest item count, with order ID ascending as tiebreaker",
+      "result_rows": 21,
+      "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42",
+      "variants": {
+        "trimmed_lookup": {
+          "sql": "SELECT order_id, order_item_id, product_id, seller_id,\n       price_cents, freight_value_cents\nFROM v_clean_order_items\nWHERE TRIM(order_id) = ?\nORDER BY order_item_id, product_id, seller_id, price_cents, freight_value_cents",
+          "sql_sha256": "12cdfc14819ddb10ba9dfbc6996b1a83e82be1128382369b0e669370eb98e1b7",
+          "parameters": [
+            "8272b63d03f5f79c56e9e4120aec44ef"
+          ],
+          "explain_query_plan": [
+            [
+              3,
+              0,
+              216,
+              "SCAN order_items"
+            ],
+            [
+              38,
+              0,
+              0,
+              "USE TEMP B-TREE FOR ORDER BY"
+            ]
+          ],
+          "min_ms": 7.505173998652026,
+          "median_ms": 7.850102498196065,
+          "max_ms": 8.646365997265093,
+          "all_timings_ms": [
+            7.76137100183405,
+            8.318524000060279,
+            8.646365997265093,
+            7.81700399966212,
+            7.94352000229992,
+            8.039823005674407,
+            8.086882000498008,
+            7.883200996730011,
+            7.731989004241768,
+            8.260788003099151,
+            7.96473199443426,
+            8.623383000667673,
+            8.136994998494629,
+            7.667794001463335,
+            7.759448999422602,
+            7.7617319984710775,
+            7.617019000463188,
+            7.687502999033313,
+            7.505173998652026,
+            7.595616996695753
+          ]
+        },
+        "direct_lookup": {
+          "sql": "SELECT order_id, order_item_id, product_id, seller_id,\n       price_cents, freight_value_cents\nFROM v_clean_order_items\nWHERE order_id = ?\nORDER BY order_item_id, product_id, seller_id, price_cents, freight_value_cents",
+          "sql_sha256": "ac86265f6090568a14a785843adac062961b1656a0d984390fafe45bcdd99de1",
+          "parameters": [
+            "8272b63d03f5f79c56e9e4120aec44ef"
+          ],
+          "explain_query_plan": [
+            [
+              4,
+              0,
+              61,
+              "SEARCH order_items USING INDEX idx_p3_order_items_order_id (order_id=?)"
+            ],
+            [
+              41,
+              0,
+              0,
+              "USE TEMP B-TREE FOR ORDER BY"
+            ]
+          ],
+          "min_ms": 0.026909001462627202,
+          "median_ms": 0.036528501368593425,
+          "max_ms": 0.05789499846287072,
+          "all_timings_ms": [
+            0.047239002014975995,
+            0.02888200106099248,
+            0.04754999827127904,
+            0.02850199962267652,
+            0.047319997975137085,
+            0.027631002012640238,
+            0.04862100468017161,
+            0.02772000152617693,
+            0.04552699829218909,
+            0.027139998564962298,
+            0.04968300345353782,
+            0.027850997867062688,
+            0.04839099710807204,
+            0.028001995815429837,
+            0.05789499846287072,
+            0.02850199962267652,
+            0.04521700611803681,
+            0.027821006369777024,
+            0.04417500167619437,
+            0.026909001462627202
+          ]
+        }
+      },
+      "runs": [
+        {
+          "repetition": 1,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 7.76137100183405,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 1,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.047239002014975995,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 2,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.02888200106099248,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 2,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 8.318524000060279,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 3,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 8.646365997265093,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 3,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.04754999827127904,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 4,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.02850199962267652,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 4,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 7.81700399966212,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 5,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 7.94352000229992,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 5,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.047319997975137085,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 6,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.027631002012640238,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 6,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 8.039823005674407,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 7,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 8.086882000498008,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 7,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.04862100468017161,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 8,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.02772000152617693,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 8,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 7.883200996730011,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 9,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 7.731989004241768,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 9,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.04552699829218909,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 10,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.027139998564962298,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 10,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 8.260788003099151,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 11,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 7.96473199443426,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 11,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.04968300345353782,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 12,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.027850997867062688,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 12,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 8.623383000667673,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 13,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 8.136994998494629,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 13,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.04839099710807204,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 14,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.028001995815429837,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 14,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 7.667794001463335,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 15,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 7.759448999422602,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 15,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.05789499846287072,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 16,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.02850199962267652,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 16,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 7.7617319984710775,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 17,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 7.617019000463188,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 17,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.04521700611803681,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 18,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.027821006369777024,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 18,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 7.687502999033313,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 19,
+          "position": 1,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 7.505173998652026,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 19,
+          "position": 2,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.04417500167619437,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 20,
+          "position": 1,
+          "variant": "direct_lookup",
+          "elapsed_ms": 0.026909001462627202,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        },
+        {
+          "repetition": 20,
+          "position": 2,
+          "variant": "trimmed_lookup",
+          "elapsed_ms": 7.595616996695753,
+          "result_rows": 21,
+          "result_sha256": "721f657372064893e6a68383efc2f015f3091bffe4aaf7453e323b961634ce42"
+        }
+      ],
+      "median_ratio_trimmed_to_direct": 214.90349190578752,
+      "result_identity_verified": true
+    }
+  ]
+}

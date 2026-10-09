@@ -1,0 +1,15 @@
+difference_band,difference_direction,has_voucher,multiple_payments,multiple_items,orders,expected_payment_cents,payment_cents,net_difference_cents,absolute_difference_cents,zero_payment_orders
+one_cent,above,0,0,1,100,3387941,3388041,100,100,0
+one_cent,above,0,1,1,1,26608,26609,1,1,0
+one_cent,above,1,1,1,2,32569,32571,2,2,0
+one_cent,below,0,0,1,163,5729976,5729813,-163,163,0
+one_cent,below,1,0,1,1,10400,10399,-1,1,0
+one_cent,below,1,1,1,6,215302,215296,-6,6,0
+over_one_cent,above,0,0,0,208,2150274,2398937,248663,248663,0
+over_one_cent,above,0,0,1,39,1751746,1805336,53590,53590,0
+over_one_cent,above,0,1,0,9,58907,61861,2954,2954,0
+over_one_cent,above,0,1,1,1,11038,11097,59,59,0
+over_one_cent,above,1,1,0,5,31410,32052,642,642,0
+over_one_cent,above,1,1,1,2,20734,21840,1106,1106,0
+over_one_cent,below,0,0,0,14,176089,164378,-11711,11711,0
+over_one_cent,below,0,0,1,25,831902,823705,-8197,8197,0

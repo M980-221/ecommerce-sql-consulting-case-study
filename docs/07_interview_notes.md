@@ -1,6 +1,6 @@
 # Technical walkthrough
 
-Current scope: Parts 1–6 are complete. The repository covers the business brief, a verified import, cleaning decisions, an order model and fifteen sales, delivery and customer queries with exported results. Part 7 validation and SQL review is next; the dashboard and final recommendations are still to come.
+Current scope: Parts 1–7 are complete. The repository covers the business brief, a verified import, cleaning decisions, an order model, fifteen business queries and combined validation. Payment exceptions have been investigated, five orders traced and four reporting views checked. The dashboard and final recommendations are still to come.
 
 ## Points to explain
 
@@ -20,7 +20,11 @@ Current scope: Parts 1–6 are complete. The repository covers the business brie
 - **The delivery/review association:** on-time reviewed orders average 4.28 and late reviewed orders 2.23. However, 4,274 of 5,972 selected late-group responses (71.57%) preceded actual delivery. This is not a post-delivery-only comparison and does not establish that lateness caused the difference.
 - **The spending scope:** customers are aggregated by persistent ID before selecting the top 20 by product value. Their observed purchases account for 0.87% of product value in the reporting window. This is not lifetime value.
 - **The evidence:** Part 3 passed 62 full-data checks and 14 small test cases. Every money conversion was compared with Decimal, and item, freight and payment totals are unchanged by the joins. Parts 4–6 compare their exports with independent raw-record calculations. See the [sales checks](../results/part4_validation.txt), [delivery checks](../results/part5_validation.txt) and [customer checks](../results/part6_validation.txt).
-- **The limitations:** the reporting period is a conservative 18-month window; some dates and categories are missing, review selection is a modelling choice, and payment differences still need investigation. Results describe historical associations.
+- **The reconciliation:** 98,665 orders have both items and payments. Of those, 98,089 match exactly, 273 differ by one cent and 303 by more than one cent. Independent raw-record arithmetic confirms the differences; it does not establish business causes. Payment totals do not replace item-based sales.
+- **The order walkthrough:** order `03ecec245220b63fd7f68c1737ba99ba` has two items and two payments. Joining both child tables directly makes four rows and doubles each sum. Separate GROUP BY calculations give product value 298.90, freight 76.83 and payments 375.73, which reconcile exactly.
+- **The reporting views:** order measures stay at one row per order; item prices stay at item grain. Delivery category membership is distinct by order and category. Customers are grouped across the full reporting window by persistent ID. Views are saved queries, not copied source records.
+- **The performance experiment:** an unnecessary TRIM around a verified order ID forces a scan for the item lookup. Removing it lets SQLite use the existing index. Both variants return identical rows; alternating warm-cache timings show the difference for that lookup, not for every query.
+- **The limitations:** the reporting period is a conservative 18-month window; some dates and categories are missing, review selection is a modelling choice, and payment differences have unconfirmed causes. Results describe historical associations.
 
 ## SQL to demonstrate
 
@@ -70,6 +74,8 @@ For delivery, run the seller `HAVING` and category `JOIN` examples in [Part 5 no
 
 For customers, run the persistent-ID `GROUP BY`/`HAVING` and review `LEFT JOIN` examples in [Part 6 notes](13_part6_customers.md#two-queries-to-practise). Explain why `COUNT(*)` counts all sales orders but `COUNT(review_score)` and `AVG(review_score)` skip missing scores. Joining the selected-review view keeps one row per order; joining raw reviews can duplicate an order.
 
+For validation, run the duplicate-ID `HAVING` and preaggregated `LEFT JOIN` examples in [Part 7](14_part7_validation.md). Explain why a duplicate check should return no rows, why missing payment totals stay NULL, and why COUNT(DISTINCT order_id) does not repair duplicated monetary sums.
+
 ## Questions to practise answering
 
 1. **What is the difference between WHERE and HAVING?** Describe filtering individual eligible orders versus filtering states by their grouped counts.
@@ -83,7 +89,7 @@ For customers, run the persistent-ID `GROUP BY`/`HAVING` and review `LEFT JOIN` 
 9. **Can category order counts be added?** No. An order containing two categories appears in both category counts. Item values can be added because each item belongs to one category group.
 10. **What does LAG do?** It brings the previous ordered row's value onto the current row for the growth calculation. The calendar list keeps comparisons between consecutive months.
 11. **Did the project increase sales by 134.42%?** No. That is an observed difference between two historical periods in the dataset, not an effect of this project or proof of market-wide growth.
-12. **What remains uncertain after validation?** Source completeness, equal follow-up, missing fields, review-selection effects and payment reconciliation. Passing checks verify the calculations against the chosen rules.
+12. **What remains uncertain after validation?** Source completeness, equal follow-up, missing fields, review-selection effects and the business causes of payment differences. Passing checks verify the calculations against the chosen rules.
 13. **Can a slow delivery be on time?** Yes. Duration runs from purchase to receipt; lateness compares receipt with the promised calendar day. They measure different things.
 14. **Why exclude orders with several sellers from seller comparisons?** The source gives one receipt date per order. It cannot show which seller's package, if any, caused the order-level delay.
 15. **Why not sort sellers only by late rate?** A high rate can represent few affected orders. The report sorts by late count and shows both the rate and sample size. Its 100-order cutoff is a reporting choice, not a significance test.
@@ -92,4 +98,9 @@ For customers, run the persistent-ID `GROUP BY`/`HAVING` and review `LEFT JOIN` 
 18. **Does the review comparison prove the effect of late delivery?** No. Other order characteristics differ, and 71.57% of the selected late-group responses were recorded before delivery. The result describes an association with eventual delivery status.
 19. **What does the top-20 spending table leave out?** It is a ranked extract after aggregating every eligible customer. It covers 0.87% of observed product value and does not measure purchases outside the window or future lifetime value.
 
-Practise running the queries and explaining one result from each CSV without reading these notes. Keep claims about completed work separate from planned work. Part 7 will investigate payment reconciliation, manual order examples and query performance before the dashboard and final recommendations.
+20. **Why not remove every payment mismatch?** Product sales are defined from eligible item prices. The 495 eligible sales orders with nonzero differences contribute 104,021.36 in product value; there is no established reason to remove that value. Keep the exception visible and seek source clarification.
+21. **Why check IDs as well as counts?** Equal row counts could hide a missing order replaced by another ID. Part 7 compares the source and model ID sets in both directions using EXCEPT, as well as checking uniqueness and amounts.
+22. **Did adding an index improve the project?** The lookup already had an index. The experiment changed the predicate so SQLite could use it, saved the execution plans and checked identical results. It does not measure an improvement in the full dashboard refresh.
+23. **Can full-window customer totals follow any dashboard date filter?** No. For a narrower window, regroup the eligible order rows before deciding which customers made repeat purchases.
+
+Practise running the queries and explaining one result from each CSV without reading these notes. Keep claims about completed work separate from planned work. Next is the dashboard, followed by the final recommendations and slides.

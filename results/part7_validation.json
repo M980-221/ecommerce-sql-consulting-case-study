@@ -1,0 +1,486 @@
+{
+  "part": 7,
+  "status": "PASS",
+  "python_version": "3.12.14",
+  "sqlite_version": "3.53.1",
+  "database_access": "reporting views created transactionally; source records unchanged",
+  "source_tables": [
+    {
+      "table_name": "orders",
+      "source_rows": 99441,
+      "logical_rows_sha256": "c9a72f230042017df121eb26c00b866054760903573e1d08f01777f6a7b480db",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_items",
+      "source_rows": 112650,
+      "logical_rows_sha256": "d85f8dc8c75ca7c0a8a9d6a765ca0f76570b09cda9b95e07bc64277382dbdbf2",
+      "status": "PASS"
+    },
+    {
+      "table_name": "customers",
+      "source_rows": 99441,
+      "logical_rows_sha256": "2b4f40bc3fca13cea4d4f27ca3b1dea840ffd50b7ea7c19884b44412db6d1746",
+      "status": "PASS"
+    },
+    {
+      "table_name": "products",
+      "source_rows": 32951,
+      "logical_rows_sha256": "86b695b748424d8dd2710be142f3f91469017774337861653038ce5a09202050",
+      "status": "PASS"
+    },
+    {
+      "table_name": "sellers",
+      "source_rows": 3095,
+      "logical_rows_sha256": "3d76af6ab1337b176b29bfaa9d93300abd0d218ab4cb7b3ebecf54f2d2d6fc25",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_payments",
+      "source_rows": 103886,
+      "logical_rows_sha256": "d724f0d85baef7160b81b5f503e9dfb6c99737e8c59cc42a93fc89e1a9ea6460",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_reviews",
+      "source_rows": 99224,
+      "logical_rows_sha256": "f9a9ac75b51122ea088869b1931dfd7660a17e3d8dc0e1ddd611bfb151c538e9",
+      "status": "PASS"
+    },
+    {
+      "table_name": "category_translation",
+      "source_rows": 71,
+      "logical_rows_sha256": "0219262e020851fab6c882074d20331b1d6066021134fb51fdb6a2195bae7f59",
+      "status": "PASS"
+    }
+  ],
+  "checks_passed": 34,
+  "checks": [
+    {
+      "check": "database integrity",
+      "actual": [
+        "ok"
+      ],
+      "expected": [
+        "ok"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "raw records match published Part 2 snapshot",
+      "actual": {
+        "orders": "c9a72f230042017df121eb26c00b866054760903573e1d08f01777f6a7b480db",
+        "order_items": "d85f8dc8c75ca7c0a8a9d6a765ca0f76570b09cda9b95e07bc64277382dbdbf2",
+        "customers": "2b4f40bc3fca13cea4d4f27ca3b1dea840ffd50b7ea7c19884b44412db6d1746",
+        "products": "86b695b748424d8dd2710be142f3f91469017774337861653038ce5a09202050",
+        "sellers": "3d76af6ab1337b176b29bfaa9d93300abd0d218ab4cb7b3ebecf54f2d2d6fc25",
+        "order_payments": "d724f0d85baef7160b81b5f503e9dfb6c99737e8c59cc42a93fc89e1a9ea6460",
+        "order_reviews": "f9a9ac75b51122ea088869b1931dfd7660a17e3d8dc0e1ddd611bfb151c538e9",
+        "category_translation": "0219262e020851fab6c882074d20331b1d6066021134fb51fdb6a2195bae7f59"
+      },
+      "expected": {
+        "category_translation": "0219262e020851fab6c882074d20331b1d6066021134fb51fdb6a2195bae7f59",
+        "customers": "2b4f40bc3fca13cea4d4f27ca3b1dea840ffd50b7ea7c19884b44412db6d1746",
+        "order_items": "d85f8dc8c75ca7c0a8a9d6a765ca0f76570b09cda9b95e07bc64277382dbdbf2",
+        "order_payments": "d724f0d85baef7160b81b5f503e9dfb6c99737e8c59cc42a93fc89e1a9ea6460",
+        "order_reviews": "f9a9ac75b51122ea088869b1931dfd7660a17e3d8dc0e1ddd611bfb151c538e9",
+        "orders": "c9a72f230042017df121eb26c00b866054760903573e1d08f01777f6a7b480db",
+        "products": "86b695b748424d8dd2710be142f3f91469017774337861653038ce5a09202050",
+        "sellers": "3d76af6ab1337b176b29bfaa9d93300abd0d218ab4cb7b3ebecf54f2d2d6fc25"
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "six named validation outputs",
+      "actual": [
+        "population_validation",
+        "reconciliation_summary",
+        "reconciliation_patterns",
+        "reconciliation_exceptions",
+        "join_fanout_summary",
+        "missingness_by_population"
+      ],
+      "expected": [
+        "population_validation",
+        "reconciliation_summary",
+        "reconciliation_patterns",
+        "reconciliation_exceptions",
+        "join_fanout_summary",
+        "missingness_by_population"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "population_validation: every cell matches raw-record calculation",
+      "rows_checked": 1,
+      "status": "PASS"
+    },
+    {
+      "check": "reconciliation_summary: every cell matches raw-record calculation",
+      "rows_checked": 7,
+      "status": "PASS"
+    },
+    {
+      "check": "reconciliation_patterns: every cell matches raw-record calculation",
+      "rows_checked": 14,
+      "status": "PASS"
+    },
+    {
+      "check": "reconciliation_exceptions: every cell matches raw-record calculation",
+      "rows_checked": 576,
+      "status": "PASS"
+    },
+    {
+      "check": "join_fanout_summary: every cell matches raw-record calculation",
+      "rows_checked": 1,
+      "status": "PASS"
+    },
+    {
+      "check": "missingness_by_population: every cell matches raw-record calculation",
+      "rows_checked": 5,
+      "status": "PASS"
+    },
+    {
+      "check": "order walkthrough simple_exact: raw arithmetic and selected review",
+      "actual": {
+        "item_count": 1,
+        "payment_count": 1,
+        "product_sales_cents": 5890,
+        "freight_cents": 1329,
+        "payment_cents": 7219,
+        "payment_difference_cents": 0,
+        "customer_unique_id": "871766c5855e863f6eccc05f988b23cb",
+        "review_id": "97ca439bc427b48bc1cd7177abe71365"
+      },
+      "expected": {
+        "item_count": 1,
+        "payment_count": 1,
+        "product_sales_cents": 5890,
+        "freight_cents": 1329,
+        "payment_cents": 7219,
+        "payment_difference_cents": 0,
+        "customer_unique_id": "871766c5855e863f6eccc05f988b23cb",
+        "review_id": "97ca439bc427b48bc1cd7177abe71365"
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "order walkthrough two_items_two_payments: raw arithmetic and selected review",
+      "actual": {
+        "item_count": 2,
+        "payment_count": 2,
+        "product_sales_cents": 29890,
+        "freight_cents": 7683,
+        "payment_cents": 37573,
+        "payment_difference_cents": 0,
+        "customer_unique_id": "adfe61acba44add7d03a0eb04abd79ec",
+        "review_id": "ac4d6318c243925b2cfb2ddca2decf22"
+      },
+      "expected": {
+        "item_count": 2,
+        "payment_count": 2,
+        "product_sales_cents": 29890,
+        "freight_cents": 7683,
+        "payment_cents": 37573,
+        "payment_difference_cents": 0,
+        "customer_unique_id": "adfe61acba44add7d03a0eb04abd79ec",
+        "review_id": "ac4d6318c243925b2cfb2ddca2decf22"
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "order walkthrough one_cent_difference: raw arithmetic and selected review",
+      "actual": {
+        "item_count": 2,
+        "payment_count": 1,
+        "product_sales_cents": 37800,
+        "freight_cents": 4336,
+        "payment_cents": 42135,
+        "payment_difference_cents": -1,
+        "customer_unique_id": "22f845998f64187faf181b128bf035fb",
+        "review_id": "ff5bc961e5f4772b97525a35124563a9"
+      },
+      "expected": {
+        "item_count": 2,
+        "payment_count": 1,
+        "product_sales_cents": 37800,
+        "freight_cents": 4336,
+        "payment_cents": 42135,
+        "payment_difference_cents": -1,
+        "customer_unique_id": "22f845998f64187faf181b128bf035fb",
+        "review_id": "ff5bc961e5f4772b97525a35124563a9"
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "order walkthrough larger_difference: raw arithmetic and selected review",
+      "actual": {
+        "item_count": 1,
+        "payment_count": 1,
+        "product_sales_cents": 15400,
+        "freight_cents": 1483,
+        "payment_cents": 19081,
+        "payment_difference_cents": 2198,
+        "customer_unique_id": "2605c5e0b518e57802205cfb05246774",
+        "review_id": "e880864e64f669aea8904ee3f201875c"
+      },
+      "expected": {
+        "item_count": 1,
+        "payment_count": 1,
+        "product_sales_cents": 15400,
+        "freight_cents": 1483,
+        "payment_cents": 19081,
+        "payment_difference_cents": 2198,
+        "customer_unique_id": "2605c5e0b518e57802205cfb05246774",
+        "review_id": "e880864e64f669aea8904ee3f201875c"
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "order walkthrough missing_payment: raw arithmetic and selected review",
+      "actual": {
+        "item_count": 3,
+        "payment_count": 0,
+        "product_sales_cents": 13497,
+        "freight_cents": 849,
+        "payment_cents": null,
+        "payment_difference_cents": null,
+        "customer_unique_id": "830d5b7aaa3b6f1e9ad63703bec97d23",
+        "review_id": "6916ca4502d6d3bfd39818759d55d536"
+      },
+      "expected": {
+        "item_count": 3,
+        "payment_count": 0,
+        "product_sales_cents": 13497,
+        "freight_cents": 849,
+        "payment_cents": null,
+        "payment_difference_cents": null,
+        "customer_unique_id": "830d5b7aaa3b6f1e9ad63703bec97d23",
+        "review_id": "6916ca4502d6d3bfd39818759d55d536"
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "reporting orders: unique order IDs",
+      "actual": 91780,
+      "expected": 91780,
+      "status": "PASS"
+    },
+    {
+      "check": "reporting orders: exact period coverage",
+      "actual": 91780,
+      "expected": 91780,
+      "status": "PASS"
+    },
+    {
+      "check": "reporting items: unique order/item pairs",
+      "actual": 101825,
+      "expected": 101825,
+      "status": "PASS"
+    },
+    {
+      "check": "reporting categories: unique order/category pairs",
+      "actual": 89822,
+      "expected": 89822,
+      "status": "PASS"
+    },
+    {
+      "check": "reporting customers: unique persistent IDs",
+      "actual": 86271,
+      "expected": 86271,
+      "status": "PASS"
+    },
+    {
+      "check": "reporting items: sales-eligible parents only",
+      "actual": 0,
+      "expected": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "reporting categories: delivery-eligible parents only",
+      "actual": 0,
+      "expected": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "reporting monthly sales match Part 4",
+      "actual": 18,
+      "expected": 18,
+      "status": "PASS"
+    },
+    {
+      "check": "reporting category sales match Part 4",
+      "actual": 74,
+      "expected": 74,
+      "status": "PASS"
+    },
+    {
+      "check": "reporting monthly delivery matches Part 5",
+      "actual": 18,
+      "expected": 18,
+      "status": "PASS"
+    },
+    {
+      "check": "reporting category delivery matches Part 5",
+      "actual": 74,
+      "expected": 74,
+      "status": "PASS"
+    },
+    {
+      "check": "reporting state reviews match Part 6",
+      "actual": 27,
+      "expected": 27,
+      "status": "PASS"
+    },
+    {
+      "check": "reporting customer count matches Part 6",
+      "actual": 86271,
+      "expected": 86271,
+      "status": "PASS"
+    },
+    {
+      "check": "reporting repeat customers matches Part 6",
+      "actual": 2562,
+      "expected": 2562,
+      "status": "PASS"
+    },
+    {
+      "check": "reporting customer order count matches Part 6",
+      "actual": 89110,
+      "expected": 89110,
+      "status": "PASS"
+    },
+    {
+      "check": "reporting customer product value matches Part 6",
+      "actual": 1223065213,
+      "expected": 1223065213,
+      "status": "PASS"
+    },
+    {
+      "check": "reporting customer top 20 matches Part 6",
+      "actual": 20,
+      "expected": 20,
+      "status": "PASS"
+    },
+    {
+      "check": "existing tables, indexes and analytical views unchanged",
+      "actual": "unchanged",
+      "expected": "unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "raw records unchanged after reporting view creation",
+      "actual": "all eight table fingerprints match",
+      "expected": "all eight table fingerprints match",
+      "status": "PASS"
+    },
+    {
+      "check": "performance experiment: two cases with identical query results",
+      "actual": [
+        true,
+        true
+      ],
+      "expected": [
+        true,
+        true
+      ],
+      "status": "PASS"
+    }
+  ],
+  "output_rows": {
+    "population_validation": 1,
+    "reconciliation_summary": 7,
+    "reconciliation_patterns": 14,
+    "reconciliation_exceptions": 576,
+    "join_fanout_summary": 1,
+    "missingness_by_population": 5
+  },
+  "output_cells_checked": 10111,
+  "reporting_view_rows": {
+    "orders": 91780,
+    "sales_items": 101825,
+    "order_categories": 89822,
+    "customers": 86271
+  },
+  "independent_evidence": {
+    "source_row_counts": {
+      "orders": 99441,
+      "order_items": 112650,
+      "order_payments": 103886,
+      "order_reviews": 99224,
+      "customers": 99441,
+      "products": 32951,
+      "sellers": 3095,
+      "category_translation": 71
+    },
+    "unique_key_counts": {
+      "orders": 99441,
+      "customers": 99441,
+      "products": 32951,
+      "sellers": 3095,
+      "order_items": 112650,
+      "order_payments": 103886,
+      "order_reviews": 99224,
+      "category_translation": 71
+    },
+    "unmatched_relationship_rows": {
+      "orders_to_customers": 0,
+      "items_to_orders": 0,
+      "items_to_products": 0,
+      "items_to_sellers": 0,
+      "payments_to_orders": 0,
+      "reviews_to_orders": 0
+    },
+    "review_selection": {
+      "source_rows": 99224,
+      "invalid_rows": 64,
+      "valid_rows": 99160,
+      "selected_rows": 98612,
+      "additional_valid_rows": 548
+    },
+    "reconciliation": {
+      "source_orders": 99441,
+      "matched_orders": 98665,
+      "exception_orders": 576,
+      "exact_match_orders": 98089,
+      "one_cent_orders": 273,
+      "larger_difference_orders": 303
+    }
+  },
+  "dependency_sha256": {
+    "sql/06_validation.sql": "45665e84bc70a0bccf683c8b76061978a72e50f197cabf56f2864ba79c101605",
+    "sql/07_reporting_views.sql": "77f06ed541dd4d98ff6979f14c481aaeb5c57cdd049b5dbe894be978bb64d159",
+    "sql/02_cleaning.sql": "aad3fe214cd1d3c60374b92f3dba58cc684c86d4fc2e114962363491ad450d01",
+    "scripts/validate_part7.py": "3d26690b2a5427cbefff3a8a7c72a28a36b3d04b5b8e8b057531d1c3be9bff1c",
+    "scripts/validation_checks.py": "f4da9b976d81a3e9277aee9a3d541a4f0a16063a12789161f97bc10d05b47a8f",
+    "scripts/benchmark_part7.py": "7b4bce0c5c76eefa197b46d3e60e0793feb380b92a68c2b9cf9b0d8b059da460",
+    "scripts/analyse_sales.py": "0bef79ae8ac21bf35d7a7d667942607fe7045de1a05dc209bb9a84262a029487",
+    "scripts/prepare_part3.py": "e3063709f642b9ae59557b3841f26270033fd1ae91e86804c94082d67feb631d",
+    "scripts/build_database.py": "14a65d86e8c0881720bf3898221899b2d521d6e785ed41746245575711a57a4e",
+    "scripts/customer_checks.py": "f1418245d977eda792a2fe8422e6ab348d7d92b302faf77f4a7eebf394c9d863",
+    "scripts/delivery_checks.py": "35ed055460aa6524e7926a2bc16a073b4a906ff0ff59501f1300335526896b19",
+    "scripts/sales_checks.py": "d3ce4666b5a50e3d291c6094f026c96c936cf8eeee3cdcfbf5681aa1f753209d",
+    "results/part4_monthly_sales.csv": "b7f2fbe88c866fc705d899bc75dfd55009cd8b4acb5fbb350eee1747152e2051",
+    "results/part4_category_sales.csv": "c0aa51192a978db805c2d931539ddc6bd3770670a7e61cc5bc71c4b05da8b266",
+    "results/part5_monthly_delivery.csv": "f20997d6ebb3be7dcf928cd7c5a57d63f8e1a4f014bb4e71ccfac120b7e323c5",
+    "results/part5_category_delivery.csv": "de96b07a72809a8b8d4c53914d1ab6d332bdc377d2ebbe2ce7f12ac2f744b34c",
+    "results/part6_regional_reviews.csv": "6f9442d51afb38bf2a7cb2856c413934ebe05edf2883c29bd984de2ccc466efa",
+    "results/part6_repeat_customers.csv": "5c89f4ec97d20b32f976b2c695a20df1a6331469ded6d6a41ae7880874aedba8",
+    "results/part6_customer_spending.csv": "4677a569a203afcb8b733611b391ee8776911ab58ee93a7ae075c692dd8770cf"
+  },
+  "output_sha256": {
+    "part7_population_validation.csv": "cc4608b7da4958f4b84c5a5b0ede652174b8cf8f67ae179f12537474eaa13ff8",
+    "part7_reconciliation_summary.csv": "2af37e0f4344dbca083f4e5e69da9dad5418c16d8dd2bd9725defa8c28059153",
+    "part7_reconciliation_patterns.csv": "ad9c2db823bfb2bc090f1a36e1b0100c9682ee40f1c4a09fab5b6646998e7623",
+    "part7_reconciliation_exceptions.csv": "e2f74b5c27ba6a097fef91f8417a64de43d65124cc0ddff9d49b959273344027",
+    "part7_join_fanout_summary.csv": "f31ad4909f8b023ee13e15b1ce5a7fb0ed589fb1cacb8f4c8d5082db514e6514",
+    "part7_missingness_by_population.csv": "92e2749abb5cae130b6a26f4bb451801b55910806b29ead6cf351d2c102a3436",
+    "part7_performance.json": "73d5e8bf9ccc363e773a5d078eaf4ea7aeb7dd95942d310df14b5f9dac915851",
+    "part7_order_walkthroughs.json": "b3143665937273a8a33b6621064cbe7b0fd86ee0224b4fbbd5a91f1f24cc8790"
+  },
+  "remaining_limitations": [
+    "Source payment differences have no confirmed business cause.",
+    "Benchmark timings are specific to this local warm-cache order lookup.",
+    "Dashboard visuals and measures will be checked in Part 8."
+  ]
+}

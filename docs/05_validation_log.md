@@ -1,6 +1,8 @@
 # Validation log
 
-Parts 2–6 are complete. Part 3 passed **62 checks** and 14 synthetic test cases. Part 4 passed **15 checks** and 10 sales test cases; Part 5 passed **25 checks** and 12 delivery test cases. On 9 October 2026, Part 6 passed **26 checks** and 12 customer test cases. All **48 tests** passed together. Part 7 will investigate the remaining reconciliation questions and review the combined business analysis.
+Parts 2–7 are complete. Part 3 passed **62 checks** and 14 synthetic test cases. Part 4 passed **15 checks** and 10 sales test cases; Part 5 passed **25 checks** and 12 delivery test cases. On 9 October 2026, Part 6 passed **26 checks** and 12 customer test cases; all **48 tests** passed together at that stage. Part 7 investigates payment reconciliation, traces five orders to their source records and checks reporting views against the combined business analysis.
+
+Part 7 passed **34 checks** across **604 CSV rows and 10,111 cells**. The combined test run passed **68 tests: 20 Part 7 tests and 48 earlier tests**.
 
 | Check | Result | Evidence |
 |---|---|---|
@@ -36,9 +38,18 @@ Parts 2–6 are complete. Part 3 passed **62 checks** and 14 synthetic test case
 | Spending reconciliation | All customer groups sum to 89,110 orders and 1,223,065,213 integer hundredths, matching Part 4 | Part 6 validation |
 | Review comparison coverage and timing | 88,486 reviewed orders have delivery eligibility; 4,445 selected responses precede receipt | Part 6 delivery-review output and validation |
 | Customer edge cases and regression tests | 12 customer tests plus 36 earlier tests passed | `results/part6_tests.txt` |
-| Source payment reconciliation investigation | Open: 273 one-cent differences and 303 larger differences | Part 3 `payment_reconciliation`; investigate in Part 7 |
-| Five manual order walkthroughs | Pending Part 7 | |
-| Dashboard figures | Pending Parts 7–8 | |
+| Part 7 output cells | All 604 rows / 10,111 cells match independent raw-record calculations | `results/part7_validation.json`; `scripts/validation_checks.py` |
+| Source/model order IDs | Zero source IDs absent from the model and zero model IDs absent from the source; distinct counts also match | `results/part7_population_validation.csv` |
+| Source payment reconciliation investigation | 98,665 comparable orders: 98,089 exact matches, 273 one-cent differences and 303 larger differences; causes remain unconfirmed | `results/part7_reconciliation_summary.csv`; `results/part7_reconciliation_exceptions.csv` |
+| Reconciliation patterns and missingness | All nonzero differences exported; absent items/payments stay separate from exact matches; missingness reported by five populations | `results/part7_reconciliation_patterns.csv`; `results/part7_missingness_by_population.csv` |
+| Five order walkthroughs | Exact match, multiple items/payments, one-cent difference, larger difference and absent payment traced to raw rows | `results/part7_order_walkthroughs.json`; [Part 7 notes](14_part7_validation.md#five-orders-traced-to-the-source) |
+| Unsafe join demonstration | Deliberate item/payment join repeats source amounts; the correctly aggregated reporting model is unchanged | `results/part7_join_fanout_summary.csv` |
+| Reporting view grains | 91,780 orders; 101,825 sales items; 89,822 order/category pairs; 86,271 persistent customers; keys checked at each grain | Part 7 `reporting_view_rows` and checks |
+| Reporting aggregates | Monthly/category sales and delivery, state reviews and customer totals match the published Parts 4–6 results | `results/part7_validation.json` |
+| Source and schema preservation | Fingerprints checked before/after; reporting views created in a transaction; existing tables, indexes and analytical views unchanged | Part 7 checks and `source_tables` |
+| Order-item lookup experiment | Both query variants return identical results in single-item and multiple-item cases; existing index inspected | `results/part7_performance.json` |
+| Part 7 edge cases and regressions | 11 validation tests, nine reporting tests and 48 earlier tests passed | `results/part7_tests.txt` |
+| Dashboard figures and filters | Pending Part 8; reporting-view agreement does not validate a dashboard that has not been built | |
 
 ## Remaining source exceptions
 
@@ -52,6 +63,27 @@ The [cleaning decision table](10_part3_cleaning.md#decisions-and-evidence) recor
 
 The reporting window, review selection and metric-specific exclusions are part of the analysis definition. They should accompany any later comparisons or recommendations.
 
+## Part 7 reconciliation and reporting checks
+
+The six validation outputs are recalculated independently from raw records with Python grouping, dates and Decimal money. The checker does not read prepared views or use SQL joins or aggregates. It verifies source keys and relationships, reproduces review selection and compares every exported cell. The population query also checks order IDs in both directions between source and model: equal counts alone could hide one lost ID and one unexpected ID. Separate reporting-view checks compare counts and exact monetary/score totals with the published Parts 4–6 files.
+
+The **576 nonzero payment differences** consist of 273 one-cent cases and 303 larger cases. Their signed sum is **+2,870.39** source monetary units and their absolute sum is **3,271.95**. All one-cent cases have multiple items, but that association does not establish why the source values differ. Missing sides remain `NULL` rather than being replaced with zero. In the sales population, 495 affected orders contribute 104,021.36 in product value. No monetary value or eligibility rule was changed to force agreement.
+
+Five selected orders have their item, payment and review rows recorded beside independently checked totals and eligibility flags. They include an order with two items and two payments: a direct item/payment join would make four rows. That intentionally unsafe query is a diagnostic example, not a failure in the published model. The model aggregates the sources separately before joining.
+
+The reporting views retain distinct row meanings: one order, one sales item, one delivery order/category pair and one persistent sales customer. Category memberships overlap across categories. Full-window customer totals also need to be recalculated from filtered orders when a future dashboard changes the date or state selection. SQL checks do not verify future dashboard relationships, filters or displayed measures.
+
+Run `python3 scripts/validate_part7.py` from the repository folder after Parts 4–6. The runner verifies the source fingerprints against Part 2, applies the four reporting views transactionally and rolls back if a database check fails. It confirms that raw records and the pre-existing schema remain unchanged, then exports the evidence after validation succeeds. See [Part 7](14_part7_validation.md), [recorded checks](../results/part7_validation.txt) and [test results](../results/part7_tests.txt).
+
 ## Performance experiment
 
-Lookup indexes are included in Part 3 to support joins on the verified string IDs. A repeatable before/after timing experiment with an execution plan remains Part 7 work. No percentage speed improvement is claimed.
+Part 7 compares an item-detail lookup using `TRIM(order_id) = ?` with `order_id = ?`. All source item order IDs were checked for blanks and surrounding spaces before treating the results as equivalent. The direct predicate can use the existing order-ID index added in Part 3; the experiment adds no index and changes no records.
+
+The benchmark records `EXPLAIN QUERY PLAN`, environment details and timings for one single-item order and one multiple-item order. Each variant has three warmups and 20 measured runs per case, with alternating execution order; execute and full fetch are timed. Every run must return the same rows before a timing comparison is accepted. See [the recorded benchmark](../results/part7_performance.json).
+
+| Lookup case | Trimmed predicate, median ms | Direct predicate, median ms |
+|---|---:|---:|
+| One item | 9.139 | 0.016 |
+| 21 items | 7.850 | 0.037 |
+
+This measures a narrow lookup against the current database with a warm cache. The trimmed predicate is an intentionally inefficient comparison, not a previously published analysis query. Results depend on the machine, cache and concurrent work; they do not establish a speed improvement for the full analysis, a dashboard refresh or another database engine.

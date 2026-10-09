@@ -77,3 +77,31 @@ Run `python3 scripts/analyse_customers.py` after Part 3 preparation. The runner 
 Review means and low-score shares exclude missing reviews. The missing-review bucket has a blank score and a blank share of reviewed orders. Other blank cells represent undefined values, not zero. Part 6 display ratios use exact half-up rounding to two decimal places; integer counts, score sums and monetary hundredths remain available.
 
 The spending table applies its top-20 limit after grouping all eligible customers. The repeat summary still includes the entire customer population. Repeat means at least two eligible order IDs within the window; it does not measure retention or churn. The delivery comparison retains valid selected reviews submitted before receipt and reports their counts. Full definitions and practice queries are in [Part 6](../docs/13_part6_customers.md).
+
+## Part 7
+
+| File | Contents |
+|---|---|
+| [Population validation](part7_population_validation.csv) | Source/model grain, IDs checked in both directions, metric populations, source monetary totals and selected-review counts |
+| [Reconciliation summary](part7_reconciliation_summary.csv) | Exact matches, one-cent and larger differences, and missing item/payment sides |
+| [Reconciliation patterns](part7_reconciliation_patterns.csv) | Difference direction, vouchers, multiple items/payments and zero payment components |
+| [Reconciliation exceptions](part7_reconciliation_exceptions.csv) | Every comparable nonzero difference: 576 orders, including all 273 one-cent cases |
+| [Unsafe join demonstration](part7_join_fanout_summary.csv) | Correct source totals beside the inflated amounts from an intentionally unsafe item/payment join |
+| [Missingness by population](part7_missingness_by_population.csv) | Missing items, payments, reviews and dates across five defined populations |
+| [Five order walkthroughs](part7_order_walkthroughs.json) | Raw item/payment/review rows, checked arithmetic and eligibility for five selected orders |
+| [Lookup performance](part7_performance.json) | Equivalent trimmed/direct predicates, query plans, result checks, warm-cache timings and environment |
+| [Validation report](part7_validation.json) | 34 checks, raw-record comparisons, reporting-view checks, fingerprints, dependencies and output hashes |
+| [Readable validation](part7_validation.txt) | Check results, CSV row/cell counts and reporting-view sizes |
+| [Test results](part7_tests.txt) | 11 validation tests, nine reporting tests and 48 earlier tests; all 68 passed |
+
+Run `python3 scripts/validate_part7.py` after preparing the database and completing Parts 4–6. Use `--results-dir results/rebuilt/part7` for another evidence folder. The runner recalculates the six CSV outputs independently from raw records, traces the five orders and checks reporting aggregates against the published Parts 4–6 files. It also runs the lookup benchmark. To repeat only that experiment without changing the database, run `python3 scripts/benchmark_part7.py`; JSON is printed to standard output unless `--output` is supplied.
+
+All **34 checks** passed, with **604 CSV rows and 10,111 cells** matching the independent calculation. The full test suite passed **68 tests**. Run it with `python3 -m unittest discover -s tests -v`.
+
+Part 7 creates four reporting views in a transaction and confirms that the source records, existing tables, indexes and analytical views are unchanged. The views contain **91,780 period orders, 101,825 sales items, 89,822 delivery order/category pairs and 86,271 persistent sales customers**. Each has a documented grain; counts across categories overlap, and customer summaries describe the full window. The raw-table fingerprints are checked before and after view creation.
+
+Payment differences are `payments - product prices - freight`, in integer hundredths. A blank cell means `NULL`, including a comparison with a missing side. The 303 larger differences remain source exceptions with unconfirmed causes; no amounts or eligibility rules were changed. The unsafe join output deliberately demonstrates repeated amounts and is not a production reporting result.
+
+Benchmark timings describe a selective order-item lookup using the existing index, with three warmups and 20 measured runs per variant and case. Every result is checked for equality. The experiment does not claim that aggregate queries or dashboard refreshes improve by the same amount, and its timings will vary by environment.
+
+Findings, five worked examples and practice SQL are in [Part 7](../docs/14_part7_validation.md). Dashboard headline values, relationships and filter behaviour remain to be validated in Part 8.

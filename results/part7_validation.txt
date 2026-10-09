@@ -1,0 +1,56 @@
+PART 7 VALIDATION
+PASS: 34 checks
+
+All reconciliation report cells match independent raw-record calculations.
+Reporting views reconcile to the published Parts 4–6 outputs.
+Raw source records remain unchanged; payment exceptions remain visible.
+
+PASS: database integrity
+PASS: raw records match published Part 2 snapshot
+PASS: six named validation outputs
+PASS: population_validation: every cell matches raw-record calculation
+PASS: reconciliation_summary: every cell matches raw-record calculation
+PASS: reconciliation_patterns: every cell matches raw-record calculation
+PASS: reconciliation_exceptions: every cell matches raw-record calculation
+PASS: join_fanout_summary: every cell matches raw-record calculation
+PASS: missingness_by_population: every cell matches raw-record calculation
+PASS: order walkthrough simple_exact: raw arithmetic and selected review
+PASS: order walkthrough two_items_two_payments: raw arithmetic and selected review
+PASS: order walkthrough one_cent_difference: raw arithmetic and selected review
+PASS: order walkthrough larger_difference: raw arithmetic and selected review
+PASS: order walkthrough missing_payment: raw arithmetic and selected review
+PASS: reporting orders: unique order IDs
+PASS: reporting orders: exact period coverage
+PASS: reporting items: unique order/item pairs
+PASS: reporting categories: unique order/category pairs
+PASS: reporting customers: unique persistent IDs
+PASS: reporting items: sales-eligible parents only
+PASS: reporting categories: delivery-eligible parents only
+PASS: reporting monthly sales match Part 4
+PASS: reporting category sales match Part 4
+PASS: reporting monthly delivery matches Part 5
+PASS: reporting category delivery matches Part 5
+PASS: reporting state reviews match Part 6
+PASS: reporting customer count matches Part 6
+PASS: reporting repeat customers matches Part 6
+PASS: reporting customer order count matches Part 6
+PASS: reporting customer product value matches Part 6
+PASS: reporting customer top 20 matches Part 6
+PASS: existing tables, indexes and analytical views unchanged
+PASS: raw records unchanged after reporting view creation
+PASS: performance experiment: two cases with identical query results
+
+Output rows:
+population_validation: 1
+reconciliation_summary: 7
+reconciliation_patterns: 14
+reconciliation_exceptions: 576
+join_fanout_summary: 1
+missingness_by_population: 5
+Output cells checked: 10111
+
+Reporting view rows:
+orders: 91780
+sales_items: 101825
+order_categories: 89822
+customers: 86271

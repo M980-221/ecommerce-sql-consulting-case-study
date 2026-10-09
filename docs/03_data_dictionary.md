@@ -131,6 +131,12 @@ Timestamps remain validated `YYYY-MM-DD HH:MM:SS` text, which SQLite's date func
 | `v_order_item_totals` | One order with items | Item count, seller count, single seller ID, product value and freight |
 | `v_order_payment_totals` | One order with payments | Payment-component count and total amount |
 | `v_order_analysis` | Exactly one row per source order | Combine customer identity, item totals, payment totals and the selected review; apply reporting flags |
+| `v_reporting_orders` | One row per purchase-window order: 91,780 rows | Includes excluded orders; filter the eligibility flag required by each measure |
+| `v_reporting_sales_items` | One row per eligible `(order_id, order_item_id)`: 101,825 rows | Add item prices; count distinct orders; no repeated order total |
+| `v_reporting_order_categories` | One row per delivery-eligible `(order_id, category_label)`: 89,822 rows | Category delivery membership; orders can overlap across categories |
+| `v_reporting_customers` | One row per persistent customer with an eligible sale: 86,271 rows | Full-window counts, spending and review totals, plus repeat flag; no top-20 limit |
+
+The Part 7 reporting views are defined in [reporting SQL](../sql/07_reporting_views.sql). They retain the Part 3 metric rules. Customer totals cover the entire reporting window; narrower dashboard filters require regrouping the eligible orders. Counts of orders across different category rows are not additive.
 
 ### Fields added to the order model
 
