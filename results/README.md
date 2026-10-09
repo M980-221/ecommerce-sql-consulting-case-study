@@ -125,3 +125,12 @@ Run the suites with `python3 -m unittest discover -s tests -v`, `node --test tes
 The [three SVG previews](../dashboard/screenshots/) are generated from the actual default calculation results with `python3 scripts/render_dashboard_previews.py`. They are labelled static data previews and are not browser screenshots. See [Part 8](../docs/15_part8_dashboard.md) and [dashboard opening instructions](../dashboard/README.md).
 
 The [deployment record](part8_deployment.json) identifies the private hosted version and the hashes of its deployed assets. Native hosting status confirms publication; it does not replace browser visual testing.
+
+## Tableau revision of Part 8
+
+| File | Evidence |
+|---|---|
+| `tableau_export_validation.json` / `.txt` | Read-only export, source fingerprints, 2,273,050 checked cells and 511 published-total reconciliations |
+| `tableau_validation.json` / `.txt` | Workbook/schema/package checks and independent calculation-model comparisons; see report for exact scope |
+
+The source files are `tableau/data/orders.csv` and `tableau/data/categories.csv`; the workbook is `tableau/Olist_Commerce_Review.twbx`. Tableau has not executed or rendered the workbook in this environment. The earlier JavaScript checks above apply only to the browser prototype. See [Tableau instructions](../tableau/README.md).

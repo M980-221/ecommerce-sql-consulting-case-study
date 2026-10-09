@@ -4,7 +4,7 @@
 **Type:** Independent portfolio project using public historical data  
 **Owner:** Mohammed Baquaysh  
 **Date:** 30 September 2026  
-**Status:** Parts 1–8 implemented. The three dashboard pages were added on 10 October 2026, using the validated reporting views. Calculations are checked against SQL; browser visual testing remains outstanding. Recommendations and slides are next.
+**Status:** Parts 1–7 complete. Part 8 was revised on 10 October 2026 to use Tableau. The workbook and checked data are prepared; in-app execution and visual checks remain outstanding. Recommendations and slides are next.
 
 ## Business situation
 
@@ -106,6 +106,6 @@ Target: four weeks, approximately 40–60 hours after learning SQL fundamentals.
 
 **Part 7 outcome:** payment differences investigated, five orders traced, four reporting views checked against the published analysis, and one indexed lookup measured. The source does not establish the business causes of the payment differences. See [validation and SQL review](14_part7_validation.md).
 
-**Part 8 outcome:** a browser dashboard with Sales, Delivery and Customer pages, month/state filters and CSV downloads. The calculation code is compared with SQLite under different selections. Static previews are labelled as such; live browser visual and manual accessibility checks remain open. See [the dashboard walkthrough](15_part8_dashboard.md).
+**Part 8 outcome:** a packaged Tableau workbook with Sales, Delivery and Customers dashboards and shared month/state parameters. SQL supplies separate order and category sources. Customer groups respond to the active selection. The workbook still needs opening and checking in Tableau. See [the Tableau walkthrough](16_tableau_dashboard.md).
 
 **Next step:** select three evidence-based recommendations and prepare five slides in Part 9.

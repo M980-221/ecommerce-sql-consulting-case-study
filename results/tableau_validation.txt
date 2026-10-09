@@ -1,0 +1,17 @@
+TABLEAU OFFLINE VALIDATION
+PASS: official 2026.1 XSD and workbook references
+PASS: packaged TWB, two CSV files and data license match editable sources byte for byte
+PASS: 8 CSV/SQLite scenarios, 13487 compared values
+PASS: 18 default metrics match Parts 4–6
+
+PASS: all — 91780 orders, 2696 compared values
+PASS: march_2018 — 7211 orders, 2167 compared values
+PASS: sao_paulo — 38069 orders, 1977 compared values
+PASS: rio_de_janeiro — 11950 orders, 1909 compared values
+PASS: march_2018_rj — 907 orders, 1225 compared values
+PASS: february_to_july_2018 — 40210 orders, 2391 compared values
+PASS: roraima — 44 orders, 1013 compared values
+PASS: empty_august_2017_roraima — 0 orders, 109 compared values
+
+Tableau execution and rendering were not performed. Numerical checks use the packaged CSVs, Python and SQLite.
+Opening the workbook in Tableau is still required to confirm native calculation compilation and visual layout.

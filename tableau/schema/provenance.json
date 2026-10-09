@@ -1,0 +1,28 @@
+{
+  "upstream_repository": "https://github.com/tableau/tableau-document-schemas",
+  "upstream_commit": "f4bce1eb55f0c1c010c0ef826cf531528d5910eb",
+  "version": "2026.1.0",
+  "files": {
+    "twb_2026.1.0.xsd": {
+      "url": "https://raw.githubusercontent.com/tableau/tableau-document-schemas/f4bce1eb55f0c1c010c0ef826cf531528d5910eb/schemas/2026_1/twb_2026.1.0.xsd",
+      "sha256": "8bb236b72c1c388aca92bcd00164f65c0d4f5efeaf225252ce0619d8f631e923",
+      "bytes": 297129,
+      "modified": false
+    },
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/tableau/tableau-document-schemas/f4bce1eb55f0c1c010c0ef826cf531528d5910eb/LICENSE.txt",
+      "sha256": "a32115015c1eea6186e519fa03ab3b77844170a75cf57ddbeb57f15dae44729a",
+      "bytes": 11444,
+      "modified": false
+    }
+  },
+  "namespace_resolution_reference": {
+    "repository": "https://github.com/tableau/tableau-plugin",
+    "git_tree": "84f130911b33e8e257a920e69a012496d29f85b7",
+    "git_blob": "1d067fe09884382a2b8e48ee85cd0ae5a7cebba2",
+    "path": "plugins/tableau/skills/tableau-workbook-authoring/scripts/validate_workbook.py",
+    "url": "https://api.github.com/repos/tableau/tableau-plugin/git/blobs/1d067fe09884382a2b8e48ee85cd0ae5a7cebba2",
+    "downloaded_sha256": "0eb828e59ffcf5d45722d3e9ec47df02fa80da7eaaa63a2b52f3459008ab5c95",
+    "method": "The local loader follows the official validator approach: resolve only the location-free user and XML namespace imports in memory; preserve the vendored XSD byte for byte."
+  }
+}

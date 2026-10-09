@@ -61,10 +61,12 @@ Completed 9 October 2026. Checked join duplication, payment reconciliation and m
 
 ## Part 8 — Build the dashboard
 
-Implemented 10 October 2026: three browser pages for sales, delivery and customer experience, with shared month/state filters and CSV downloads. The same JavaScript calculations used by the interface are checked against SQLite for default, filtered and empty selections. Static data previews support GitHub readers. The required browser-testing capability was unavailable, so actual browser screenshots, live visual checks and manual accessibility review remain open; static previews are not presented as browser captures. See [Part 8](15_part8_dashboard.md).
+Updated 10 October 2026 to use Tableau as the primary dashboard deliverable. The packaged workbook contains Sales, Delivery and Customers dashboards, editable worksheets, shared month/state parameters and two checked CSV sources. Orders and category rows remain separate to avoid repeating order totals. Repeat-customer calculations include the selected parameters inside their customer grouping.
 
-**GitHub deliverables:** dashboard HTML/CSS/JavaScript and checked data, dashboard/README.md, labelled static previews in dashboard/screenshots/, export and validation scripts, tests, docs/15_part8_dashboard.md and Part 8 evidence in results/.
-**Done when:** another person can understand the views and definitions.
+The workbook is prepared and checked at the data/file level. Opening it, executing its calculations and inspecting the layout in Tableau remain outstanding. The earlier browser implementation is retained as a prototype. See [the Tableau walkthrough](16_tableau_dashboard.md).
+
+**GitHub deliverables:** `tableau/Olist_Commerce_Review.twbx`, editable `.twb`, CSV sources, export/build/validation scripts, Tableau documentation and recorded evidence.
+**Done when:** the workbook opens correctly in Tableau, default and filtered results match the recorded expectations, and another person can understand the charts and definitions.
 
 ## Part 9 — Develop recommendations
 

@@ -1,6 +1,6 @@
 # Findings and recommendations
 
-Findings are recorded in [Part 4: sales](11_part4_sales.md), [Part 5: delivery](12_part5_delivery.md) and [Part 6: customers](13_part6_customers.md), with links to supporting query outputs. [Part 7](14_part7_validation.md) checked the combined analysis and investigated payment differences; their business causes remain unconfirmed. [Part 8](15_part8_dashboard.md) brings the results into a dashboard. The three final recommendations below will be selected in Part 9.
+Findings are recorded in [Part 4: sales](11_part4_sales.md), [Part 5: delivery](12_part5_delivery.md) and [Part 6: customers](13_part6_customers.md), with links to supporting query outputs. [Part 7](14_part7_validation.md) checked the combined analysis and investigated payment differences; their business causes remain unconfirmed. [Part 8](16_tableau_dashboard.md) prepares the results for an interactive Tableau dashboard, with in-app verification still outstanding. The three final recommendations below will be selected in Part 9.
 
 Complete three entries using validated analysis.
 

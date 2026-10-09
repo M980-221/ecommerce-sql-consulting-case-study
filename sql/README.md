@@ -16,6 +16,7 @@ Dialect: **SQLite**. Executed with SQLite **3.53.1**. Part 3 uses window functio
 | `06_validation.sql` | Population checks, payment reconciliation, unsafe-join diagnostic and missingness | Executed |
 | `07_reporting_views.sql` | Four checked reporting views for orders, items, delivery categories and customers | Executed |
 | `08_dashboard_export.sql` | Period order rows and distinct category allocations for browser filtering | Executed |
+| `09_tableau_export.sql` | Separate order and order/category CSV sources for Tableau | Executed |
 
 Run `python3 scripts/build_database.py` for Part 2, then `python3 scripts/prepare_part3.py` for Part 3. Setup is for an empty database; Part 3 can be rerun and leaves the source records unchanged.
 
@@ -34,3 +35,7 @@ For Part 7, run `python3 scripts/validate_part7.py` after Parts 3–6. It compar
 Useful SQL in Part 3: `SELECT`, `WHERE`, `COUNT`, `DISTINCT`, `GROUP BY`, `HAVING`, `LEFT JOIN`, `SUM`, `MIN`, `MAX`, `CASE`, `NULLIF`, `COALESCE`, `TRIM`, `CAST`, `ROUND`, `WITH`, `ROW_NUMBER`, `CREATE VIEW`, `CREATE INDEX` and SQLite date functions. The [cleaning notes](../docs/10_part3_cleaning.md#two-queries-to-practise) walk through HAVING and LEFT JOIN examples.
 
 For Part 8, run `python3 scripts/export_dashboard.py` after Part 7. `08_dashboard_export.sql` returns period orders and distinct order/category allocations. The exporter replaces source identifiers with stable indexes, preserves integer values and verifies the encoded rows before writing `dashboard/data.js`. The browser computes the chosen filters locally. `python3 scripts/validate_dashboard.py` runs that same JavaScript with Node and compares eight selections with independent SQL groups. See [Part 8](../docs/15_part8_dashboard.md) for definitions, practice queries and the browser-verification limit.
+
+## Tableau data sources
+
+Run `python3 scripts/export_tableau.py` after Part 7 to rebuild the two Tableau CSVs. `ROW_NUMBER()` gives each order a stable integer key and `DENSE_RANK()` preserves customer identity across orders. The category query uses `GROUP BY`, `UNION`, `JOIN` and `LEFT JOIN` to keep sales allocations and delivery membership separate. All exported cells are compared with the validated reporting data. Build the workbook with `python3 scripts/build_tableau.py`; see the [Tableau walkthrough](../docs/16_tableau_dashboard.md).

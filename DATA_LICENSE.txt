@@ -22,5 +22,10 @@ and static data previews. These remain subject to the same dataset licence.
 The export omits raw identifiers and free-text reviews, and uses stable integer
 indexes to group customers and order/category rows for local browser filtering.
 
+The Tableau CSV exports in tableau/data/ and the data included in the packaged
+Tableau workbook are derived from the same Olist snapshot and carry the same
+dataset licence. They omit raw identifiers and free-text reviews. Tableau
+workbook schemas in tableau/schema/ retain their separate upstream licence.
+
 This is an independent portfolio case study by Mohammed Baquaysh and is not
 commissioned by or endorsed by Olist.

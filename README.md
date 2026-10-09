@@ -4,19 +4,21 @@ A SQL consulting case study by Mohammed Baquaysh, using Olist's historical marke
 
 **Business question:** Where should an e-commerce manager focus first to improve sales performance, delivery reliability and customer experience?
 
-**Current stage:** Parts 1–8 implemented. The dashboard brings sales, delivery and customer analysis together, with month and buyer-state filters. Recommendations and the final presentation are next. Browser visual testing remains outstanding; calculation checks and labelled static previews are available.
+**Current stage:** Parts 1–7 are complete. Part 8 now uses a native Tableau workbook for sales, delivery and customer analysis. The workbook and its data are prepared; opening, calculation execution and visual checks in Tableau remain outstanding. Recommendations and the final presentation are next.
 
-## Explore the dashboard
+## Explore the Tableau dashboard
 
-The dashboard has three pages: **Sales**, **Delivery** and **Customers**. Filter the purchase months and buyer state, inspect the charts and tables, and download the current page's results as CSV. Customer groups are recalculated for each selection.
+[Download the packaged Tableau workbook](https://github.com/M980-221/ecommerce-sql-consulting-case-study/raw/refs/heads/main/tableau/Olist_Commerce_Review.twbx) · [Opening instructions](tableau/README.md) · [Tableau walkthrough](docs/16_tableau_dashboard.md)
 
-[Open the dashboard (private, owner access)](https://olist-commerce-review.mohammed-baquaysh.chatgpt.site) · [Source and local opening instructions](dashboard/README.md) · [Part 8 walkthrough](docs/15_part8_dashboard.md)
+Open `Olist_Commerce_Review.twbx` in Tableau Desktop Public Edition 2026.1 or later. The package includes both data sources; no database connection is needed to explore it.
 
-Download this repository and open `dashboard/index.html` in a modern browser. No database connection, installation or account is required for the local dashboard. The separate hosted Site uses owner-only access.
+- **Sales:** eligible orders, product value, average order value, and monthly/category/state comparisons.
+- **Delivery:** eligible deliveries, late orders, late rate, average delivery time, and group comparisons.
+- **Customers:** distinct customers, repeat purchases, review scores, and purchase frequency.
 
-![Sales data preview: full reporting window](dashboard/screenshots/sales-preview.svg)
+Start Month, End Month and Buyer State are shared parameters. Customer groups are recalculated for the selected orders. Each chart is an editable Tableau worksheet. Product value uses source monetary units, and repeat purchasing describes the selected historical window.
 
-This image is a static preview of the checked data, not a browser screenshot. [Delivery preview](dashboard/screenshots/delivery-preview.svg) · [Customer preview](dashboard/screenshots/customers-preview.svg)
+The earlier HTML dashboard is retained as a [web prototype](dashboard/README.md). Its static previews are not Tableau screenshots. The Tableau workbook has not been published to Tableau Public.
 
 ## Sales findings
 
@@ -67,7 +69,7 @@ Five order walkthroughs show exact reconciliation, JOIN duplication, small and l
 - Completed five delivery queries covering overall outcomes, purchase months, buyer states, categories and single-seller orders. All 310 result rows match independent raw-record calculations; 25 checks and 12 delivery test cases passed.
 - Completed five customer queries covering reviews, delivery comparisons, spending, repeat purchases and buyer states. All 56 result rows match independent raw-record calculations; 26 checks and 12 customer test cases passed.
 - Investigated all 576 nonzero payment differences, checked five representative orders and reconciled the reporting views to the published analysis. The [Part 7 evidence](results/part7_validation.txt) records the checks; source records and metric definitions remain unchanged.
-- Built the three dashboard pages with local data, shared filters, calculated customer groups and CSV downloads. [Part 8 checks](results/part8_validation.txt) compare the JavaScript calculations with SQLite across full, filtered and empty populations. Static previews are included; browser rendering and manual accessibility review remain open.
+- Prepared the three Tableau dashboards with shared parameters and separate order/category data sources. [Export checks](results/tableau_export_validation.txt) reconcile the data to the SQL analysis. See the [Tableau validation report](results/tableau_validation.txt) for the scope of structural and calculation-model checks; these do not replace execution and visual review inside Tableau.
 
 SQLite provides a portable database for this project. SQL defines the tables and inspection checks; a Python standard-library script handles CSV loading, including multiline reviews. Raw values remain TEXT. Part 3 views provide validated numeric values, NULL handling and metric-specific eligibility rules.
 
@@ -111,7 +113,8 @@ Requirements: Python 3.8 or later. The loader uses the standard library, so no a
    python3 scripts/analyse_delivery.py
    python3 scripts/analyse_customers.py
    python3 scripts/validate_part7.py
-   python3 scripts/export_dashboard.py
+   python3 scripts/export_tableau.py
+   python3 scripts/build_tableau.py
    ```
 
 4. Open the resulting `ecommerce_olist.db` in a SQLite client and run:
@@ -130,7 +133,7 @@ python3 scripts/build_database.py --output ecommerce_olist_rebuilt.db --results-
 
 Source CSVs and database files are excluded from Git. The source manifest records the version and file fingerprints used for the published results. Rebuild timestamps and database hashes can differ because the database records the import time.
 
-The checked dashboard data is included, so opening it does not require rebuilding the database. To validate a rebuilt dashboard, use Node.js and run `python3 scripts/validate_dashboard.py` and `node --test tests/test_dashboard*.mjs`. The dashboard itself needs only a browser. See [Part 8 reproduction steps](docs/15_part8_dashboard.md).
+The packaged Tableau workbook includes its checked CSV data, so opening it does not require rebuilding the database. `python3 scripts/validate_tableau.py` checks the workbook structure, packaged files and calculation model; see [Tableau reproduction and verification](docs/16_tableau_dashboard.md) for requirements and the remaining in-app checks. The earlier browser prototype has its own [reproduction instructions](docs/15_part8_dashboard.md).
 
 ## Part 3 outcome
 
@@ -152,7 +155,8 @@ Source exceptions are visible: 610 products have no category, 13 lack an English
 | [Part 5: delivery analysis](docs/12_part5_delivery.md) | Lateness, delivery time, comparison groups and SQL practice |
 | [Part 6: customer analysis](docs/13_part6_customers.md) | Review coverage, spending, repeat purchases and SQL practice |
 | [Part 7: validation and SQL review](docs/14_part7_validation.md) | Payment differences, five order traces, reporting views and measured lookup performance |
-| [Part 8: dashboard](docs/15_part8_dashboard.md) | Three interactive pages, filter rules, calculation checks and static previews |
+| [Part 8: Tableau dashboard](docs/16_tableau_dashboard.md) | Native workbook, shared parameters, calculation definitions and verification scope |
+| [Earlier web prototype](docs/15_part8_dashboard.md) | Browser implementation and its recorded checks |
 | [Data dictionary](docs/03_data_dictionary.md) | All 47 fields, verified keys, derived views and relationship diagram |
 | [Metric definitions](docs/04_metric_definitions.md) | Implemented reporting period, eligibility flags and denominators |
 | [Validation log](docs/05_validation_log.md) | Completed checks and remaining validation |
@@ -167,11 +171,11 @@ Source exceptions are visible: 610 products have no category, 13 lack an English
 - [x] Part 5: Analyse delivery performance.
 - [x] Part 6: Analyse customer experience.
 - [x] Part 7: Validate results and improve SQL.
-- [x] Part 8: Build the dashboard and validate its calculations; browser visual QA remains open.
+- [ ] Part 8: Tableau workbook prepared; finish opening, calculation and visual checks in Tableau.
 - [ ] Part 9: Develop recommendations and slides.
 - [ ] Part 10: Prepare the completed portfolio.
 
-Fifteen business queries, combined validation and the three dashboard pages are implemented. Next come three recommendations and a five-slide presentation. Known source exceptions remain documented; passing checks do not establish the causes of payment differences.
+Fifteen business queries and combined SQL validation are complete. The three Tableau dashboards are prepared for in-app verification. Next come three recommendations and a five-slide presentation. Known source exceptions remain documented; passing checks do not establish the causes of payment differences.
 
 ## Data attribution
 

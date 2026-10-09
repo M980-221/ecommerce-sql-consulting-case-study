@@ -1,0 +1,7 @@
+Tableau source export: PASS
+Orders: 91,780; bytes: 5,638,980
+Order/category pairs: 89,830; bytes: 5,006,638
+Tableau cells checked: 2,273,050
+Published count/money checks: 511
+Raw tables: eight fingerprints match; database opened read-only
+CSV NULL values, integer keys and source cents retained; raw identifiers omitted

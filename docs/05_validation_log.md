@@ -1,6 +1,6 @@
 # Validation log
 
-Parts 2–7 are complete. Part 8 calculation and interface fixture checks are recorded below; browser visual QA remains open. Part 3 passed **62 checks** and 14 synthetic test cases. Part 4 passed **15 checks** and 10 sales test cases; Part 5 passed **25 checks** and 12 delivery test cases. On 9 October 2026, Part 6 passed **26 checks** and 12 customer test cases; all **48 tests** passed together at that stage. Part 7 investigates payment reconciliation, traces five orders to their source records and checks reporting views against the combined business analysis.
+Parts 2–7 are complete. Part 8 was revised to use Tableau; its source export and workbook checks are recorded below. Actual Tableau execution and visual review remain open. Earlier browser-prototype checks are retained as separate evidence. Part 3 passed **62 checks** and 14 synthetic test cases. Part 4 passed **15 checks** and 10 sales test cases; Part 5 passed **25 checks** and 12 delivery test cases. On 9 October 2026, Part 6 passed **26 checks** and 12 customer test cases; all **48 tests** passed together at that stage. Part 7 investigates payment reconciliation, traces five orders to their source records and checks reporting views against the combined business analysis.
 
 Part 7 passed **34 checks** across **604 CSV rows and 10,111 cells**. The combined test run passed **68 tests: 20 Part 7 tests and 48 earlier tests**.
 
@@ -99,3 +99,9 @@ Node executes the actual browser calculation module. A separate SQLite calculati
 The 13 metric fixture tests cover filtered customer regrouping, missing reviews, exact rounding, zero denominators and category allocation. Five exporter fixtures bring the Python suite to 73 passing tests. These calculation checks do not establish that CSS layouts or assistive-technology interactions work in a real browser. The three supplied SVGs are explicitly labelled static data previews.
 
 Nine additional [interface fixture tests](../results/part8_ui_tests.txt) exercise the actual page templates and event handlers using a small DOM fixture in Node. They cover navigation, month/state changes, reset, crossed month endpoints, empty states, CSV Blob creation and URL cleanup, ranking expansion and missing-data recovery. This tests application wiring without claiming real-browser layout or accessibility coverage.
+
+## Tableau workbook revision
+
+The primary Part 8 deliverable is now a packaged Tableau workbook. The exporter compares all 2,273,050 CSV cells with the validated reporting data and reconciles 511 published totals. The database is opened read-only, all eight source fingerprints match the recorded snapshot, and no raw source values are changed. The two sources contain 91,780 orders and 89,830 order/category pairs.
+
+See [Tableau export evidence](../results/tableau_export_validation.txt), [workbook verification](../results/tableau_validation.txt) and the [Tableau walkthrough](16_tableau_dashboard.md). Workbook schema/package checks and an independent calculation model are separate from Tableau runtime validation. The workbook must still be opened in Tableau to check its rendered sheets, calculations and controls. Earlier browser tests and previews do not verify the Tableau file.

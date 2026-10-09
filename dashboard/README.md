@@ -1,4 +1,7 @@
-# Olist dashboard
+# Earlier web dashboard prototype
+
+The project now uses the [Tableau workbook](../tableau/README.md) as its primary dashboard deliverable. This folder retains the earlier browser implementation.
+
 
 Three browser pages explore **Sales performance**, **Delivery performance** and **Customer experience** for purchases from February 2017 through July 2018. The dashboard uses the validated SQLite reporting data and the project's existing metric definitions.
 

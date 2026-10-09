@@ -1,0 +1,3253 @@
+{
+  "status": "PASS",
+  "source_fingerprints": [
+    {
+      "table_name": "orders",
+      "source_rows": 99441,
+      "logical_rows_sha256": "c9a72f230042017df121eb26c00b866054760903573e1d08f01777f6a7b480db",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_items",
+      "source_rows": 112650,
+      "logical_rows_sha256": "d85f8dc8c75ca7c0a8a9d6a765ca0f76570b09cda9b95e07bc64277382dbdbf2",
+      "status": "PASS"
+    },
+    {
+      "table_name": "customers",
+      "source_rows": 99441,
+      "logical_rows_sha256": "2b4f40bc3fca13cea4d4f27ca3b1dea840ffd50b7ea7c19884b44412db6d1746",
+      "status": "PASS"
+    },
+    {
+      "table_name": "products",
+      "source_rows": 32951,
+      "logical_rows_sha256": "86b695b748424d8dd2710be142f3f91469017774337861653038ce5a09202050",
+      "status": "PASS"
+    },
+    {
+      "table_name": "sellers",
+      "source_rows": 3095,
+      "logical_rows_sha256": "3d76af6ab1337b176b29bfaa9d93300abd0d218ab4cb7b3ebecf54f2d2d6fc25",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_payments",
+      "source_rows": 103886,
+      "logical_rows_sha256": "d724f0d85baef7160b81b5f503e9dfb6c99737e8c59cc42a93fc89e1a9ea6460",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_reviews",
+      "source_rows": 99224,
+      "logical_rows_sha256": "f9a9ac75b51122ea088869b1931dfd7660a17e3d8dc0e1ddd611bfb151c538e9",
+      "status": "PASS"
+    },
+    {
+      "table_name": "category_translation",
+      "source_rows": 71,
+      "logical_rows_sha256": "0219262e020851fab6c882074d20331b1d6066021134fb51fdb6a2195bae7f59",
+      "status": "PASS"
+    }
+  ],
+  "database_opened_read_only": true,
+  "raw_records_unchanged": true,
+  "encoded_order_rows": 91780,
+  "encoded_category_rows": 89830,
+  "encoded_cells_checked": 1550510,
+  "order_key_count": 91780,
+  "category_key_count": 89830,
+  "tableau_cells_checked": 2273050,
+  "published_total_checks": 511,
+  "checks": [
+    {
+      "check": "Part 4 month 2017-02 all_period_orders",
+      "actual": 1780,
+      "expected": 1780,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-02 sales_orders",
+      "actual": 1653,
+      "expected": 1653,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-02 product_sales_cents",
+      "actual": 23422340,
+      "expected": 23422340,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-03 all_period_orders",
+      "actual": 2682,
+      "expected": 2682,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-03 sales_orders",
+      "actual": 2546,
+      "expected": 2546,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-03 product_sales_cents",
+      "actual": 35919885,
+      "expected": 35919885,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-04 all_period_orders",
+      "actual": 2404,
+      "expected": 2404,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-04 sales_orders",
+      "actual": 2303,
+      "expected": 2303,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-04 product_sales_cents",
+      "actual": 34066968,
+      "expected": 34066968,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-05 all_period_orders",
+      "actual": 3700,
+      "expected": 3700,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-05 sales_orders",
+      "actual": 3546,
+      "expected": 3546,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-05 product_sales_cents",
+      "actual": 48933825,
+      "expected": 48933825,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-06 all_period_orders",
+      "actual": 3245,
+      "expected": 3245,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-06 sales_orders",
+      "actual": 3135,
+      "expected": 3135,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-06 product_sales_cents",
+      "actual": 42192337,
+      "expected": 42192337,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-07 all_period_orders",
+      "actual": 4026,
+      "expected": 4026,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-07 sales_orders",
+      "actual": 3872,
+      "expected": 3872,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-07 product_sales_cents",
+      "actual": 48160452,
+      "expected": 48160452,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-08 all_period_orders",
+      "actual": 4331,
+      "expected": 4331,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-08 sales_orders",
+      "actual": 4193,
+      "expected": 4193,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-08 product_sales_cents",
+      "actual": 55469970,
+      "expected": 55469970,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-09 all_period_orders",
+      "actual": 4285,
+      "expected": 4285,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-09 sales_orders",
+      "actual": 4150,
+      "expected": 4150,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-09 product_sales_cents",
+      "actual": 60739967,
+      "expected": 60739967,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-10 all_period_orders",
+      "actual": 4631,
+      "expected": 4631,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-10 sales_orders",
+      "actual": 4478,
+      "expected": 4478,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-10 product_sales_cents",
+      "actual": 64824765,
+      "expected": 64824765,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-11 all_period_orders",
+      "actual": 7544,
+      "expected": 7544,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-11 sales_orders",
+      "actual": 7289,
+      "expected": 7289,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-11 product_sales_cents",
+      "actual": 98776537,
+      "expected": 98776537,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-12 all_period_orders",
+      "actual": 5673,
+      "expected": 5673,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-12 sales_orders",
+      "actual": 5513,
+      "expected": 5513,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2017-12 product_sales_cents",
+      "actual": 72603319,
+      "expected": 72603319,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-01 all_period_orders",
+      "actual": 7269,
+      "expected": 7269,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-01 sales_orders",
+      "actual": 7069,
+      "expected": 7069,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-01 product_sales_cents",
+      "actual": 92464500,
+      "expected": 92464500,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-02 all_period_orders",
+      "actual": 6728,
+      "expected": 6728,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-02 sales_orders",
+      "actual": 6555,
+      "expected": 6555,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-02 product_sales_cents",
+      "actual": 82643713,
+      "expected": 82643713,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-03 all_period_orders",
+      "actual": 7211,
+      "expected": 7211,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-03 sales_orders",
+      "actual": 7003,
+      "expected": 7003,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-03 product_sales_cents",
+      "actual": 95335625,
+      "expected": 95335625,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-04 all_period_orders",
+      "actual": 6939,
+      "expected": 6939,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-04 sales_orders",
+      "actual": 6798,
+      "expected": 6798,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-04 product_sales_cents",
+      "actual": 97353409,
+      "expected": 97353409,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-05 all_period_orders",
+      "actual": 6873,
+      "expected": 6873,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-05 sales_orders",
+      "actual": 6749,
+      "expected": 6749,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-05 product_sales_cents",
+      "actual": 97754469,
+      "expected": 97754469,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-06 all_period_orders",
+      "actual": 6167,
+      "expected": 6167,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-06 sales_orders",
+      "actual": 6099,
+      "expected": 6099,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-06 product_sales_cents",
+      "actual": 85607786,
+      "expected": 85607786,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-07 all_period_orders",
+      "actual": 6292,
+      "expected": 6292,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-07 sales_orders",
+      "actual": 6159,
+      "expected": 6159,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 month 2018-07 product_sales_cents",
+      "actual": 86795346,
+      "expected": 86795346,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 buyer-state labels",
+      "actual": [
+        "AC",
+        "AL",
+        "AM",
+        "AP",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MA",
+        "MG",
+        "MS",
+        "MT",
+        "PA",
+        "PB",
+        "PE",
+        "PI",
+        "PR",
+        "RJ",
+        "RN",
+        "RO",
+        "RR",
+        "RS",
+        "SC",
+        "SE",
+        "SP",
+        "TO"
+      ],
+      "expected": [
+        "AC",
+        "AL",
+        "AM",
+        "AP",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MA",
+        "MG",
+        "MS",
+        "MT",
+        "PA",
+        "PB",
+        "PE",
+        "PI",
+        "PR",
+        "RJ",
+        "RN",
+        "RO",
+        "RR",
+        "RS",
+        "SC",
+        "SE",
+        "SP",
+        "TO"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state SP sales_orders",
+      "actual": 36959,
+      "expected": 36959,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state SP product_sales_cents",
+      "actual": 462823868,
+      "expected": 462823868,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state RJ sales_orders",
+      "actual": 11496,
+      "expected": 11496,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state RJ product_sales_cents",
+      "actual": 164561520,
+      "expected": 164561520,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state MG sales_orders",
+      "actual": 10517,
+      "expected": 10517,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state MG product_sales_cents",
+      "actual": 143714464,
+      "expected": 143714464,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state RS sales_orders",
+      "actual": 4983,
+      "expected": 4983,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state RS product_sales_cents",
+      "actual": 67162547,
+      "expected": 67162547,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state PR sales_orders",
+      "actual": 4514,
+      "expected": 4514,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state PR product_sales_cents",
+      "actual": 62049797,
+      "expected": 62049797,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state BA sales_orders",
+      "actual": 3070,
+      "expected": 3070,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state BA product_sales_cents",
+      "actual": 46843739,
+      "expected": 46843739,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state SC sales_orders",
+      "actual": 3310,
+      "expected": 3310,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state SC product_sales_cents",
+      "actual": 46753157,
+      "expected": 46753157,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state DF sales_orders",
+      "actual": 1918,
+      "expected": 1918,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state DF product_sales_cents",
+      "actual": 27374641,
+      "expected": 27374641,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state GO sales_orders",
+      "actual": 1815,
+      "expected": 1815,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state GO product_sales_cents",
+      "actual": 25967573,
+      "expected": 25967573,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state ES sales_orders",
+      "actual": 1880,
+      "expected": 1880,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state ES product_sales_cents",
+      "actual": 25052042,
+      "expected": 25052042,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state PE sales_orders",
+      "actual": 1495,
+      "expected": 1495,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state PE product_sales_cents",
+      "actual": 23710718,
+      "expected": 23710718,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state CE sales_orders",
+      "actual": 1210,
+      "expected": 1210,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state CE product_sales_cents",
+      "actual": 20775617,
+      "expected": 20775617,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state PA sales_orders",
+      "actual": 889,
+      "expected": 889,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state PA product_sales_cents",
+      "actual": 16319584,
+      "expected": 16319584,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state MT sales_orders",
+      "actual": 837,
+      "expected": 837,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state MT product_sales_cents",
+      "actual": 14587084,
+      "expected": 14587084,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state MA sales_orders",
+      "actual": 678,
+      "expected": 678,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state MA product_sales_cents",
+      "actual": 11159772,
+      "expected": 11159772,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state MS sales_orders",
+      "actual": 665,
+      "expected": 665,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state MS product_sales_cents",
+      "actual": 10972954,
+      "expected": 10972954,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state PB sales_orders",
+      "actual": 486,
+      "expected": 486,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state PB product_sales_cents",
+      "actual": 10445749,
+      "expected": 10445749,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state PI sales_orders",
+      "actual": 448,
+      "expected": 448,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state PI product_sales_cents",
+      "actual": 8033692,
+      "expected": 8033692,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state AL sales_orders",
+      "actual": 378,
+      "expected": 378,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state AL product_sales_cents",
+      "actual": 7615848,
+      "expected": 7615848,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state RN sales_orders",
+      "actual": 445,
+      "expected": 445,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state RN product_sales_cents",
+      "actual": 7501573,
+      "expected": 7501573,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state SE sales_orders",
+      "actual": 305,
+      "expected": 305,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state SE product_sales_cents",
+      "actual": 5146690,
+      "expected": 5146690,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state TO sales_orders",
+      "actual": 259,
+      "expected": 259,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state TO product_sales_cents",
+      "actual": 4584665,
+      "expected": 4584665,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state RO sales_orders",
+      "actual": 232,
+      "expected": 232,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state RO product_sales_cents",
+      "actual": 4221079,
+      "expected": 4221079,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state AM sales_orders",
+      "actual": 141,
+      "expected": 141,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state AM product_sales_cents",
+      "actual": 2177514,
+      "expected": 2177514,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state AC sales_orders",
+      "actual": 75,
+      "expected": 75,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state AC product_sales_cents",
+      "actual": 1489468,
+      "expected": 1489468,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state AP sales_orders",
+      "actual": 65,
+      "expected": 65,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state AP product_sales_cents",
+      "actual": 1318081,
+      "expected": 1318081,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state RR sales_orders",
+      "actual": 40,
+      "expected": 40,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 state RR product_sales_cents",
+      "actual": 701777,
+      "expected": 701777,
+      "status": "PASS"
+    },
+    {
+      "check": "Category sales cover every eligible order",
+      "actual": true,
+      "expected": true,
+      "status": "PASS"
+    },
+    {
+      "check": "Every order's category values sum to its product value",
+      "actual": true,
+      "expected": true,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category health_beauty sales_orders",
+      "actual": 7766,
+      "expected": 7766,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category health_beauty item_count",
+      "actual": 8505,
+      "expected": 8505,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category health_beauty product_sales_cents",
+      "actual": 109780005,
+      "expected": 109780005,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category watches_gifts sales_orders",
+      "actual": 5093,
+      "expected": 5093,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category watches_gifts item_count",
+      "actual": 5433,
+      "expected": 5433,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category watches_gifts product_sales_cents",
+      "actual": 108561233,
+      "expected": 108561233,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category bed_bath_table sales_orders",
+      "actual": 8669,
+      "expected": 8669,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category bed_bath_table item_count",
+      "actual": 10244,
+      "expected": 10244,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category bed_bath_table product_sales_cents",
+      "actual": 95826032,
+      "expected": 95826032,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category sports_leisure sales_orders",
+      "actual": 7024,
+      "expected": 7024,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category sports_leisure item_count",
+      "actual": 7869,
+      "expected": 7869,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category sports_leisure product_sales_cents",
+      "actual": 89276808,
+      "expected": 89276808,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category computers_accessories sales_orders",
+      "actual": 6114,
+      "expected": 6114,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category computers_accessories item_count",
+      "actual": 7186,
+      "expected": 7186,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category computers_accessories product_sales_cents",
+      "actual": 84407881,
+      "expected": 84407881,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category furniture_decor sales_orders",
+      "actual": 5785,
+      "expected": 5785,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category furniture_decor item_count",
+      "actual": 7488,
+      "expected": 7488,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category furniture_decor product_sales_cents",
+      "actual": 65203199,
+      "expected": 65203199,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category cool_stuff sales_orders",
+      "actual": 3406,
+      "expected": 3406,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category cool_stuff item_count",
+      "actual": 3555,
+      "expected": 3555,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category cool_stuff product_sales_cents",
+      "actual": 58650624,
+      "expected": 58650624,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category housewares sales_orders",
+      "actual": 5164,
+      "expected": 5164,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category housewares item_count",
+      "actual": 6139,
+      "expected": 6139,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category housewares product_sales_cents",
+      "actual": 55275068,
+      "expected": 55275068,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category auto sales_orders",
+      "actual": 3430,
+      "expected": 3430,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category auto item_count",
+      "actual": 3731,
+      "expected": 3731,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category auto product_sales_cents",
+      "actual": 52798578,
+      "expected": 52798578,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category toys sales_orders",
+      "actual": 3590,
+      "expected": 3590,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category toys item_count",
+      "actual": 3800,
+      "expected": 3800,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category toys product_sales_cents",
+      "actual": 44568804,
+      "expected": 44568804,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category garden_tools sales_orders",
+      "actual": 3287,
+      "expected": 3287,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category garden_tools item_count",
+      "actual": 4073,
+      "expected": 4073,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category garden_tools product_sales_cents",
+      "actual": 44535375,
+      "expected": 44535375,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category baby sales_orders",
+      "actual": 2568,
+      "expected": 2568,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category baby item_count",
+      "actual": 2719,
+      "expected": 2719,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category baby product_sales_cents",
+      "actual": 37156622,
+      "expected": 37156622,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category perfumery sales_orders",
+      "actual": 2828,
+      "expected": 2828,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category perfumery item_count",
+      "actual": 3059,
+      "expected": 3059,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category perfumery product_sales_cents",
+      "actual": 35536321,
+      "expected": 35536321,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category telephony sales_orders",
+      "actual": 3829,
+      "expected": 3829,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category telephony item_count",
+      "actual": 4129,
+      "expected": 4129,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category telephony product_sales_cents",
+      "actual": 27230309,
+      "expected": 27230309,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category office_furniture sales_orders",
+      "actual": 1218,
+      "expected": 1218,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category office_furniture item_count",
+      "actual": 1624,
+      "expected": 1624,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category office_furniture product_sales_cents",
+      "actual": 25893621,
+      "expected": 25893621,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category computers sales_orders",
+      "actual": 166,
+      "expected": 166,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category computers item_count",
+      "actual": 186,
+      "expected": 186,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category computers product_sales_cents",
+      "actual": 20777265,
+      "expected": 20777265,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category stationery sales_orders",
+      "actual": 2099,
+      "expected": 2099,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category stationery item_count",
+      "actual": 2283,
+      "expected": 2283,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category stationery product_sales_cents",
+      "actual": 20678105,
+      "expected": 20678105,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category pet_shop sales_orders",
+      "actual": 1506,
+      "expected": 1506,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category pet_shop item_count",
+      "actual": 1708,
+      "expected": 1708,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category pet_shop product_sales_cents",
+      "actual": 18559877,
+      "expected": 18559877,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category small_appliances sales_orders",
+      "actual": 580,
+      "expected": 580,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category small_appliances item_count",
+      "actual": 629,
+      "expected": 629,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category small_appliances product_sales_cents",
+      "actual": 17492527,
+      "expected": 17492527,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category musical_instruments sales_orders",
+      "actual": 571,
+      "expected": 571,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category musical_instruments item_count",
+      "actual": 609,
+      "expected": 609,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category musical_instruments product_sales_cents",
+      "actual": 17345666,
+      "expected": 17345666,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category Unknown category sales_orders",
+      "actual": 1351,
+      "expected": 1351,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category Unknown category item_count",
+      "actual": 1492,
+      "expected": 1492,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category Unknown category product_sales_cents",
+      "actual": 16685805,
+      "expected": 16685805,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category electronics sales_orders",
+      "actual": 2391,
+      "expected": 2391,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category electronics item_count",
+      "actual": 2598,
+      "expected": 2598,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category electronics product_sales_cents",
+      "actual": 14357937,
+      "expected": 14357937,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_bags_accessories sales_orders",
+      "actual": 1661,
+      "expected": 1661,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_bags_accessories item_count",
+      "actual": 1815,
+      "expected": 1815,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_bags_accessories product_sales_cents",
+      "actual": 13914569,
+      "expected": 13914569,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category consoles_games sales_orders",
+      "actual": 939,
+      "expected": 939,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category consoles_games item_count",
+      "actual": 1002,
+      "expected": 1002,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category consoles_games product_sales_cents",
+      "actual": 13548826,
+      "expected": 13548826,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category luggage_accessories sales_orders",
+      "actual": 953,
+      "expected": 953,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category luggage_accessories item_count",
+      "actual": 1008,
+      "expected": 1008,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category luggage_accessories product_sales_cents",
+      "actual": 13160938,
+      "expected": 13160938,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category construction_tools_construction sales_orders",
+      "actual": 612,
+      "expected": 612,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category construction_tools_construction item_count",
+      "actual": 754,
+      "expected": 754,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category construction_tools_construction product_sales_cents",
+      "actual": 11919133,
+      "expected": 11919133,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category home_appliances_2 sales_orders",
+      "actual": 207,
+      "expected": 207,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category home_appliances_2 item_count",
+      "actual": 210,
+      "expected": 210,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category home_appliances_2 product_sales_cents",
+      "actual": 9850441,
+      "expected": 9850441,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category home_construction sales_orders",
+      "actual": 439,
+      "expected": 439,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category home_construction item_count",
+      "actual": 548,
+      "expected": 548,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category home_construction product_sales_cents",
+      "actual": 7512141,
+      "expected": 7512141,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category home_appliances sales_orders",
+      "actual": 685,
+      "expected": 685,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category home_appliances item_count",
+      "actual": 691,
+      "expected": 691,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category home_appliances product_sales_cents",
+      "actual": 7238863,
+      "expected": 7238863,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category agro_industry_and_commerce sales_orders",
+      "actual": 161,
+      "expected": 161,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category agro_industry_and_commerce item_count",
+      "actual": 185,
+      "expected": 185,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category agro_industry_and_commerce product_sales_cents",
+      "actual": 6547904,
+      "expected": 6547904,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category furniture_living_room sales_orders",
+      "actual": 368,
+      "expected": 368,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category furniture_living_room item_count",
+      "actual": 445,
+      "expected": 445,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category furniture_living_room product_sales_cents",
+      "actual": 6088546,
+      "expected": 6088546,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category home_confort sales_orders",
+      "actual": 377,
+      "expected": 377,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category home_confort item_count",
+      "actual": 413,
+      "expected": 413,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category home_confort product_sales_cents",
+      "actual": 5576717,
+      "expected": 5576717,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fixed_telephony sales_orders",
+      "actual": 178,
+      "expected": 178,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fixed_telephony item_count",
+      "actual": 218,
+      "expected": 218,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fixed_telephony product_sales_cents",
+      "actual": 5120904,
+      "expected": 5120904,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category audio sales_orders",
+      "actual": 322,
+      "expected": 322,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category audio item_count",
+      "actual": 334,
+      "expected": 334,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category audio product_sales_cents",
+      "actual": 4834421,
+      "expected": 4834421,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category air_conditioning sales_orders",
+      "actual": 222,
+      "expected": 222,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category air_conditioning item_count",
+      "actual": 256,
+      "expected": 256,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category air_conditioning product_sales_cents",
+      "actual": 4775367,
+      "expected": 4775367,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category small_appliances_home_oven_and_coffee sales_orders",
+      "actual": 55,
+      "expected": 55,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category small_appliances_home_oven_and_coffee item_count",
+      "actual": 56,
+      "expected": 56,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category small_appliances_home_oven_and_coffee product_sales_cents",
+      "actual": 4359284,
+      "expected": 4359284,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category books_general_interest sales_orders",
+      "actual": 460,
+      "expected": 460,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category books_general_interest item_count",
+      "actual": 499,
+      "expected": 499,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category books_general_interest product_sales_cents",
+      "actual": 4350248,
+      "expected": 4350248,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category kitchen_dining_laundry_garden_furniture sales_orders",
+      "actual": 221,
+      "expected": 221,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category kitchen_dining_laundry_garden_furniture item_count",
+      "actual": 253,
+      "expected": 253,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category kitchen_dining_laundry_garden_furniture product_sales_cents",
+      "actual": 4341051,
+      "expected": 4341051,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category industry_commerce_and_business sales_orders",
+      "actual": 220,
+      "expected": 220,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category industry_commerce_and_business item_count",
+      "actual": 251,
+      "expected": 251,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category industry_commerce_and_business product_sales_cents",
+      "actual": 3577452,
+      "expected": 3577452,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category construction_tools_safety sales_orders",
+      "actual": 138,
+      "expected": 138,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category construction_tools_safety item_count",
+      "actual": 158,
+      "expected": 158,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category construction_tools_safety product_sales_cents",
+      "actual": 3480300,
+      "expected": 3480300,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category construction_tools_lights sales_orders",
+      "actual": 186,
+      "expected": 186,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category construction_tools_lights item_count",
+      "actual": 239,
+      "expected": 239,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category construction_tools_lights product_sales_cents",
+      "actual": 3174447,
+      "expected": 3174447,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category market_place sales_orders",
+      "actual": 256,
+      "expected": 256,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category market_place item_count",
+      "actual": 281,
+      "expected": 281,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category market_place product_sales_cents",
+      "actual": 2551707,
+      "expected": 2551707,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_shoes sales_orders",
+      "actual": 230,
+      "expected": 230,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_shoes item_count",
+      "actual": 252,
+      "expected": 252,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_shoes product_sales_cents",
+      "actual": 2246527,
+      "expected": 2246527,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category art sales_orders",
+      "actual": 177,
+      "expected": 177,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category art item_count",
+      "actual": 179,
+      "expected": 179,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category art product_sales_cents",
+      "actual": 2217591,
+      "expected": 2217591,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category costruction_tools_garden sales_orders",
+      "actual": 171,
+      "expected": 171,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category costruction_tools_garden item_count",
+      "actual": 209,
+      "expected": 209,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category costruction_tools_garden product_sales_cents",
+      "actual": 2140752,
+      "expected": 2140752,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category food sales_orders",
+      "actual": 336,
+      "expected": 336,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category food item_count",
+      "actual": 381,
+      "expected": 381,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category food product_sales_cents",
+      "actual": 2043425,
+      "expected": 2043425,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category drinks sales_orders",
+      "actual": 263,
+      "expected": 263,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category drinks item_count",
+      "actual": 334,
+      "expected": 334,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category drinks product_sales_cents",
+      "actual": 2010658,
+      "expected": 2010658,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category signaling_and_security sales_orders",
+      "actual": 122,
+      "expected": 122,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category signaling_and_security item_count",
+      "actual": 175,
+      "expected": 175,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category signaling_and_security product_sales_cents",
+      "actual": 1948946,
+      "expected": 1948946,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category books_technical sales_orders",
+      "actual": 228,
+      "expected": 228,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category books_technical item_count",
+      "actual": 234,
+      "expected": 234,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category books_technical product_sales_cents",
+      "actual": 1721844,
+      "expected": 1721844,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category furniture_bedroom sales_orders",
+      "actual": 72,
+      "expected": 72,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category furniture_bedroom item_count",
+      "actual": 83,
+      "expected": 83,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category furniture_bedroom product_sales_cents",
+      "actual": 1678160,
+      "expected": 1678160,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category costruction_tools_tools sales_orders",
+      "actual": 83,
+      "expected": 83,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category costruction_tools_tools item_count",
+      "actual": 89,
+      "expected": 89,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category costruction_tools_tools product_sales_cents",
+      "actual": 1464818,
+      "expected": 1464818,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category food_drink sales_orders",
+      "actual": 205,
+      "expected": 205,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category food_drink item_count",
+      "actual": 248,
+      "expected": 248,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category food_drink product_sales_cents",
+      "actual": 1391427,
+      "expected": 1391427,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_male_clothing sales_orders",
+      "actual": 101,
+      "expected": 101,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_male_clothing item_count",
+      "actual": 120,
+      "expected": 120,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_male_clothing product_sales_cents",
+      "actual": 991884,
+      "expected": 991884,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_underwear_beach sales_orders",
+      "actual": 114,
+      "expected": 114,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_underwear_beach item_count",
+      "actual": 124,
+      "expected": 124,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_underwear_beach product_sales_cents",
+      "actual": 900870,
+      "expected": 900870,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category christmas_supplies sales_orders",
+      "actual": 115,
+      "expected": 115,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category christmas_supplies item_count",
+      "actual": 140,
+      "expected": 140,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category christmas_supplies product_sales_cents",
+      "actual": 820847,
+      "expected": 820847,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category tablets_printing_image sales_orders",
+      "actual": 79,
+      "expected": 79,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category tablets_printing_image item_count",
+      "actual": 83,
+      "expected": 83,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category tablets_printing_image product_sales_cents",
+      "actual": 752841,
+      "expected": 752841,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category cine_photo sales_orders",
+      "actual": 55,
+      "expected": 55,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category cine_photo item_count",
+      "actual": 61,
+      "expected": 61,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category cine_photo product_sales_cents",
+      "actual": 607918,
+      "expected": 607918,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category music sales_orders",
+      "actual": 30,
+      "expected": 30,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category music item_count",
+      "actual": 30,
+      "expected": 30,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category music product_sales_cents",
+      "actual": 551674,
+      "expected": 551674,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category dvds_blu_ray sales_orders",
+      "actual": 54,
+      "expected": 54,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category dvds_blu_ray item_count",
+      "actual": 58,
+      "expected": 58,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category dvds_blu_ray product_sales_cents",
+      "actual": 450389,
+      "expected": 450389,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category furniture_mattress_and_upholstery sales_orders",
+      "actual": 37,
+      "expected": 37,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category furniture_mattress_and_upholstery item_count",
+      "actual": 37,
+      "expected": 37,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category furniture_mattress_and_upholstery product_sales_cents",
+      "actual": 432338,
+      "expected": 432338,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category books_imported sales_orders",
+      "actual": 49,
+      "expected": 49,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category books_imported item_count",
+      "actual": 56,
+      "expected": 56,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category books_imported product_sales_cents",
+      "actual": 366986,
+      "expected": 366986,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category party_supplies sales_orders",
+      "actual": 24,
+      "expected": 24,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category party_supplies item_count",
+      "actual": 28,
+      "expected": 28,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category party_supplies product_sales_cents",
+      "actual": 317990,
+      "expected": 317990,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashio_female_clothing sales_orders",
+      "actual": 31,
+      "expected": 31,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashio_female_clothing item_count",
+      "actual": 39,
+      "expected": 39,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashio_female_clothing product_sales_cents",
+      "actual": 237277,
+      "expected": 237277,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category Untranslated: portateis_cozinha_e_preparadores_de_alimentos sales_orders",
+      "actual": 9,
+      "expected": 9,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category Untranslated: portateis_cozinha_e_preparadores_de_alimentos item_count",
+      "actual": 10,
+      "expected": 10,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category Untranslated: portateis_cozinha_e_preparadores_de_alimentos product_sales_cents",
+      "actual": 213003,
+      "expected": 213003,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category la_cuisine sales_orders",
+      "actual": 13,
+      "expected": 13,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category la_cuisine item_count",
+      "actual": 14,
+      "expected": 14,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category la_cuisine product_sales_cents",
+      "actual": 205499,
+      "expected": 205499,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_sport sales_orders",
+      "actual": 25,
+      "expected": 25,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_sport item_count",
+      "actual": 28,
+      "expected": 28,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_sport product_sales_cents",
+      "actual": 202462,
+      "expected": 202462,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category diapers_and_hygiene sales_orders",
+      "actual": 21,
+      "expected": 21,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category diapers_and_hygiene item_count",
+      "actual": 33,
+      "expected": 33,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category diapers_and_hygiene product_sales_cents",
+      "actual": 113400,
+      "expected": 113400,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category flowers sales_orders",
+      "actual": 29,
+      "expected": 29,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category flowers item_count",
+      "actual": 33,
+      "expected": 33,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category flowers product_sales_cents",
+      "actual": 111004,
+      "expected": 111004,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category Untranslated: pc_gamer sales_orders",
+      "actual": 6,
+      "expected": 6,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category Untranslated: pc_gamer item_count",
+      "actual": 7,
+      "expected": 7,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category Untranslated: pc_gamer product_sales_cents",
+      "actual": 108795,
+      "expected": 108795,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category arts_and_craftmanship sales_orders",
+      "actual": 14,
+      "expected": 14,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category arts_and_craftmanship item_count",
+      "actual": 15,
+      "expected": 15,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category arts_and_craftmanship product_sales_cents",
+      "actual": 91225,
+      "expected": 91225,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category cds_dvds_musicals sales_orders",
+      "actual": 12,
+      "expected": 12,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category cds_dvds_musicals item_count",
+      "actual": 14,
+      "expected": 14,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category cds_dvds_musicals product_sales_cents",
+      "actual": 73000,
+      "expected": 73000,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category home_comfort_2 sales_orders",
+      "actual": 22,
+      "expected": 22,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category home_comfort_2 item_count",
+      "actual": 28,
+      "expected": 28,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category home_comfort_2 product_sales_cents",
+      "actual": 68747,
+      "expected": 68747,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_childrens_clothes sales_orders",
+      "actual": 7,
+      "expected": 7,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_childrens_clothes item_count",
+      "actual": 7,
+      "expected": 7,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category fashion_childrens_clothes product_sales_cents",
+      "actual": 51995,
+      "expected": 51995,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category security_and_services sales_orders",
+      "actual": 1,
+      "expected": 1,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category security_and_services item_count",
+      "actual": 1,
+      "expected": 1,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 4 category security_and_services product_sales_cents",
+      "actual": 10000,
+      "expected": 10000,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category bed_bath_table delivery_orders",
+      "actual": 8669,
+      "expected": 8669,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category bed_bath_table late_orders",
+      "actual": 659,
+      "expected": 659,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category health_beauty delivery_orders",
+      "actual": 7766,
+      "expected": 7766,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category health_beauty late_orders",
+      "actual": 591,
+      "expected": 591,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category sports_leisure delivery_orders",
+      "actual": 7023,
+      "expected": 7023,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category sports_leisure late_orders",
+      "actual": 472,
+      "expected": 472,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category furniture_decor delivery_orders",
+      "actual": 5785,
+      "expected": 5785,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category furniture_decor late_orders",
+      "actual": 422,
+      "expected": 422,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category computers_accessories delivery_orders",
+      "actual": 6113,
+      "expected": 6113,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category computers_accessories late_orders",
+      "actual": 395,
+      "expected": 395,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category watches_gifts delivery_orders",
+      "actual": 5091,
+      "expected": 5091,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category watches_gifts late_orders",
+      "actual": 377,
+      "expected": 377,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category telephony delivery_orders",
+      "actual": 3829,
+      "expected": 3829,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category telephony late_orders",
+      "actual": 280,
+      "expected": 280,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category housewares delivery_orders",
+      "actual": 5164,
+      "expected": 5164,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category housewares late_orders",
+      "actual": 276,
+      "expected": 276,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category auto delivery_orders",
+      "actual": 3429,
+      "expected": 3429,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category auto late_orders",
+      "actual": 258,
+      "expected": 258,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category toys delivery_orders",
+      "actual": 3589,
+      "expected": 3589,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category toys late_orders",
+      "actual": 231,
+      "expected": 231,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category garden_tools delivery_orders",
+      "actual": 3287,
+      "expected": 3287,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category garden_tools late_orders",
+      "actual": 222,
+      "expected": 222,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category baby delivery_orders",
+      "actual": 2568,
+      "expected": 2568,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category baby late_orders",
+      "actual": 208,
+      "expected": 208,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category cool_stuff delivery_orders",
+      "actual": 3406,
+      "expected": 3406,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category cool_stuff late_orders",
+      "actual": 199,
+      "expected": 199,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category perfumery delivery_orders",
+      "actual": 2828,
+      "expected": 2828,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category perfumery late_orders",
+      "actual": 187,
+      "expected": 187,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category electronics delivery_orders",
+      "actual": 2391,
+      "expected": 2391,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category electronics late_orders",
+      "actual": 185,
+      "expected": 185,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category stationery delivery_orders",
+      "actual": 2099,
+      "expected": 2099,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category stationery late_orders",
+      "actual": 136,
+      "expected": 136,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category Unknown category delivery_orders",
+      "actual": 1351,
+      "expected": 1351,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category Unknown category late_orders",
+      "actual": 100,
+      "expected": 100,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category office_furniture delivery_orders",
+      "actual": 1218,
+      "expected": 1218,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category office_furniture late_orders",
+      "actual": 99,
+      "expected": 99,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category fashion_bags_accessories delivery_orders",
+      "actual": 1661,
+      "expected": 1661,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category fashion_bags_accessories late_orders",
+      "actual": 97,
+      "expected": 97,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category pet_shop delivery_orders",
+      "actual": 1506,
+      "expected": 1506,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category pet_shop late_orders",
+      "actual": 77,
+      "expected": 77,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category consoles_games delivery_orders",
+      "actual": 939,
+      "expected": 939,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category consoles_games late_orders",
+      "actual": 60,
+      "expected": 60,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category musical_instruments delivery_orders",
+      "actual": 571,
+      "expected": 571,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category musical_instruments late_orders",
+      "actual": 43,
+      "expected": 43,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category construction_tools_construction delivery_orders",
+      "actual": 612,
+      "expected": 612,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category construction_tools_construction late_orders",
+      "actual": 42,
+      "expected": 42,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category audio delivery_orders",
+      "actual": 322,
+      "expected": 322,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category audio late_orders",
+      "actual": 41,
+      "expected": 41,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category luggage_accessories delivery_orders",
+      "actual": 953,
+      "expected": 953,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category luggage_accessories late_orders",
+      "actual": 41,
+      "expected": 41,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category home_confort delivery_orders",
+      "actual": 377,
+      "expected": 377,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category home_confort late_orders",
+      "actual": 36,
+      "expected": 36,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category home_construction delivery_orders",
+      "actual": 439,
+      "expected": 439,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category home_construction late_orders",
+      "actual": 27,
+      "expected": 27,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category books_general_interest delivery_orders",
+      "actual": 459,
+      "expected": 459,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category books_general_interest late_orders",
+      "actual": 27,
+      "expected": 27,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category small_appliances delivery_orders",
+      "actual": 580,
+      "expected": 580,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category small_appliances late_orders",
+      "actual": 27,
+      "expected": 27,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category home_appliances delivery_orders",
+      "actual": 685,
+      "expected": 685,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category home_appliances late_orders",
+      "actual": 27,
+      "expected": 27,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category furniture_living_room delivery_orders",
+      "actual": 368,
+      "expected": 368,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category furniture_living_room late_orders",
+      "actual": 26,
+      "expected": 26,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category food delivery_orders",
+      "actual": 336,
+      "expected": 336,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category food late_orders",
+      "actual": 21,
+      "expected": 21,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category books_technical delivery_orders",
+      "actual": 228,
+      "expected": 228,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category books_technical late_orders",
+      "actual": 18,
+      "expected": 18,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category industry_commerce_and_business delivery_orders",
+      "actual": 219,
+      "expected": 219,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category industry_commerce_and_business late_orders",
+      "actual": 15,
+      "expected": 15,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category drinks delivery_orders",
+      "actual": 263,
+      "expected": 263,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category drinks late_orders",
+      "actual": 14,
+      "expected": 14,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category home_appliances_2 delivery_orders",
+      "actual": 207,
+      "expected": 207,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category home_appliances_2 late_orders",
+      "actual": 13,
+      "expected": 13,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category construction_tools_lights delivery_orders",
+      "actual": 186,
+      "expected": 186,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category construction_tools_lights late_orders",
+      "actual": 12,
+      "expected": 12,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category fashion_underwear_beach delivery_orders",
+      "actual": 114,
+      "expected": 114,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category fashion_underwear_beach late_orders",
+      "actual": 11,
+      "expected": 11,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category kitchen_dining_laundry_garden_furniture delivery_orders",
+      "actual": 221,
+      "expected": 221,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category kitchen_dining_laundry_garden_furniture late_orders",
+      "actual": 11,
+      "expected": 11,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category fashion_shoes delivery_orders",
+      "actual": 230,
+      "expected": 230,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category fashion_shoes late_orders",
+      "actual": 11,
+      "expected": 11,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category christmas_supplies delivery_orders",
+      "actual": 115,
+      "expected": 115,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category christmas_supplies late_orders",
+      "actual": 10,
+      "expected": 10,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category computers delivery_orders",
+      "actual": 166,
+      "expected": 166,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category computers late_orders",
+      "actual": 10,
+      "expected": 10,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category air_conditioning delivery_orders",
+      "actual": 222,
+      "expected": 222,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category air_conditioning late_orders",
+      "actual": 10,
+      "expected": 10,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category market_place delivery_orders",
+      "actual": 256,
+      "expected": 256,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category market_place late_orders",
+      "actual": 10,
+      "expected": 10,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category fixed_telephony delivery_orders",
+      "actual": 178,
+      "expected": 178,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category fixed_telephony late_orders",
+      "actual": 9,
+      "expected": 9,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category costruction_tools_garden delivery_orders",
+      "actual": 171,
+      "expected": 171,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category costruction_tools_garden late_orders",
+      "actual": 8,
+      "expected": 8,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category art delivery_orders",
+      "actual": 177,
+      "expected": 177,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category art late_orders",
+      "actual": 8,
+      "expected": 8,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category food_drink delivery_orders",
+      "actual": 205,
+      "expected": 205,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category food_drink late_orders",
+      "actual": 8,
+      "expected": 8,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category agro_industry_and_commerce delivery_orders",
+      "actual": 161,
+      "expected": 161,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category agro_industry_and_commerce late_orders",
+      "actual": 7,
+      "expected": 7,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category signaling_and_security delivery_orders",
+      "actual": 122,
+      "expected": 122,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category signaling_and_security late_orders",
+      "actual": 6,
+      "expected": 6,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category furniture_mattress_and_upholstery delivery_orders",
+      "actual": 37,
+      "expected": 37,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category furniture_mattress_and_upholstery late_orders",
+      "actual": 5,
+      "expected": 5,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category furniture_bedroom delivery_orders",
+      "actual": 72,
+      "expected": 72,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category furniture_bedroom late_orders",
+      "actual": 5,
+      "expected": 5,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category costruction_tools_tools delivery_orders",
+      "actual": 83,
+      "expected": 83,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category costruction_tools_tools late_orders",
+      "actual": 5,
+      "expected": 5,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category fashion_male_clothing delivery_orders",
+      "actual": 101,
+      "expected": 101,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category fashion_male_clothing late_orders",
+      "actual": 5,
+      "expected": 5,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category dvds_blu_ray delivery_orders",
+      "actual": 54,
+      "expected": 54,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category dvds_blu_ray late_orders",
+      "actual": 4,
+      "expected": 4,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category cine_photo delivery_orders",
+      "actual": 55,
+      "expected": 55,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category cine_photo late_orders",
+      "actual": 4,
+      "expected": 4,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category small_appliances_home_oven_and_coffee delivery_orders",
+      "actual": 55,
+      "expected": 55,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category small_appliances_home_oven_and_coffee late_orders",
+      "actual": 4,
+      "expected": 4,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category tablets_printing_image delivery_orders",
+      "actual": 79,
+      "expected": 79,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category tablets_printing_image late_orders",
+      "actual": 4,
+      "expected": 4,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category construction_tools_safety delivery_orders",
+      "actual": 138,
+      "expected": 138,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category construction_tools_safety late_orders",
+      "actual": 4,
+      "expected": 4,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category home_comfort_2 delivery_orders",
+      "actual": 22,
+      "expected": 22,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category home_comfort_2 late_orders",
+      "actual": 3,
+      "expected": 3,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category music delivery_orders",
+      "actual": 30,
+      "expected": 30,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category music late_orders",
+      "actual": 2,
+      "expected": 2,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category fashio_female_clothing delivery_orders",
+      "actual": 31,
+      "expected": 31,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category fashio_female_clothing late_orders",
+      "actual": 2,
+      "expected": 2,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category books_imported delivery_orders",
+      "actual": 49,
+      "expected": 49,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category books_imported late_orders",
+      "actual": 2,
+      "expected": 2,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category Untranslated: portateis_cozinha_e_preparadores_de_alimentos delivery_orders",
+      "actual": 9,
+      "expected": 9,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category Untranslated: portateis_cozinha_e_preparadores_de_alimentos late_orders",
+      "actual": 1,
+      "expected": 1,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category arts_and_craftmanship delivery_orders",
+      "actual": 14,
+      "expected": 14,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category arts_and_craftmanship late_orders",
+      "actual": 1,
+      "expected": 1,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category fashion_sport delivery_orders",
+      "actual": 25,
+      "expected": 25,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category fashion_sport late_orders",
+      "actual": 1,
+      "expected": 1,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category flowers delivery_orders",
+      "actual": 29,
+      "expected": 29,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category flowers late_orders",
+      "actual": 1,
+      "expected": 1,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category Untranslated: pc_gamer delivery_orders",
+      "actual": 6,
+      "expected": 6,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category Untranslated: pc_gamer late_orders",
+      "actual": 0,
+      "expected": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category cds_dvds_musicals delivery_orders",
+      "actual": 12,
+      "expected": 12,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category cds_dvds_musicals late_orders",
+      "actual": 0,
+      "expected": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category diapers_and_hygiene delivery_orders",
+      "actual": 21,
+      "expected": 21,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category diapers_and_hygiene late_orders",
+      "actual": 0,
+      "expected": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category fashion_childrens_clothes delivery_orders",
+      "actual": 7,
+      "expected": 7,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category fashion_childrens_clothes late_orders",
+      "actual": 0,
+      "expected": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category la_cuisine delivery_orders",
+      "actual": 13,
+      "expected": 13,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category la_cuisine late_orders",
+      "actual": 0,
+      "expected": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category party_supplies delivery_orders",
+      "actual": 24,
+      "expected": 24,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category party_supplies late_orders",
+      "actual": 0,
+      "expected": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category security_and_services delivery_orders",
+      "actual": 1,
+      "expected": 1,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 category security_and_services late_orders",
+      "actual": 0,
+      "expected": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 reporting orders",
+      "actual": 91780,
+      "expected": 91780,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 delivery orders",
+      "actual": 89102,
+      "expected": 89102,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 5 late orders",
+      "actual": 6116,
+      "expected": 6116,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 score bucket 1",
+      "actual": 8800,
+      "expected": 8800,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 score bucket 2",
+      "actual": 2734,
+      "expected": 2734,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 score bucket 3",
+      "actual": 7392,
+      "expected": 7392,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 score bucket 4",
+      "actual": 17473,
+      "expected": 17473,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 score bucket 5",
+      "actual": 52095,
+      "expected": 52095,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 score bucket No eligible selected review",
+      "actual": 616,
+      "expected": 616,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 total_customers",
+      "actual": 86271,
+      "expected": 86271,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 repeat_customers",
+      "actual": 2562,
+      "expected": 2562,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 total_sales_orders",
+      "actual": 89110,
+      "expected": 89110,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 repeat_customer_orders",
+      "actual": 5401,
+      "expected": 5401,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 total_product_sales_cents",
+      "actual": 1223065213,
+      "expected": 1223065213,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 repeat_product_sales_cents",
+      "actual": 66668075,
+      "expected": 66668075,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 on_time sales_orders",
+      "actual": 82986,
+      "expected": 82986,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 on_time reviewed_orders",
+      "actual": 82514,
+      "expected": 82514,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 on_time review_score_sum",
+      "actual": 353487,
+      "expected": 353487,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 on_time low_score_orders",
+      "actual": 7731,
+      "expected": 7731,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 on_time pre_delivery_review_orders",
+      "actual": 171,
+      "expected": 171,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 late sales_orders",
+      "actual": 6116,
+      "expected": 6116,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 late reviewed_orders",
+      "actual": 5972,
+      "expected": 5972,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 late review_score_sum",
+      "actual": 13288,
+      "expected": 13288,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 late low_score_orders",
+      "actual": 3802,
+      "expected": 3802,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 6 late pre_delivery_review_orders",
+      "actual": 4274,
+      "expected": 4274,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 7 reporting_period_orders",
+      "actual": 91780,
+      "expected": 91780,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 7 sales_orders",
+      "actual": 89110,
+      "expected": 89110,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 7 delivery_orders",
+      "actual": 89102,
+      "expected": 89102,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 7 reviewed_sales_orders",
+      "actual": 88494,
+      "expected": 88494,
+      "status": "PASS"
+    },
+    {
+      "check": "Part 7 sales_product_sales_cents",
+      "actual": 1223065213,
+      "expected": 1223065213,
+      "status": "PASS"
+    }
+  ],
+  "csv_round_trip": "Every decoded CSV cell equals the checked SQL value",
+  "period_start": "2017-02-01",
+  "period_end_exclusive": "2018-08-01",
+  "money_label": "source monetary units",
+  "files": {
+    "orders": {
+      "file": "tableau/data/orders.csv",
+      "rows": 91780,
+      "bytes": 5638980,
+      "sha256": "70f794119c67233ba7948452d62437fba1dcd4e63347daf35a5a965e031ad3d9"
+    },
+    "categories": {
+      "file": "tableau/data/categories.csv",
+      "rows": 89830,
+      "bytes": 5006638,
+      "sha256": "93ada0b6b8cb543354bd1472d772e73d96ef818c3ba46d6b3859e90d4c2c6d00"
+    }
+  },
+  "order_fields": [
+    "order_key",
+    "customer_key",
+    "purchase_month",
+    "buyer_state",
+    "order_status",
+    "sales_eligible",
+    "delivery_eligible",
+    "review_eligible",
+    "product_value_cents",
+    "delivery_seconds",
+    "is_late",
+    "positive_delay_days",
+    "review_score",
+    "review_before_delivery"
+  ],
+  "category_fields": [
+    "order_key",
+    "category",
+    "purchase_month",
+    "buyer_state",
+    "sales_eligible",
+    "product_value_cents",
+    "item_count",
+    "delivery_eligible",
+    "is_late",
+    "delivery_seconds",
+    "positive_delay_days"
+  ],
+  "field_types": {
+    "order_key": "integer",
+    "customer_key": "integer",
+    "purchase_month": "date",
+    "buyer_state": "string",
+    "order_status": "string",
+    "sales_eligible": "integer",
+    "delivery_eligible": "integer",
+    "review_eligible": "integer",
+    "product_value_cents": "integer",
+    "delivery_seconds": "integer",
+    "is_late": "integer",
+    "positive_delay_days": "integer",
+    "review_score": "integer",
+    "review_before_delivery": "integer",
+    "category": "string",
+    "item_count": "integer"
+  },
+  "source_identifiers_exported": false,
+  "sql_sha256": "cbde685018a27bdf2e2120f7452bc0f86432cca935ca9f07dc457cb18369277c"
+}

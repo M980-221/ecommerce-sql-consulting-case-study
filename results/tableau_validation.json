@@ -1,0 +1,1456 @@
+{
+  "status": "PASS",
+  "validation_scope": "Offline CSV numerical checks and native workbook structure/reference checks",
+  "tableau_engine_execution": false,
+  "tableau_desktop_open_test": false,
+  "python_version": "3.12.14",
+  "sqlite_version": "3.53.1",
+  "lxml_version": "6.1.1.0",
+  "source_tables": [
+    {
+      "table_name": "orders",
+      "source_rows": 99441,
+      "logical_rows_sha256": "c9a72f230042017df121eb26c00b866054760903573e1d08f01777f6a7b480db",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_items",
+      "source_rows": 112650,
+      "logical_rows_sha256": "d85f8dc8c75ca7c0a8a9d6a765ca0f76570b09cda9b95e07bc64277382dbdbf2",
+      "status": "PASS"
+    },
+    {
+      "table_name": "customers",
+      "source_rows": 99441,
+      "logical_rows_sha256": "2b4f40bc3fca13cea4d4f27ca3b1dea840ffd50b7ea7c19884b44412db6d1746",
+      "status": "PASS"
+    },
+    {
+      "table_name": "products",
+      "source_rows": 32951,
+      "logical_rows_sha256": "86b695b748424d8dd2710be142f3f91469017774337861653038ce5a09202050",
+      "status": "PASS"
+    },
+    {
+      "table_name": "sellers",
+      "source_rows": 3095,
+      "logical_rows_sha256": "3d76af6ab1337b176b29bfaa9d93300abd0d218ab4cb7b3ebecf54f2d2d6fc25",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_payments",
+      "source_rows": 103886,
+      "logical_rows_sha256": "d724f0d85baef7160b81b5f503e9dfb6c99737e8c59cc42a93fc89e1a9ea6460",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_reviews",
+      "source_rows": 99224,
+      "logical_rows_sha256": "f9a9ac75b51122ea088869b1931dfd7660a17e3d8dc0e1ddd611bfb151c538e9",
+      "status": "PASS"
+    },
+    {
+      "table_name": "category_translation",
+      "source_rows": 71,
+      "logical_rows_sha256": "0219262e020851fab6c882074d20331b1d6066021134fb51fdb6a2195bae7f59",
+      "status": "PASS"
+    }
+  ],
+  "schema_provenance": {
+    "upstream_repository": "https://github.com/tableau/tableau-document-schemas",
+    "upstream_commit": "f4bce1eb55f0c1c010c0ef826cf531528d5910eb",
+    "version": "2026.1.0",
+    "files": {
+      "twb_2026.1.0.xsd": {
+        "url": "https://raw.githubusercontent.com/tableau/tableau-document-schemas/f4bce1eb55f0c1c010c0ef826cf531528d5910eb/schemas/2026_1/twb_2026.1.0.xsd",
+        "sha256": "8bb236b72c1c388aca92bcd00164f65c0d4f5efeaf225252ce0619d8f631e923",
+        "bytes": 297129,
+        "modified": false
+      },
+      "LICENSE": {
+        "url": "https://raw.githubusercontent.com/tableau/tableau-document-schemas/f4bce1eb55f0c1c010c0ef826cf531528d5910eb/LICENSE.txt",
+        "sha256": "a32115015c1eea6186e519fa03ab3b77844170a75cf57ddbeb57f15dae44729a",
+        "bytes": 11444,
+        "modified": false
+      }
+    },
+    "namespace_resolution_reference": {
+      "repository": "https://github.com/tableau/tableau-plugin",
+      "git_tree": "84f130911b33e8e257a920e69a012496d29f85b7",
+      "git_blob": "1d067fe09884382a2b8e48ee85cd0ae5a7cebba2",
+      "path": "plugins/tableau/skills/tableau-workbook-authoring/scripts/validate_workbook.py",
+      "url": "https://api.github.com/repos/tableau/tableau-plugin/git/blobs/1d067fe09884382a2b8e48ee85cd0ae5a7cebba2",
+      "downloaded_sha256": "0eb828e59ffcf5d45722d3e9ec47df02fa80da7eaaa63a2b52f3459008ab5c95",
+      "method": "The local loader follows the official validator approach: resolve only the location-free user and XML namespace imports in memory; preserve the vendored XSD byte for byte."
+    }
+  },
+  "namespace_resolution": "Only the declared location-free Tableau user and XML namespace imports receive offline stubs; no XSD rules removed",
+  "structure": {
+    "official_xsd": "PASS",
+    "version": "26.1",
+    "worksheets": [
+      "Sales | Sales orders",
+      "Sales | Product sales value",
+      "Sales | Average order value",
+      "Sales | Selected orders",
+      "Sales | Monthly product sales",
+      "Sales | Product value by category",
+      "Sales | Product value by buyer state",
+      "Delivery | Eligible deliveries",
+      "Delivery | Late orders",
+      "Delivery | Late delivery rate",
+      "Delivery | Average delivery days",
+      "Delivery | Late delivery rate by purchase month",
+      "Delivery | Late delivery rate by buyer state",
+      "Delivery | Late delivery rate by category",
+      "Customers | Observed customers",
+      "Customers | Repeat customers",
+      "Customers | Observed repeat rate",
+      "Customers | Average review score",
+      "Customers | Selected review scores",
+      "Customers | Review score by purchase month",
+      "Customers | Customer purchase frequency"
+    ],
+    "dashboards": [
+      "Sales",
+      "Delivery",
+      "Customers"
+    ],
+    "parameters": [
+      {
+        "name": "[StartMonth]",
+        "datatype": "date",
+        "default": "#2017-02-01#",
+        "allowed_values": [
+          "#2017-02-01#",
+          "#2017-03-01#",
+          "#2017-04-01#",
+          "#2017-05-01#",
+          "#2017-06-01#",
+          "#2017-07-01#",
+          "#2017-08-01#",
+          "#2017-09-01#",
+          "#2017-10-01#",
+          "#2017-11-01#",
+          "#2017-12-01#",
+          "#2018-01-01#",
+          "#2018-02-01#",
+          "#2018-03-01#",
+          "#2018-04-01#",
+          "#2018-05-01#",
+          "#2018-06-01#",
+          "#2018-07-01#"
+        ]
+      },
+      {
+        "name": "[EndMonth]",
+        "datatype": "date",
+        "default": "#2018-07-01#",
+        "allowed_values": [
+          "#2017-02-01#",
+          "#2017-03-01#",
+          "#2017-04-01#",
+          "#2017-05-01#",
+          "#2017-06-01#",
+          "#2017-07-01#",
+          "#2017-08-01#",
+          "#2017-09-01#",
+          "#2017-10-01#",
+          "#2017-11-01#",
+          "#2017-12-01#",
+          "#2018-01-01#",
+          "#2018-02-01#",
+          "#2018-03-01#",
+          "#2018-04-01#",
+          "#2018-05-01#",
+          "#2018-06-01#",
+          "#2018-07-01#"
+        ]
+      },
+      {
+        "name": "[BuyerState]",
+        "datatype": "string",
+        "default": "\"All\"",
+        "allowed_values": [
+          "\"All\"",
+          "\"AC\"",
+          "\"AL\"",
+          "\"AM\"",
+          "\"AP\"",
+          "\"BA\"",
+          "\"CE\"",
+          "\"DF\"",
+          "\"ES\"",
+          "\"GO\"",
+          "\"MA\"",
+          "\"MG\"",
+          "\"MS\"",
+          "\"MT\"",
+          "\"PA\"",
+          "\"PB\"",
+          "\"PE\"",
+          "\"PI\"",
+          "\"PR\"",
+          "\"RJ\"",
+          "\"RN\"",
+          "\"RO\"",
+          "\"RR\"",
+          "\"RS\"",
+          "\"SC\"",
+          "\"SE\"",
+          "\"SP\"",
+          "\"TO\""
+        ]
+      }
+    ],
+    "file_references": [
+      "data/orders.csv",
+      "data/categories.csv"
+    ],
+    "calculated_fields": 49,
+    "formula_references_checked": 133,
+    "worksheet_dependencies_checked": 999,
+    "shelf_mark_references_checked": 77,
+    "customer_lod_fields": [
+      "[Customer Selected Orders]"
+    ],
+    "formula_manifest": [
+      {
+        "source": "Parameters",
+        "field": "[StartMonth]",
+        "formula": "#2017-02-01#"
+      },
+      {
+        "source": "Parameters",
+        "field": "[EndMonth]",
+        "formula": "#2018-07-01#"
+      },
+      {
+        "source": "Parameters",
+        "field": "[BuyerState]",
+        "formula": "\"All\""
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Selected]",
+        "formula": "[purchase_month] >= DATETRUNC('month', [Parameters].[StartMonth]) AND [purchase_month] <= DATETRUNC('month', [Parameters].[EndMonth]) AND ([Parameters].[BuyerState] = 'All' OR [buyer_state] = [Parameters].[BuyerState])"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Selected Sale]",
+        "formula": "[Selected] AND [sales_eligible] = 1"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Selected Delivery]",
+        "formula": "[Selected] AND [delivery_eligible] = 1"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Selected Orders]",
+        "formula": "COUNTD(IF [Selected] THEN [order_key] END)"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Sales Orders]",
+        "formula": "COUNTD(IF [Selected Sale] THEN [order_key] END)"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Sales Cents]",
+        "formula": "SUM(IF [Selected Sale] THEN [product_value_cents] ELSE 0 END)"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Product Sales Value]",
+        "formula": "[Sales Cents] / 100.0"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Average Order Value]",
+        "formula": "IF [Sales Orders] > 0 THEN FLOOR((2 * [Sales Cents] + [Sales Orders]) / (2.0 * [Sales Orders])) / 100.0 END"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Delivery Orders]",
+        "formula": "COUNTD(IF [Selected Delivery] THEN [order_key] END)"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Late Orders]",
+        "formula": "COUNTD(IF [Selected Delivery] AND [is_late] = 1 THEN [order_key] END)"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Late Delivery Rate]",
+        "formula": "IF [Delivery Orders] > 0 THEN FLOOR((20000 * [Late Orders] + [Delivery Orders]) / (2.0 * [Delivery Orders])) / 10000.0 END"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Delivery Seconds]",
+        "formula": "SUM(IF [Selected Delivery] THEN [delivery_seconds] ELSE 0 END)"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Delivery Denominator]",
+        "formula": "86400 * [Delivery Orders]"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Average Delivery Days]",
+        "formula": "IF [Delivery Denominator] > 0 THEN FLOOR((200 * [Delivery Seconds] + [Delivery Denominator]) / (2.0 * [Delivery Denominator])) / 100.0 END"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Positive Delay Days]",
+        "formula": "SUM(IF [Selected Delivery] AND [is_late] = 1 THEN [positive_delay_days] ELSE 0 END)"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Average Positive Delay]",
+        "formula": "IF [Late Orders] > 0 THEN FLOOR((200 * [Positive Delay Days] + [Late Orders]) / (2.0 * [Late Orders])) / 100.0 END"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Selected Review]",
+        "formula": "[Selected Sale] AND [review_eligible] = 1"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Reviewed Orders]",
+        "formula": "COUNTD(IF [Selected Review] THEN [order_key] END)"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Review Score Sum]",
+        "formula": "SUM(IF [Selected Review] THEN [review_score] ELSE 0 END)"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Average Review Score]",
+        "formula": "IF [Reviewed Orders] > 0 THEN FLOOR((200 * [Review Score Sum] + [Reviewed Orders]) / (2.0 * [Reviewed Orders])) / 100.0 END"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Review Coverage]",
+        "formula": "IF [Sales Orders] > 0 THEN FLOOR((20000 * [Reviewed Orders] + [Sales Orders]) / (2.0 * [Sales Orders])) / 10000.0 END"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Low Score Orders]",
+        "formula": "COUNTD(IF [Selected Review] AND [review_score] <= 2 THEN [order_key] END)"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Low Score Rate]",
+        "formula": "IF [Reviewed Orders] > 0 THEN FLOOR((20000 * [Low Score Orders] + [Reviewed Orders]) / (2.0 * [Reviewed Orders])) / 10000.0 END"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Pre Delivery Reviewed Orders]",
+        "formula": "COUNTD(IF [Selected Review] AND [Selected Delivery] AND [review_before_delivery] = 1 THEN [order_key] END)"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Customers]",
+        "formula": "COUNTD(IF [Selected Sale] THEN [customer_key] END)"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Customer Selected Orders]",
+        "formula": "{ FIXED [customer_key] : COUNTD(IF [Selected Sale] THEN [order_key] END) }"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Repeat Customers]",
+        "formula": "COUNTD(IF [Selected Sale] AND [Customer Selected Orders] >= 2 THEN [customer_key] END)"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Repeat Customer Rate]",
+        "formula": "IF [Customers] > 0 THEN FLOOR((20000 * [Repeat Customers] + [Customers]) / (2.0 * [Customers])) / 10000.0 END"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Purchase Frequency]",
+        "formula": "IF [Customer Selected Orders] = 1 THEN '1 order' ELSEIF [Customer Selected Orders] = 2 THEN '2 orders' ELSEIF [Customer Selected Orders] = 3 THEN '3 orders' ELSEIF [Customer Selected Orders] >= 4 THEN '4+ orders' END"
+      },
+      {
+        "source": "olist.orders",
+        "field": "[Review Bucket]",
+        "formula": "IF [review_eligible] = 1 THEN STR([review_score]) ELSE 'No selected review' END"
+      },
+      {
+        "source": "olist.categories",
+        "field": "[Selected]",
+        "formula": "[purchase_month] >= DATETRUNC('month', [Parameters].[StartMonth]) AND [purchase_month] <= DATETRUNC('month', [Parameters].[EndMonth]) AND ([Parameters].[BuyerState] = 'All' OR [buyer_state] = [Parameters].[BuyerState])"
+      },
+      {
+        "source": "olist.categories",
+        "field": "[Selected Sale]",
+        "formula": "[Selected] AND [sales_eligible] = 1"
+      },
+      {
+        "source": "olist.categories",
+        "field": "[Selected Delivery]",
+        "formula": "[Selected] AND [delivery_eligible] = 1"
+      },
+      {
+        "source": "olist.categories",
+        "field": "[Selected Orders]",
+        "formula": "COUNTD(IF [Selected] THEN [order_key] END)"
+      },
+      {
+        "source": "olist.categories",
+        "field": "[Sales Orders]",
+        "formula": "COUNTD(IF [Selected Sale] THEN [order_key] END)"
+      },
+      {
+        "source": "olist.categories",
+        "field": "[Sales Cents]",
+        "formula": "SUM(IF [Selected Sale] THEN [product_value_cents] ELSE 0 END)"
+      },
+      {
+        "source": "olist.categories",
+        "field": "[Product Sales Value]",
+        "formula": "[Sales Cents] / 100.0"
+      },
+      {
+        "source": "olist.categories",
+        "field": "[Average Order Value]",
+        "formula": "IF [Sales Orders] > 0 THEN FLOOR((2 * [Sales Cents] + [Sales Orders]) / (2.0 * [Sales Orders])) / 100.0 END"
+      },
+      {
+        "source": "olist.categories",
+        "field": "[Delivery Orders]",
+        "formula": "COUNTD(IF [Selected Delivery] THEN [order_key] END)"
+      },
+      {
+        "source": "olist.categories",
+        "field": "[Late Orders]",
+        "formula": "COUNTD(IF [Selected Delivery] AND [is_late] = 1 THEN [order_key] END)"
+      },
+      {
+        "source": "olist.categories",
+        "field": "[Late Delivery Rate]",
+        "formula": "IF [Delivery Orders] > 0 THEN FLOOR((20000 * [Late Orders] + [Delivery Orders]) / (2.0 * [Delivery Orders])) / 10000.0 END"
+      },
+      {
+        "source": "olist.categories",
+        "field": "[Delivery Seconds]",
+        "formula": "SUM(IF [Selected Delivery] THEN [delivery_seconds] ELSE 0 END)"
+      },
+      {
+        "source": "olist.categories",
+        "field": "[Delivery Denominator]",
+        "formula": "86400 * [Delivery Orders]"
+      },
+      {
+        "source": "olist.categories",
+        "field": "[Average Delivery Days]",
+        "formula": "IF [Delivery Denominator] > 0 THEN FLOOR((200 * [Delivery Seconds] + [Delivery Denominator]) / (2.0 * [Delivery Denominator])) / 100.0 END"
+      },
+      {
+        "source": "olist.categories",
+        "field": "[Positive Delay Days]",
+        "formula": "SUM(IF [Selected Delivery] AND [is_late] = 1 THEN [positive_delay_days] ELSE 0 END)"
+      },
+      {
+        "source": "olist.categories",
+        "field": "[Average Positive Delay]",
+        "formula": "IF [Late Orders] > 0 THEN FLOOR((200 * [Positive Delay Days] + [Late Orders]) / (2.0 * [Late Orders])) / 100.0 END"
+      }
+    ],
+    "formula_execution": "Not run in Tableau; references and customer selection invariants checked offline"
+  },
+  "package": {
+    "members": [
+      "Olist_Commerce_Review.twb",
+      "data/orders.csv",
+      "data/categories.csv",
+      "DATA_LICENSE.txt"
+    ],
+    "byte_identical_to_editable_sources": true
+  },
+  "input_sha256": {
+    "Olist_Commerce_Review.twb": "ca4dfdd6368241e5c7afca1ec2b08f6f4fbaf8c26d5fafab5d5afadb7cd4699d",
+    "data/orders.csv": "70f794119c67233ba7948452d62437fba1dcd4e63347daf35a5a965e031ad3d9",
+    "data/categories.csv": "93ada0b6b8cb543354bd1472d772e73d96ef818c3ba46d6b3859e90d4c2c6d00",
+    "DATA_LICENSE.txt": "64f330398f9f6796288b22014aa6394a79d70e7ca0b4c42763845218767fd144"
+  },
+  "input_rows": {
+    "orders": 91780,
+    "order_category_pairs": 89830
+  },
+  "dependency_sha256": {
+    "scripts/validate_tableau.py": "b9bd0f9fe6c44e3b28c986b70e2cf783ec2843c21f3ff20abb4dfb2d45e01cc5",
+    "scripts/validate_dashboard.py": "0035feb8cc0873928e0d66588ea71d798e5d801bdf93144f43120dc7f4fde429",
+    "scripts/build_tableau.py": "6a353d2a2e329600e03020453a61fb43f9820ff3588fe8f36c9d4c3473557f16",
+    "scripts/export_tableau.py": "82700ab29060e829570a72c078602fe755de1aa2dae1d9d55afb32d4ae3bcb8a",
+    "scripts/prepare_part3.py": "e3063709f642b9ae59557b3841f26270033fd1ae91e86804c94082d67feb631d",
+    "scripts/build_database.py": "14a65d86e8c0881720bf3898221899b2d521d6e785ed41746245575711a57a4e",
+    "sql/07_reporting_views.sql": "77f06ed541dd4d98ff6979f14c481aaeb5c57cdd049b5dbe894be978bb64d159",
+    "sql/09_tableau_export.sql": "cbde685018a27bdf2e2120f7452bc0f86432cca935ca9f07dc457cb18369277c",
+    "tableau/Olist_Commerce_Review.twb": "ca4dfdd6368241e5c7afca1ec2b08f6f4fbaf8c26d5fafab5d5afadb7cd4699d",
+    "tableau/Olist_Commerce_Review.twbx": "d2a461605e4dbfbd7f7a6e7a712f0a53de2ba3250e1bfae2935bf3ffcefbc25e",
+    "tableau/schema/twb_2026.1.0.xsd": "8bb236b72c1c388aca92bcd00164f65c0d4f5efeaf225252ce0619d8f631e923",
+    "tableau/schema/LICENSE": "a32115015c1eea6186e519fa03ab3b77844170a75cf57ddbeb57f15dae44729a",
+    "tableau/schema/provenance.json": "57e3eea6befa4984b0255473ba723ea3c6ad26a0d51027e7102834480633b434",
+    "tableau/schema/README.md": "8624b8bb902b390db66cd1400d14372d228700f7447ec96a8577d735b98b543d",
+    "DATA_LICENSE.txt": "64f330398f9f6796288b22014aa6394a79d70e7ca0b4c42763845218767fd144",
+    "results/part4_validation.json": "bfa38e3ba2b8d556bf4631d1a689fd32719c5b22c571a2109ad7acd2df07d594",
+    "results/part5_validation.json": "13f13316585e703f4df55feca1bd9e439f0f3ba369d94ddf58fee610fa398506",
+    "results/part6_validation.json": "81b50af7b4eae3b5b783c55de9b700e46200ab9fae7c8f382f4c675cd22a1071"
+  },
+  "scenarios_passed": 8,
+  "values_checked": 13487,
+  "scenarios": [
+    {
+      "name": "all",
+      "start_month": "2017-02-01",
+      "end_month": "2018-07-01",
+      "buyer_state": "All",
+      "filters": {
+        "startMonth": 0,
+        "endMonth": 17,
+        "state": "all"
+      },
+      "status": "PASS",
+      "values_checked": 2696,
+      "native_chart_checks": {
+        "purchase_frequency": [
+          {
+            "orders_bucket": 1,
+            "customers": 83709
+          },
+          {
+            "orders_bucket": 2,
+            "customers": 2362
+          },
+          {
+            "orders_bucket": 3,
+            "customers": 160
+          },
+          {
+            "orders_bucket": 4,
+            "customers": 40
+          }
+        ],
+        "monthly_reviews": [
+          {
+            "month": "2017-02",
+            "reviewed_orders": 1643,
+            "score_sum": 6906,
+            "average_review_score": 4.2
+          },
+          {
+            "month": "2017-03",
+            "reviewed_orders": 2527,
+            "score_sum": 10580,
+            "average_review_score": 4.19
+          },
+          {
+            "month": "2017-04",
+            "reviewed_orders": 2290,
+            "score_sum": 9470,
+            "average_review_score": 4.14
+          },
+          {
+            "month": "2017-05",
+            "reviewed_orders": 3518,
+            "score_sum": 14904,
+            "average_review_score": 4.24
+          },
+          {
+            "month": "2017-06",
+            "reviewed_orders": 3111,
+            "score_sum": 13137,
+            "average_review_score": 4.22
+          },
+          {
+            "month": "2017-07",
+            "reviewed_orders": 3842,
+            "score_sum": 16365,
+            "average_review_score": 4.26
+          },
+          {
+            "month": "2017-08",
+            "reviewed_orders": 4165,
+            "score_sum": 17963,
+            "average_review_score": 4.31
+          },
+          {
+            "month": "2017-09",
+            "reviewed_orders": 4118,
+            "score_sum": 17575,
+            "average_review_score": 4.27
+          },
+          {
+            "month": "2017-10",
+            "reviewed_orders": 4446,
+            "score_sum": 18695,
+            "average_review_score": 4.2
+          },
+          {
+            "month": "2017-11",
+            "reviewed_orders": 7238,
+            "score_sum": 28872,
+            "average_review_score": 3.99
+          },
+          {
+            "month": "2017-12",
+            "reviewed_orders": 5461,
+            "score_sum": 22327,
+            "average_review_score": 4.09
+          },
+          {
+            "month": "2018-01",
+            "reviewed_orders": 7013,
+            "score_sum": 28813,
+            "average_review_score": 4.11
+          },
+          {
+            "month": "2018-02",
+            "reviewed_orders": 6507,
+            "score_sum": 25251,
+            "average_review_score": 3.88
+          },
+          {
+            "month": "2018-03",
+            "reviewed_orders": 6948,
+            "score_sum": 26490,
+            "average_review_score": 3.81
+          },
+          {
+            "month": "2018-04",
+            "reviewed_orders": 6751,
+            "score_sum": 28396,
+            "average_review_score": 4.21
+          },
+          {
+            "month": "2018-05",
+            "reviewed_orders": 6721,
+            "score_sum": 28474,
+            "average_review_score": 4.24
+          },
+          {
+            "month": "2018-06",
+            "reviewed_orders": 6074,
+            "score_sum": 26164,
+            "average_review_score": 4.31
+          },
+          {
+            "month": "2018-07",
+            "reviewed_orders": 6121,
+            "score_sum": 26429,
+            "average_review_score": 4.32
+          }
+        ]
+      },
+      "selected_orders": 91780,
+      "sales_orders": 89110,
+      "product_value_cents": 1223065213,
+      "delivery_orders": 89102,
+      "reviewed_orders": 88494,
+      "customers": 86271,
+      "repeat_customers": 2562,
+      "average_order_value": 137.25,
+      "late_pct": 6.86,
+      "average_delivery_days": 12.88,
+      "average_positive_delay_days": 10.98,
+      "average_review_score": 4.15,
+      "repeat_customer_pct": 2.97
+    },
+    {
+      "name": "march_2018",
+      "start_month": "2018-03-01",
+      "end_month": "2018-03-01",
+      "buyer_state": "All",
+      "filters": {
+        "startMonth": 13,
+        "endMonth": 13,
+        "state": "all"
+      },
+      "status": "PASS",
+      "values_checked": 2167,
+      "native_chart_checks": {
+        "purchase_frequency": [
+          {
+            "orders_bucket": 1,
+            "customers": 6826
+          },
+          {
+            "orders_bucket": 2,
+            "customers": 87
+          },
+          {
+            "orders_bucket": 3,
+            "customers": 1
+          }
+        ],
+        "monthly_reviews": [
+          {
+            "month": "2018-03",
+            "reviewed_orders": 6948,
+            "score_sum": 26490,
+            "average_review_score": 3.81
+          }
+        ]
+      },
+      "selected_orders": 7211,
+      "sales_orders": 7003,
+      "product_value_cents": 95335625,
+      "delivery_orders": 7003,
+      "reviewed_orders": 6948,
+      "customers": 6914,
+      "repeat_customers": 88,
+      "average_order_value": 136.14,
+      "late_pct": 18.96,
+      "average_delivery_days": 16.3,
+      "average_positive_delay_days": 10.02,
+      "average_review_score": 3.81,
+      "repeat_customer_pct": 1.27
+    },
+    {
+      "name": "sao_paulo",
+      "start_month": "2017-02-01",
+      "end_month": "2018-07-01",
+      "buyer_state": "SP",
+      "filters": {
+        "startMonth": 0,
+        "endMonth": 17,
+        "state": 25
+      },
+      "status": "PASS",
+      "values_checked": 1977,
+      "native_chart_checks": {
+        "purchase_frequency": [
+          {
+            "orders_bucket": 1,
+            "customers": 34631
+          },
+          {
+            "orders_bucket": 2,
+            "customers": 1022
+          },
+          {
+            "orders_bucket": 3,
+            "customers": 66
+          },
+          {
+            "orders_bucket": 4,
+            "customers": 16
+          }
+        ],
+        "monthly_reviews": [
+          {
+            "month": "2017-02",
+            "reviewed_orders": 600,
+            "score_sum": 2547,
+            "average_review_score": 4.25
+          },
+          {
+            "month": "2017-03",
+            "reviewed_orders": 957,
+            "score_sum": 4071,
+            "average_review_score": 4.25
+          },
+          {
+            "month": "2017-04",
+            "reviewed_orders": 869,
+            "score_sum": 3590,
+            "average_review_score": 4.13
+          },
+          {
+            "month": "2017-05",
+            "reviewed_orders": 1351,
+            "score_sum": 5739,
+            "average_review_score": 4.25
+          },
+          {
+            "month": "2017-06",
+            "reviewed_orders": 1272,
+            "score_sum": 5360,
+            "average_review_score": 4.21
+          },
+          {
+            "month": "2017-07",
+            "reviewed_orders": 1536,
+            "score_sum": 6604,
+            "average_review_score": 4.3
+          },
+          {
+            "month": "2017-08",
+            "reviewed_orders": 1654,
+            "score_sum": 7252,
+            "average_review_score": 4.38
+          },
+          {
+            "month": "2017-09",
+            "reviewed_orders": 1562,
+            "score_sum": 6744,
+            "average_review_score": 4.32
+          },
+          {
+            "month": "2017-10",
+            "reviewed_orders": 1712,
+            "score_sum": 7241,
+            "average_review_score": 4.23
+          },
+          {
+            "month": "2017-11",
+            "reviewed_orders": 2880,
+            "score_sum": 11934,
+            "average_review_score": 4.14
+          },
+          {
+            "month": "2017-12",
+            "reviewed_orders": 2277,
+            "score_sum": 9747,
+            "average_review_score": 4.28
+          },
+          {
+            "month": "2018-01",
+            "reviewed_orders": 2956,
+            "score_sum": 12387,
+            "average_review_score": 4.19
+          },
+          {
+            "month": "2018-02",
+            "reviewed_orders": 2617,
+            "score_sum": 10651,
+            "average_review_score": 4.07
+          },
+          {
+            "month": "2018-03",
+            "reviewed_orders": 2959,
+            "score_sum": 12207,
+            "average_review_score": 4.13
+          },
+          {
+            "month": "2018-04",
+            "reviewed_orders": 2988,
+            "score_sum": 12839,
+            "average_review_score": 4.3
+          },
+          {
+            "month": "2018-05",
+            "reviewed_orders": 3126,
+            "score_sum": 13500,
+            "average_review_score": 4.32
+          },
+          {
+            "month": "2018-06",
+            "reviewed_orders": 2732,
+            "score_sum": 11844,
+            "average_review_score": 4.34
+          },
+          {
+            "month": "2018-07",
+            "reviewed_orders": 2697,
+            "score_sum": 11676,
+            "average_review_score": 4.33
+          }
+        ]
+      },
+      "selected_orders": 38069,
+      "sales_orders": 36959,
+      "product_value_cents": 462823868,
+      "delivery_orders": 36952,
+      "reviewed_orders": 36745,
+      "customers": 35735,
+      "repeat_customers": 1104,
+      "average_order_value": 125.23,
+      "late_pct": 4.12,
+      "average_delivery_days": 8.94,
+      "average_positive_delay_days": 9.09,
+      "average_review_score": 4.24,
+      "repeat_customer_pct": 3.09
+    },
+    {
+      "name": "rio_de_janeiro",
+      "start_month": "2017-02-01",
+      "end_month": "2018-07-01",
+      "buyer_state": "RJ",
+      "filters": {
+        "startMonth": 0,
+        "endMonth": 17,
+        "state": 18
+      },
+      "status": "PASS",
+      "values_checked": 1909,
+      "native_chart_checks": {
+        "purchase_frequency": [
+          {
+            "orders_bucket": 1,
+            "customers": 10749
+          },
+          {
+            "orders_bucket": 2,
+            "customers": 316
+          },
+          {
+            "orders_bucket": 3,
+            "customers": 31
+          },
+          {
+            "orders_bucket": 4,
+            "customers": 5
+          }
+        ],
+        "monthly_reviews": [
+          {
+            "month": "2017-02",
+            "reviewed_orders": 228,
+            "score_sum": 952,
+            "average_review_score": 4.18
+          },
+          {
+            "month": "2017-03",
+            "reviewed_orders": 366,
+            "score_sum": 1515,
+            "average_review_score": 4.14
+          },
+          {
+            "month": "2017-04",
+            "reviewed_orders": 322,
+            "score_sum": 1342,
+            "average_review_score": 4.17
+          },
+          {
+            "month": "2017-05",
+            "reviewed_orders": 462,
+            "score_sum": 1940,
+            "average_review_score": 4.2
+          },
+          {
+            "month": "2017-06",
+            "reviewed_orders": 392,
+            "score_sum": 1646,
+            "average_review_score": 4.2
+          },
+          {
+            "month": "2017-07",
+            "reviewed_orders": 538,
+            "score_sum": 2270,
+            "average_review_score": 4.22
+          },
+          {
+            "month": "2017-08",
+            "reviewed_orders": 532,
+            "score_sum": 2281,
+            "average_review_score": 4.29
+          },
+          {
+            "month": "2017-09",
+            "reviewed_orders": 584,
+            "score_sum": 2490,
+            "average_review_score": 4.26
+          },
+          {
+            "month": "2017-10",
+            "reviewed_orders": 645,
+            "score_sum": 2701,
+            "average_review_score": 4.19
+          },
+          {
+            "month": "2017-11",
+            "reviewed_orders": 1004,
+            "score_sum": 3685,
+            "average_review_score": 3.67
+          },
+          {
+            "month": "2017-12",
+            "reviewed_orders": 732,
+            "score_sum": 2582,
+            "average_review_score": 3.53
+          },
+          {
+            "month": "2018-01",
+            "reviewed_orders": 840,
+            "score_sum": 3241,
+            "average_review_score": 3.86
+          },
+          {
+            "month": "2018-02",
+            "reviewed_orders": 869,
+            "score_sum": 2872,
+            "average_review_score": 3.3
+          },
+          {
+            "month": "2018-03",
+            "reviewed_orders": 848,
+            "score_sum": 2762,
+            "average_review_score": 3.26
+          },
+          {
+            "month": "2018-04",
+            "reviewed_orders": 799,
+            "score_sum": 3284,
+            "average_review_score": 4.11
+          },
+          {
+            "month": "2018-05",
+            "reviewed_orders": 814,
+            "score_sum": 3341,
+            "average_review_score": 4.1
+          },
+          {
+            "month": "2018-06",
+            "reviewed_orders": 702,
+            "score_sum": 2980,
+            "average_review_score": 4.25
+          },
+          {
+            "month": "2018-07",
+            "reviewed_orders": 688,
+            "score_sum": 2976,
+            "average_review_score": 4.33
+          }
+        ]
+      },
+      "selected_orders": 11950,
+      "sales_orders": 11496,
+      "product_value_cents": 164561520,
+      "delivery_orders": 11496,
+      "reviewed_orders": 11365,
+      "customers": 11101,
+      "repeat_customers": 352,
+      "average_order_value": 143.15,
+      "late_pct": 12.61,
+      "average_delivery_days": 15.75,
+      "average_positive_delay_days": 13.73,
+      "average_review_score": 3.95,
+      "repeat_customer_pct": 3.17
+    },
+    {
+      "name": "march_2018_rj",
+      "start_month": "2018-03-01",
+      "end_month": "2018-03-01",
+      "buyer_state": "RJ",
+      "filters": {
+        "startMonth": 13,
+        "endMonth": 13,
+        "state": 18
+      },
+      "status": "PASS",
+      "values_checked": 1225,
+      "native_chart_checks": {
+        "purchase_frequency": [
+          {
+            "orders_bucket": 1,
+            "customers": 836
+          },
+          {
+            "orders_bucket": 2,
+            "customers": 14
+          }
+        ],
+        "monthly_reviews": [
+          {
+            "month": "2018-03",
+            "reviewed_orders": 848,
+            "score_sum": 2762,
+            "average_review_score": 3.26
+          }
+        ]
+      },
+      "selected_orders": 907,
+      "sales_orders": 864,
+      "product_value_cents": 11306284,
+      "delivery_orders": 864,
+      "reviewed_orders": 848,
+      "customers": 850,
+      "repeat_customers": 14,
+      "average_order_value": 130.86,
+      "late_pct": 34.49,
+      "average_delivery_days": 24.3,
+      "average_positive_delay_days": 14.44,
+      "average_review_score": 3.26,
+      "repeat_customer_pct": 1.65
+    },
+    {
+      "name": "february_to_july_2018",
+      "start_month": "2018-02-01",
+      "end_month": "2018-07-01",
+      "buyer_state": "All",
+      "filters": {
+        "startMonth": 12,
+        "endMonth": 17,
+        "state": "all"
+      },
+      "status": "PASS",
+      "values_checked": 2391,
+      "native_chart_checks": {
+        "purchase_frequency": [
+          {
+            "orders_bucket": 1,
+            "customers": 37813
+          },
+          {
+            "orders_bucket": 2,
+            "customers": 701
+          },
+          {
+            "orders_bucket": 3,
+            "customers": 38
+          },
+          {
+            "orders_bucket": 4,
+            "customers": 8
+          }
+        ],
+        "monthly_reviews": [
+          {
+            "month": "2018-02",
+            "reviewed_orders": 6507,
+            "score_sum": 25251,
+            "average_review_score": 3.88
+          },
+          {
+            "month": "2018-03",
+            "reviewed_orders": 6948,
+            "score_sum": 26490,
+            "average_review_score": 3.81
+          },
+          {
+            "month": "2018-04",
+            "reviewed_orders": 6751,
+            "score_sum": 28396,
+            "average_review_score": 4.21
+          },
+          {
+            "month": "2018-05",
+            "reviewed_orders": 6721,
+            "score_sum": 28474,
+            "average_review_score": 4.24
+          },
+          {
+            "month": "2018-06",
+            "reviewed_orders": 6074,
+            "score_sum": 26164,
+            "average_review_score": 4.31
+          },
+          {
+            "month": "2018-07",
+            "reviewed_orders": 6121,
+            "score_sum": 26429,
+            "average_review_score": 4.32
+          }
+        ]
+      },
+      "selected_orders": 40210,
+      "sales_orders": 39363,
+      "product_value_cents": 545490348,
+      "delivery_orders": 39357,
+      "reviewed_orders": 39122,
+      "customers": 38560,
+      "repeat_customers": 747,
+      "average_order_value": 138.58,
+      "late_pct": 8.34,
+      "average_delivery_days": 12.5,
+      "average_positive_delay_days": 10.35,
+      "average_review_score": 4.12,
+      "repeat_customer_pct": 1.94
+    },
+    {
+      "name": "roraima",
+      "start_month": "2017-02-01",
+      "end_month": "2018-07-01",
+      "buyer_state": "RR",
+      "filters": {
+        "startMonth": 0,
+        "endMonth": 17,
+        "state": 21
+      },
+      "status": "PASS",
+      "values_checked": 1013,
+      "native_chart_checks": {
+        "purchase_frequency": [
+          {
+            "orders_bucket": 1,
+            "customers": 38
+          },
+          {
+            "orders_bucket": 2,
+            "customers": 1
+          }
+        ],
+        "monthly_reviews": [
+          {
+            "month": "2017-02",
+            "reviewed_orders": 2,
+            "score_sum": 8,
+            "average_review_score": 4.0
+          },
+          {
+            "month": "2017-03",
+            "reviewed_orders": 2,
+            "score_sum": 8,
+            "average_review_score": 4.0
+          },
+          {
+            "month": "2017-04",
+            "reviewed_orders": 2,
+            "score_sum": 7,
+            "average_review_score": 3.5
+          },
+          {
+            "month": "2017-05",
+            "reviewed_orders": 2,
+            "score_sum": 8,
+            "average_review_score": 4.0
+          },
+          {
+            "month": "2017-06",
+            "reviewed_orders": 3,
+            "score_sum": 14,
+            "average_review_score": 4.67
+          },
+          {
+            "month": "2017-07",
+            "reviewed_orders": 1,
+            "score_sum": 5,
+            "average_review_score": 5.0
+          },
+          {
+            "month": "2017-09",
+            "reviewed_orders": 1,
+            "score_sum": 4,
+            "average_review_score": 4.0
+          },
+          {
+            "month": "2017-10",
+            "reviewed_orders": 3,
+            "score_sum": 11,
+            "average_review_score": 3.67
+          },
+          {
+            "month": "2017-11",
+            "reviewed_orders": 2,
+            "score_sum": 6,
+            "average_review_score": 3.0
+          },
+          {
+            "month": "2018-01",
+            "reviewed_orders": 1,
+            "score_sum": 3,
+            "average_review_score": 3.0
+          },
+          {
+            "month": "2018-02",
+            "reviewed_orders": 3,
+            "score_sum": 9,
+            "average_review_score": 3.0
+          },
+          {
+            "month": "2018-03",
+            "reviewed_orders": 5,
+            "score_sum": 19,
+            "average_review_score": 3.8
+          },
+          {
+            "month": "2018-04",
+            "reviewed_orders": 2,
+            "score_sum": 6,
+            "average_review_score": 3.0
+          },
+          {
+            "month": "2018-05",
+            "reviewed_orders": 1,
+            "score_sum": 4,
+            "average_review_score": 4.0
+          },
+          {
+            "month": "2018-06",
+            "reviewed_orders": 5,
+            "score_sum": 19,
+            "average_review_score": 3.8
+          },
+          {
+            "month": "2018-07",
+            "reviewed_orders": 5,
+            "score_sum": 25,
+            "average_review_score": 5.0
+          }
+        ]
+      },
+      "selected_orders": 44,
+      "sales_orders": 40,
+      "product_value_cents": 701777,
+      "delivery_orders": 40,
+      "reviewed_orders": 40,
+      "customers": 39,
+      "repeat_customers": 1,
+      "average_order_value": 175.44,
+      "late_pct": 12.5,
+      "average_delivery_days": 29.91,
+      "average_positive_delay_days": 36.4,
+      "average_review_score": 3.9,
+      "repeat_customer_pct": 2.56
+    },
+    {
+      "name": "empty_august_2017_roraima",
+      "start_month": "2017-08-01",
+      "end_month": "2017-08-01",
+      "buyer_state": "RR",
+      "filters": {
+        "startMonth": 6,
+        "endMonth": 6,
+        "state": 21
+      },
+      "status": "PASS",
+      "values_checked": 109,
+      "native_chart_checks": {
+        "purchase_frequency": [],
+        "monthly_reviews": []
+      },
+      "selected_orders": 0,
+      "sales_orders": 0,
+      "product_value_cents": 0,
+      "delivery_orders": 0,
+      "reviewed_orders": 0,
+      "customers": 0,
+      "repeat_customers": 0,
+      "average_order_value": null,
+      "late_pct": null,
+      "average_delivery_days": null,
+      "average_positive_delay_days": null,
+      "average_review_score": null,
+      "repeat_customer_pct": null
+    }
+  ],
+  "published_metric_checks": [
+    {
+      "part": 4,
+      "metric": "sales.orders",
+      "actual": 89110,
+      "published": 89110,
+      "status": "PASS"
+    },
+    {
+      "part": 4,
+      "metric": "sales.cents",
+      "actual": 1223065213,
+      "published": 1223065213,
+      "status": "PASS"
+    },
+    {
+      "part": 4,
+      "metric": "sales.aov",
+      "actual": 137.25,
+      "published": 137.25,
+      "status": "PASS"
+    },
+    {
+      "part": 5,
+      "metric": "delivery.orders",
+      "actual": 89102,
+      "published": 89102,
+      "status": "PASS"
+    },
+    {
+      "part": 5,
+      "metric": "delivery.lateOrders",
+      "actual": 6116,
+      "published": 6116,
+      "status": "PASS"
+    },
+    {
+      "part": 5,
+      "metric": "delivery.latePct",
+      "actual": 6.86,
+      "published": 6.86,
+      "status": "PASS"
+    },
+    {
+      "part": 5,
+      "metric": "delivery.averageDays",
+      "actual": 12.88,
+      "published": 12.88,
+      "status": "PASS"
+    },
+    {
+      "part": 5,
+      "metric": "delivery.averagePositiveDelayDays",
+      "actual": 10.98,
+      "published": 10.98,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.reviewedOrders",
+      "actual": 88494,
+      "published": 88494,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.missingReviewOrders",
+      "actual": 616,
+      "published": 616,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.reviewCoveragePct",
+      "actual": 99.31,
+      "published": 99.31,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.scoreSum",
+      "actual": 366811,
+      "published": 366811,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.averageScore",
+      "actual": 4.15,
+      "published": 4.15,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.lowScoreOrders",
+      "actual": 11534,
+      "published": 11534,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.lowScorePct",
+      "actual": 13.03,
+      "published": 13.03,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.uniqueCustomers",
+      "actual": 86271,
+      "published": 86271,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.repeatCustomers",
+      "actual": 2562,
+      "published": 2562,
+      "status": "PASS"
+    },
+    {
+      "part": 6,
+      "metric": "customers.repeatCustomerPct",
+      "actual": 2.97,
+      "published": 2.97,
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "Tableau has not evaluated the workbook calculations or rendered the dashboards in this environment.",
+    "XSD validation checks syntax, not Tableau application compatibility or visual layout.",
+    "CSV scenario results validate the numerical specification; they are not captured Tableau outputs."
+  ]
+}

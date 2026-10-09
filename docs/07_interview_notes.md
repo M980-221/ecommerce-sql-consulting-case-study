@@ -1,6 +1,6 @@
 # Technical walkthrough
 
-Current scope: Parts 1–8 are implemented. The repository includes a verified SQLite model, fifteen business queries, combined validation and a browser dashboard with three pages. Payment exceptions remain documented. Final recommendations and slides are still to come; browser visual testing also remains open.
+Current scope: Parts 1–7 are complete. The repository includes a verified SQLite model, fifteen business queries and combined validation. Part 8 now has a packaged Tableau workbook prepared for in-app verification. Payment exceptions remain documented. Final recommendations and slides are still to come.
 
 ## Points to explain
 
@@ -24,8 +24,8 @@ Current scope: Parts 1–8 are implemented. The repository includes a verified S
 - **The order walkthrough:** order `03ecec245220b63fd7f68c1737ba99ba` has two items and two payments. Joining both child tables directly makes four rows and doubles each sum. Separate GROUP BY calculations give product value 298.90, freight 76.83 and payments 375.73, which reconcile exactly.
 - **The reporting views:** order measures stay at one row per order; item prices stay at item grain. Delivery category membership is distinct by order and category. Customers are grouped across the full reporting window by persistent ID. Views are saved queries, not copied source records.
 - **The performance experiment:** an unnecessary TRIM around a verified order ID forces a scan for the item lookup. Removing it lets SQLite use the existing index. Both variants return identical rows; alternating warm-cache timings show the difference for that lookup, not for every query.
-- **The dashboard:** HTML, CSS and JavaScript present three pages for sales, delivery and customers. Python exports checked SQLite reporting rows; JavaScript recalculates their groups after month/state filtering. It works locally without a server. This deliverable is a browser dashboard, not a Power BI file.
-- **The dashboard checks:** the actual calculation module matches independent SQL results across eight selections and 13,129 values. An empty August 2017/RR selection returns zero counts and undefined rates, displayed as dashes. Static previews are provided; real browser visual and manual accessibility testing remain outstanding.
+- **The dashboard:** Tableau presents Sales, Delivery and Customers dashboards. SQL exports one row per order separately from one row per order/category. The workbook includes its CSVs and editable worksheets. Month and state parameters control the calculations; a customer-level FIXED expression counts eligible selected orders for repeat purchasing.
+- **The dashboard checks:** all 2,273,050 Tableau export cells are compared with the validated reporting data, alongside 511 published-total checks. Workbook structure, packaged files and an independent calculation model are checked separately. These checks do not execute Tableau: opening the file and verifying actual displayed results and layout remain necessary. The earlier browser prototype has separate Node/SQL checks.
 - **The limitations:** the reporting period is a conservative 18-month window; some dates and categories are missing, review selection is a modelling choice, and payment differences have unconfirmed causes. Results describe historical associations.
 
 ## SQL to demonstrate
@@ -107,6 +107,9 @@ For validation, run the duplicate-ID `HAVING` and preaggregated `LEFT JOIN` exam
 
 24. **Why does the repeat rate change after a date or state filter?** The dashboard first selects the eligible orders, then groups their persistent customer IDs. A customer with two orders across the full window might have only one in the selected slice. Reusing the full-window repeat flag would answer a different question.
 25. **Why is a dashboard rate sometimes shown as a dash?** Its denominator is zero. Displaying zero would imply a measured rate, while the value is actually undefined.
-26. **How do you know the browser calculations agree with SQL?** Node executes the same JavaScript module used by the browser. Separate SQLite queries calculate the expected figures for default, filtered and empty selections. The results are compared field by field.
+26. **What does the Tableau verification prove?** The CSVs match the SQL reporting data, and the workbook structure and calculation model are checked. It does not prove Tableau has executed the workbook. Demonstrate the default figures, March 2018/RJ and the empty August 2017/RR selection in Tableau before presenting the dashboard as tested.
+27. **Why use two Tableau data sources?** The category source can contain an order more than once. Keeping order-level KPIs on the order source prevents duplicated sales and review totals.
+28. **Why put the selection inside FIXED?** FIXED groups by customer before ordinary dimension filters. Including the shared parameters in the counted orders ensures repeat purchases respond to the selection.
+29. **Which work belongs to SQL and which to Tableau?** SQL establishes eligibility, keys and row meanings. Tableau uses those rows to calculate the active selection and draw the charts. Both are needed to explain the final result.
 
-Practise opening the dashboard, changing one filter and explaining the new denominator before discussing a rate. Then run the matching SQL examples in [Part 8](15_part8_dashboard.md). Keep implementation, measured results and remaining verification distinct. Final recommendations and slides are next.
+Practise opening the dashboard, changing one filter and explaining the new denominator before discussing a rate. Then run the matching SQL and Tableau examples in [Part 8](16_tableau_dashboard.md). Keep implementation, measured results and remaining verification distinct. Final recommendations and slides are next.
