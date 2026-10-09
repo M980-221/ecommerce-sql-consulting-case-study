@@ -1,6 +1,6 @@
 # Validation log
 
-Parts 2–5 are complete. Part 3 passed **62 checks** and 14 synthetic test cases. On 8 October 2026, Part 4 passed **15 checks** and 10 sales test cases, and Part 5 passed **25 checks** and 12 delivery test cases. All **36 tests** passed together. Part 7 will investigate the remaining reconciliation questions and review the combined business analysis.
+Parts 2–6 are complete. Part 3 passed **62 checks** and 14 synthetic test cases. Part 4 passed **15 checks** and 10 sales test cases; Part 5 passed **25 checks** and 12 delivery test cases. On 9 October 2026, Part 6 passed **26 checks** and 12 customer test cases. All **48 tests** passed together. Part 7 will investigate the remaining reconciliation questions and review the combined business analysis.
 
 | Check | Result | Evidence |
 |---|---|---|
@@ -30,15 +30,23 @@ Parts 2–5 are complete. Part 3 passed **62 checks** and 14 synthetic test case
 | Category allocation | Repeated items removed at order/category grain; 89,822 memberships across 89,102 orders | Part 5 category output and validation |
 | Seller coverage and cutoff | 87,946 single-seller orders; 1,156 multi-seller orders excluded; 190 sellers / 52,408 orders meet the 100-order minimum | Part 5 overall, seller and validation outputs |
 | Delivery edge cases and regression tests | 12 delivery tests plus 24 earlier tests passed | `results/part5_tests.txt` |
+| Customer output cells | All 56 rows / 534 cells match independent raw-record calculations | `results/part6_validation.json`; `scripts/customer_checks.py` |
+| Review coverage and selection | 88,494 reviewed sales orders; 616 missing eligible reviews; raw review selection independently reproduced | Part 6 distribution and validation outputs |
+| Customer identity and repeats | 86,271 persistent IDs; 2,562 with at least two eligible orders | Part 6 repeat-customer output |
+| Spending reconciliation | All customer groups sum to 89,110 orders and 1,223,065,213 integer hundredths, matching Part 4 | Part 6 validation |
+| Review comparison coverage and timing | 88,486 reviewed orders have delivery eligibility; 4,445 selected responses precede receipt | Part 6 delivery-review output and validation |
+| Customer edge cases and regression tests | 12 customer tests plus 36 earlier tests passed | `results/part6_tests.txt` |
 | Source payment reconciliation investigation | Open: 273 one-cent differences and 303 larger differences | Part 3 `payment_reconciliation`; investigate in Part 7 |
 | Five manual order walkthroughs | Pending Part 7 | |
-| Customer and dashboard figures | Pending Parts 6–8 | |
+| Dashboard figures | Pending Parts 7–8 | |
 
 ## Remaining source exceptions
 
 Part 4 opens the database read-only and verifies every raw-table fingerprint against the published Part 2 snapshot. Its independent check uses raw records, Python grouping and Decimal; it does not reuse the analytical views or SQL aggregates. The five CSV outputs retain exact integer amounts beside display values. Blank CSV cells represent NULL, including growth with no prior period or a zero denominator.
 
 Part 5 also reads the database without modifying it. Its second calculation uses raw records and Python datetime, with elapsed seconds for delivery duration and calendar-date differences for lateness. It independently builds category memberships and seller groups. The check caught a mean positive delay of exactly 9.825 days that SQLite's two-place ROUND displayed as 9.82. The report now rounds integer delay totals consistently to 9.83, with a dedicated test. NULL still represents an undefined late-only mean when no late orders exist.
+
+Part 6 independently selects reviews from the raw history, then groups raw orders by persistent customer ID. It reproduces the full-source selection accounting: 99,224 review rows = 64 invalid + 548 additional valid rows + 98,612 selected reviews. In the sales population, 613 orders have no source review and three have only ineligible reviews. Missing reviews stay outside score averages. Tests cover changing customer_id for the same person, repeated items/payments/reviews, review ties, same-time orders, reporting boundaries and applying the top-20 limit after aggregation. Exact halfway scores, rates and AOV round up consistently.
 
 The [cleaning decision table](10_part3_cleaning.md#decisions-and-evidence) records how missing categories, review chronology, inconsistent delivery events, zero payments and future shipping deadlines are handled. No values were changed merely to make a check pass.
 

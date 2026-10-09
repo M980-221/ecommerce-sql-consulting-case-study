@@ -1,0 +1,2 @@
+period_start,period_end_exclusive,total_customers,one_time_customers,repeat_customers,repeat_customer_pct,total_sales_orders,one_time_customer_orders,repeat_customer_orders,total_product_sales_cents,one_time_product_sales_cents,repeat_product_sales_cents,total_product_sales_value,one_time_product_sales_value,repeat_product_sales_value,repeat_order_share_pct,repeat_sales_share_pct
+2017-02-01,2018-08-01,86271,83709,2562,2.97,89110,83709,5401,1223065213,1156397138,66668075,12230652.13,11563971.38,666680.75,6.06,5.45

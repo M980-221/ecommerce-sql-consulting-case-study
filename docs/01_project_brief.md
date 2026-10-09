@@ -4,7 +4,7 @@
 **Type:** Independent portfolio project using public historical data  
 **Owner:** Mohammed Baquaysh  
 **Date:** 30 September 2026  
-**Status:** Parts 1–5 complete. Database setup was verified on 1 October 2026, cleaning and the order model on 6 October, and sales and delivery analysis on 8 October. Customer analysis is next.
+**Status:** Parts 1–6 complete. Database setup was verified on 1 October 2026, cleaning and the order model on 6 October, sales and delivery analysis on 8 October, and customer analysis on 9 October. Part 7 will investigate payment differences, check individual orders and measure query performance.
 
 ## Business situation
 
@@ -102,4 +102,6 @@ Target: four weeks, approximately 40–60 hours after learning SQL fundamentals.
 
 **Part 5 outcome:** five delivery queries are complete, with defined exclusions, category counting rules and single-seller coverage. See [delivery findings](12_part5_delivery.md).
 
-**Next step:** analyse customer experience and observed repeat purchases in Part 6.
+**Part 6 outcome:** five customer queries are complete, with review coverage, delivery comparisons, persistent customer spending and observed repeat purchases. See [customer findings](13_part6_customers.md).
+
+**Next step:** complete the remaining reconciliation, manual checks and performance work in Part 7.

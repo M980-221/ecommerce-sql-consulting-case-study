@@ -1,6 +1,6 @@
 # Findings and recommendations
 
-Sales findings are recorded in [Part 4](11_part4_sales.md) and delivery findings in [Part 5](12_part5_delivery.md), with links to the supporting query outputs. Customer analysis is still pending. The three final recommendations below will be selected after the combined results have been reviewed.
+Findings are recorded in [Part 4: sales](11_part4_sales.md), [Part 5: delivery](12_part5_delivery.md) and [Part 6: customers](13_part6_customers.md), with links to supporting query outputs. Part 7 will review the combined analysis and investigate the remaining reconciliation questions. The three final recommendations below will then be selected in Part 9.
 
 Complete three entries using validated analysis.
 

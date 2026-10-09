@@ -4,7 +4,7 @@ A SQL consulting case study by Mohammed Baquaysh, using Olist's historical marke
 
 **Business question:** Where should an e-commerce manager focus first to improve sales performance, delivery reliability and customer experience?
 
-**Current stage:** Parts 1–5 complete, including sales and delivery analysis. Customer experience is next.
+**Current stage:** Parts 1–6 complete: sales, delivery and customer analysis. Part 7 will investigate payment differences, check individual orders and measure query performance.
 
 ## Sales findings
 
@@ -26,6 +26,16 @@ Of **89,102 eligible delivered orders**, **6,116 arrived late (6.86%)**. Average
 
 The analysis excludes 2,670 non-delivered period orders and eight delivered orders with missing actual-delivery dates. See the [delivery findings and SQL walkthrough](docs/12_part5_delivery.md) for the definitions, coverage and runnable examples.
 
+## Customer findings
+
+The sales population contains **86,271 identifiable customers**. Of these, **2,562 placed at least two eligible orders (2.97%)** during the reporting window. This is observed repeat purchasing, with less follow-up available for later buyers; it is not a lifetime retention measure.
+
+- **88,494 orders have an eligible selected review**, giving **99.31% coverage**. The mean score is **4.15 out of 5**, and **13.03%** of reviewed orders scored 1 or 2. The 616 orders without an eligible review stay outside score averages.
+- Selected reviews average **4.28 for on-time orders** and **2.23 for late orders**. Low scores account for **9.37%** and **63.66%**, respectively. **4,274 of the 5,972 selected late-order reviews (71.57%) were submitted before receipt**, so this comparison is not exclusively about post-delivery experience and does not establish causation.
+- The customer-spending report shows the top 20 customers after combining all their eligible orders. It describes product value observed in this window, not predicted lifetime value.
+
+See the [customer findings and SQL walkthrough](docs/13_part6_customers.md) for review coverage, repeat-purchase definitions and examples using JOIN and HAVING.
+
 ## Completed work
 
 - Defined six business questions, the intended stakeholder and working metric definitions.
@@ -37,6 +47,7 @@ The analysis excludes 2,670 non-delivered period orders and eight delivered orde
 - Passed 62 Part 3 checks and 14 automated tests; order-join totals match the source.
 - Completed five sales queries and exported their results. All 139 result rows match a separate calculation from raw records; 15 Part 4 checks and 10 sales test cases passed.
 - Completed five delivery queries covering overall outcomes, purchase months, buyer states, categories and single-seller orders. All 310 result rows match independent raw-record calculations; 25 checks and 12 delivery test cases passed.
+- Completed five customer queries covering reviews, delivery comparisons, spending, repeat purchases and buyer states. All 56 result rows match independent raw-record calculations; 26 checks and 12 customer test cases passed.
 
 SQLite provides a portable database for this project. SQL defines the tables and inspection checks; a Python standard-library script handles CSV loading, including multiline reviews. Raw values remain TEXT. Part 3 views provide validated numeric values, NULL handling and metric-specific eligibility rules.
 
@@ -78,6 +89,7 @@ Requirements: Python 3.8 or later. The loader uses the standard library, so no a
    python3 scripts/prepare_part3.py
    python3 scripts/analyse_sales.py
    python3 scripts/analyse_delivery.py
+   python3 scripts/analyse_customers.py
    ```
 
 4. Open the resulting `ecommerce_olist.db` in a SQLite client and run:
@@ -114,6 +126,7 @@ Source exceptions are visible: 610 products have no category, 13 lack an English
 | [Part 3: cleaning and model](docs/10_part3_cleaning.md) | Decisions, reproduction commands, checks and practice queries |
 | [Part 4: sales analysis](docs/11_part4_sales.md) | Findings, five output tables and SQL practice |
 | [Part 5: delivery analysis](docs/12_part5_delivery.md) | Lateness, delivery time, comparison groups and SQL practice |
+| [Part 6: customer analysis](docs/13_part6_customers.md) | Review coverage, spending, repeat purchases and SQL practice |
 | [Data dictionary](docs/03_data_dictionary.md) | All 47 fields, verified keys, derived views and relationship diagram |
 | [Metric definitions](docs/04_metric_definitions.md) | Implemented reporting period, eligibility flags and denominators |
 | [Validation log](docs/05_validation_log.md) | Completed checks and remaining validation |
@@ -126,13 +139,13 @@ Source exceptions are visible: 610 products have no category, 13 lack an English
 - [x] Part 3: Clean, model and document the data.
 - [x] Part 4: Analyse sales performance.
 - [x] Part 5: Analyse delivery performance.
-- [ ] Part 6: Analyse customer experience.
+- [x] Part 6: Analyse customer experience.
 - [ ] Part 7: Validate results and improve SQL.
 - [ ] Part 8: Build and review the dashboard.
 - [ ] Part 9: Develop recommendations and slides.
 - [ ] Part 10: Prepare the completed portfolio.
 
-Ten business queries are complete. Customer analysis comes next, followed by further validation, three dashboard pages, three recommendations and a five-slide presentation. Known source exceptions remain recorded in the Part 3 cleaning notes.
+Fifteen business queries are complete. Further validation comes next, followed by three dashboard pages, three recommendations and a five-slide presentation. Known source exceptions remain recorded in the Part 3 cleaning notes.
 
 ## Data attribution
 

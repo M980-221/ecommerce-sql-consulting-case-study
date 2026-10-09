@@ -1,6 +1,6 @@
 # Metric definitions
 
-These definitions are implemented in Part 3 and used by the sales and delivery queries. They also apply to the customer analysis still to come. Counts below describe eligibility; findings are in [Part 4](11_part4_sales.md) and [Part 5](12_part5_delivery.md).
+These definitions are implemented in Part 3 and used by the sales, delivery and customer queries. Counts below describe eligibility; findings are in [Part 4](11_part4_sales.md), [Part 5](12_part5_delivery.md) and [Part 6](13_part6_customers.md).
 
 ## Period and observation limits
 
@@ -65,6 +65,16 @@ Part 4 compares **February–July 2017 with February–July 2018** for its year-
 Retain a candidate only when its score is 1–5, its creation calendar date is not before the purchase date, its response timestamp is not before purchase, and the response is not before review creation. Creation timestamps are midnight dates, so comparing creation to the full purchase timestamp would incorrectly reject some same-day reviews.
 
 For each order, select the latest valid response timestamp. Break ties using latest creation timestamp, then review ID ascending. Score is never a sorting criterion. The source has 99,224 review rows: 64 fail the chronology/score rule, 548 additional valid reviews are not selected, and 98,612 orders receive one selected review. No source review is deleted. Reviews may precede delivery; the later comparison describes an association, not a causal effect of lateness.
+
+## Customer and review comparisons
+
+- **Review distribution:** show scores 1–5 and a separate no-eligible-review bucket. Shares of all sales orders use 89,110; shares of reviewed orders use 88,494. The missing bucket has no score and no share of reviewed orders. Score averages and the low-score percentage exclude missing reviews; a missing review is not a zero rating.
+- **Delivery comparison:** require both sales and delivery eligibility, then report review coverage separately for on-time and late orders. Means and low-score percentages use reviewed orders within each group. Count selected responses before actual receipt without removing them from the agreed population. There are 4,274 such responses among 5,972 reviewed late orders, so the comparison is not exclusively about post-delivery experience.
+- **Persistent customer identity:** group all sales-eligible orders by customer_unique_id, not the order-associated customer_id. Count orders once, after item totals and review selection have been resolved in the model.
+- **Observed repeat purchases:** at least two eligible order IDs within the purchase window. Different orders at the same timestamp still count separately. Divide repeat customers by all customers with at least one eligible order; do not use order count as the customer-rate denominator. This is not a cohort retention, churn or loyalty measure. The source may omit purchases before or after the window, and later buyers have less time to return.
+- **Spending:** sum product value excluding freight, in integer hundredths, for each persistent customer. The published spending table selects the top 20 only after full aggregation. Its first and last purchase timestamps describe eligible purchases in this window, not the customer's lifetime. The repeat-purchase summary still uses every eligible customer.
+- **Regional reviews:** group sales orders by buyer state, with review coverage, score totals and low-score counts. Sort by low-score count, then unrounded low-score rate, then state label. Raw rates do not adjust for customer, seller, product or delivery mix.
+- **Rounding:** Part 6 means, percentages and AOV use integer totals and exact half-up rounding at the display boundary. NULL is retained for undefined ratios. The score distribution remains available alongside the mean because scores are a five-point rating scale.
 
 ## Money and missing values
 

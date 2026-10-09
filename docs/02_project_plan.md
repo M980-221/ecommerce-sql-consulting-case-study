@@ -47,9 +47,9 @@ Completed 8 October 2026. Five queries cover overall delivery outcomes, purchase
 
 ## Part 6 — Analyse customer experience
 
-Write about five queries comparing review scores, customer spending and observed repeat purchases. Use customer_unique_id and a documented review-selection rule.
+Completed 9 October 2026. Five queries cover review distribution and coverage, reviews by delivery outcome, the top 20 customers by observed product value, repeat purchases and buyer-state review patterns. Customer grouping uses customer_unique_id, with one eligible selected review per order. All 56 result rows match independent raw-record calculations; 26 checks and 12 customer test cases passed. See [Part 6 findings and walkthrough](13_part6_customers.md).
 
-**GitHub deliverable:** sql/05_customer_analysis.sql.  
+**GitHub deliverables:** sql/05_customer_analysis.sql, scripts/analyse_customers.py, scripts/customer_checks.py, tests/test_part6.py, docs/13_part6_customers.md and the five CSV outputs and validation evidence in results/.
 **Done when:** repeat-customer and review metrics use the correct grain.
 
 ## Part 7 — Validate and improve SQL

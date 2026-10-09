@@ -1,6 +1,6 @@
 # Technical walkthrough
 
-Current scope: Parts 1–5 are complete. The repository covers the business brief, a verified import, cleaning decisions, an order model and ten sales and delivery queries with exported results. Customer analysis is next; the dashboard and final recommendations are still to come.
+Current scope: Parts 1–6 are complete. The repository covers the business brief, a verified import, cleaning decisions, an order model and fifteen sales, delivery and customer queries with exported results. Part 7 validation and SQL review is next; the dashboard and final recommendations are still to come.
 
 ## Points to explain
 
@@ -15,7 +15,11 @@ Current scope: Parts 1–5 are complete. The repository covers the business brie
 - **The delivery result:** 6,116 of 89,102 eligible orders arrived after the promised calendar day (6.86%). Average delivery duration was 12.88 elapsed days; late orders averaged 10.98 calendar days beyond the promise. Receipt on the promised calendar day is on time. There are 2,678 exclusions: 2,670 non-delivered orders and eight delivered orders without a receipt date.
 - **The delivery priorities:** March 2018 had 1,328 late orders out of 7,003 (18.96%). SP had more late orders than RJ, but RJ's rate was higher: 1,450 of 11,496 (12.61%), compared with SP's 1,524 of 36,952 (4.12%). Counts and rates answer different questions.
 - **The seller scope:** only single-seller orders are attributed to a seller. Requiring at least 100 such eligible orders leaves 190 sellers covering 52,408 orders, or 58.82% of the full delivery population. This prioritises investigation; it does not assign blame or prove a difference is statistically significant.
-- **The evidence:** Part 3 passed 62 full-data checks and 14 small test cases. Every money conversion was compared with Decimal, and item, freight and payment totals are unchanged by the joins. Parts 4 and 5 compare their exports with independent raw-record calculations. See the [sales checks](../results/part4_validation.txt) and [delivery checks](../results/part5_validation.txt).
+- **The customer result:** 2,562 of 86,271 persistent customers placed at least two eligible orders (2.97%). This counts distinct orders within the window, including same-day orders. It is an observed repeat-purchase measure, not retention or loyalty; later customers have less follow-up time.
+- **The review coverage:** 88,494 sales orders have a selected valid review, averaging 4.15 out of 5; 13.03% score 1 or 2. The remaining 616 orders comprise 613 with no source review and three with no valid review candidate. Missing scores stay missing.
+- **The delivery/review association:** on-time reviewed orders average 4.28 and late reviewed orders 2.23. However, 4,274 of 5,972 selected late-group responses (71.57%) preceded actual delivery. This is not a post-delivery-only comparison and does not establish that lateness caused the difference.
+- **The spending scope:** customers are aggregated by persistent ID before selecting the top 20 by product value. Their observed purchases account for 0.87% of product value in the reporting window. This is not lifetime value.
+- **The evidence:** Part 3 passed 62 full-data checks and 14 small test cases. Every money conversion was compared with Decimal, and item, freight and payment totals are unchanged by the joins. Parts 4–6 compare their exports with independent raw-record calculations. See the [sales checks](../results/part4_validation.txt), [delivery checks](../results/part5_validation.txt) and [customer checks](../results/part6_validation.txt).
 - **The limitations:** the reporting period is a conservative 18-month window; some dates and categories are missing, review selection is a modelling choice, and payment differences still need investigation. Results describe historical associations.
 
 ## SQL to demonstrate
@@ -64,11 +68,13 @@ This returns 12 states. Explain why `WHERE` chooses orders before grouping, whil
 
 For delivery, run the seller `HAVING` and category `JOIN` examples in [Part 5 notes](12_part5_delivery.md#two-queries-to-practise). Explain how `AVG(CASE WHEN is_late = 1 THEN delay_days END)` excludes on-time orders, and why the category join needs one row per order and category before counting.
 
+For customers, run the persistent-ID `GROUP BY`/`HAVING` and review `LEFT JOIN` examples in [Part 6 notes](13_part6_customers.md#two-queries-to-practise). Explain why `COUNT(*)` counts all sales orders but `COUNT(review_score)` and `AVG(review_score)` skip missing scores. Joining the selected-review view keeps one row per order; joining raw reviews can duplicate an order.
+
 ## Questions to practise answering
 
 1. **What is the difference between WHERE and HAVING?** Describe filtering individual eligible orders versus filtering states by their grouped counts.
 2. **Why can three item rows joined to two payment rows produce six rows?** Each item matches both payments. Aggregate each source to one row per order before joining order totals.
-3. **Why is customer_unique_id needed for repeat purchases?** It links the same customer across different order-linked customer IDs. Repeat purchasing is planned for Part 6.
+3. **Why is customer_unique_id needed for repeat purchases?** It links the same customer across different order-linked customer IDs. Part 6 groups eligible orders by this persistent ID before counting repeat buyers.
 4. **How is one review selected?** Keep valid candidates, then use latest response, latest creation and review ID as the tie-break order. The score does not decide the selection.
 5. **Why can an order qualify for sales but not delivery timing?** A delivered order can have valid item values but no actual-delivery timestamp; there are eight such period orders.
 6. **Why store money as integer hundredths?** Exact aggregation is possible before converting to display values. “Cents” names the storage scale; the CSVs have no currency code.
@@ -81,5 +87,9 @@ For delivery, run the seller `HAVING` and category `JOIN` examples in [Part 5 no
 13. **Can a slow delivery be on time?** Yes. Duration runs from purchase to receipt; lateness compares receipt with the promised calendar day. They measure different things.
 14. **Why exclude orders with several sellers from seller comparisons?** The source gives one receipt date per order. It cannot show which seller's package, if any, caused the order-level delay.
 15. **Why not sort sellers only by late rate?** A high rate can represent few affected orders. The report sorts by late count and shows both the rate and sample size. Its 100-order cutoff is a reporting choice, not a significance test.
+16. **Why is 2.97% not a retention rate?** It counts customers with two or more eligible orders in one window, without a common starting cohort or equal follow-up. Separate same-day orders count too.
+17. **Why not replace missing review scores with zero?** Zero would invent a rating. Keep the 616 unreviewed orders in the coverage calculation, but exclude missing scores from the mean and low-score denominator.
+18. **Does the review comparison prove the effect of late delivery?** No. Other order characteristics differ, and 71.57% of the selected late-group responses were recorded before delivery. The result describes an association with eventual delivery status.
+19. **What does the top-20 spending table leave out?** It is a ranked extract after aggregating every eligible customer. It covers 0.87% of observed product value and does not measure purchases outside the window or future lifetime value.
 
-Practise running the queries and explaining one result from each CSV without reading these notes. Keep claims about completed work separate from planned work. The next stage is customer experience; recommendations will follow the combined evidence.
+Practise running the queries and explaining one result from each CSV without reading these notes. Keep claims about completed work separate from planned work. Part 7 will investigate payment reconciliation, manual order examples and query performance before the dashboard and final recommendations.

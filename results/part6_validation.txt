@@ -1,0 +1,41 @@
+PART 6 CUSTOMER VALIDATION
+PASS: 26 checks
+
+Every output cell was compared with a separate calculation over raw records.
+Review selection, persistent customer groups and money totals were checked independently.
+The database was opened read-only. Blank CSV values mean NULL.
+
+PASS: database integrity
+PASS: raw tables match the import fingerprints
+PASS: raw fields match the published source snapshot
+PASS: order model row count
+PASS: order model distinct IDs
+PASS: five named customer outputs
+PASS: review_distribution: every cell matches the raw-record calculation
+PASS: delivery_reviews: every cell matches the raw-record calculation
+PASS: customer_spending: every cell matches the raw-record calculation
+PASS: repeat_customers: every cell matches the raw-record calculation
+PASS: regional_reviews: every cell matches the raw-record calculation
+PASS: review buckets account for every sales order
+PASS: scored buckets reconcile to reviewed orders
+PASS: missing-review bucket reconciles
+PASS: regional sales_orders reconcile
+PASS: regional reviewed_orders reconcile
+PASS: regional missing_review_orders reconcile
+PASS: regional low_score_orders reconcile
+PASS: regional review_score_sum reconcile
+PASS: delivery comparison review coverage reconciles
+PASS: customer groups reconcile
+PASS: customer order groups reconcile
+PASS: customer value groups reconcile
+PASS: customer and review populations match
+PASS: customer orders match Part 4
+PASS: customer value matches Part 4
+
+Output rows:
+review_distribution: 6
+delivery_reviews: 2
+customer_spending: 20
+repeat_customers: 1
+regional_reviews: 27
+Output cells checked: 534

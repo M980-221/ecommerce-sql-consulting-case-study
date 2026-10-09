@@ -38,7 +38,7 @@ Run `python3 scripts/analyse_sales.py` after Part 3. Use `--results-dir results/
 
 Amounts use source monetary units and exclude freight. Exact amounts are preserved in the `_cents` columns. Blank CSV cells mean NULL, not zero. Shares and AOV are rounded to two decimal places; growth uses the unrounded underlying amounts. Category order counts overlap when an order contains more than one category.
 
-Findings and output definitions are in [Part 4](../docs/11_part4_sales.md). The delivery results are below; customer analysis and the dashboard are still to come.
+Findings and output definitions are in [Part 4](../docs/11_part4_sales.md). The delivery and customer results are below; the dashboard is still to come.
 
 ## Part 5
 
@@ -58,3 +58,22 @@ Run `python3 scripts/analyse_delivery.py` after Part 3. Use `--results-dir resul
 Delivery duration uses elapsed recorded timestamps; positive delay uses calendar days and averages late orders only. Counts remain integers, while rates and durations are displayed to two decimal places. Exact halfway values in positive-delay means round up. Blank cells mean NULL, including a mean positive delay for a group with no late orders.
 
 Category counts overlap across categories and must not be added as unique orders. The seller report excludes multi-seller orders and sellers below its stated sample threshold; coverage is in the overall report. Full definitions, findings and practice queries are in [Part 5](../docs/12_part5_delivery.md).
+
+## Part 6
+
+| File | Contents |
+|---|---|
+| [Review distribution](part6_review_distribution.csv) | Scores 1–5 plus missing eligible reviews; shares and coverage |
+| [Delivery and reviews](part6_delivery_reviews.csv) | On-time and late groups, review denominators, scores and response timing |
+| [Customer spending](part6_customer_spending.csv) | Top 20 persistent customer IDs by product value within the reporting window |
+| [Repeat customers](part6_repeat_customers.csv) | All eligible customers, one-time/repeat groups, order counts and product value |
+| [Regional reviews](part6_regional_reviews.csv) | All 27 buyer states, review coverage, score totals and low-score counts |
+| [Validation report](part6_validation.json) | 26 checks, independent totals, review-selection accounting and file hashes |
+| [Readable validation](part6_validation.txt) | Checks, report sizes and compared cell count |
+| [Test results](part6_tests.txt) | 12 customer tests plus 36 earlier tests |
+
+Run `python3 scripts/analyse_customers.py` after Part 3 preparation. The runner also checks customer totals against the published Part 4 evidence. Use `--results-dir results/rebuilt/part6` for another output folder. All 56 rows and 534 cells match a separate calculation using raw records, Python grouping, dates and Decimal. Run the full test suite with `python3 -m unittest discover -s tests -v`.
+
+Review means and low-score shares exclude missing reviews. The missing-review bucket has a blank score and a blank share of reviewed orders. Other blank cells represent undefined values, not zero. Part 6 display ratios use exact half-up rounding to two decimal places; integer counts, score sums and monetary hundredths remain available.
+
+The spending table applies its top-20 limit after grouping all eligible customers. The repeat summary still includes the entire customer population. Repeat means at least two eligible order IDs within the window; it does not measure retention or churn. The delivery comparison retains valid selected reviews submitted before receipt and reports their counts. Full definitions and practice queries are in [Part 6](../docs/13_part6_customers.md).

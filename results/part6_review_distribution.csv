@@ -1,0 +1,7 @@
+review_bucket,review_score,sales_orders,share_of_sales_pct,share_of_reviewed_pct,total_sales_orders,total_reviewed_orders,total_missing_review_orders,review_coverage_pct
+1,1,8800,9.88,9.94,89110,88494,616,99.31
+2,2,2734,3.07,3.09,89110,88494,616,99.31
+3,3,7392,8.30,8.35,89110,88494,616,99.31
+4,4,17473,19.61,19.74,89110,88494,616,99.31
+5,5,52095,58.46,58.87,89110,88494,616,99.31
+No eligible selected review,,616,0.69,,89110,88494,616,99.31

@@ -1,0 +1,332 @@
+{
+  "part": 6,
+  "status": "PASS",
+  "database_access": "read-only",
+  "python_version": "3.12.14",
+  "sqlite_version": "3.53.1",
+  "reporting_period": {
+    "purchase_start_inclusive": "2017-02-01",
+    "purchase_end_exclusive": "2018-08-01"
+  },
+  "customer_identity": "customer_unique_id",
+  "repeat_rule": "at least two sales-eligible orders in the reporting period",
+  "customer_spending_output": "top 20 by product sales value, after grouping all eligible customers",
+  "source_tables": [
+    {
+      "table_name": "orders",
+      "source_rows": 99441,
+      "logical_rows_sha256": "c9a72f230042017df121eb26c00b866054760903573e1d08f01777f6a7b480db",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_items",
+      "source_rows": 112650,
+      "logical_rows_sha256": "d85f8dc8c75ca7c0a8a9d6a765ca0f76570b09cda9b95e07bc64277382dbdbf2",
+      "status": "PASS"
+    },
+    {
+      "table_name": "customers",
+      "source_rows": 99441,
+      "logical_rows_sha256": "2b4f40bc3fca13cea4d4f27ca3b1dea840ffd50b7ea7c19884b44412db6d1746",
+      "status": "PASS"
+    },
+    {
+      "table_name": "products",
+      "source_rows": 32951,
+      "logical_rows_sha256": "86b695b748424d8dd2710be142f3f91469017774337861653038ce5a09202050",
+      "status": "PASS"
+    },
+    {
+      "table_name": "sellers",
+      "source_rows": 3095,
+      "logical_rows_sha256": "3d76af6ab1337b176b29bfaa9d93300abd0d218ab4cb7b3ebecf54f2d2d6fc25",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_payments",
+      "source_rows": 103886,
+      "logical_rows_sha256": "d724f0d85baef7160b81b5f503e9dfb6c99737e8c59cc42a93fc89e1a9ea6460",
+      "status": "PASS"
+    },
+    {
+      "table_name": "order_reviews",
+      "source_rows": 99224,
+      "logical_rows_sha256": "f9a9ac75b51122ea088869b1931dfd7660a17e3d8dc0e1ddd611bfb151c538e9",
+      "status": "PASS"
+    },
+    {
+      "table_name": "category_translation",
+      "source_rows": 71,
+      "logical_rows_sha256": "0219262e020851fab6c882074d20331b1d6066021134fb51fdb6a2195bae7f59",
+      "status": "PASS"
+    }
+  ],
+  "dependency_sha256": {
+    "sql/05_customer_analysis.sql": "49c3749a3da3b932fd0663a8b7a66d7ef1c377f7d28092962d424e7e515b7cd5",
+    "scripts/analyse_customers.py": "dc4c0d271c2fe7961257a79e69e9092acafac5890039ce45a86e7bd0077f001c",
+    "scripts/customer_checks.py": "f1418245d977eda792a2fe8422e6ab348d7d92b302faf77f4a7eebf394c9d863",
+    "scripts/analyse_sales.py": "0bef79ae8ac21bf35d7a7d667942607fe7045de1a05dc209bb9a84262a029487",
+    "scripts/sales_checks.py": "d3ce4666b5a50e3d291c6094f026c96c936cf8eeee3cdcfbf5681aa1f753209d",
+    "scripts/delivery_checks.py": "35ed055460aa6524e7926a2bc16a073b4a906ff0ff59501f1300335526896b19",
+    "scripts/prepare_part3.py": "e3063709f642b9ae59557b3841f26270033fd1ae91e86804c94082d67feb631d",
+    "scripts/build_database.py": "14a65d86e8c0881720bf3898221899b2d521d6e785ed41746245575711a57a4e",
+    "results/part4_validation.json": "bfa38e3ba2b8d556bf4631d1a689fd32719c5b22c571a2109ad7acd2df07d594"
+  },
+  "output_sha256": {
+    "part6_review_distribution.csv": "51c7aa13fb28c9b6bdff4b2d713222897daa91cb5a43f44a4296addb1f3764f0",
+    "part6_delivery_reviews.csv": "6b05c419cadc38777da1cc6bc2cbcdb8bb3edcffb485c82bbfb7289731dcb996",
+    "part6_customer_spending.csv": "4677a569a203afcb8b733611b391ee8776911ab58ee93a7ae075c692dd8770cf",
+    "part6_repeat_customers.csv": "5c89f4ec97d20b32f976b2c695a20df1a6331469ded6d6a41ae7880874aedba8",
+    "part6_regional_reviews.csv": "6f9442d51afb38bf2a7cb2856c413934ebe05edf2883c29bd984de2ccc466efa"
+  },
+  "checks_passed": 26,
+  "checks": [
+    {
+      "check": "database integrity",
+      "actual": [
+        "ok"
+      ],
+      "expected": [
+        "ok"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "raw tables match the import fingerprints",
+      "actual": 8,
+      "expected": 8,
+      "status": "PASS"
+    },
+    {
+      "check": "raw fields match the published source snapshot",
+      "actual": {
+        "orders": "c9a72f230042017df121eb26c00b866054760903573e1d08f01777f6a7b480db",
+        "order_items": "d85f8dc8c75ca7c0a8a9d6a765ca0f76570b09cda9b95e07bc64277382dbdbf2",
+        "customers": "2b4f40bc3fca13cea4d4f27ca3b1dea840ffd50b7ea7c19884b44412db6d1746",
+        "products": "86b695b748424d8dd2710be142f3f91469017774337861653038ce5a09202050",
+        "sellers": "3d76af6ab1337b176b29bfaa9d93300abd0d218ab4cb7b3ebecf54f2d2d6fc25",
+        "order_payments": "d724f0d85baef7160b81b5f503e9dfb6c99737e8c59cc42a93fc89e1a9ea6460",
+        "order_reviews": "f9a9ac75b51122ea088869b1931dfd7660a17e3d8dc0e1ddd611bfb151c538e9",
+        "category_translation": "0219262e020851fab6c882074d20331b1d6066021134fb51fdb6a2195bae7f59"
+      },
+      "expected": {
+        "category_translation": "0219262e020851fab6c882074d20331b1d6066021134fb51fdb6a2195bae7f59",
+        "customers": "2b4f40bc3fca13cea4d4f27ca3b1dea840ffd50b7ea7c19884b44412db6d1746",
+        "order_items": "d85f8dc8c75ca7c0a8a9d6a765ca0f76570b09cda9b95e07bc64277382dbdbf2",
+        "order_payments": "d724f0d85baef7160b81b5f503e9dfb6c99737e8c59cc42a93fc89e1a9ea6460",
+        "order_reviews": "f9a9ac75b51122ea088869b1931dfd7660a17e3d8dc0e1ddd611bfb151c538e9",
+        "orders": "c9a72f230042017df121eb26c00b866054760903573e1d08f01777f6a7b480db",
+        "products": "86b695b748424d8dd2710be142f3f91469017774337861653038ce5a09202050",
+        "sellers": "3d76af6ab1337b176b29bfaa9d93300abd0d218ab4cb7b3ebecf54f2d2d6fc25"
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "order model row count",
+      "actual": 99441,
+      "expected": 99441,
+      "status": "PASS"
+    },
+    {
+      "check": "order model distinct IDs",
+      "actual": 99441,
+      "expected": 99441,
+      "status": "PASS"
+    },
+    {
+      "check": "five named customer outputs",
+      "actual": [
+        "review_distribution",
+        "delivery_reviews",
+        "customer_spending",
+        "repeat_customers",
+        "regional_reviews"
+      ],
+      "expected": [
+        "review_distribution",
+        "delivery_reviews",
+        "customer_spending",
+        "repeat_customers",
+        "regional_reviews"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check": "review_distribution: every cell matches the raw-record calculation",
+      "rows_checked": 6,
+      "status": "PASS"
+    },
+    {
+      "check": "delivery_reviews: every cell matches the raw-record calculation",
+      "rows_checked": 2,
+      "status": "PASS"
+    },
+    {
+      "check": "customer_spending: every cell matches the raw-record calculation",
+      "rows_checked": 20,
+      "status": "PASS"
+    },
+    {
+      "check": "repeat_customers: every cell matches the raw-record calculation",
+      "rows_checked": 1,
+      "status": "PASS"
+    },
+    {
+      "check": "regional_reviews: every cell matches the raw-record calculation",
+      "rows_checked": 27,
+      "status": "PASS"
+    },
+    {
+      "check": "review buckets account for every sales order",
+      "actual": 89110,
+      "expected": 89110,
+      "status": "PASS"
+    },
+    {
+      "check": "scored buckets reconcile to reviewed orders",
+      "actual": 88494,
+      "expected": 88494,
+      "status": "PASS"
+    },
+    {
+      "check": "missing-review bucket reconciles",
+      "actual": 616,
+      "expected": 616,
+      "status": "PASS"
+    },
+    {
+      "check": "regional sales_orders reconcile",
+      "actual": 89110,
+      "expected": 89110,
+      "status": "PASS"
+    },
+    {
+      "check": "regional reviewed_orders reconcile",
+      "actual": 88494,
+      "expected": 88494,
+      "status": "PASS"
+    },
+    {
+      "check": "regional missing_review_orders reconcile",
+      "actual": 616,
+      "expected": 616,
+      "status": "PASS"
+    },
+    {
+      "check": "regional low_score_orders reconcile",
+      "actual": 11534,
+      "expected": 11534,
+      "status": "PASS"
+    },
+    {
+      "check": "regional review_score_sum reconcile",
+      "actual": 366811,
+      "expected": 366811,
+      "status": "PASS"
+    },
+    {
+      "check": "delivery comparison review coverage reconciles",
+      "actual": 89102,
+      "expected": 89102,
+      "status": "PASS"
+    },
+    {
+      "check": "customer groups reconcile",
+      "actual": 86271,
+      "expected": 86271,
+      "status": "PASS"
+    },
+    {
+      "check": "customer order groups reconcile",
+      "actual": 89110,
+      "expected": 89110,
+      "status": "PASS"
+    },
+    {
+      "check": "customer value groups reconcile",
+      "actual": 1223065213,
+      "expected": 1223065213,
+      "status": "PASS"
+    },
+    {
+      "check": "customer and review populations match",
+      "actual": 89110,
+      "expected": 89110,
+      "status": "PASS"
+    },
+    {
+      "check": "customer orders match Part 4",
+      "actual": 89110,
+      "expected": 89110,
+      "status": "PASS"
+    },
+    {
+      "check": "customer value matches Part 4",
+      "actual": 1223065213,
+      "expected": 1223065213,
+      "status": "PASS"
+    }
+  ],
+  "overall": {
+    "period_start": "2017-02-01",
+    "period_end_exclusive": "2018-08-01",
+    "source_orders": 99441,
+    "all_period_orders": 91780,
+    "outside_period_orders": 7661,
+    "sales_orders": 89110,
+    "excluded_period_orders": 2670,
+    "delivered_orders_without_items": 0,
+    "product_sales_cents": 1223065213,
+    "product_sales_value": 12230652.13,
+    "total_customers": 86271,
+    "repeat_customers": 2562,
+    "repeat_customer_pct": 2.97,
+    "average_customer_product_value": 141.77,
+    "reviewed_orders": 88494,
+    "missing_review_orders": 616,
+    "review_coverage_pct": 99.31,
+    "review_score_sum": 366811,
+    "average_review_score": 4.15,
+    "low_score_orders": 11534,
+    "low_score_pct": 13.03,
+    "sales_without_source_review": 613,
+    "sales_with_only_invalid_review": 3,
+    "sales_with_multiple_source_reviews": 515,
+    "sales_with_multiple_valid_reviews": 512,
+    "sales_delivery_eligible_orders": 89102,
+    "sales_delivery_reviewed_orders": 88486,
+    "sales_without_delivery_endpoints": 8,
+    "reviewed_without_delivery_endpoints": 8,
+    "pre_delivery_review_orders": 4445,
+    "top_customer_limit": 20,
+    "reported_customers": 20,
+    "reported_customer_orders": 21,
+    "reported_customer_product_sales_cents": 10662248,
+    "reported_customer_sales_share_pct": 0.87,
+    "source_review_rows": 99224,
+    "invalid_review_rows": 64,
+    "valid_review_rows": 99160,
+    "selected_review_orders": 98612,
+    "additional_valid_review_rows": 548,
+    "source_orders_without_any_review": 768,
+    "source_orders_without_selected_review": 829
+  },
+  "period_status_counts": {
+    "approved": 2,
+    "canceled": 493,
+    "created": 5,
+    "delivered": 89110,
+    "invoiced": 261,
+    "processing": 290,
+    "shipped": 1034,
+    "unavailable": 585
+  },
+  "output_rows": {
+    "review_distribution": 6,
+    "delivery_reviews": 2,
+    "customer_spending": 20,
+    "repeat_customers": 1,
+    "regional_reviews": 27
+  },
+  "output_cells_checked": 534
+}
