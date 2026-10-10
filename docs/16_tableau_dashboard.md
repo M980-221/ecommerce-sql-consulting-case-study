@@ -2,7 +2,7 @@
 
 The project now has a Tableau workbook for its sales, delivery and customer analysis. SQL prepares the checked data; Tableau supplies the worksheets, dashboard layouts and parameter-driven calculations. The workbook keeps the existing reporting period and metric definitions.
 
-[Download the finished workbook](../tableau/Olist_Commerce_Review_Validated.twbx) · [Native verification record](../results/tableau_native_verification.json)
+[Download the finished workbook](https://github.com/M980-221/ecommerce-sql-consulting-case-study/raw/refs/heads/main/tableau/Olist_Commerce_Review_Validated.twbx) · [Tableau screenshot gallery](../tableau/README.md#dashboard-screenshots) · [Native verification record](../results/tableau_native_verification.json)
 
 The finished package was opened, saved and checked in **Tableau Public 2025.2 on Mac** on 10 October 2026. It contains the native saved workbook and two embedded Hyper extracts. All three dashboards were inspected at the default selection and March 2018/RJ; the displayed KPI values matched the reference calculations.
 

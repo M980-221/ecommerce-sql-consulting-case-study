@@ -8,17 +8,23 @@ A SQL consulting case study by Mohammed Baquaysh, using Olist's historical marke
 
 ## Explore the Tableau dashboard
 
-[Download the packaged Tableau workbook](https://github.com/M980-221/ecommerce-sql-consulting-case-study/raw/refs/heads/main/tableau/Olist_Commerce_Review_Validated.twbx) · [Opening instructions](tableau/README.md) · [Tableau walkthrough](docs/16_tableau_dashboard.md)
+[**Download the Tableau workbook**](https://github.com/M980-221/ecommerce-sql-consulting-case-study/raw/refs/heads/main/tableau/Olist_Commerce_Review_Validated.twbx) · [View all three dashboards](tableau/README.md#dashboard-screenshots) · [Open and use it](tableau/README.md#open-on-a-mac)
 
-Open `Olist_Commerce_Review_Validated.twbx` in Tableau Public. The download was tested in version 2025.2 on Mac and includes both Hyper data extracts, so no database connection is needed to explore it.
+Three connected views turn the SQL analysis into an interactive review of sales performance, delivery reliability and customer experience.
 
-- **Sales:** eligible orders, product value, average order value, and monthly/category/state comparisons.
-- **Delivery:** eligible deliveries, late orders, late rate, average delivery time, and group comparisons.
-- **Customers:** distinct customers, repeat purchases, review scores, and purchase frequency.
+| Dashboard | What it helps explore | Headline result |
+|---|---|---|
+| **Sales** | Product value and order volume across months, categories and buyer states | 89,110 sales orders; 12,230,652.13 product value |
+| **Delivery** | Where and when late deliveries are more common | 6.86% late; 12.88 average delivery days |
+| **Customers** | Review patterns and repeat purchasing within the selected window | 4.15 average review score; 2.97% repeat rate |
 
-Start Month, End Month and Buyer State are shared parameters. Customer groups are recalculated for the selected orders. Each chart is an editable Tableau worksheet. Product value uses source monetary units, and repeat purchasing describes the selected historical window.
+[![Sales dashboard in Tableau Public, with month and buyer-state controls and charts for monthly sales, categories and states](tableau/screenshots/sales-tableau.jpg)](tableau/screenshots/sales-tableau.jpg)
 
-The earlier HTML dashboard is retained as a [web prototype](dashboard/README.md). Its static previews are not Tableau screenshots. The Tableau workbook has not been published to Tableau Public.
+*Actual Tableau screenshot · February 2017–July 2018 · All buyer states. [Delivery screenshot](tableau/screenshots/delivery-tableau.jpg) · [Customers screenshot](tableau/screenshots/customers-tableau.jpg).*
+
+**Try it:** open the downloaded `Olist_Commerce_Review_Validated.twbx` in Tableau Public, switch between Sales, Delivery and Customers, then change Start Month, End Month or Buyer State. Both Hyper extracts are embedded, so no database connection is needed. Customer groups and KPI denominators update with the selection.
+
+The workbook was checked in Tableau Public 2025.2 on Mac against the full-period results and March 2018/RJ. See the [verification record](results/tableau_native_verification.json) and [calculation walkthrough](docs/16_tableau_dashboard.md). Product value excludes freight and uses source monetary units; observed repeat purchasing is not a retention measure.
 
 ## Sales findings
 

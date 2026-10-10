@@ -1,6 +1,6 @@
 # Part 8 — Earlier web prototype
 
-The primary dashboard deliverable is now the [Tableau workbook](16_tableau_dashboard.md). This page records the earlier browser implementation and its verification scope.
+The primary dashboard deliverable is now the [Tableau workbook and screenshot gallery](../tableau/README.md#dashboard-screenshots). This page records the earlier browser implementation and its verification scope.
 
 
 This stage turns the sales, delivery and customer analysis into three browser pages. The dashboard uses the checked Part 7 reporting views and keeps the same reporting period and eligibility rules. It runs locally from the downloaded repository, with no application installation or database connection needed to view it.

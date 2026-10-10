@@ -122,7 +122,7 @@ Run `python3 scripts/export_dashboard.py`, then `python3 scripts/validate_dashbo
 
 Run the suites with `python3 -m unittest discover -s tests -v`, `node --test tests/test_dashboard.mjs` and `node --test tests/test_dashboard_ui.mjs`. The interface tests use a small DOM fixture in Node, not a real browser. CSS rendering and manual accessibility checks remain outstanding because the required browser-testing capability was unavailable.
 
-The [three SVG previews](../dashboard/screenshots/) are generated from the actual default calculation results with `python3 scripts/render_dashboard_previews.py`. They are labelled static data previews and are not browser screenshots. See [Part 8](../docs/15_part8_dashboard.md) and [dashboard opening instructions](../dashboard/README.md).
+The [three SVG previews](../dashboard/screenshots/) are generated from the actual default calculation results with `python3 scripts/render_dashboard_previews.py`. They are labelled static data previews and are not browser screenshots. See [Part 8](../docs/15_part8_dashboard.md) and [web prototype instructions](../dashboard/PROTOTYPE.md).
 
 The [deployment record](part8_deployment.json) identifies the private hosted version and the hashes of its deployed assets. Native hosting status confirms publication; it does not replace browser visual testing.
 
@@ -133,4 +133,4 @@ The [deployment record](part8_deployment.json) identifies the private hosted ver
 | `tableau_export_validation.json` / `.txt` | Read-only export, source fingerprints, 2,273,050 checked cells and 511 published-total reconciliations |
 | `tableau_validation.json` / `.txt` | Workbook/schema/package checks and independent calculation-model comparisons; see report for exact scope |
 
-The source files are `tableau/data/orders.csv` and `tableau/data/categories.csv`; the workbook is `tableau/Olist_Commerce_Review.twbx`. Tableau has not executed or rendered the workbook in this environment. The earlier JavaScript checks above apply only to the browser prototype. See [Tableau instructions](../tableau/README.md).
+The original draft uses `tableau/data/orders.csv`, `tableau/data/categories.csv` and `tableau/Olist_Commerce_Review.twbx`. The finished `tableau/Olist_Commerce_Review_Validated.twbx` was subsequently opened, saved and checked in Tableau Public 2025.2 on Mac. All 12 KPI cards matched the full-period and March 2018/RJ references. See the [native verification record](tableau_native_verification.json) and [actual Tableau screenshots](../tableau/README.md#dashboard-screenshots). The earlier JavaScript checks apply only to the browser prototype.

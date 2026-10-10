@@ -1,66 +1,49 @@
-# Earlier web dashboard prototype
+# Olist Tableau dashboard gallery
 
-The project now uses the [Tableau workbook](../tableau/README.md) as its primary dashboard deliverable. This folder retains the earlier browser implementation.
+[**Download the Tableau workbook**](https://github.com/M980-221/ecommerce-sql-consulting-case-study/raw/refs/heads/main/tableau/Olist_Commerce_Review_Validated.twbx) · [Opening instructions](../tableau/README.md#open-on-a-mac) · [SQL and Tableau walkthrough](../docs/16_tableau_dashboard.md)
 
+The project's finished dashboard is a native Tableau workbook with **Sales**, **Delivery** and **Customers** views. It contains 21 editable worksheets, shared month/state controls and two embedded Hyper extracts.
 
-Three browser pages explore **Sales performance**, **Delivery performance** and **Customer experience** for purchases from February 2017 through July 2018. The dashboard uses the validated SQLite reporting data and the project's existing metric definitions.
+## Dashboard screenshots
 
-[Open the hosted dashboard](https://olist-commerce-review.mohammed-baquaysh.chatgpt.site) — **private, owner-only access**. Anyone with the public repository files can open the downloaded copy locally.
+Captured directly from the finished workbook in **Tableau Public 2025.2 on Mac**. Every image uses **February 2017–July 2018 · All buyer states**. Click an image to open it at full resolution.
 
-## Open locally
+### Sales — volume, value and demand
 
-1. Download the repository ZIP from GitHub and unzip it.
-2. Open `dashboard/index.html` in a modern browser. On a Mac, double-click it or use **Open With → Safari**.
-3. Keep the whole dashboard folder together. The page loads its data, styles and scripts from adjacent files and works offline after downloading.
+**89,110 sales orders · 12,230,652.13 product value · 137.25 average order value**
 
-No application installation, web server or database connection is needed to view the exported dashboard. Its editable source is HTML, CSS and JavaScript.
+Explore monthly product sales and compare contribution by product category and buyer state. Product value excludes freight and uses source monetary units.
 
-## Use the filters
+[![Sales dashboard open in Tableau Public, showing 89,110 sales orders and monthly, category and state charts](../tableau/screenshots/sales-tableau.jpg)](../tableau/screenshots/sales-tableau.jpg)
 
-- Choose the first and last **purchase month**, including both endpoints, and a **buyer state**. Changes apply immediately; page changes keep the selection.
-- The default is February 2017 through July 2018 and all buyer states. **Reset filters** restores it. If month endpoints cross, the other endpoint adjusts to keep a valid range.
-- **Download CSV** exports the current page and filters. Ranking exports retain all available rows except the customer spending table, which deliberately shows the top 20 after aggregation.
-- Expand the definitions to check the population and denominator. Empty populations show zero counts and dashes for undefined rates and means.
+### Delivery — late orders and delivery time
 
-Product value excludes freight and uses source monetary units. Delivery compares the recorded receipt date with the promised calendar day; same-day arrival is on time. Missing reviews are excluded from score averages rather than converted to zero. Customer repeats are regrouped from eligible orders inside the current selection, using persistent customer identity.
+**89,102 eligible deliveries · 6,116 late orders · 6.86% late rate · 12.88 average days**
 
-Category delivery counts overlap across categories, so they cannot be added to get unique orders. Selected reviews can precede delivery: 4,274 of the 5,972 reviewed late orders do so under the full-period filters. The comparison is descriptive and does not establish the effect of lateness on customer scores. Repeat purchases within the window do not measure retention or churn.
+Compare lateness across purchase months, buyer states and categories. Rates use eligible deliveries within each group; category populations can overlap.
 
-## Files and rebuilding
+[![Delivery dashboard open in Tableau Public, showing a 6.86% late-delivery rate and comparisons by month, state and category](../tableau/screenshots/delivery-tableau.jpg)](../tableau/screenshots/delivery-tableau.jpg)
 
-| File | Purpose |
-|---|---|
-| [index.html](index.html) | Dashboard entry page |
-| [styles.css](styles.css) | Page layout, colours and responsive styles |
-| [data.js](data.js) | Exported reporting data with compact order/category rows and persistent customer indexes |
-| [metrics.js](metrics.js) | Shared aggregation, filtering and rounding functions |
-| [app.js](app.js) | Page controls, charts, tables and CSV downloads |
+### Customers — reviews and repeat purchasing
 
-```bash
-python3 scripts/export_dashboard.py
-python3 scripts/validate_dashboard.py
-node --test tests/test_dashboard.mjs
-node --test tests/test_dashboard_ui.mjs
-python3 -m unittest discover -s tests -v
-```
+**86,271 customers · 2,562 repeat customers · 2.97% repeat rate · 4.15 average review score**
 
-Run the commands from the repository root after Part 7. The first rebuilds the exported data from the prepared SQLite database; the next checks the dashboard calculations against SQL. Node.js is needed for the JavaScript fixture tests, not for viewing the dashboard.
+Explore review-score distribution, monthly review scores and order frequency. Repeat purchasing is recalculated inside the selected period; missing reviews are excluded from the mean.
 
-The [export validation](../results/part8_export_validation.json) passed: **91,780 orders, 89,830 order/category pairs and 1,550,510 encoded cells** were checked, together with **511 published-result comparisons**. Category pairs cover the sales/delivery union; 89,822 belong to delivery-eligible orders. Source fingerprints are unchanged, and the exporter opens the database read-only.
+[![Customers dashboard open in Tableau Public, showing 86,271 customers, a 2.97% repeat rate and review-score charts](../tableau/screenshots/customers-tableau.jpg)](../tableau/screenshots/customers-tableau.jpg)
 
-The [calculation validation](../results/part8_validation.json) passed **eight filter scenarios, 13,129 compared cells and 18 headline comparisons** with the earlier analysis. All [13 JavaScript fixture tests](../results/part8_js_tests.txt) and [73 Python tests](../results/part8_python_tests.txt) passed. The scenarios include a combined month/state filter and a selection with no orders; customer counts are recomputed for each.
+## Explore the workbook
 
-All [nine interface tests](../results/part8_ui_tests.txt) also passed. They exercise navigation, filter handlers, reset, ranking expansion, empty results, loading errors and CSV blob creation through a **simulated DOM in Node**, rather than a real browser session.
+1. Download `Olist_Commerce_Review_Validated.twbx` using the link above.
+2. Open the file in Tableau Public and select a dashboard tab.
+3. Use **Start Month**, **End Month** and **Buyer State** to explore a selection. Keep Start Month on or before End Month.
+4. Try March 2018 with buyer state RJ, then return to the defaults. The [checked figures](../tableau/README.md#verified-figures) provide a comparison for both selections.
 
-## Preview and verification limits
+The images show the workbook running in Tableau; the interactive controls and editable worksheets are available in the downloaded file. See the [native verification record](../results/tableau_native_verification.json) for the checks performed.
 
-Static data previews: [Sales](screenshots/sales-preview.svg) · [Delivery](screenshots/delivery-preview.svg) · [Customers](screenshots/customers-preview.svg).
+<details>
+<summary>Earlier web prototype and reproduction files</summary>
 
-Regenerate them with `python3 scripts/render_dashboard_previews.py` from the repository root.
+The HTML, CSS and JavaScript files in this folder belong to an earlier browser prototype. Its documentation and static previews are retained in [PROTOTYPE.md](PROTOTYPE.md). The current portfolio screenshots are the Tableau captures shown above.
 
-The images in `screenshots/` are **static data previews**, not captures from a running browser session. They show results for GitHub readers but do not establish that rendering or interactions have passed browser checks.
-
-Browser rendering, local Safari behaviour, responsive layout, keyboard use, filter controls and CSV downloads have not been directly verified. Calculation tests and SQL comparisons do not replace those checks.
-
-See [Part 8](../docs/15_part8_dashboard.md) for the full walkthrough and practice SQL, and [metric definitions](../docs/04_metric_definitions.md) for the populations and limitations.
-
+</details>

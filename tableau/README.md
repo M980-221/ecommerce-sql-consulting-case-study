@@ -1,8 +1,36 @@
 # Olist Tableau dashboard
 
-[**Download the finished Tableau workbook**](Olist_Commerce_Review_Validated.twbx) · [Tableau walkthrough](../docs/16_tableau_dashboard.md)
+[**Download the Tableau workbook**](https://github.com/M980-221/ecommerce-sql-consulting-case-study/raw/refs/heads/main/tableau/Olist_Commerce_Review_Validated.twbx) · [Open on a Mac](#open-on-a-mac) · [Calculation walkthrough](../docs/16_tableau_dashboard.md)
 
 The finished workbook contains **Sales**, **Delivery** and **Customers** dashboards with shared **Start Month**, **End Month** and **Buyer State** controls. It was opened, saved and checked in **Tableau Public 2025.2 on Mac** on 10 October 2026.
+
+## Dashboard screenshots
+
+Captured directly from the finished workbook in **Tableau Public 2025.2 on Mac**. Every image uses **February 2017–July 2018 · All buyer states**. Click an image to open it at full resolution.
+
+### Sales — volume, value and demand
+
+**89,110 sales orders · 12,230,652.13 product value · 137.25 average order value**
+
+Explore monthly product sales and compare contribution by product category and buyer state. Product value excludes freight and uses source monetary units.
+
+[![Sales dashboard open in Tableau Public, showing 89,110 sales orders and monthly, category and state charts](screenshots/sales-tableau.jpg)](screenshots/sales-tableau.jpg)
+
+### Delivery — late orders and delivery time
+
+**89,102 eligible deliveries · 6,116 late orders · 6.86% late rate · 12.88 average days**
+
+Compare lateness across purchase months, buyer states and categories. Rates use eligible deliveries within each group; category populations can overlap.
+
+[![Delivery dashboard open in Tableau Public, showing a 6.86% late-delivery rate and comparisons by month, state and category](screenshots/delivery-tableau.jpg)](screenshots/delivery-tableau.jpg)
+
+### Customers — reviews and repeat purchasing
+
+**86,271 customers · 2,562 repeat customers · 2.97% repeat rate · 4.15 average review score**
+
+Explore review-score distribution, monthly review scores and order frequency. Repeat purchasing is recalculated inside the selected period; missing reviews are excluded from the mean.
+
+[![Customers dashboard open in Tableau Public, showing 86,271 customers, a 2.97% repeat rate and review-score charts](screenshots/customers-tableau.jpg)](screenshots/customers-tableau.jpg)
 
 ## Open on a Mac
 
