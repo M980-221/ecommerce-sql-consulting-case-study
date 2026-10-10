@@ -2,13 +2,13 @@
 
 The project now has a Tableau workbook for its sales, delivery and customer analysis. SQL prepares the checked data; Tableau supplies the worksheets, dashboard layouts and parameter-driven calculations. The workbook keeps the existing reporting period and metric definitions.
 
-[Packaged workbook](../tableau/Olist_Commerce_Review.twbx) · [Editable workbook](../tableau/Olist_Commerce_Review.twb)
+[Download the finished workbook](../tableau/Olist_Commerce_Review_Validated.twbx) · [Native verification record](../results/tableau_native_verification.json)
 
-Target format: **Tableau workbook schema 26.1**, intended for Tableau Desktop Public Edition **2026.1 or newer**. Native compatibility and rendering have not yet been confirmed by opening the file in Tableau.
+The finished package was opened, saved and checked in **Tableau Public 2025.2 on Mac** on 10 October 2026. It contains the native saved workbook and two embedded Hyper extracts. All three dashboards were inspected at the default selection and March 2018/RJ; the displayed KPI values matched the reference calculations.
 
 ## Open and explore
 
-Install the free [Tableau Desktop Public Edition for Mac](https://www.tableau.com/products/public/download), then open the packaged workbook with **File → Open**. The package contains the local CSV sources. The short [Mac guide](../tableau/README.md#open-on-a-mac) covers installation and opening; Tableau also documents [Mac installation](https://help.tableau.com/current/desktopdeploy/en-us/desktop_deploy_download_and_install.htm).
+Install the free [Tableau Desktop Public Edition for Mac](https://www.tableau.com/products/public/download), then open the packaged workbook with **File → Open**. The finished package contains both Hyper extracts, so it can be opened without a database connection or separate data files. The short [Mac guide](../tableau/README.md#open-on-a-mac) covers installation and opening; Tableau also documents [Mac installation](https://help.tableau.com/current/desktopdeploy/en-us/desktop_deploy_download_and_install.htm).
 
 Choose **Sales**, **Delivery** or **Customers**, then use **Start Month**, **End Month** and **Buyer State**. The dates select purchase months, including both endpoints. Keep Start Month on or before End Month. Buyer State describes the customer's location, not the seller's.
 
@@ -24,9 +24,9 @@ The workbook contains **21 editable worksheets: 12 KPI sheets and nine charts**,
 | Delivery | Eligible deliveries, late orders, late-delivery rate, average delivery days | Late-delivery rate by purchase month, buyer state and category |
 | Customers | Observed customers, repeat customers, observed repeat rate, average review score | Selected review scores; review score by purchase month; customer purchase frequency |
 
-The packaged workbook includes both CSVs and `DATA_LICENSE.txt`. Its worksheets and calculated fields are editable Tableau objects, rather than pictures of charts. The order and category data sources remain separate so category memberships do not repeat order-level values.
+The finished packaged workbook includes both Hyper extracts and `DATA_LICENSE.txt`. Its worksheets and calculated fields are editable Tableau objects, rather than pictures of charts. The order and category data sources remain separate so category memberships do not repeat order-level values.
 
-The workbook hides individual worksheet tabs and presents the three dashboard tabs first. On a Mac, Control-click a dashboard tab and choose **Unhide All Sheets** to inspect the underlying sheets; Tableau documents this in [Manage Sheets](https://help.tableau.com/current/pro/desktop/en-us/environ_workbooksandsheets_sheets_hideshow.htm). Delivery chart tooltips are configured to include both late and eligible order counts, and the monthly review chart includes its reviewed-order count. These are workbook settings; their native rendering still needs verification.
+The workbook hides individual worksheet tabs and presents the three dashboard tabs first. On a Mac, Control-click a dashboard tab and choose **Unhide All Sheets** to inspect the underlying sheets; Tableau documents this in [Manage Sheets](https://help.tableau.com/current/pro/desktop/en-us/environ_workbooksandsheets_sheets_hideshow.htm). Delivery chart tooltips are configured to include both late and eligible order counts, and the monthly review chart includes its reviewed-order count. The native checks covered dashboard layout and the displayed KPI cards; they did not exhaustively verify every tooltip.
 
 ## Figures to check first
 
@@ -46,7 +46,7 @@ Restore February 2017 through July 2018 and all buyer states, then compare the w
 | Observed customers | 86,271 |
 | Repeat customers | 2,562 (2.97%) |
 
-The source evidence is in [Sales](11_part4_sales.md), [Delivery](12_part5_delivery.md) and [Customers](13_part6_customers.md). These are expected results from SQL, not figures confirmed by executing the native Tableau workbook.
+The source evidence is in [Sales](11_part4_sales.md), [Delivery](12_part5_delivery.md) and [Customers](13_part6_customers.md). The headline KPI cards were confirmed in the native workbook. Mean delay among late orders and reviewed-order coverage are supplementary SQL reference figures, rather than additional KPI cards checked in this native pass.
 
 For a second check, select **March 2018** at both month endpoints and **RJ**. The selection should have **864 eligible sales and delivery orders**, **298 late orders (34.49%)**, **850 customers** and **14 repeat customers**. Changing a parameter must update the denominator as well as the displayed value.
 
@@ -96,7 +96,7 @@ COUNTD(
 
 This counts each qualifying customer once. It corresponds to the group-size condition in the SQL `HAVING` example. A customer with two selected orders contributes one repeat customer, not two. The repeat rate divides that result by all customers with at least one selected sale, so its denominator is customers rather than orders.
 
-The complete calculated-field definitions are in the [workbook builder](../scripts/build_tableau.py). These are the authored Tableau formulas; the validation described below checks their references and numerical specification without executing them in Tableau.
+The complete calculated-field definitions are in the [workbook builder](../scripts/build_tableau.py). The original offline validation checks formula references and their numerical specification. The separate native verification records the displayed KPI results after execution in Tableau for two selections.
 
 ## Data and interpretation
 
@@ -115,6 +115,8 @@ Delivery categories describe whether an order contains a category. Repeated item
 
 ## Rebuild and validation
 
+The commands in this section reproduce the original CSV-based draft, its 26.1 schema and its offline checks. They leave the separate `Olist_Commerce_Review_Validated.twbx` download unchanged. To edit the finished dashboard, open that package in Tableau; its embedded workbook contains the compatibility repairs, Hyper connections, corrected number formats and final layout. The original builder does not reproduce the native saved final package byte for byte.
+
 Rebuilding requires **Python 3.9 or newer** and `lxml` for schema validation. Install the latter in the Python environment with `python3 -m pip install lxml` if needed.
 
 ```bash
@@ -130,16 +132,18 @@ The export and base builder use Python's standard library. The `--schema` option
 
 The [source export report](../results/tableau_export_validation.json) passed **2,273,050 cell comparisons** and **511 comparisons with published analysis totals**. It checks both CSVs after serialization, so empty cells retain missing values and numeric values remain unchanged. The database is opened read-only and all eight source-table fingerprints remain unchanged. A [text report](../results/tableau_export_validation.txt) is also supplied.
 
-The [offline workbook validation](../results/tableau_validation.json) passed the official **26.1 XML schema** and checked the worksheet, calculated-field and parameter references. It confirmed the 21 worksheets, three dashboards and shared parameter definitions. The `.twbx` workbook, both CSV sources and data licence match the editable files byte for byte.
+For the original draft, the [offline workbook validation](../results/tableau_validation.json) passed the official **26.1 XML schema** and checked the worksheet, calculated-field and parameter references. It confirmed the 21 worksheets, three dashboards and shared parameter definitions. The `.twbx` workbook, both CSV sources and data licence match the editable files byte for byte.
 
 Independent Python calculations from the packaged CSVs matched SQLite across **eight filter scenarios and 13,487 compared values**, including the monthly-review and purchase-frequency charts, with **18 headline comparisons** to Parts 4–6. Cases include the full window, one month, SP, RJ, March 2018/RJ, February–July 2018, RR and an empty August 2017/RR selection. These are checks of the supplied data and numerical specification, not values captured from Tableau. The [text report](../results/tableau_validation.txt) records the results concisely.
 
-The source-data and package checks run outside Tableau. An XML schema can check allowed elements and attributes; it cannot prove that a chart renders well, a calculated field evaluates successfully or a parameter affects every intended sheet. The native Tableau application was unavailable in the build environment, so those checks remain open.
+### Native application verification
 
-When first opening the workbook on the Mac, inspect all three dashboard tabs, compare the full-period figures above, then test March 2018/RJ and a return to the defaults. Check that the mean review score excludes missing reviews and that repeat-customer counts respond to the selection. Only after those application checks should the workbook be described as tested in Tableau.
+The finished workbook was subsequently checked in Tableau Public 2025.2 on Mac. Compatibility and extract connections were repaired, number formats were corrected, and the three dashboard layouts were fitted to 1200 × 700. All 12 KPI cards matched the reference values for February 2017–July 2018/all states and March 2018/RJ. Customer counts and repeat rates changed with the selected parameters. The workbook was returned to its defaults and saved through Tableau.
+
+The [native verification record](../results/tableau_native_verification.json) includes the exact package hash, application build and observed KPI values. The [opening guide](../tableau/README.md#verified-figures) shows both checked selections side by side. Native checks were limited to these selections and the three dashboard layouts; the eight-scenario offline calculation checks above belong to the original draft and remain separate evidence.
 
 ## Publish when ready
 
-The workbook can be saved locally while it is being reviewed. To share a checked copy online from **Tableau Desktop Public Edition**, use **Server → Tableau Public → Save to Tableau Public**, sign in and give it a project title. The publishing process creates an extract. This route is documented in [Save Workbooks with Tableau Public](https://help.tableau.com/current/pro/desktop/en-us/publish_workbooks_tableaupublic.htm).
+The workbook can be saved locally while it is being reviewed. To share a checked copy online from **Tableau Desktop Public Edition**, use **Server → Tableau Public → Save to Tableau Public**, sign in and give it a project title. The finished package already includes its Hyper extracts. This route is documented in [Save Workbooks with Tableau Public](https://help.tableau.com/current/pro/desktop/en-us/publish_workbooks_tableaupublic.htm).
 
-Tableau Public makes the workbook and its data publicly accessible. The workbook has not been published to a Tableau Public profile as part of these file-generation and validation steps.
+Tableau Public makes the workbook and its data publicly accessible. The workbook has not been published to a Tableau Public profile as part of these preparation and native verification steps.

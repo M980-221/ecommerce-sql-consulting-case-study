@@ -104,4 +104,11 @@ Nine additional [interface fixture tests](../results/part8_ui_tests.txt) exercis
 
 The primary Part 8 deliverable is now a packaged Tableau workbook. The exporter compares all 2,273,050 CSV cells with the validated reporting data and reconciles 511 published totals. The database is opened read-only, all eight source fingerprints match the recorded snapshot, and no raw source values are changed. The two sources contain 91,780 orders and 89,830 order/category pairs.
 
-See [Tableau export evidence](../results/tableau_export_validation.txt), [workbook verification](../results/tableau_validation.txt) and the [Tableau walkthrough](16_tableau_dashboard.md). Workbook schema/package checks and an independent calculation model are separate from Tableau runtime validation. The workbook must still be opened in Tableau to check its rendered sheets, calculations and controls. Earlier browser tests and previews do not verify the Tableau file.
+See [Tableau export evidence](../results/tableau_export_validation.txt), [workbook verification](../results/tableau_validation.txt) and the [Tableau walkthrough](16_tableau_dashboard.md). Workbook schema/package checks and an independent calculation model are separate from Tableau runtime validation. The original draft's remaining native checks were completed for the finished package in the revision below. Earlier browser tests and previews do not verify the Tableau file.
+
+
+## Tableau native verification — 10 October 2026
+
+The finished [Tableau package](../tableau/Olist_Commerce_Review_Validated.twbx) was opened and saved in Tableau Public 2025.2 on Mac. All three dashboards were visually inspected. All 12 KPI cards matched their full-period reference values and their March 2018/RJ values; shared controls were exercised and the workbook was returned to its defaults. The package contains 21 worksheets, three dashboards, two Hyper extracts and the data licence.
+
+See the [native verification record](../results/tableau_native_verification.json) for the package hash and observed values, and the [comparison table](../tableau/README.md#verified-figures). The application checks cover two selections and the dashboard layouts, not every possible combination or tooltip. The original CSV-based draft and its offline reports remain available separately.

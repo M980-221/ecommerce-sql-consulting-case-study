@@ -1,0 +1,68 @@
+{
+  "workbook": "tableau/Olist_Commerce_Review_Validated.twbx",
+  "saved_by": "2025.2.0 (20252.25.0514.2217)",
+  "dashboards": [
+    "Customers",
+    "Delivery",
+    "Sales"
+  ],
+  "worksheets": 21,
+  "extracts": [
+    "Data/data/orders.hyper",
+    "Data/data/categories.hyper"
+  ],
+  "parameters": {
+    "Buyer state": "\"All\"",
+    "End month": "#2018-07-01#",
+    "Start month": "#2017-02-01#"
+  },
+  "native_ui_checks": {
+    "full_period": [
+      "Sales: 89,110; 12,230,652.13; 137.25; 91,780",
+      "Delivery: 89,102; 6,116; 6.86%; 12.88",
+      "Customers: 86,271; 2,562; 2.97%; 4.15"
+    ],
+    "march_2018_RJ": [
+      "Sales: 864; 113,062.84; 130.86; 907",
+      "Delivery: 864; 298; 34.49%; 24.30",
+      "Customers: 850; 14; 1.65%; 3.26"
+    ]
+  },
+  "verified_on": "2026-10-10",
+  "timezone": "Australia/Brisbane",
+  "sha256": "1a79e6c7ccfc5427e9bb25549aead90c2b4f3750d0f11bf6fe1dbb9608a04332",
+  "size_bytes": 1875267,
+  "application": "Tableau Public 2025.2 on Mac",
+  "method": "Observed KPI cards and dashboard layouts in the native Tableau application; workbook saved locally through Tableau.",
+  "scope": "All three dashboards and 12 KPI cards checked for the full reporting period/all states and March 2018/RJ; parameters returned to defaults before saving. This is not an exhaustive test of every filter combination or tooltip.",
+  "kpi_order": {
+    "Sales": [
+      "sales_orders",
+      "product_value",
+      "average_order_value",
+      "selected_orders_all_statuses"
+    ],
+    "Delivery": [
+      "eligible_deliveries",
+      "late_orders",
+      "late_rate",
+      "average_delivery_days"
+    ],
+    "Customers": [
+      "observed_customers",
+      "repeat_customers",
+      "repeat_rate",
+      "average_review_score"
+    ]
+  },
+  "extract_row_counts": {
+    "orders": 91780,
+    "categories": 89830
+  },
+  "package_entries": [
+    "Olist_Commerce_Review.twb",
+    "Data/data/orders.hyper",
+    "Data/data/categories.hyper",
+    "DATA_LICENSE.txt"
+  ]
+}

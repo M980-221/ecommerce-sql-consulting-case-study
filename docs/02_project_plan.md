@@ -61,11 +61,11 @@ Completed 9 October 2026. Checked join duplication, payment reconciliation and m
 
 ## Part 8 — Build the dashboard
 
-Updated 10 October 2026 to use Tableau as the primary dashboard deliverable. The packaged workbook contains Sales, Delivery and Customers dashboards, editable worksheets, shared month/state parameters and two checked CSV sources. Orders and category rows remain separate to avoid repeating order totals. Repeat-customer calculations include the selected parameters inside their customer grouping.
+Updated 10 October 2026 to use Tableau as the primary dashboard deliverable. The finished packaged workbook contains Sales, Delivery and Customers dashboards, editable worksheets, shared month/state parameters and two embedded Hyper extracts. Orders and category rows remain separate to avoid repeating order totals. Repeat-customer calculations include the selected parameters inside their customer grouping.
 
-The workbook is prepared and checked at the data/file level. Opening it, executing its calculations and inspecting the layout in Tableau remain outstanding. The earlier browser implementation is retained as a prototype. See [the Tableau walkthrough](16_tableau_dashboard.md).
+The finished workbook was opened, saved and checked in Tableau Public 2025.2 on Mac. All three dashboards were inspected, and their 12 KPI cards matched the full-period and March 2018/RJ reference values. The earlier browser implementation is retained as a prototype. See [the Tableau walkthrough](16_tableau_dashboard.md).
 
-**GitHub deliverables:** `tableau/Olist_Commerce_Review.twbx`, editable `.twb`, CSV sources, export/build/validation scripts, Tableau documentation and recorded evidence.
+**GitHub deliverables:** `tableau/Olist_Commerce_Review_Validated.twbx`, native verification record, original draft workbook and CSV sources, export/build/validation scripts, and Tableau documentation.
 **Done when:** the workbook opens correctly in Tableau, default and filtered results match the recorded expectations, and another person can understand the charts and definitions.
 
 ## Part 9 — Develop recommendations

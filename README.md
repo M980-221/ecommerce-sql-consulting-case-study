@@ -4,13 +4,13 @@ A SQL consulting case study by Mohammed Baquaysh, using Olist's historical marke
 
 **Business question:** Where should an e-commerce manager focus first to improve sales performance, delivery reliability and customer experience?
 
-**Current stage:** Parts 1–7 are complete. Part 8 now uses a native Tableau workbook for sales, delivery and customer analysis. The workbook and its data are prepared; opening, calculation execution and visual checks in Tableau remain outstanding. Recommendations and the final presentation are next.
+**Current stage:** Parts 1–7 are complete. Part 8 now uses a native Tableau workbook for sales, delivery and customer analysis. The finished workbook has been opened, saved and checked in Tableau Public 2025.2 on Mac, including all three dashboards and two month/state selections. Recommendations and the final presentation are next.
 
 ## Explore the Tableau dashboard
 
-[Download the packaged Tableau workbook](https://github.com/M980-221/ecommerce-sql-consulting-case-study/raw/refs/heads/main/tableau/Olist_Commerce_Review.twbx) · [Opening instructions](tableau/README.md) · [Tableau walkthrough](docs/16_tableau_dashboard.md)
+[Download the packaged Tableau workbook](https://github.com/M980-221/ecommerce-sql-consulting-case-study/raw/refs/heads/main/tableau/Olist_Commerce_Review_Validated.twbx) · [Opening instructions](tableau/README.md) · [Tableau walkthrough](docs/16_tableau_dashboard.md)
 
-Open `Olist_Commerce_Review.twbx` in Tableau Desktop Public Edition 2026.1 or later. The package includes both data sources; no database connection is needed to explore it.
+Open `Olist_Commerce_Review_Validated.twbx` in Tableau Public. The download was tested in version 2025.2 on Mac and includes both Hyper data extracts, so no database connection is needed to explore it.
 
 - **Sales:** eligible orders, product value, average order value, and monthly/category/state comparisons.
 - **Delivery:** eligible deliveries, late orders, late rate, average delivery time, and group comparisons.
@@ -69,7 +69,7 @@ Five order walkthroughs show exact reconciliation, JOIN duplication, small and l
 - Completed five delivery queries covering overall outcomes, purchase months, buyer states, categories and single-seller orders. All 310 result rows match independent raw-record calculations; 25 checks and 12 delivery test cases passed.
 - Completed five customer queries covering reviews, delivery comparisons, spending, repeat purchases and buyer states. All 56 result rows match independent raw-record calculations; 26 checks and 12 customer test cases passed.
 - Investigated all 576 nonzero payment differences, checked five representative orders and reconciled the reporting views to the published analysis. The [Part 7 evidence](results/part7_validation.txt) records the checks; source records and metric definitions remain unchanged.
-- Prepared the three Tableau dashboards with shared parameters and separate order/category data sources. [Export checks](results/tableau_export_validation.txt) reconcile the data to the SQL analysis. See the [Tableau validation report](results/tableau_validation.txt) for the scope of structural and calculation-model checks; these do not replace execution and visual review inside Tableau.
+- Completed the three Tableau dashboards with shared parameters and separate order/category data sources. [Export checks](results/tableau_export_validation.txt) reconcile the source data to SQL. The finished package was opened, saved and visually checked in Tableau Public 2025.2 on Mac; all 12 KPI cards matched the full-period and March 2018/RJ reference values. See the [native verification record](results/tableau_native_verification.json).
 
 SQLite provides a portable database for this project. SQL defines the tables and inspection checks; a Python standard-library script handles CSV loading, including multiline reviews. Raw values remain TEXT. Part 3 views provide validated numeric values, NULL handling and metric-specific eligibility rules.
 
@@ -133,7 +133,7 @@ python3 scripts/build_database.py --output ecommerce_olist_rebuilt.db --results-
 
 Source CSVs and database files are excluded from Git. The source manifest records the version and file fingerprints used for the published results. Rebuild timestamps and database hashes can differ because the database records the import time.
 
-The packaged Tableau workbook includes its checked CSV data, so opening it does not require rebuilding the database. `python3 scripts/validate_tableau.py` checks the workbook structure, packaged files and calculation model; see [Tableau reproduction and verification](docs/16_tableau_dashboard.md) for requirements and the remaining in-app checks. The earlier browser prototype has its own [reproduction instructions](docs/15_part8_dashboard.md).
+The finished Tableau package includes its Hyper extracts, so opening it does not require rebuilding the database. The commands above reproduce the original CSV-based workbook draft and its offline checks; they do not overwrite the separate `_Validated.twbx` download saved through Tableau. See [Tableau reproduction and verification](docs/16_tableau_dashboard.md) for the distinction between the draft build and the checked native deliverable. The earlier browser prototype has its own [reproduction instructions](docs/15_part8_dashboard.md).
 
 ## Part 3 outcome
 
@@ -171,11 +171,11 @@ Source exceptions are visible: 610 products have no category, 13 lack an English
 - [x] Part 5: Analyse delivery performance.
 - [x] Part 6: Analyse customer experience.
 - [x] Part 7: Validate results and improve SQL.
-- [ ] Part 8: Tableau workbook prepared; finish opening, calculation and visual checks in Tableau.
+- [x] Part 8: Complete the Tableau dashboards and verify default and filtered results in Tableau.
 - [ ] Part 9: Develop recommendations and slides.
 - [ ] Part 10: Prepare the completed portfolio.
 
-Fifteen business queries and combined SQL validation are complete. The three Tableau dashboards are prepared for in-app verification. Next come three recommendations and a five-slide presentation. Known source exceptions remain documented; passing checks do not establish the causes of payment differences.
+Fifteen business queries and combined SQL validation are complete. The three Tableau dashboards have passed native checks for the full period and March 2018/RJ. Next come three recommendations and a five-slide presentation. Known source exceptions remain documented; passing checks do not establish the causes of payment differences.
 
 ## Data attribution
 
