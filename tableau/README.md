@@ -1,12 +1,18 @@
 # Olist Tableau dashboard
 
-[**Download the Tableau workbook**](https://github.com/M980-221/ecommerce-sql-consulting-case-study/raw/refs/heads/main/tableau/Olist_Commerce_Review_Validated.twbx) · [Open on a Mac](#open-on-a-mac) · [Calculation walkthrough](../docs/16_tableau_dashboard.md)
+[**Explore the interactive dashboard**](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Sales) · [Download the Tableau workbook](https://github.com/M980-221/ecommerce-sql-consulting-case-study/raw/refs/heads/main/tableau/Olist_Commerce_Review_Validated.twbx) · [Open on a Mac](#open-on-a-mac) · [Calculation walkthrough](../docs/16_tableau_dashboard.md)
 
 The finished workbook contains **Sales**, **Delivery** and **Customers** dashboards with shared **Start Month**, **End Month** and **Buyer State** controls. It was opened, saved and checked in **Tableau Public 2025.2 on Mac** on 10 October 2026.
 
+## Explore online
+
+No installation is needed to use the published filters. Open a dashboard below, then change **Start month**, **End month** or **Buyer state**.
+
+[Sales](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Sales) · [Delivery](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Delivery) · [Customers](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Customers)
+
 ## Dashboard screenshots
 
-Captured directly from the finished workbook in **Tableau Public 2025.2 on Mac**. Every image uses **February 2017–July 2018 · All buyer states**. Click an image to open it at full resolution.
+Captured directly in **Tableau presentation mode**, with the editing sidebar and toolbar hidden. The workbook was reviewed in **Tableau Public 2025.2 on Mac**. Every image uses **February 2017–July 2018 · All buyer states**. Click an image to open it at full resolution.
 
 ### Sales — volume, value and demand
 
@@ -20,7 +26,7 @@ Explore monthly product sales and compare contribution by product category and b
 
 **89,102 eligible deliveries · 6,116 late orders · 6.86% late rate · 12.88 average days**
 
-Compare lateness across purchase months, buyer states and categories. Rates use eligible deliveries within each group; category populations can overlap.
+Compare lateness across purchase months, buyer states and categories. Labels show **late rate · late / eligible orders**, so a high rate can be assessed alongside its sample size. For example, **Home comfort 2 is 13.64%, based on 3 late deliveries out of 22**. Category populations can overlap.
 
 [![Delivery dashboard open in Tableau Public, showing a 6.86% late-delivery rate and comparisons by month, state and category](screenshots/delivery-tableau.jpg)](screenshots/delivery-tableau.jpg)
 
@@ -39,7 +45,7 @@ Explore review-score distribution, monthly review scores and order frequency. Re
 3. Choose Sales, Delivery or Customers. The default selection is February 2017–July 2018 and all buyer states.
 4. Change the month and state controls to explore the results. Keep Start Month on or before End Month.
 
-The package contains the editable workbook, two Hyper extracts and `DATA_LICENSE.txt`. No database connection, separate data download or Python setup is required. The three dashboards use a 1200 × 700 layout with 21 editable worksheets: four KPI cards and three charts per dashboard. To inspect the worksheets, Control-click a dashboard tab and choose **Unhide All Sheets**.
+The package contains the editable workbook, two Hyper extracts and `DATA_LICENSE.txt`. No database connection, separate data download or Python setup is required. The three dashboards use a 1400 × 850 layout with 21 editable worksheets: four KPI cards and three charts per dashboard. To inspect the worksheets, Control-click a dashboard tab and choose **Unhide All Sheets**.
 
 ## Verified figures
 
@@ -76,8 +82,8 @@ The order extract contains 91,780 rows and the category extract contains 89,830 
 
 The original `Olist_Commerce_Review.twb`, `Olist_Commerce_Review.twbx`, CSVs and scripts remain available as the reproducible draft build. Its official 26.1 schema and offline calculation checks are recorded in [the original validation report](../results/tableau_validation.txt). That draft required compatibility, extract and number-format repairs before it could be used in Tableau Public 2025.2.
 
-Use **`Olist_Commerce_Review_Validated.twbx`** for the finished dashboard. This package includes the native saved workbook with those repairs, corrected KPI formats, centered labels and the fitted layout. Open this package to edit the finished worksheets. Running the original builder regenerates the CSV-based draft, not this final package.
+Use **`Olist_Commerce_Review_Validated.twbx`** for the finished dashboard. This package includes the native saved workbook with those repairs, corrected KPI formats, readable category names, visible delivery sample sizes and the 1400 × 850 presentation layout. Chart axes use compact k/M notation; tooltips retain exact values. Open this package to edit the finished worksheets. Running the original builder regenerates the CSV-based draft, not this final package.
 
 The [source export checks](../results/tableau_export_validation.json) record 2,273,050 cell comparisons and 511 published-result comparisons. The [full walkthrough](../docs/16_tableau_dashboard.md) explains metric definitions, SQL practice and the original build commands.
 
-The workbook is available here as a downloadable file; it has not been published to a Tableau Public profile.
+Published to [Mohammed Baquaysh’s Tableau Public profile](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Sales) on 10 October 2026. The download above contains the same dashboard definitions and embedded data.

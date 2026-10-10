@@ -4,11 +4,11 @@ A SQL consulting case study by Mohammed Baquaysh, using Olist's historical marke
 
 **Business question:** Where should an e-commerce manager focus first to improve sales performance, delivery reliability and customer experience?
 
-**Current stage:** Parts 1–7 are complete. Part 8 now uses a native Tableau workbook for sales, delivery and customer analysis. The finished workbook has been opened, saved and checked in Tableau Public 2025.2 on Mac, including all three dashboards and two month/state selections. Recommendations and the final presentation are next.
+**Current stage:** Parts 1–7 are complete. Part 8 now uses a native Tableau workbook for sales, delivery and customer analysis. The finished workbook has been opened, saved and checked in Tableau Public 2025.2 on Mac, including all three dashboards and two month/state selections. It is now published on Tableau Public with interactive month and buyer-state controls. Recommendations and the final presentation are next.
 
 ## Explore the Tableau dashboard
 
-[**Download the Tableau workbook**](https://github.com/M980-221/ecommerce-sql-consulting-case-study/raw/refs/heads/main/tableau/Olist_Commerce_Review_Validated.twbx) · [View all three dashboards](tableau/README.md#dashboard-screenshots) · [Open and use it](tableau/README.md#open-on-a-mac)
+[**Explore the interactive dashboard**](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Sales) · [Download the Tableau workbook](https://github.com/M980-221/ecommerce-sql-consulting-case-study/raw/refs/heads/main/tableau/Olist_Commerce_Review_Validated.twbx) · [View all three dashboards](tableau/README.md#dashboard-screenshots) · [Open and use it](tableau/README.md#open-on-a-mac)
 
 Three connected views turn the SQL analysis into an interactive review of sales performance, delivery reliability and customer experience.
 
@@ -20,9 +20,9 @@ Three connected views turn the SQL analysis into an interactive review of sales 
 
 [![Sales dashboard in Tableau Public, with month and buyer-state controls and charts for monthly sales, categories and states](tableau/screenshots/sales-tableau.jpg)](tableau/screenshots/sales-tableau.jpg)
 
-*Actual Tableau screenshot · February 2017–July 2018 · All buyer states. [Delivery screenshot](tableau/screenshots/delivery-tableau.jpg) · [Customers screenshot](tableau/screenshots/customers-tableau.jpg).*
+*Tableau presentation-view screenshot · February 2017–July 2018 · All buyer states. [Delivery screenshot](tableau/screenshots/delivery-tableau.jpg) · [Customers screenshot](tableau/screenshots/customers-tableau.jpg).*
 
-**Try it:** open the downloaded `Olist_Commerce_Review_Validated.twbx` in Tableau Public, switch between Sales, Delivery and Customers, then change Start Month, End Month or Buyer State. Both Hyper extracts are embedded, so no database connection is needed. Customer groups and KPI denominators update with the selection.
+**Try it online:** open [Sales](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Sales), [Delivery](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Delivery) or [Customers](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Customers), then change Start month, End month or Buyer state. Customer groups and KPI denominators update with the selection. Delivery labels pair each rate with its late/eligible order counts; sales axes use compact k/M notation while tooltips keep exact amounts. The downloadable workbook includes both Hyper extracts for local editing.
 
 The workbook was checked in Tableau Public 2025.2 on Mac against the full-period results and March 2018/RJ. See the [verification record](results/tableau_native_verification.json) and [calculation walkthrough](docs/16_tableau_dashboard.md). Product value excludes freight and uses source monetary units; observed repeat purchasing is not a retention measure.
 

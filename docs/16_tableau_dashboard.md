@@ -2,13 +2,15 @@
 
 The project now has a Tableau workbook for its sales, delivery and customer analysis. SQL prepares the checked data; Tableau supplies the worksheets, dashboard layouts and parameter-driven calculations. The workbook keeps the existing reporting period and metric definitions.
 
-[Download the finished workbook](https://github.com/M980-221/ecommerce-sql-consulting-case-study/raw/refs/heads/main/tableau/Olist_Commerce_Review_Validated.twbx) · [Tableau screenshot gallery](../tableau/README.md#dashboard-screenshots) · [Native verification record](../results/tableau_native_verification.json)
+[Explore on Tableau Public](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Sales) · [Download the finished workbook](https://github.com/M980-221/ecommerce-sql-consulting-case-study/raw/refs/heads/main/tableau/Olist_Commerce_Review_Validated.twbx) · [Tableau screenshot gallery](../tableau/README.md#dashboard-screenshots) · [Native verification record](../results/tableau_native_verification.json)
 
 The finished package was opened, saved and checked in **Tableau Public 2025.2 on Mac** on 10 October 2026. It contains the native saved workbook and two embedded Hyper extracts. All three dashboards were inspected at the default selection and March 2018/RJ; the displayed KPI values matched the reference calculations.
 
 ## Open and explore
 
-Install the free [Tableau Desktop Public Edition for Mac](https://www.tableau.com/products/public/download), then open the packaged workbook with **File → Open**. The finished package contains both Hyper extracts, so it can be opened without a database connection or separate data files. The short [Mac guide](../tableau/README.md#open-on-a-mac) covers installation and opening; Tableau also documents [Mac installation](https://help.tableau.com/current/desktopdeploy/en-us/desktop_deploy_download_and_install.htm).
+Open [Sales](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Sales), [Delivery](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Delivery) or [Customers](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Customers) online to use the filters without installing software.
+
+For local editing, install the free [Tableau Desktop Public Edition for Mac](https://www.tableau.com/products/public/download), then open the packaged workbook with **File → Open**. The finished package contains both Hyper extracts, so it can be opened without a database connection or separate data files. The short [Mac guide](../tableau/README.md#open-on-a-mac) covers installation and opening; Tableau also documents [Mac installation](https://help.tableau.com/current/desktopdeploy/en-us/desktop_deploy_download_and_install.htm).
 
 Choose **Sales**, **Delivery** or **Customers**, then use **Start Month**, **End Month** and **Buyer State**. The dates select purchase months, including both endpoints. Keep Start Month on or before End Month. Buyer State describes the customer's location, not the seller's.
 
@@ -26,7 +28,7 @@ The workbook contains **21 editable worksheets: 12 KPI sheets and nine charts**,
 
 The finished packaged workbook includes both Hyper extracts and `DATA_LICENSE.txt`. Its worksheets and calculated fields are editable Tableau objects, rather than pictures of charts. The order and category data sources remain separate so category memberships do not repeat order-level values.
 
-The workbook hides individual worksheet tabs and presents the three dashboard tabs first. On a Mac, Control-click a dashboard tab and choose **Unhide All Sheets** to inspect the underlying sheets; Tableau documents this in [Manage Sheets](https://help.tableau.com/current/pro/desktop/en-us/environ_workbooksandsheets_sheets_hideshow.htm). Delivery chart tooltips are configured to include both late and eligible order counts, and the monthly review chart includes its reviewed-order count. The native checks covered dashboard layout and the displayed KPI cards; they did not exhaustively verify every tooltip.
+The workbook hides individual worksheet tabs and presents the three dashboard tabs first. On a Mac, Control-click a dashboard tab and choose **Unhide All Sheets** to inspect the underlying sheets; Tableau documents this in [Manage Sheets](https://help.tableau.com/current/pro/desktop/en-us/environ_workbooksandsheets_sheets_hideshow.htm). Delivery labels display the late rate alongside late and eligible order counts. Home comfort 2, for example, shows 13.64% with 3 / 22 at the defaults. Monthly labels use two lines and may be suppressed where they would overlap; tooltips retain the counts. The monthly review chart includes its reviewed-order count in the tooltip. Sales and customer count axes use compact k/M formatting through display-only measures that reference the original calculations; exact measures remain in tooltips. The Health & beauty sales tooltip was checked at 1,097,800.05. These checks do not cover every possible tooltip.
 
 ## Figures to check first
 
@@ -138,12 +140,16 @@ Independent Python calculations from the packaged CSVs matched SQLite across **e
 
 ### Native application verification
 
-The finished workbook was subsequently checked in Tableau Public 2025.2 on Mac. Compatibility and extract connections were repaired, number formats were corrected, and the three dashboard layouts were fitted to 1200 × 700. All 12 KPI cards matched the reference values for February 2017–July 2018/all states and March 2018/RJ. Customer counts and repeat rates changed with the selected parameters. The workbook was returned to its defaults and saved through Tableau.
+The finished workbook was subsequently checked in Tableau Public 2025.2 on Mac. Compatibility and extract connections were repaired, number formats were corrected, and the three dashboard layouts were subsequently enlarged to 1400 × 850 for presentation. Category aliases, field captions and delivery count labels were refined, and all three presentation views were captured without the editing sidebar or toolbar. All 12 KPI cards matched the reference values for February 2017–July 2018/all states and March 2018/RJ. Customer counts and repeat rates changed with the selected parameters. The workbook was returned to its defaults and saved through Tableau.
 
 The [native verification record](../results/tableau_native_verification.json) includes the exact package hash, application build and observed KPI values. The [opening guide](../tableau/README.md#verified-figures) shows both checked selections side by side. Native checks were limited to these selections and the three dashboard layouts; the eight-scenario offline calculation checks above belong to the original draft and remain separate evidence.
 
-## Publish when ready
+## Published interactive workbook
 
-The workbook can be saved locally while it is being reviewed. To share a checked copy online from **Tableau Desktop Public Edition**, use **Server → Tableau Public → Save to Tableau Public**, sign in and give it a project title. The finished package already includes its Hyper extracts. This route is documented in [Save Workbooks with Tableau Public](https://help.tableau.com/current/pro/desktop/en-us/publish_workbooks_tableaupublic.htm).
+The completed workbook was published to Tableau Public on 10 October 2026:
 
-Tableau Public makes the workbook and its data publicly accessible. The workbook has not been published to a Tableau Public profile as part of these preparation and native verification steps.
+- [Sales](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Sales)
+- [Delivery](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Delivery)
+- [Customers](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Customers)
+
+The public views expose the month and buyer-state controls. The downloadable package remains available for local editing and includes both Hyper extracts and the data licence. For future updates, Tableau documents [saving workbooks to Tableau Public](https://help.tableau.com/current/pro/desktop/en-us/publish_workbooks_tableaupublic.htm).

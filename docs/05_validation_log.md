@@ -1,6 +1,6 @@
 # Validation log
 
-Parts 2–7 are complete. Part 8 was revised to use Tableau; its source export and workbook checks are recorded below. Actual Tableau execution and visual review remain open. Earlier browser-prototype checks are retained as separate evidence. Part 3 passed **62 checks** and 14 synthetic test cases. Part 4 passed **15 checks** and 10 sales test cases; Part 5 passed **25 checks** and 12 delivery test cases. On 9 October 2026, Part 6 passed **26 checks** and 12 customer test cases; all **48 tests** passed together at that stage. Part 7 investigates payment reconciliation, traces five orders to their source records and checks reporting views against the combined business analysis.
+Parts 2–7 are complete. Part 8 is complete: the workbook was executed, saved and visually reviewed in Tableau Public 2025.2 on Mac, then published to Tableau Public on 10 October 2026. The source export, offline workbook checks and native verification are recorded below. Earlier browser-prototype checks are retained as separate evidence. Part 3 passed **62 checks** and 14 synthetic test cases. Part 4 passed **15 checks** and 10 sales test cases; Part 5 passed **25 checks** and 12 delivery test cases. On 9 October 2026, Part 6 passed **26 checks** and 12 customer test cases; all **48 tests** passed together at that stage. Part 7 investigates payment reconciliation, traces five orders to their source records and checks reporting views against the combined business analysis.
 
 Part 7 passed **34 checks** across **604 CSV rows and 10,111 cells**. The combined test run passed **68 tests: 20 Part 7 tests and 48 earlier tests**.
 
@@ -112,3 +112,11 @@ See [Tableau export evidence](../results/tableau_export_validation.txt), [workbo
 The finished [Tableau package](../tableau/Olist_Commerce_Review_Validated.twbx) was opened and saved in Tableau Public 2025.2 on Mac. All three dashboards were visually inspected. All 12 KPI cards matched their full-period reference values and their March 2018/RJ values; shared controls were exercised and the workbook was returned to its defaults. The package contains 21 worksheets, three dashboards, two Hyper extracts and the data licence.
 
 See the [native verification record](../results/tableau_native_verification.json) for the package hash and observed values, and the [comparison table](../tableau/README.md#verified-figures). The application checks cover two selections and the dashboard layouts, not every possible combination or tooltip. The original CSV-based draft and its offline reports remain available separately.
+
+## Tableau presentation and publication update — 10 October 2026
+
+- Enlarged all three dashboards to 1400 × 850 and replaced the gallery with direct presentation-mode captures.
+- Added readable field/category labels and compact k/M axes; exact amounts remain in tooltips. The Health & beauty tooltip shows 1,097,800.05.
+- Made late/eligible counts visible beside delivery rates. The default Home comfort 2 result is 3 / 22 (13.64%). Monthly labels may be suppressed to prevent overlap; counts remain available in tooltips.
+- Rechecked all 12 KPI cards at the default selection and March 2018/RJ. The original calculation definitions and embedded Hyper files are unchanged; four display measures reference existing calculations for axis formatting.
+- Saved the final package through Tableau and published [the interactive workbook](https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Sales). See the [native verification record](../results/tableau_native_verification.json) for the current package fingerprint and check scope.

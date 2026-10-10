@@ -30,8 +30,8 @@
   },
   "verified_on": "2026-10-10",
   "timezone": "Australia/Brisbane",
-  "sha256": "1a79e6c7ccfc5427e9bb25549aead90c2b4f3750d0f11bf6fe1dbb9608a04332",
-  "size_bytes": 1875267,
+  "sha256": "537988e7a912dd6049e5215b33ce8b657c0f4c7d18fecfca0586ace1f2f7b9a6",
+  "size_bytes": 1813186,
   "application": "Tableau Public 2025.2 on Mac",
   "method": "Observed KPI cards and dashboard layouts in the native Tableau application; workbook saved locally through Tableau.",
   "scope": "All three dashboards and 12 KPI cards checked for the full reporting period/all states and March 2018/RJ; parameters returned to defaults before saving. This is not an exhaustive test of every filter combination or tooltip.",
@@ -60,9 +60,49 @@
     "categories": 89830
   },
   "package_entries": [
-    "Olist_Commerce_Review.twb",
+    "Olist_Commerce_Review_Validated.twb",
     "Data/data/orders.hyper",
     "Data/data/categories.hyper",
     "DATA_LICENSE.txt"
-  ]
+  ],
+  "dashboard_size": {
+    "width": 1400,
+    "height": 850
+  },
+  "presentation_checks": {
+    "mode": "Native Tableau presentation mode; no editing sidebar or toolbar",
+    "category_label": "Home comfort 2",
+    "category_late_orders": 3,
+    "category_eligible_delivery_orders": 22,
+    "category_late_rate": "13.64%",
+    "exact_sales_tooltip": {
+      "category": "Health & beauty",
+      "product_sales_value": "1,097,800.05"
+    },
+    "compact_axes": "500.0k / 1.0M; exact measures retained in tooltips",
+    "existing_calculation_definitions_unchanged": true,
+    "hyper_files_unchanged": true,
+    "added_display_measures": "Four measures reference existing calculations for compact axis formatting.",
+    "monthly_label_behavior": "Labels may be suppressed where they overlap; tooltip counts remain available.",
+    "screenshots": [
+      "sales-tableau.jpg",
+      "delivery-tableau.jpg",
+      "customers-tableau.jpg"
+    ]
+  },
+  "publication": {
+    "published_on": "2026-10-10",
+    "service": "Tableau Public",
+    "urls": {
+      "Sales": "https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Sales",
+      "Delivery": "https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Delivery",
+      "Customers": "https://public.tableau.com/app/profile/mohammed.baquaysh/viz/Olist_Commerce_Review_Validated/Customers"
+    },
+    "browser_checks": [
+      "Sales, Delivery and Customers public pages load without signing in",
+      "Sales page loads without signing in",
+      "Start month, End month and Buyer state controls changed successfully",
+      "Sales March 2018/RJ: 864; 113,062.84; 130.86; 907"
+    ]
+  }
 }
